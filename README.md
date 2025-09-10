@@ -36,3 +36,35 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+
+## Vercel Deployment
+
+This app is ready to deploy on Vercel. The SvelteKit adapter-auto will automatically detect Vercel and configure the deployment.
+
+### Environment Variables Setup
+
+1. Go to your Vercel dashboard: https://vercel.com/dashboard
+2. Select your project (or import it from GitHub)
+3. Go to Settings → Environment Variables
+4. Add the following environment variable:
+   - **Name**: `PUBLIC_MAPBOX_TOKEN`
+   - **Value**: Your Mapbox public access token
+   - **Environment**: Production, Preview, Development (select all)
+
+### Getting a Mapbox Token
+
+1. Sign up at https://account.mapbox.com/
+2. Go to Access Tokens: https://account.mapbox.com/access-tokens/
+3. Create a new public token or use the default public token
+4. Copy the token and add it to Vercel's environment variables
+
+### Local Development
+
+For local development, create a `.env` file in the root directory:
+
+```
+PUBLIC_MAPBOX_TOKEN=your_mapbox_token_here
+```
+
+Note: The `.env` file is ignored by git for security reasons.

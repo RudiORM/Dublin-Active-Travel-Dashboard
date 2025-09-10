@@ -1,8 +1,13 @@
 <script>
 	import { onMount } from 'svelte';
-	import { PUBLIC_MAPBOX_TOKEN } from '$env/static/public';
+	import { env } from '$env/dynamic/public';
 	import mapboxgl from 'mapbox-gl';
 	import 'mapbox-gl/dist/mapbox-gl.css';
+
+	// Check if Mapbox token is available
+	if (!env.PUBLIC_MAPBOX_TOKEN) {
+		console.error('Missing PUBLIC_MAPBOX_TOKEN environment variable. Please set it in your deployment environment.');
+	}
 
 	let mapContainer = $state();
 	let map = $state();
@@ -216,7 +221,12 @@
 	}
 
 	onMount(async () => {
-		mapboxgl.accessToken = PUBLIC_MAPBOX_TOKEN;
+		if (!env.PUBLIC_MAPBOX_TOKEN) {
+			console.error('Cannot initialize map: PUBLIC_MAPBOX_TOKEN is not set');
+			return;
+		}
+		
+		mapboxgl.accessToken = env.PUBLIC_MAPBOX_TOKEN;
 
 		map = new mapboxgl.Map({
 			container: mapContainer,
@@ -281,6 +291,13 @@
 	});
 </script>
 
+{#if !env.PUBLIC_MAPBOX_TOKEN}
+<div class="error-message">
+	<h3>⚠️ Configuration Error</h3>
+	<p>Missing Mapbox token. Please set the <code>PUBLIC_MAPBOX_TOKEN</code> environment variable.</p>
+	<p>For Vercel deployment, add this in your project's Environment Variables settings.</p>
+</div>
+{:else}
 <!-- Filter Bar -->
 <div class="filter-bar">
 	<div class="filter-group">
@@ -314,6 +331,7 @@
 </div>
 
 <div bind:this={mapContainer} class="map-container"></div>
+{/if}
 
 <style>
 	:global(html, body) {
@@ -392,5 +410,37 @@
 		color: #333;
 		font-size: 14px;
 		font-weight: 500;
+	}
+	
+	.error-message {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: #fff;
+		padding: 30px;
+		border-radius: 8px;
+		box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+		text-align: center;
+		max-width: 500px;
+		z-index: 1000;
+	}
+	
+	.error-message h3 {
+		color: #d73027;
+		margin: 0 0 15px 0;
+	}
+	
+	.error-message p {
+		margin: 10px 0;
+		color: #666;
+		line-height: 1.5;
+	}
+	
+	.error-message code {
+		background: #f0f0f0;
+		padding: 2px 6px;
+		border-radius: 3px;
+		font-family: 'Courier New', monospace;
 	}
 </style>

@@ -9,7 +9,7 @@
 export function extractModeData(properties, mode, placeOfBusiness, year) {
 	const yearSuffix = year === '2016' ? '_16' : '';
 	let rawValue = 0;
-	let totalValue = 0;
+	let workingPopulation = 0;
 	
 	// Map mode to actual field name
 	const modeMap = {
@@ -17,33 +17,53 @@ export function extractModeData(properties, mode, placeOfBusiness, year) {
 		'walking': 'On foot'
 	};
 	
+	// Define all transport modes to sum for working population
+	const transportModes = [
+		'On foot',
+		'Bicycle',
+		'Bus, minibus or coach',
+		'Train, DART or LUAS',
+		'Motorcycle or scooter',
+		'Car driver',
+		'Car passenger',
+		'Van',
+		'Other (incl. lorry)',
+		'Work mainly at or from home',
+		'Not stated'
+	];
+	
 	// Construct field names based on place of business
 	let modeField = '';
-	let totalField = '';
+	let suffix = '';
 	
 	if (placeOfBusiness === 'work_school_college') {
 		// Total for both work and school/college
 		modeField = `${modeMap[mode]} - Total${yearSuffix}`;
-		totalField = `Total${yearSuffix}`;
+		suffix = ` - Total${yearSuffix}`;
 	} else if (placeOfBusiness === 'work') {
 		modeField = `${modeMap[mode]} - Work${yearSuffix}`;
-		totalField = `Total - Work${yearSuffix}`;
+		suffix = ` - Work${yearSuffix}`;
 	} else if (placeOfBusiness === 'school_college') {
 		modeField = `${modeMap[mode]} - School, college or childcare${yearSuffix}`;
-		totalField = `Total - School, college or childcare${yearSuffix}`;
+		suffix = ` - School, college or childcare${yearSuffix}`;
 	}
 	
-	// Get the values
+	// Get the raw value for the specific mode
 	rawValue = properties[modeField] || 0;
-	totalValue = properties[totalField] || 0;
 	
-	// Calculate percentage
-	const percentage = totalValue > 0 ? (rawValue / totalValue) * 100 : 0;
+	// Calculate working population by summing all transport modes
+	transportModes.forEach(transportMode => {
+		const fieldName = `${transportMode}${suffix}`;
+		workingPopulation += properties[fieldName] || 0;
+	});
+	
+	// Calculate percentage based on working population
+	const percentage = workingPopulation > 0 ? (rawValue / workingPopulation) * 100 : 0;
 	
 	return {
 		raw: rawValue,
 		percentage: percentage,
-		total: totalValue
+		total: workingPopulation
 	};
 }
 
@@ -93,21 +113,25 @@ export function reshapeData(features) {
 	// Add totals for each statistic
 	Object.keys(reshaped).forEach(statKey => {
 		let totalRaw = 0;
-		let totalPercentageSum = 0;
+		let totalPopulation = 0;
 		let areaCount = 0;
 		
 		Object.keys(reshaped[statKey]).forEach(areaName => {
 			if (areaName !== '_TOTAL') {
 				totalRaw += reshaped[statKey][areaName].raw;
-				totalPercentageSum += reshaped[statKey][areaName].percentage;
+				totalPopulation += reshaped[statKey][areaName].total;
 				areaCount++;
 			}
 		});
 		
+		// Calculate proper percentage: total raw / total population * 100
+		const overallPercentage = totalPopulation > 0 ? (totalRaw / totalPopulation) * 100 : 0;
+		
 		// Add total as a special key
 		reshaped[statKey]['_TOTAL'] = {
 			raw: totalRaw,
-			averagePercentage: areaCount > 0 ? totalPercentageSum / areaCount : 0,
+			total: totalPopulation,
+			averagePercentage: overallPercentage,
 			areaCount: areaCount
 		};
 	});

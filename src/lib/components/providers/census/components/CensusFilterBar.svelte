@@ -7,37 +7,65 @@
 		onFilterChange = () => {}
 	} = $props();
 
-	function handleFilterChange() {
+	// Options for each filter
+	const modeOptions = [
+		{ value: 'cycling', label: 'Cycling' },
+		{ value: 'walking', label: 'Walking' }
+	];
+
+	const placeOptions = [
+		{ value: 'work', label: 'Work' },
+		{ value: 'school_college', label: 'School or college' },
+		{ value: 'work_school_college', label: 'Work, school or college' }
+	];
+
+	const yearOptions = [
+		{ value: '2022', label: '2022' },
+		{ value: '2016', label: '2016' }
+	];
+
+	function cycleMode() {
+		const currentIndex = modeOptions.findIndex(opt => opt.value === selectedMode);
+		const nextIndex = (currentIndex + 1) % modeOptions.length;
+		selectedMode = modeOptions[nextIndex].value;
 		onFilterChange();
 	}
+
+	function cyclePlace() {
+		const currentIndex = placeOptions.findIndex(opt => opt.value === selectedPlace);
+		const nextIndex = (currentIndex + 1) % placeOptions.length;
+		selectedPlace = placeOptions[nextIndex].value;
+		onFilterChange();
+	}
+
+	function cycleYear() {
+		const currentIndex = yearOptions.findIndex(opt => opt.value === selectedYear);
+		const nextIndex = (currentIndex + 1) % yearOptions.length;
+		selectedYear = yearOptions[nextIndex].value;
+		onFilterChange();
+	}
+
+	// Get display labels
+	const modeLabel = $derived(modeOptions.find(opt => opt.value === selectedMode)?.label || selectedMode);
+	const placeLabel = $derived(placeOptions.find(opt => opt.value === selectedPlace)?.label || selectedPlace);
+	const yearLabel = $derived(yearOptions.find(opt => opt.value === selectedYear)?.label || selectedYear);
 </script>
 
 <div class="filter-bar">
 	<div class="filter-group">
-		<select bind:value={selectedMode} class="filter-select" onchange={handleFilterChange}>
-			<option value="cycling">Cycling</option>
-			<option value="walking">Walking</option>
-		</select>
+		<span class="filter-select" onclick={cycleMode}>{modeLabel}</span>
 		<span class="filter-label">to</span>
-		<select bind:value={selectedPlace} class="filter-select" onchange={handleFilterChange}>
-			<option value="work">Work</option>
-			<option value="school_college">School or college</option>
-			<option value="work_school_college">Work, school or college</option>
-		</select>
+		<span class="filter-select" onclick={cyclePlace}>{placeLabel}</span>
 		<span class="filter-label">in</span>
-		<select bind:value={selectedYear} class="filter-select" onchange={handleFilterChange}>
-			<option value="2022">2022</option>
-			<option value="2016">2016</option>
-		</select>
+		<span class="filter-select" onclick={cycleYear}>{yearLabel}</span>
 	</div>
 </div>
 
 <style>
 	.filter-bar {
 		position: fixed;
-		top: 20px;
-		left: 50%;
-		transform: translateX(-50%);
+		top: 40px;
+		left: calc(290px + 80px);
 		background: white;
 		padding: 15px 25px;
 		border-radius: 8px;
@@ -45,37 +73,55 @@
 		z-index: 10;
 		display: flex;
 		align-items: center;
-		gap: 20px;
+		width: calc(100% - 600px - 290px - 160px);
 	}
-	
+
 	.filter-group {
 		display: flex;
 		align-items: center;
 		gap: 10px;
+		flex-wrap: wrap;
+		width: 100%;
 	}
 	
 	.filter-select {
-		padding: 8px 12px;
-		border: none;
-		background: #f0f0f0;
-		border-radius: 4px;
-		font-size: 16px;
+		font-size: 22px;
+		font-weight: 400;
+		padding-bottom: 2px;
+		color: #000;
+		background: white;
+		border-bottom: 1px solid #000;
 		cursor: pointer;
-		transition: background 0.2s;
-		min-width: 100px;
+		font-family: 'Inter', sans-serif;
+		transition: all 0.2s ease;
+		position: relative;
+		display: inline-block;
 	}
+
 	
+
 	.filter-select:hover {
-		background: #e0e0e0;
+		background: #EBF1F7;
 	}
-	
+
 	.filter-select:focus {
-		outline: 2px solid #4292c6;
-		outline-offset: 2px;
+		outline: none;
+		border-color: #999;
 	}
+
 	
 	.filter-label {
 		color: #666;
 		font-size: 16px;
 	}
+
+
+	@media (max-width: 1300px) {
+		.filter-bar {
+			width: calc(100% - 310px - 290px - 160px);
+		}
+	}
+
+
+
 </style>

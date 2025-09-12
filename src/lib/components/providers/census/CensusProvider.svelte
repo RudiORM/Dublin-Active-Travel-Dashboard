@@ -19,6 +19,7 @@
 
 	// Context for child components
 	const censusContext = {
+		get map() { return map; },
 		get censusGeoJSON() { return censusGeoJSON; },
 		get reshapedData() { return reshapedData; },
 		get geometryData() { return geometryData; },

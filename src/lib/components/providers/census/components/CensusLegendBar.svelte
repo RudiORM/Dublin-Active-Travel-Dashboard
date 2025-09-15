@@ -260,6 +260,7 @@
 			left: 20px;
 			bottom: calc(40svh + 20px);
 			height: 10svh;
+			display: none;
 
 			font-size: 14px;
 		}

@@ -75,6 +75,13 @@
 				]
 			},
 			{
+				title: "Number of commuters",
+				stats: [
+					{ label: "commuters", value: `${cyclingData.raw.toLocaleString()}` },
+					{ label: "commuters", value: `${walkingData.raw.toLocaleString()}` },
+				]
+			},
+			{
 				title: "Annual premature deaths avoided", 
 				stats: [
 					{ label: "deaths avoided", value: Math.round(cyclingData.raw*0.41*0.1/40) },

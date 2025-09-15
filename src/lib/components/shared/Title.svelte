@@ -5,15 +5,12 @@
 
 <div class="menu">
 	<div class="menu-header">
-		<h3>Dublin Region Active Travel Dashboard</h3>
 	</div>
 
 	<div class="menu-content">
 		<p>The dashboard showcases valuable data from the CSO, EcoCounters, Google, the Canal Cordon Count and Strava Metro. Additionally, it highlights the positive health and climate impacts of active travel in Dublin, by linking existing data to peer reviewed studies.
 		</p>
 	</div>
-	
-	
 </div>
 
 
@@ -31,10 +28,10 @@
 		background: #E4E4EF;
 		border-radius: 8px;
 		padding: 10px 20px 10px 20px;
+		display: none;
+
 		
 	}
-
-	
 
 	.menu {
 		position: fixed;
@@ -70,6 +67,8 @@
 			font-size: 17px;
 			top: 20px;
 			left: 20px;
+			display: none;
+
 		}
 
 		.menu-header h3 {

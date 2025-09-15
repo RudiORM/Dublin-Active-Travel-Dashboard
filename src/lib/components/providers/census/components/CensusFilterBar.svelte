@@ -63,13 +63,13 @@
 
 <style>
 	.filter-bar {
-		position: fixed;
+		position: absolute;
+		bottom: auto;
 		top: 40px;
 		left: calc(290px + 80px);
 		background: white;
 		padding: 15px 25px;
 		border-radius: 8px;
-		box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 		z-index: 10;
 		display: flex;
 		align-items: center;
@@ -126,7 +126,9 @@
 		.filter-bar {
 			width: calc(100% - 40px);
 			left: 20px;
-			top: 100px;
+			bottom: calc(40svh + 105px);
+			top: auto;
+
 			font-size: 14px;
 		}
 

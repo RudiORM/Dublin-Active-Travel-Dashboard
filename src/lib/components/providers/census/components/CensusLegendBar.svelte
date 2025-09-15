@@ -159,7 +159,6 @@
 		background: white;
 		padding: 15px 25px;
 		border-radius: 8px;
-		box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 		z-index: 10;
 		display: flex;
 		align-items: center;
@@ -253,6 +252,19 @@
 		.filter-bar {
 			width: calc(100% - 310px - 290px - 160px);
 		}
+	}
+
+	@media (max-width: 1000px) {
+		.filter-bar {
+			width: calc(100% - 40px);
+			left: 20px;
+			bottom: calc(40svh + 20px);
+			height: 10svh;
+
+			font-size: 14px;
+		}
+
+	
 	}
 
 

@@ -222,7 +222,7 @@
 			max-width: 265px;
 	}
 
-	@media (max-width: 1000px) {
+	@media (max-width: 950px) {
 		.stats-grid {
 			grid-template-columns: 1fr 1fr;
 		}
@@ -230,27 +230,32 @@
 		.area-dropdown {
 			max-width: 100%;
 	}
-}
 
-@media (max-width: 620px) {
-		.stats-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.info-panel {
+	.info-panel {
 			gap: 10px;
+
 		}
 
 
 	.area-label {
-		font-size: 17px;
+		font-size: 16px;
 		
 	}
 
 	.area-dropdown {
-		font-size: 17px;
+		font-size: 16px;
 	}
 
+}
+
+@media (max-width: 620px) {
+		.stats-grid {
+			margin-top: 10px;
+
+			grid-template-columns: 1fr;
+		}
+
+		
 
 	
 }

@@ -66,14 +66,14 @@
 		position: absolute;
 		bottom: auto;
 		top: 40px;
-		left: calc(290px + 80px);
+		left: calc(240px + 80px);
 		background: white;
 		padding: 15px 25px;
 		border-radius: 8px;
 		z-index: 10;
 		display: flex;
 		align-items: center;
-		width: calc(100% - 600px - 290px - 160px);
+		width: calc(100% - 600px - 240px - 160px);
 	}
 
 	.filter-group {
@@ -118,15 +118,15 @@
 
 	@media (max-width: 1300px) {
 		.filter-bar {
-			width: calc(100% - 310px - 290px - 160px);
+			width: calc(100% - 310px - 240px - 160px);
 		}
 	}
 
-	@media (max-width: 1000px) {
+	@media (max-width: 950px) {
 		.filter-bar {
 			width: calc(100% - 40px);
 			left: 20px;
-			bottom: calc(30svh + 105px);
+			bottom: calc(40svh + 100px);
 			top: auto;
 
 			font-size: 14px;
@@ -137,7 +137,7 @@
 	}
 
 	.filter-select {
-		font-size: 17px;
+		font-size: 16px;
 
 	}
 

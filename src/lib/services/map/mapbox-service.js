@@ -2,6 +2,14 @@ import { env } from '$env/dynamic/public';
 import mapboxgl from 'mapbox-gl';
 
 /**
+ * Check if the device is mobile
+ * @returns {boolean}
+ */
+function isMobileDevice() {
+	return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+/**
  * Initialize Mapbox GL JS map
  * @param {HTMLElement} container - Map container element
  * @param {Object} options - Map options
@@ -15,11 +23,16 @@ export function initializeMap(container, options = {}) {
 	
 	mapboxgl.accessToken = env.PUBLIC_MAPBOX_TOKEN;
 
+	// Use lower zoom for mobile devices
+	const isMobile = isMobileDevice();
+	const defaultZoom = isMobile ? 8.5 : 9.5;
+	const defaultCenter = isMobile ? [-6.2203, 53.0998] : [-6.0203, 53.3998];
+
 	const defaultOptions = {
 		container,
 		style: 'mapbox://styles/mapbox/satellite-v9',
-		center: [-6.0203, 53.3998], // Dublin coordinates
-		zoom: 9.5
+		center: defaultCenter, // Dublin coordinates
+		zoom: defaultZoom
 	};
 
 	return new mapboxgl.Map({ ...defaultOptions, ...options });

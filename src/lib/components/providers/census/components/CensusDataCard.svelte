@@ -137,7 +137,7 @@
 	.title {
 		margin: 0;
 		color: #333;
-		font-size: 17px;
+		font-size: 16px;
 	}
 
 	.info-button {
@@ -217,19 +217,20 @@
 	}
 
 	.stat-value {
-		font-size: 17px;
+		font-size: 16px;
 		color: #000;
 	}
 
 	.stat-label-bottom {
-		font-size: 17px;
+		font-size: 16px;
 		color: #00000066;
 		font-weight: 400;
 	}
 
 	@media (max-height: 908px) {
 		.stat-item {
-			min-height: 70px;
+			min-height: 75px;
+			height: 75px;
 		}
 
 		.info-button.expanded {
@@ -242,9 +243,11 @@
 		}
 	}
 
+
 	@media (max-height: 858px) {
 		.stat-item {
-			min-height: 60px;
+			min-height: 70px;
+			height: 70px;
 		}
 
 		.info-position {
@@ -265,13 +268,46 @@
 
 
 
-	@media (max-width: 1000px) {
+	@media (max-height: 808px) {
+		.stat-item {
+			min-height: 60px;
+			height: 60px;
+		}
+
+		.info-position {
+			top: 10px;
+		}
+
+		.info-button.expanded {
+			height: 182px;
+			margin-top: -10px;
+		}
+
+		.stats-section-header {
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+	}
+
+
+
+
+	@media (max-width: 950px) {
 
 	.stats-section {
 		
 		max-width: 100%;
 	}
 	}
+
+	@media (max-width: 620px) {
+		.stat-item {
+			min-height: 60px;
+			height: 60px;
+		}
+	}
+
+	
 
 	
 

@@ -155,14 +155,14 @@
 	.filter-bar {
 		position: fixed;
 		bottom: 40px;
-		left: calc(290px + 80px);
+		left: calc(240px + 80px);
 		background: white;
 		padding: 15px 25px;
 		border-radius: 8px;
 		z-index: 10;
 		display: flex;
 		align-items: center;
-		width: calc(100% - 600px - 290px - 160px);
+		width: calc(100% - 600px - 240px - 160px);
         min-height: 92px;
 	}
 
@@ -250,15 +250,15 @@
 
 	@media (max-width: 1300px) {
 		.filter-bar {
-			width: calc(100% - 310px - 290px - 160px);
+			width: calc(100% - 310px - 240px - 160px);
 		}
 	}
 
-	@media (max-width: 1000px) {
+	@media (max-width: 950px) {
 		.filter-bar {
 			width: calc(100% - 40px);
 			left: 20px;
-			bottom: calc(30svh + 20px);
+			bottom: calc(40svh + 20px);
 			height: 10svh;
 
 			font-size: 14px;

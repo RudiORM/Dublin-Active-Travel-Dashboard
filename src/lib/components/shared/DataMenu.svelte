@@ -95,7 +95,7 @@
 
 
 	.data-content {
-		font-size: 17px;
+		font-size: 16px;
 		background: #E4E4EF;
 		border-radius: 8px;
 		padding: 15px;
@@ -121,7 +121,7 @@
 		background: #EBF1F7;
 		border: none;
 		border-radius: 8px;
-		font-size: 17px;
+		font-size: 16px;
 		font-weight: 400;
 		color: #333;
 		cursor: pointer;
@@ -167,7 +167,7 @@
 		background: transparent;
 		border: none;
 		text-align: left;
-		font-size: 17px;
+		font-size: 16px;
 		font-weight: 400;
 		color: #333;
 		cursor: pointer;
@@ -198,7 +198,7 @@
 		border-radius: 8px;
 		box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 		z-index: 10;
-		width: 290px;
+		width: 240px;
 		height: calc(50% - 60px);
 	}
 	
@@ -216,7 +216,7 @@
 		font-weight: 500;
 	}
 
-    @media (max-width: 1000px) {
+    @media (max-width: 950px) {
         .sidebar-container{
             display: none;
         }

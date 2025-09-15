@@ -122,6 +122,25 @@
 		}
 	}
 
+	@media (max-width: 1000px) {
+		.filter-bar {
+			width: calc(100% - 40px);
+			left: 20px;
+			top: 100px;
+			font-size: 14px;
+		}
+
+		.filter-label {
+			font-size: 14px;
+	}
+
+	.filter-select {
+		font-size: 17px;
+
+	}
+
+	}
+
 
 
 </style>

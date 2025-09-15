@@ -77,4 +77,11 @@
 		border-radius: 3px;
 		font-family: 'Courier New', monospace;
 	}
+
+	/* @media (max-width: 1000px) {
+		.map-container {
+			height: 500px;
+			width: 100%;
+		}
+	} */
 </style>

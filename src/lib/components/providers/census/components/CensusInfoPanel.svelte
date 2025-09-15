@@ -38,6 +38,9 @@
 	function handleAreaChange(event) {
 		const newValue = event.target.value === 'null' ? null : event.target.value;
 		censusContext.selectedArea = newValue;
+		
+		// Update the map visualization to highlight the selected area
+		censusContext.updateVisualization();
 	}
 
 	// Get display name for selected area
@@ -116,8 +119,12 @@
 				on:change={handleAreaChange}
 			>
 				{#each availableAreas as area}
-					<option value={area.value || 'null'}>{area.label}</option>
-				{/each}
+				<option value={area.value || 'null'}>
+					{area.label
+					  .split(' ')
+					  .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+					  .join(' ')}
+				  </option>				{/each}
 			</select>
 		</div>
 	</div>
@@ -173,6 +180,7 @@
 		font-family: 'Inter', sans-serif;
 		transition: border-color 0.2s ease;
 		border-bottom: 1px solid #000;
+		max-width: 340px;
 	}
 
 	.area-dropdown:hover {
@@ -204,8 +212,28 @@
 		}
 
 		.area-dropdown {
-			max-width: 280px;
+			max-width: 265px;
 	}
+
+	@media (max-width: 1000px) {
+		.stats-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.area-dropdown {
+			max-width: 100%;
+	}
+}
+
+@media (max-width: 620px) {
+		.stats-grid {
+			grid-template-columns: 1fr;
+		}
+
+	
+}
+
+
 }
 
 	

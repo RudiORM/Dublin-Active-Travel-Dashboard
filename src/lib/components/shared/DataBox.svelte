@@ -30,5 +30,27 @@
 			width: 310px;
 		}
 	}
+	@media (max-width: 1000px) {
+		.data-box {
+			width: calc(100% - 40px);
+			top: 60svh;
+			font-size: 17px;
+			left: 50%;
+			height: calc(40svh - 20px);
+			transform: translateX(-50%);
+		}
+	}
+
+	@media (max-width: 620px) {
+		.data-box {
+			width: calc(100% - 40px);
+			top: 60svh;
+			font-size: 17px;
+			height: calc(40svh - 20px);
+			overflow-y: scroll;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
 
 </style>

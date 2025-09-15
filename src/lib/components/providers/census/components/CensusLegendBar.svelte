@@ -259,8 +259,9 @@
 			width: calc(100% - 40px);
 			left: 20px;
 			bottom: calc(40svh + 20px);
-			height: 10svh;
-			display: none;
+			height: 60px;
+			border-radius: 0px 0px 8px 8px;
+			top: auto;
 
 			font-size: 14px;
 		}

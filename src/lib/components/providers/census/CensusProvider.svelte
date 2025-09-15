@@ -16,6 +16,7 @@
 	let selectedPlace = $state('work');
 	let selectedYear = $state('2022');
 	let selectedArea = $state(null);
+	let selectedFilter = $state('all');
 
 	// Context for child components
 	const censusContext = {
@@ -31,6 +32,8 @@
 		set selectedYear(value) { selectedYear = value; },
 		get selectedArea() { return selectedArea; },
 		set selectedArea(value) { selectedArea = value; },
+		get selectedFilter() { return selectedFilter; },
+		set selectedFilter(value) { selectedFilter = value; },
 		updateVisualization
 	};
 

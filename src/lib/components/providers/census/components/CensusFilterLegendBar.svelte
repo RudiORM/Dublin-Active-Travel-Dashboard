@@ -11,6 +11,49 @@
 		censusContext
 	} = $props();
 
+	// Options for each filter
+	const modeOptions = [
+		{ value: 'cycling', label: 'Cycling' },
+		{ value: 'walking', label: 'Walking' }
+	];
+
+	const placeOptions = [
+		{ value: 'work', label: 'Work' },
+		{ value: 'school_college', label: 'School or college' },
+		{ value: 'work_school_college', label: 'Work, school or college' }
+	];
+
+	const yearOptions = [
+		{ value: '2022', label: '2022' },
+		{ value: '2016', label: '2016' }
+	];
+
+	function cycleMode() {
+		const currentIndex = modeOptions.findIndex(opt => opt.value === selectedMode);
+		const nextIndex = (currentIndex + 1) % modeOptions.length;
+		selectedMode = modeOptions[nextIndex].value;
+		onFilterChange();
+	}
+
+	function cyclePlace() {
+		const currentIndex = placeOptions.findIndex(opt => opt.value === selectedPlace);
+		const nextIndex = (currentIndex + 1) % placeOptions.length;
+		selectedPlace = placeOptions[nextIndex].value;
+		onFilterChange();
+	}
+
+	function cycleYear() {
+		const currentIndex = yearOptions.findIndex(opt => opt.value === selectedYear);
+		const nextIndex = (currentIndex + 1) % yearOptions.length;
+		selectedYear = yearOptions[nextIndex].value;
+		onFilterChange();
+	}
+
+	// Get display labels
+	const modeLabel = $derived(modeOptions.find(opt => opt.value === selectedMode)?.label || selectedMode);
+	const placeLabel = $derived(placeOptions.find(opt => opt.value === selectedPlace)?.label || selectedPlace);
+	const yearLabel = $derived(yearOptions.find(opt => opt.value === selectedYear)?.label || selectedYear);
+
 	// Calculate min/max percentages from actual data (same logic as the map)
 	const dataRange = $derived.by(() => {
 		if (!censusContext?.reshapedData) return { minPercentage: 0, maxPercentage: 25 };
@@ -127,11 +170,59 @@
 	const modeText = $derived(selectedMode === 'cycling' ? 'cycling' : 'walking');
 </script>
 
-<div class="filter-bar">
+<!-- Mobile: Combined layout -->
+<div class="filter-legend-bar mobile-combined">
+	<!-- Filter Section -->
+	<div class="filter-section">
+		<div class="filter-group">
+			<span class="filter-select" onclick={cycleMode}>{modeLabel}</span>
+			<span class="filter-label">to</span>
+			<span class="filter-select" onclick={cyclePlace}>{placeLabel}</span>
+			<span class="filter-label">in</span>
+			<span class="filter-select" onclick={cycleYear}>{yearLabel}</span>
+		</div>
+	</div>
+
+	<!-- Legend Section -->
+	<div class="legend-section">
+		<div class="legend-content">
+			<div class="legend-title">
+				% of commuters {modeText}
+			</div>
+			<div class="legend-items">
+				{#each filterOptions as option}
+					<div 
+						class="legend-item {selectedFilter === option.value ? 'active' : ''}"
+						onclick={() => selectFilter(option.value)}
+					>
+						{#if option.color}
+							<div class="color-rectangle" style="background-color: {option.color}"></div>
+						{:else}
+							<div class="color-rectangle all-option">All</div>
+						{/if}
+						<span class="legend-label">{option.label}</span>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Desktop: Split layout -->
+<div class="filter-bar desktop-split">
+	<div class="filter-group">
+		<span class="filter-select" onclick={cycleMode}>{modeLabel}</span>
+		<span class="filter-label">to</span>
+		<span class="filter-select" onclick={cyclePlace}>{placeLabel}</span>
+		<span class="filter-label">in</span>
+		<span class="filter-select" onclick={cycleYear}>{yearLabel}</span>
+	</div>
+</div>
+
+<div class="legend-bar desktop-split">
 	<div class="legend-content">
 		<div class="legend-title">
-			
-             % of commuters {modeText}
+			% of commuters {modeText}
 		</div>
 		<div class="legend-items">
 			{#each filterOptions as option}
@@ -152,7 +243,37 @@
 </div>
 
 <style>
-	.filter-bar {
+	/* Mobile: Combined layout (default, hidden on desktop) */
+	.filter-legend-bar.mobile-combined {
+		position: fixed;
+		bottom: 40px;
+		left: calc(240px + 80px);
+		background: white;
+		padding: 15px 25px;
+		border-radius: 8px;
+		z-index: 10;
+		display: none; /* Hidden by default, shown on mobile */
+		flex-direction: column;
+		gap: 15px;
+		width: calc(100% - 600px - 240px - 160px);
+		min-height: 92px;
+	}
+
+	/* Desktop: Split layout */
+	.filter-bar.desktop-split {
+		position: fixed;
+		top: 40px;
+		left: calc(240px + 80px);
+		background: white;
+		padding: 15px 25px;
+		border-radius: 8px;
+		z-index: 10;
+		display: flex;
+		align-items: center;
+		width: calc(100% - 600px - 240px - 160px);
+	}
+
+	.legend-bar.desktop-split {
 		position: fixed;
 		bottom: 40px;
 		left: calc(240px + 80px);
@@ -163,7 +284,57 @@
 		display: flex;
 		align-items: center;
 		width: calc(100% - 600px - 240px - 160px);
-        min-height: 92px;
+		min-height: 92px;
+	}
+
+	/* Filter Section Styles */
+	.filter-section {
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+
+	.filter-group {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+	
+	.filter-select {
+		font-size: 22px;
+		font-weight: 400;
+		padding-bottom: 2px;
+		color: #000;
+		background: white;
+		border-bottom: 1px solid #000;
+		cursor: pointer;
+		font-family: 'Inter', sans-serif;
+		transition: all 0.2s ease;
+		position: relative;
+		display: inline-block;
+	}
+
+	.filter-select:hover {
+		background: #EBF1F7;
+	}
+
+	.filter-select:focus {
+		outline: none;
+		border-color: #999;
+	}
+
+	.filter-label {
+		color: #666;
+		font-size: 16px;
+	}
+
+	/* Legend Section Styles */
+	.legend-section {
+		display: flex;
+		align-items: center;
+		width: 100%;
 	}
 
 	.legend-content {
@@ -171,7 +342,7 @@
 		align-items: center;
 		gap: 20px;
 		width: 100%;
-        flex-direction: column;
+		flex-direction: column;
 	}
 
 	.legend-title {
@@ -248,27 +419,43 @@
 		color: #000;
 	}
 
+	/* Responsive Styles */
 	@media (max-width: 1300px) {
-		.filter-bar {
+		.filter-bar.desktop-split,
+		.legend-bar.desktop-split {
+			width: calc(100% - 310px - 240px - 160px);
+		}
+		
+		.filter-legend-bar.mobile-combined {
 			width: calc(100% - 310px - 240px - 160px);
 		}
 	}
 
 	@media (max-width: 950px) {
-		.filter-bar {
+		/* Hide desktop split layout */
+		.filter-bar.desktop-split,
+		.legend-bar.desktop-split {
+			display: none;
+		}
+
+		/* Show mobile combined layout */
+		.filter-legend-bar.mobile-combined {
+			display: flex;
 			width: calc(100% - 40px);
 			left: 20px;
 			bottom: calc(40% + 20px);
-			height: 60px;
 			border-radius: 0px 0px 8px 8px;
-			top: auto;
-
-			font-size: 14px;
+			flex-direction: column;
+			gap: 10px;
+			padding: 10px 15px;
 		}
 
-	
+		.filter-select {
+			font-size: 16px;
+		}
+
+		.filter-label {
+			font-size: 14px;
+		}
 	}
-
-
-
 </style>

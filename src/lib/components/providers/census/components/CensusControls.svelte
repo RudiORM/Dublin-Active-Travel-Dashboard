@@ -1,7 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import CensusFilterBar from './CensusFilterBar.svelte';
-	import CensusLegendBar from './CensusLegendBar.svelte';
+	import CensusFilterLegendBar from './CensusFilterLegendBar.svelte';
 	import CensusInfoPanel from './CensusInfoPanel.svelte';
 	import DataBox from '$lib/components/shared/DataBox.svelte';
 
@@ -12,17 +11,12 @@
 	}
 </script>
 
-<CensusFilterBar 
+<CensusFilterLegendBar 
 	bind:selectedMode={census.selectedMode}
 	bind:selectedPlace={census.selectedPlace}
 	bind:selectedYear={census.selectedYear}
+	bind:selectedFilter={census.selectedFilter}
 	onFilterChange={handleFilterChange}
-/>
-
-<CensusLegendBar 
-	selectedMode={census.selectedMode}
-	selectedPlace={census.selectedPlace}
-	selectedYear={census.selectedYear}
 	censusContext={census}
 />
 

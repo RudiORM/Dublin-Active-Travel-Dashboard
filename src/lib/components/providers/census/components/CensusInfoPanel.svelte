@@ -237,6 +237,21 @@
 			grid-template-columns: 1fr;
 		}
 
+		.info-panel {
+			gap: 10px;
+		}
+
+
+	.area-label {
+		font-size: 17px;
+		
+	}
+
+	.area-dropdown {
+		font-size: 17px;
+	}
+
+
 	
 }
 

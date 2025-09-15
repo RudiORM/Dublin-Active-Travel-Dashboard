@@ -44,9 +44,9 @@
 	@media (max-width: 620px) {
 		.data-box {
 			width: calc(100% - 40px);
-			top: 60svh;
+			top: 70svh;
 			font-size: 17px;
-			height: calc(40svh - 20px);
+			height: calc(30svh - 20px);
 			overflow-y: scroll;
 			left: 50%;
 			transform: translateX(-50%);

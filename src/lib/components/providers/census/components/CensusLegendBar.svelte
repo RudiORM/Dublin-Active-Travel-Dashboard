@@ -258,7 +258,7 @@
 		.filter-bar {
 			width: calc(100% - 40px);
 			left: 20px;
-			bottom: calc(40svh + 20px);
+			bottom: calc(30svh + 20px);
 			height: 10svh;
 
 			font-size: 14px;

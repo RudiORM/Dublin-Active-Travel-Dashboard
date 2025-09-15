@@ -33,10 +33,10 @@
 	@media (max-width: 950px) {
 		.data-box {
 			width: calc(100% - 40px);
-			top: 60svh;
+			top: 60%;
 			font-size: 16px;
 			left: 50%;
-			height: calc(40svh - 20px);
+			height: calc(40% - 20px);
 			transform: translateX(-50%);
 		}
 	}
@@ -44,9 +44,9 @@
 	@media (max-width: 620px) {
 		.data-box {
 			width: calc(100% - 40px);
-			top: 60svh;
+			top: 60%;
 			font-size: 16px;
-			height: calc(40svh - 20px);
+			height: calc(40% - 20px);
 			overflow-y: scroll;
 			left: 50%;
 			transform: translateX(-50%);

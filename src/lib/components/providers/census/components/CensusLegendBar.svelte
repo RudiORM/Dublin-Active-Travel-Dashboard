@@ -258,7 +258,7 @@
 		.filter-bar {
 			width: calc(100% - 40px);
 			left: 20px;
-			bottom: calc(40svh + 20px);
+			bottom: calc(40% + 20px);
 			height: 60px;
 			border-radius: 0px 0px 8px 8px;
 			top: auto;

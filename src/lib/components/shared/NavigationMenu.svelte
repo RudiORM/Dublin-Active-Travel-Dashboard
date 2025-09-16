@@ -1,4 +1,8 @@
 <script lang="ts">
+    import Page from "../../../routes/+page.svelte";
+
+    let clicked = $state(false);
+
 	// Props
 	let { 
 		selectedDataSource = $bindable('census'),
@@ -67,11 +71,18 @@
 		<div class="menu-header">
 			<img src="/svgs/DATD-logo-v3-outlinestroke.svg" alt="Logo" class="logo" />
 		</div>
-		<div class="menu-content">
+		<div class="menu-content" onclick={() => clicked = true}>
 			<img class='sd-logo' src="/svgs/Smart-Dublin-Logo-light-2-blackandwhite.svg" alt="Logo" />
 			<p>About</p>
 		</div>
 	</div>
+
+    {#if clicked}
+    <div class='menu-overlay' onclick={() => clicked = false}>
+        <p>The Dublin Active Travel Dashboard brings together live and historical data to correlate active travel patterns with infrastructure use, public health projections and climate impact in Dublin. </p>
+        <p>Click on a data source to explore the data.</p>
+    </div>
+    {/if}
 
 	<!-- Data Menu Section -->
 	<div class="sidebar">
@@ -163,13 +174,20 @@
 
 			<!-- Bottom section with menu-content -->
 			<div class="modal-bottom-section">
-				<div class="menu-content">
+                <div class="menu-content" onclick={() => {console.log('clicked'); clicked = true}}>
 					<img class='sd-logo' src="/svgs/Smart-Dublin-Logo-light-2-blackandwhite.svg" alt="Logo" />
 					<p>About</p>
 				</div>
 			</div>
 		</div>
 	</div>
+
+    {#if clicked}
+    <div class='modal-overlay-2' onclick={() => {console.log('clicked'); clicked = false}}>
+        <p>The Dublin Active Travel Dashboard brings together live and historical data to correlate active travel patterns with infrastructure use, public health projections and climate impact in Dublin. </p>
+        <p>Click on a data source to explore the data.</p>
+    </div>
+    {/if}
 {/if}
 
 <style>
@@ -222,6 +240,27 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
+
+    .menu-overlay {
+		position: fixed;
+		top: 40px;
+		left: 40px;
+		background: #FFD249;
+		padding: 30px;
+		border-radius: 8px;
+		z-index: 10;
+		width: 240px;
+		height: calc(50% - 60px);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+        text-align: center;
+        padding: 10px;
+        display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
 
 
 
@@ -366,10 +405,27 @@
 		width: 100%;
 		height: 100%;
 		background: rgba(0, 0, 0, 0.5);
+		z-index: 999;
+		justify-content: center;
+		align-items: center;
+        min-width: 300px;
+	}
+
+    .modal-overlay-2 {
+		position: fixed;
+		top: 20px;
+		left: 20px;
+		padding: 30px;
+		width: calc(100% - 40px);
+		height: calc(100% - 40px);
+		border-radius: 8px;
+		background: #FFD249;
 		z-index: 1001;
 		justify-content: center;
 		align-items: center;
         min-width: 300px;
+        font-size: 16px;
+        line-height: 1.5;
 	}
 
 	.modal-content {
@@ -452,7 +508,7 @@
 	@media (max-width: 650px) {
 
         .logo{
-            max-width: 200px;
+            max-width: 180px;
             position: relative;
             margin: auto;
             left: 50%;

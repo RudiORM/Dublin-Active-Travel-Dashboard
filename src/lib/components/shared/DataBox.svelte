@@ -12,9 +12,8 @@
 		position: fixed;
 		top: 40px;
 		right: 40px;
-		background: white;
+		background: #EEF2F6;
 		border-radius: 8px;
-		box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 		height: calc(100% - 80px);
         min-width: 600px;
 		width: 600px;
@@ -32,24 +31,24 @@
 	}
 	@media (max-width: 950px) {
 		.data-box {
-			width: calc(100% - 40px);
+			width: calc(100% - 40px - 240px - 20px);
 			top: 60%;
 			font-size: 16px;
-			left: 50%;
 			height: calc(40% - 20px);
-			transform: translateX(-50%);
+			right: 20px;
 		}
 	}
 
-	@media (max-width: 620px) {
+	@media (max-width: 650px) {
 		.data-box {
 			width: calc(100% - 40px);
 			top: 60%;
 			font-size: 16px;
 			height: calc(40% - 20px);
 			overflow-y: scroll;
-			left: 50%;
-			transform: translateX(-50%);
+			left: 20px;
+			min-width: 300px;
+
 		}
 	}
 

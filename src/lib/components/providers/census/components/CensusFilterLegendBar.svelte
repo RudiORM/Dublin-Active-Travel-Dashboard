@@ -248,7 +248,7 @@
 		position: fixed;
 		bottom: 40px;
 		left: calc(240px + 80px);
-		background: white;
+		background: #EEF2F6;
 		padding: 15px 25px;
 		border-radius: 8px;
 		z-index: 10;
@@ -257,6 +257,7 @@
 		gap: 15px;
 		width: calc(100% - 600px - 240px - 160px);
 		min-height: 92px;
+		min-width: 300px;
 	}
 
 	/* Desktop: Split layout */
@@ -264,8 +265,8 @@
 		position: fixed;
 		top: 40px;
 		left: calc(240px + 80px);
-		background: white;
-		padding: 15px 25px;
+		background: #EEF2F6;
+		padding: 30px;
 		border-radius: 8px;
 		z-index: 10;
 		display: flex;
@@ -277,8 +278,8 @@
 		position: fixed;
 		bottom: 40px;
 		left: calc(240px + 80px);
-		background: white;
-		padding: 15px 25px;
+		background: #EEF2F6;
+		padding: 30px;
 		border-radius: 8px;
 		z-index: 10;
 		display: flex;
@@ -307,7 +308,7 @@
 		font-weight: 400;
 		padding-bottom: 2px;
 		color: #000;
-		background: white;
+		background: #EEF2F6;
 		border-bottom: 1px solid #000;
 		cursor: pointer;
 		font-family: 'Inter', sans-serif;
@@ -317,7 +318,7 @@
 	}
 
 	.filter-select:hover {
-		background: #EBF1F7;
+		background: #fff;
 	}
 
 	.filter-select:focus {
@@ -326,8 +327,7 @@
 	}
 
 	.filter-label {
-		color: #666;
-		font-size: 16px;
+		font-size: 22px;
 	}
 
 	/* Legend Section Styles */
@@ -387,20 +387,20 @@
 		align-items: center;
 		justify-content: center;
 		font-size: 12px;
-		font-weight: 500;
+		font-weight: 400;
 		color: #6b7280;
 	}
 
 	.legend-label {
 		font-size: 12px;
-		font-weight: 400;
+		font-weight: 500;
 		color: #374151;
 		font-family: 'Inter', sans-serif;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 100%;
-		text-align: center;
+		text-align: left;
 	}
 
 	.legend-item:hover .color-rectangle {
@@ -415,7 +415,7 @@
 	}
 
 	.legend-item.active .legend-label {
-		font-weight: 600;
+		font-weight: 700;
 		color: #000;
 	}
 
@@ -441,10 +441,10 @@
 		/* Show mobile combined layout */
 		.filter-legend-bar.mobile-combined {
 			display: flex;
-			width: calc(100% - 40px);
-			left: 20px;
+			width: calc(100% - 40px - 240px - 20px);
+			left: 280px;
 			bottom: calc(40% + 20px);
-			border-radius: 0px 0px 8px 8px;
+			border-radius: 8px 8px 8px 8px;
 			flex-direction: column;
 			gap: 10px;
 			padding: 10px 15px;
@@ -455,7 +455,18 @@
 		}
 
 		.filter-label {
-			font-size: 14px;
+			font-size: 16px;
+		}
+	}
+
+	@media (max-width: 650px) {
+		.filter-legend-bar.mobile-combined {
+			width: calc(100% - 40px);
+			left: 20px;
+			min-width: 300px;
+
 		}
 	}
 </style>
+
+

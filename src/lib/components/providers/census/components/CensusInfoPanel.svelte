@@ -72,43 +72,49 @@
 				stats: [
 					{ label: "of commuters", value: `${Math.round(cyclingPercentage)}%` },
 					{ label: "of commuters", value: `${Math.round(walkingPercentage)}%` },
-				]
+				],
+				explanation: "The percentage of the working population who reported travelling to work, school or college by bicycle or on foot."
 			},
 			{
 				title: "Number of commuters",
 				stats: [
 					{ label: "commuters", value: `${cyclingData.raw.toLocaleString()}` },
 					{ label: "commuters", value: `${walkingData.raw.toLocaleString()}` },
-				]
+				],
+				explanation: "The number of commuters who reported travelling to work, school or college by bicycle or on foot."
 			},
 			{
 				title: "Annual premature deaths avoided", 
 				stats: [
 					{ label: "deaths avoided", value: Math.round(cyclingData.raw*0.41*0.1/40) },
 					{ label: "deaths avoided", value: Math.round(walkingData.raw*0.16*0.1/40) },
-				]
+				],
+				explanation: "Walking or biking to work reduce the risk of premature death by 41% and 16% respectively. The risk of premature death between 30-70 years was estimated at 10%."
 			},
 			{
 				title: "Annual money saved on fuel",
 				stats: [
 					{ label: "saved on fuel", value: `${'€'+(Math.round(cyclingData.raw*401.5/1000000)>10?Math.round(cyclingData.raw*401.5/1000000)+'m':Math.round(cyclingData.raw*401.5)).toLocaleString()}` },
 					{ label: "saved on fuel", value: `${'€'+(Math.round(walkingData.raw*401.5/1000000)>10?Math.round(walkingData.raw*401.5/1000000)+'m':Math.round(walkingData.raw*401.5)).toLocaleString()}` },
-				]
+				],
+				explanation: "Assumes each person cycling or walking would otherwise have a 10km commute 3.5 days a week. We use the calculator by TomTom to estimate this cost at €401.50 per person."
 			},
 			{
 				title: "Annual CO2 emissions avoided",
 				stats: [
 					{ label: "tonnes CO2 saved", value: Math.round(253*.001*.7*.095*20*cyclingData.raw).toLocaleString() },
 					{ label: "tonnes CO2 saved", value: Math.round(253*.001*.7*.095*20*walkingData.raw).toLocaleString() },
-
-				]
+				],
+				explanation: "Assumes each person cycling or walking would otherwise have a 10km commute 3.5 days a week and a carbon footprint for a car as 95g CO2/km."
+				
 			},
 			{
 				title: "Annual time in traffic avoided",
 				stats: [
 					{ label: "years saved", value: Math.round(cyclingData.raw*158*.7*0.000114155).toLocaleString() },
 					{ label: "years saved", value: Math.round(walkingData.raw*158*.7*0.000114155).toLocaleString() },
-				]
+				],
+				explanation: "Assumes a 10km commute 3.5 days a week. A study by Tomtom found that a daily 10km commute in Dublin resulted in 158 hours lost to congestion."
 			},
 			
 		];
@@ -142,6 +148,7 @@
 				<CensusDataCard 
 					title={cardData.title}
 					stats={cardData.stats}
+					explanation={cardData.explanation}
 				/>
 			{/each}
 		</div>
@@ -180,14 +187,15 @@
 		font-weight: 400;
 		padding-bottom: 2px;
 		color: #000;
-		background: white;
+		background: #EEF2F6;
 		border: 0px solid #e5e5e5;
 		border-radius: 0px;
 		cursor: pointer;
 		font-family: 'Inter', sans-serif;
 		transition: border-color 0.2s ease;
 		border-bottom: 1px solid #000;
-		max-width: 340px;
+		max-width: 360px;
+		width: 340px;
 	}
 
 	.area-dropdown:hover {
@@ -248,11 +256,20 @@
 
 }
 
+
+@media (max-width: 850px) {
+		.stats-grid {
+
+			grid-template-columns: 1fr;
+		}}
+
+
+
+
 @media (max-width: 620px) {
 		.stats-grid {
 			margin-top: 10px;
 
-			grid-template-columns: 1fr;
 		}
 
 		

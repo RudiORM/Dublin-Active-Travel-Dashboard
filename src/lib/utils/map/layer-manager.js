@@ -62,7 +62,7 @@ export function removeDataSourceLayers(map, dataSource) {
  * @param {string} activeDataSource - The data source to keep visible
  * @param {Array<string>} allDataSources - Array of all data source names
  */
-export function showOnlyDataSource(map, activeDataSource, allDataSources = ['census', 'google']) {
+export function showOnlyDataSource(map, activeDataSource, allDataSources = ['census', 'google', 'cordon']) {
 	if (!map) return;
 	
 	allDataSources.forEach(dataSource => {
@@ -82,7 +82,8 @@ export function showOnlyDataSource(map, activeDataSource, allDataSources = ['cen
 function getDataSourceLayerIds(dataSource) {
 	const layerMappings = {
 		census: ['census-choropleth', 'census-borders'],
-		google: ['google-choropleth', 'google-borders']
+		google: ['google-choropleth', 'google-borders'],
+		cordon: ['cordon-circles', 'cordon-labels']
 	};
 	
 	return layerMappings[dataSource] || [];

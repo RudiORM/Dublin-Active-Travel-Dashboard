@@ -1,4 +1,7 @@
 <script>
+
+	import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
+
 	// Props passed from parent
 	let { 
 		reshapedData,
@@ -40,6 +43,19 @@
 					<span class="stat-value">{totalStats.formattedPercentage}</span>
 				</div>
 			</div>
+
+			<StackedBarH 
+  data={[
+    { label: 'Cycling', value: 25, color: '#3B82F6' },
+    { label: 'Walking', value: 15, color: '#10B981' },
+    { label: 'Driving', value: 60, color: '#EF4444' }
+  ]}
+  height={50}
+  showLabels={true}
+  labelPosition="outside"
+/>
+
+
 		</div>
 	{/if}
 

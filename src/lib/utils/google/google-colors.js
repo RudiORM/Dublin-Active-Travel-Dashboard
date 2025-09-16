@@ -2,66 +2,43 @@
  * Color schemes for different transportation modes in Google data
  */
 export const googleColorSchemes = {
-	automobile: [
-		'#fee5d9',
-		'#fcbba1',
-		'#fc9272',
-		'#fb6a4a',
-		'#ef3b2c',
-		'#cb181d',
-		'#99000d',
-		'#67000d'
-	],
-	bus: [
-		'#edf8e9',
-		'#c7e9c0',
-		'#a1d99b',
-		'#74c476',
-		'#41ab5d',
-		'#238b45',
-		'#005a32',
-		'#003d22'
-	],
 	cycling: [
-		'#d4e3ff',
-		'#c1d3f2',
-		'#afc2e5',
-		'#9cb3d8',
-		'#89a3cb',
-		'#7794bf',
-		'#6485b2',
-		'#5076a6'
-	],
-	walking: [
-		'#ffeaeb',
-		'#f9d9da',
-		'#f3c8ca',
-		'#ecb7b9',
-		'#e5a6a9',
-		'#de9599',
-		'#d6848a',
-		'#ce737a'
-	],
-	rail: [
-		'#f2f0f7',
-		'#dadaeb',
-		'#bcbddc',
-		'#9e9ac8',
-		'#807dba',
-		'#6a51a3',
-		'#4a1486',
-		'#3d0a5c'
-	],
-	tram: [
-		'#fff7bc',
-		'#fee391',
-		'#fec44f',
-		'#fe9929',
-		'#ec7014',
-		'#cc4c02',
-		'#8c2d04',
-		'#662506'
-	]
+		'#DEECFD',
+		'#C3D6ED',
+		'#A8BFDC',
+		'#8CA8CB',
+		'#6E90B9',
+		'#5076A6',	
+			],
+			
+			walking: [
+		'#EFE3E5',
+		'#EFCDD3',
+		'#EEB6C0',
+		'#EA9EAB',
+		'#E68693',
+		'#DE6E79'
+			],
+
+			automobile: [
+				'#EAE8DD',
+				'#E1E0C3',
+				'#DAD8AA',
+				'#D3CF8F',
+				'#CEC674',
+				'#C9BC59'
+					]
+					,
+					public: [
+						'#F5F5F5',
+						'#E9E9E9',
+						'#DFDEDE',
+						'#D3D2D2',
+						'#C6C6C6',
+						'#BBBBBB'
+							]
+
+
 };
 
 /**

@@ -1,5 +1,5 @@
 <script>
-	import GoogleFilterBar from './GoogleFilterBar.svelte';
+	import GoogleFilterLegendBar from './GoogleFilterLegendBar.svelte';
 	import GoogleInfoPanel from './GoogleInfoPanel.svelte';
 	import DataBox from '$lib/components/shared/DataBox.svelte';
 
@@ -11,11 +11,13 @@
 	}
 </script>
 
-<GoogleFilterBar 
+<GoogleFilterLegendBar 
 	bind:selectedMode={googleContext.selectedMode}
 	bind:selectedMetric={googleContext.selectedMetric}
 	bind:selectedScope={googleContext.selectedScope}
+	bind:selectedFilter={googleContext.selectedFilter}
 	onFilterChange={handleFilterChange}
+	{googleContext}
 />
 
 <DataBox>

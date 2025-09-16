@@ -1,5 +1,5 @@
 <script>
-	import CensusDataCard from './CensusDataCard.svelte';
+	import DataCard from '$lib/components/shared/DataCard.svelte';
 	
 	// Props passed from parent
 	let { 
@@ -145,7 +145,7 @@
 	{#if totalStats}
 		<div class="stats-grid">
 			{#each statsData as cardData}
-				<CensusDataCard 
+				<DataCard 
 					title={cardData.title}
 					stats={cardData.stats}
 					explanation={cardData.explanation}

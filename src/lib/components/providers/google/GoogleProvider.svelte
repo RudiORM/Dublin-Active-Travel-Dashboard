@@ -14,6 +14,7 @@
 	let selectedMode = $state('walking');
 	let selectedMetric = $state('trips');
 	let selectedScope = $state('full');
+	let selectedFilter = $state('all');
 	let selectedArea = $state(null);
 
 	// Function to update the map visualization
@@ -49,7 +50,7 @@
 		updateGeoJSONSource(map, 'google-data', updatedGeoJSON);
 		
 		// Update visualization
-		updateGoogleVisualization(map, reshapedData, selectedMode, selectedMetric, selectedScope, selectedArea);
+		updateGoogleVisualization(map, reshapedData, selectedMode, selectedMetric, selectedScope, selectedArea, selectedFilter);
 	}
 
 	// Handle filter changes
@@ -66,6 +67,8 @@
 		set selectedMetric(value) { selectedMetric = value; },
 		get selectedScope() { return selectedScope; },
 		set selectedScope(value) { selectedScope = value; },
+		get selectedFilter() { return selectedFilter; },
+		set selectedFilter(value) { selectedFilter = value; },
 		get selectedArea() { return selectedArea; },
 		set selectedArea(value) { selectedArea = value; },
 		updateVisualization,

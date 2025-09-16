@@ -3,21 +3,21 @@
  */
 export const colorSchemes = {
 	cycling: [
-'#DEECFD',
-'#C3D6ED',
-'#A8BFDC',
-'#8CA8CB',
-'#6E90B9',
-'#5076A6',	
+'#DBF1FA',
+'#C1E7F6',
+'#A6DCF3',
+'#89D1F1',
+'#67C6EE',
+'#33BBEE',	
 	],
 	
 	walking: [
-'#EFE3E5',
-'#EFCDD3',
-'#EEB6C0',
-'#EA9EAB',
-'#E68693',
-'#DE6E79'
+'#F0D7D1',
+'#F3B9AB',
+'#F39984',
+'#EB7A5D',
+'#DF5839',
+'#CC3311'
 	]
 };
 

@@ -223,6 +223,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
+        min-height: 600px;
 	}
 
 	/* Menu (Title) styles */
@@ -239,6 +240,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+        min-height: 300px;
 	}
 
     .menu-overlay {
@@ -293,6 +295,7 @@
 		z-index: 10;
 		width: 240px;
 		height: calc(50% - 60px);
+        min-height: 300px;
 	}
 	
 	.sidebar-header {

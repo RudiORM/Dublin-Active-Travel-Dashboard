@@ -64,7 +64,8 @@ export function reshapeGoogleData(features) {
 	};
 	
 	// Transportation modes available in Google data
-	const modes = ['automobile', 'bus', 'cycling', 'walking', 'rail', 'tram'];
+	const rawModes = ['automobile', 'bus', 'cycling', 'walking', 'rail', 'tram'];
+	const modes = ['automobile', 'cycling', 'walking', 'public']; // Combined modes for UI
 	const metrics = ['trips', 'distance', 'co2'];
 	const scopes = ['full', 'gpc'];
 	
@@ -84,13 +85,55 @@ export function reshapeGoogleData(features) {
 		const areaName = feature.properties.ENG_NAME_VALUE;
 		reshaped.byArea[areaName] = {};
 		
-		// First pass: extract raw data
+		// First pass: extract raw data for all individual modes
+		const rawData = {};
+		rawModes.forEach(mode => {
+			rawData[mode] = {};
+			metrics.forEach(metric => {
+				rawData[mode][metric] = {};
+				scopes.forEach(scope => {
+					rawData[mode][metric][scope] = extractGoogleModeData(feature.properties, mode, metric, scope);
+				});
+			});
+		});
+		
+		// Second pass: create final modes (combining public transport)
 		modes.forEach(mode => {
 			reshaped.byArea[areaName][mode] = {};
 			metrics.forEach(metric => {
 				reshaped.byArea[areaName][mode][metric] = {};
 				scopes.forEach(scope => {
-					const data = extractGoogleModeData(feature.properties, mode, metric, scope);
+					let data;
+					
+					if (mode === 'public') {
+						// Combine BUS + RAIL + TRAM for public transport
+						const busData = rawData['bus'][metric][scope];
+						const railData = rawData['rail'][metric][scope];
+						const tramData = rawData['tram'][metric][scope];
+						
+						const combinedRaw = (busData?.raw || 0) + (railData?.raw || 0) + (tramData?.raw || 0);
+						
+						// Format combined value
+						let formatted;
+						if (metric === 'trips') {
+							formatted = combinedRaw.toLocaleString();
+						} else if (metric === 'distance') {
+							formatted = `${(combinedRaw / 1000).toFixed(1)}K km`;
+						} else if (metric === 'co2') {
+							formatted = `${combinedRaw.toFixed(1)} tons`;
+						} else {
+							formatted = combinedRaw.toString();
+						}
+						
+						data = {
+							raw: combinedRaw,
+							formatted: formatted
+						};
+					} else {
+						// Use raw data for other modes (automobile, cycling, walking)
+						data = rawData[mode][metric][scope];
+					}
+					
 					reshaped.byArea[areaName][mode][metric][scope] = data;
 					
 					// Add to totals

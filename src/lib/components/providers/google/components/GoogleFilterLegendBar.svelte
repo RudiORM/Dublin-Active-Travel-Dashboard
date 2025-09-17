@@ -141,7 +141,7 @@
 	<div class="filter-section">
 		<div class="filter-group">
 			<span class="filter-select" onclick={cycleMode}>{modeLabel}</span>
-			<span class="filter-label">trips</span>
+			<span class="filter-label">trips in 2023</span>
 		</div>
 	</div>
 
@@ -174,7 +174,7 @@
 <div class="filter-bar desktop-split">
 	<div class="filter-group">
 		<span class="filter-select" onclick={cycleMode}>{modeLabel}</span>
-		<span class="filter-label">trips</span>
+		<span class="filter-label">trips in 2023</span>
 	
 	</div>
 </div>

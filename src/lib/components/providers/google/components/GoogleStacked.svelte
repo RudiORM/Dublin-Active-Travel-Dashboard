@@ -128,8 +128,8 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 	.info-button.expanded {
 		width: 560px;	
-		margin-top: 191px;
-		height: 252px;
+		margin-top: 180px;
+		height: 240px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
@@ -255,10 +255,21 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		
 	}
 
+	@media (max-width: 1300px){
+		.info-button.expanded {
+			width: 270px;	
+	}}
+
 
 
 
 	@media (max-width: 950px) {
+
+		.info-button.expanded {
+			width: calc(100vw - 340px);
+	}
+
+
 
 	.stats-section {
 		
@@ -266,16 +277,17 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	}
 	}
 
-	@media (max-width: 620px) {
+	@media (max-width: 650px) {
 		.stat-item {
 			min-height: 60px;
 			height: 60px;
 		}
 
 		.info-button.expanded {
-			margin-top: 120px;
-			height: 180px;
-		}
+			width: calc(100vw - 80px);
+	}
+
+	
 
 
 

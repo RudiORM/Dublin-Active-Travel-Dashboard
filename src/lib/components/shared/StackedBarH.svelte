@@ -97,7 +97,6 @@
 		padding: 0 4px;
 		bottom: 0px;
 		position: absolute;
-		z-index: 99;
 		background-color: #ffffffaa;
 		margin-bottom: -25px;
 		overflow: visible;
@@ -160,6 +159,8 @@
 			font-size: 12px;
 
 		}
+
+		
 
 	}
 

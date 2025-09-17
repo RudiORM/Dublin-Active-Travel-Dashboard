@@ -37,8 +37,9 @@
 	});
 
 	// Handle dropdown change - this was missing!
-	function handleAreaChange(event) {
-		const newValue = event.target.value === 'null' ? null : event.target.value;
+	function handleAreaChange(event: Event) {
+		const target = event.target as HTMLSelectElement;
+		const newValue = target.value === 'null' ? null : target.value;
 		// Update through censusContext if available, otherwise update the prop directly
 		if (censusContext) {
 			censusContext.selectedArea = newValue;
@@ -63,16 +64,52 @@
 
 	// Prepare the DataCard stats - updates based on selected area
 	const statsData = $derived.by(() => {
-		let walkingValue, cyclingValue, automobileValue, publicValue;
-		
+		let walkingTrips, cyclingTrips, automobileTrips, publicTrips;
+		let walkingCO2, cyclingCO2, automobileCO2, publicCO2;
+		let walkingDistance, cyclingDistance, automobileDistance, publicDistance;
+
 		if (!selectedArea) {
 			// Show totals for Dublin
+			walkingTrips = reshapedData.totals?.walking?.trips?.[selectedScope]?.raw || 0;
+			cyclingTrips = reshapedData.totals?.cycling?.trips?.[selectedScope]?.raw || 0;
+			automobileTrips = reshapedData.totals?.automobile?.trips?.[selectedScope]?.raw || 0;
+			publicTrips = reshapedData.totals?.public?.trips?.[selectedScope]?.raw || 0;
+			
+			walkingCO2 = reshapedData.totals?.walking?.co2?.gpc?.raw || 0;
+			cyclingCO2 = reshapedData.totals?.cycling?.co2?.gpc?.raw || 0;
+			automobileCO2 = reshapedData.totals?.automobile?.co2?.gpc?.raw || 0;
+			publicCO2 = reshapedData.totals?.public?.co2?.gpc?.raw || 0;
+			
+			walkingDistance = reshapedData.totals?.walking?.distance?.gpc?.raw || 0;
+			cyclingDistance = reshapedData.totals?.cycling?.distance?.gpc?.raw || 0;
+			automobileDistance = reshapedData.totals?.automobile?.distance?.gpc?.raw || 0;
+			publicDistance = reshapedData.totals?.public?.distance?.gpc?.raw || 0;
+		} else {
+			// Show data for selected area
+			walkingTrips = reshapedData.byArea?.[selectedArea]?.walking?.trips?.[selectedScope]?.raw || 0;
+			cyclingTrips = reshapedData.byArea?.[selectedArea]?.cycling?.trips?.[selectedScope]?.raw || 0;
+			automobileTrips = reshapedData.byArea?.[selectedArea]?.automobile?.trips?.[selectedScope]?.raw || 0;
+			publicTrips = reshapedData.byArea?.[selectedArea]?.public?.trips?.[selectedScope]?.raw || 0;
+			
+			walkingCO2 = reshapedData.byArea?.[selectedArea]?.walking?.co2?.gpc?.raw || 0;
+			cyclingCO2 = reshapedData.byArea?.[selectedArea]?.cycling?.co2?.gpc?.raw || 0;
+			automobileCO2 = reshapedData.byArea?.[selectedArea]?.automobile?.co2?.gpc?.raw || 0;
+			publicCO2 = reshapedData.byArea?.[selectedArea]?.public?.co2?.gpc?.raw || 0;
+			
+			walkingDistance = reshapedData.byArea?.[selectedArea]?.walking?.distance?.gpc?.raw || 0;
+			cyclingDistance = reshapedData.byArea?.[selectedArea]?.cycling?.distance?.gpc?.raw || 0;
+			automobileDistance = reshapedData.byArea?.[selectedArea]?.automobile?.distance?.gpc?.raw || 0;
+			publicDistance = reshapedData.byArea?.[selectedArea]?.public?.distance?.gpc?.raw || 0;
+		}
+		
+		// Get values for the currently selected metric for display
+		let walkingValue, cyclingValue, automobileValue, publicValue;
+		if (!selectedArea) {
 			walkingValue = reshapedData.totals?.walking?.[selectedMetric]?.[selectedScope]?.raw || 0;
 			cyclingValue = reshapedData.totals?.cycling?.[selectedMetric]?.[selectedScope]?.raw || 0;
 			automobileValue = reshapedData.totals?.automobile?.[selectedMetric]?.[selectedScope]?.raw || 0;
 			publicValue = reshapedData.totals?.public?.[selectedMetric]?.[selectedScope]?.raw || 0;
 		} else {
-			// Show data for selected area
 			walkingValue = reshapedData.byArea?.[selectedArea]?.walking?.[selectedMetric]?.[selectedScope]?.raw || 0;
 			cyclingValue = reshapedData.byArea?.[selectedArea]?.cycling?.[selectedMetric]?.[selectedScope]?.raw || 0;
 			automobileValue = reshapedData.byArea?.[selectedArea]?.automobile?.[selectedMetric]?.[selectedScope]?.raw || 0;
@@ -82,9 +119,33 @@
 		// Calculate total for percentage calculations
 		const totalTrips = walkingValue + cyclingValue + automobileValue + publicValue;
 		
-		// Calculate percentages
+		// Calculate trip percentages
 		const walkingPercentage = totalTrips > 0 ? (walkingValue / totalTrips * 100).toFixed(0) : '0';
 		const cyclingPercentage = totalTrips > 0 ? (cyclingValue / totalTrips * 100).toFixed(0) : '0';
+		
+		// Calculate distance percentages using GPC data
+		const totalDistance = walkingDistance + cyclingDistance + automobileDistance + publicDistance;
+		const walkingDistancePercentage = totalDistance > 0 ? (walkingDistance / totalDistance * 100).toFixed(0) : '0';
+		const cyclingDistancePercentage = totalDistance > 0 ? (cyclingDistance / totalDistance * 100).toFixed(0) : '0';
+		
+		// Calculate CO2 saved
+		// emissions_per_AUTOMOBILE_trip = automobile_co2_total / automobile_trips_total
+		const emissionsPerAutomobileTrip = automobileTrips > 0 ? automobileCO2 / automobileTrips : 0;
+		
+		// CO2 that would have been emitted if cycling/walking trips were made by car
+		const cyclingCO2Saved = cyclingTrips * emissionsPerAutomobileTrip;
+		const walkingCO2Saved = walkingTrips * emissionsPerAutomobileTrip;
+		
+		// Format CO2 saved values
+		const formatCO2 = (value: number) => {
+			if (value >= 1000) {
+				return `${(value / 1000).toFixed(1)}k`;
+			} else if (value >= 1) {
+				return `${value.toFixed(1)}`;
+			} else {
+				return `${(value * 1000).toFixed(0)} kg`;
+			}
+		};
 		
 		return [
 			{
@@ -93,22 +154,33 @@
 					{ label: "of all trips", value: `${cyclingPercentage}%` },
 					{ label: "of all trips", value: `${walkingPercentage}%` },
 				],
-				explanation: selectedArea 
-					? `The percentage of all trips in ${displayName} made by walking and cycling.`
-					: "The percentage of all trips across Dublin made by walking and cycling."
+				explanation: `The percentage of all trips across Dublin which were on foot or by bike in 2023.`
+			},{
+				title: "Percentage of total distance",
+				stats: [
+					{ label: "distance travelled", value: `${cyclingDistancePercentage}%` },
+					{ label: "distance travelled", value: `${walkingDistancePercentage}%` },
+				],
+				explanation: `Walking and cycling trips as a percentage of total distance covered in 2023.`
 			},
 			{
-				title: "Total Trips",
+				title: "Daily Trips",
 				stats: [
-					{ label: "cycling trips", value: cyclingValue.toLocaleString() },
-					{ label: "walking trips", value: walkingValue.toLocaleString() },
-
+					{ label: "trips", value: Math.round(cyclingTrips/365).toLocaleString() },
+					{ label: "trips", value: Math.round(walkingTrips/365).toLocaleString() },
 				],
-				explanation: selectedArea 
-					? `The number of walking and cycling trips made in ${displayName}.`
-					: "The total number of walking and cycling trips made across all of Dublin."
-			},
+				explanation: `The average walking and cycling trips a day in 2023.`
 
+			},
+			{
+				title: "CO2 saved",
+				stats: [
+					{ label: "tonnes CO2 saved", value: formatCO2(cyclingCO2Saved) },
+					{ label: "tonnes CO2 saved", value: formatCO2(walkingCO2Saved) },
+				],
+				explanation: "Calculated by multiplying active travel trips by the	 average automobile GPC emissions per trip."
+			},
+			
 		];
 	});
 
@@ -153,7 +225,7 @@
 				id="area-select" 
 				class="area-dropdown" 
 				value={selectedArea || 'null'} 
-				on:change={handleAreaChange}
+				onchange={handleAreaChange}
 			>
 				{#each availableAreas as area}
 				<option value={area.value || 'null'}>
@@ -172,7 +244,7 @@
 	<GoogleStacked 
 			title="Transportation Mode Distribution"
 			modeData={modeData}
-			explanation="The distribution of transportation modes for all trips."
+			explanation="The distribution of transportation modes for all trips across Google's Environmental Insights Platform for 2023."
 		/>
 
 

@@ -40,6 +40,7 @@
 			'walking': 'walking',
 			'cycling': 'cycling',
 			'automobile': 'automobile',
+			'public': 'public',
 			'bus': 'public',
 			'rail': 'public',
 			'tram': 'public'

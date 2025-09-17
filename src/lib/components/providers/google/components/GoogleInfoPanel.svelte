@@ -1,7 +1,8 @@
 <script lang="ts">
 	import DataCard from '$lib/components/shared/DataCard.svelte';
-	import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	import { getGooglePrimaryColor } from '$lib/utils/google/google-colors.js';
+	import GoogleStacked from './GoogleStacked.svelte';
+
 
 	// Props passed from parent
 	let { 
@@ -167,6 +168,14 @@
 	</div>
 
 	{#if totalStats}
+
+	<GoogleStacked 
+			title="Transportation Mode Distribution"
+			modeData={modeData}
+			explanation="The distribution of transportation modes for all trips."
+		/>
+
+
 	<div class="stats-grid">
 		{#each statsData as d}
 		<DataCard 
@@ -175,18 +184,13 @@
 			explanation={d.explanation}
 		/>
 		{/each}
+
+
+		
 	</div>
 {/if}
 
-	<div class="chart-section">
-		<h4>Transportation Mode Distribution</h4>
-		<StackedBarH 
-			data={modeData} 
-			height={50} 
-			showLabels={true} 
-			labelPosition="outside"
-		/>
-	</div>
+
 
 	</div>
 
@@ -296,7 +300,6 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 20px;
-		margin-top: 20px;
 	}
 
 	@media (max-width: 1300px) {

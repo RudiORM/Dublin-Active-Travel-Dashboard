@@ -28,7 +28,7 @@
 <div class="stacked-bar-container">
 	<div 
 		class="stacked-bar" 
-		style="height: {height}px; border-radius: {borderRadius}px;"
+		style="height: {height+15}px; border-radius: {borderRadius}px;"
 	>
 		{#each visibleData as segment}
 			<div 
@@ -41,11 +41,9 @@
 				"
 				title="{segment.label}: {segment.value} ({segment.percentage.toFixed(1)}%)"
 			>
-				{#if showLabels && labelPosition === 'inside' && segment.percentage > 8}
 					<span class="segment-label inside">
-						{segment.label}
+						{segment.percentage.toFixed(0)}%
 					</span>
-				{/if}
 			</div>
 		{/each}
 	</div>
@@ -86,18 +84,24 @@
 		align-items: center;
 		justify-content: center;
 		position: relative;
+		margin-bottom: 25px;
+
 	}
 
 
 
 	.segment-label.inside {
-		color: white;
-		font-size: 12px;
+		color: black;
+		font-size: 14px;
 		font-weight: 500;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 		padding: 0 4px;
+		bottom: 0px;
+		position: absolute;
+		z-index: 99;
+		background-color: #ffffffaa;
+		margin-bottom: -25px;
+		overflow: visible;
+
 	}
 
 	.labels-grid {
@@ -123,23 +127,54 @@
 	}
 
 	.label-text {
-		font-size: 12px;
+		font-size: 16px;
 		color: #374151;
 		font-weight: 400;
 	}
 
 	/* Responsive adjustments */
 	@media (max-width: 640px) {
-		.segment-label.inside {
-			font-size: 10px;
-		}
 
+		.segment-label.inside{
+			font-size: 14px;
+		}
+		
 		.label-text {
-			font-size: 11px;
+			font-size: 14px;
 		}
 
 		.labels-grid {
+			font-size: 14px;
 			gap: 6px;
 		}
 	}
+
+	@media (max-width: 1300px) {
+
+		.segment-label.inside{
+			font-size: 12px;
+			margin-bottom: -20px;
+		}
+
+		.label-text {
+			font-size: 12px;
+
+		}
+
+	}
+
+
+	@media (max-width: 950px) {
+
+.segment-label.inside{
+	font-size: 14px;
+	margin-bottom: -25px;
+}
+
+.label-text {
+	font-size: 14px;
+
+}
+
+}
 </style>

@@ -51,16 +51,20 @@
 
 <style>
 	.filter-bar {
+
+
 		position: fixed;
 		top: 40px;
 		left: calc(240px + 80px);
-		background: white;
-		padding: 15px 25px;
+		background: #EEF2F6;
+		padding: 30px;
 		border-radius: 8px;
 		z-index: 10;
 		display: flex;
 		align-items: center;
 		width: calc(100% - 600px - 240px - 160px);
+
+
 	}
 
 	.filter-group {
@@ -76,7 +80,6 @@
 		font-weight: 400;
 		padding-bottom: 2px;
 		color: #000;
-		background: white;
 		border-bottom: 1px solid #000;
 		cursor: pointer;
 		font-family: 'Inter', sans-serif;
@@ -86,7 +89,7 @@
 	}
 
 	.filter-select:hover {
-		background: #EBF1F7;
+		background: #white;
 	}
 
 	.filter-select:focus {

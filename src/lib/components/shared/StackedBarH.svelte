@@ -28,7 +28,7 @@
 <div class="stacked-bar-container">
 	<div 
 		class="stacked-bar" 
-		style="height: {height+15}px; border-radius: {borderRadius}px;"
+		style="height: {height+15}px; border-radius: {borderRadius}px; margin: 0 15px; width: calc(100% - 30px);"
 	>
 		{#each visibleData as segment}
 			<div 
@@ -71,12 +71,12 @@
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
+		
 	}
 
 	.stacked-bar {
-		width: 100%;
 		display: flex;
-		overflow: hidden;
+		overflow: visible;
 	}
 
 	.bar-segment {
@@ -94,13 +94,13 @@
 		color: black;
 		font-size: 14px;
 		font-weight: 500;
-		padding: 0 4px;
+		padding: 0 8px;
 		bottom: 0px;
 		position: absolute;
 		background-color: #ffffffaa;
 		margin-bottom: -25px;
 		overflow: visible;
-
+		white-space: nowrap;
 	}
 
 	.labels-grid {

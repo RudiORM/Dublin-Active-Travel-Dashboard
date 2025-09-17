@@ -211,10 +211,7 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 	
 
-		.info-button.expanded {
-			margin-top: 149px;
-			height: 209px;
-		}
+	
 
 		
 	}
@@ -228,10 +225,7 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 		
 
-		.info-button.expanded {
-			margin-top: 140px;
-			height: 200px;
-		}
+	
 
 	
 	}
@@ -247,10 +241,6 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 		
 
-		.info-button.expanded {
-			margin-top: 120px;
-			height: 180px;
-		}
 
 		
 	}

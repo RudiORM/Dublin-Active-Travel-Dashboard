@@ -51,8 +51,6 @@
 
 <style>
 	.filter-bar {
-
-
 		position: fixed;
 		top: 40px;
 		left: calc(240px + 80px);
@@ -63,8 +61,6 @@
 		display: flex;
 		align-items: center;
 		width: calc(100% - 600px - 240px - 160px);
-
-
 	}
 
 	.filter-group {
@@ -80,6 +76,7 @@
 		font-weight: 400;
 		padding-bottom: 2px;
 		color: #000;
+		background: #EEF2F6;
 		border-bottom: 1px solid #000;
 		cursor: pointer;
 		font-family: 'Inter', sans-serif;
@@ -89,7 +86,7 @@
 	}
 
 	.filter-select:hover {
-		background: #white;
+		background: #fff;
 	}
 
 	.filter-select:focus {
@@ -98,8 +95,7 @@
 	}
 	
 	.filter-label {
-		color: #666;
-		font-size: 16px;
+		font-size: 22px;
 	}
 
 	/* Responsive Styles */
@@ -111,21 +107,28 @@
 
 	@media (max-width: 950px) {
 		.filter-bar {
-			width: calc(100% - 40px);
-			left: 20px;
-			min-height: 40px;
-			bottom: calc(40% + 110px);
-			border-radius: 8px 8px 0px 0px;
+			width: calc(100% - 40px - 240px - 20px);
+			left: 280px;
+			bottom: calc(40% + 20px);
 			top: auto;
-			font-size: 14px;
-		}
-
-		.filter-label {
-			font-size: 14px;
+			border-radius: 8px 8px 8px 8px;
+			padding: 20px 20px;
 		}
 
 		.filter-select {
 			font-size: 16px;
+		}
+
+		.filter-label {
+			font-size: 16px;
+		}
+	}
+
+	@media (max-width: 650px) {
+		.filter-bar {
+			width: calc(100% - 40px);
+			left: 20px;
+			min-width: 300px;
 		}
 	}
 </style>

@@ -105,8 +105,7 @@
 
 	.labels-grid {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
 		gap: 8px;
 		margin-top: 8px;
 		width: 100%;
@@ -159,6 +158,14 @@
 			font-size: 12px;
 
 		}
+
+		.labels-grid {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		gap: 6px;
+	
+	}
+
 
 		
 

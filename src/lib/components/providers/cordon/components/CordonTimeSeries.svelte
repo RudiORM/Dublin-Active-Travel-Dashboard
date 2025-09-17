@@ -1,13 +1,12 @@
 <script>
 
-import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
+import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.svelte';
 
 	// Props
 	let {
 		title,
-		stats = [],
 		explanation,
-		modeData,
+		timeSeriesData,
 	} = $props();
 
 	let showExplanation = $state(false);
@@ -47,18 +46,15 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	<div class="stats-section-header">
 		<h4 class="title">{title}</h4>
 	</div>
-	<div class="stat-grid">
 
 		<div class="chart-section">
-			<StackedBarH 
-				data={modeData} 
-				height={50} 
-				showLabels={true} 
-				labelPosition="outside"
-			/>
+			<StackedBarTimeSeries 
+			data={timeSeriesData}
+			showLabels={true}
+			showYearLabels={true}
+		/>
 		</div>
 		
-	</div>
 </div>
 
 <style>
@@ -74,8 +70,10 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	}
 
 	.chart-section{
-		padding: 20px;
-		height: 160px;
+		height: calc(100svh - 700px);
+		padding-left: 20px;
+		padding-right: 20px;
+		min-height: 160px;
 	}
 
 	.stats-section {
@@ -126,8 +124,8 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 	.info-button.expanded {
 		width: 560px;	
-		margin-top: 160px;
-		height: 220px;
+		margin-top: 180px;
+		height: 240px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
@@ -246,7 +244,12 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	@media (max-width: 1300px){
 		.info-button.expanded {
 			width: 270px;	
-	}}
+	}
+
+
+
+}
+	
 
 
 

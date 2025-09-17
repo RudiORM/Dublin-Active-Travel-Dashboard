@@ -1,7 +1,9 @@
 <script lang="ts">
 	import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
-	import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.svelte';
 	import { cordonColorSchemes } from '$lib/utils/cordon/cordon-colors.js';
+	import CordonStacked from './CordonStacked.svelte';
+	import CordonTimeSeries from './CordonTimeSeries.svelte';
+	import DataCard from '$lib/components/shared/DataCard.svelte';
 
 	// Props passed from parent
 	let { 
@@ -128,6 +130,59 @@
 		}
 	});
 
+	// Prepare the DataCard stats
+	const statsData = $derived.by(() => {
+		let walking2022, cycling2022, walking2023, cycling2023;
+
+		if (selectedLocation) {
+			// Get data for selected location
+			walking2022 = reshapedData.byLocation[selectedLocation]?.data.walking?.['2022']?.raw || 0;
+			cycling2022 = reshapedData.byLocation[selectedLocation]?.data.cycling?.['2022']?.raw || 0;
+			walking2023 = reshapedData.byLocation[selectedLocation]?.data.walking?.['2023']?.raw || 0;
+			cycling2023 = reshapedData.byLocation[selectedLocation]?.data.cycling?.['2023']?.raw || 0;
+		} else {
+			// Get totals for all locations
+			walking2022 = reshapedData.totals.walking?.['2022'] || 0;
+			cycling2022 = reshapedData.totals.cycling?.['2022'] || 0;
+			walking2023 = reshapedData.totals.walking?.['2023'] || 0;
+			cycling2023 = reshapedData.totals.cycling?.['2023'] || 0;
+		}
+
+		// Calculate percentage changes
+		const walkingChange = walking2022 > 0 
+			? ((walking2023 - walking2022) / walking2022 * 100).toFixed(1)
+			: '0';
+		const cyclingChange = cycling2022 > 0 
+			? ((cycling2023 - cycling2022) / cycling2022 * 100).toFixed(1)
+			: '0';
+
+		// Format with + or - sign
+		const formatChange = (value: string) => {
+			const num = parseFloat(value);
+			if (num > 0) return `+${value}%`;
+			return `${value}%`;
+		};
+
+		return [
+			{
+				title: "Counts on 02/11/2023",
+				stats: [
+					{ label: "cycling counts", value: cycling2023.toLocaleString() },
+					{ label: "walking counts", value: walking2023.toLocaleString() },
+				],
+				explanation: "The total number of cyclists and pedestrians counted at cordon locations in 2022."
+			},
+			{
+				title: "Change from 2022 to 2023",
+				stats: [
+					{ label: "change", value: formatChange(cyclingChange) },
+					{ label: "change", value: formatChange(walkingChange) },
+				],
+				explanation: "The percentage change in cycling and walking counts from 2022 to 2023."
+			}
+		];
+	});
+
 	// Get time series data using yearly totals for all modes
 	const timeSeriesData = $derived.by(() => {
 		if (!reshapedData || !reshapedData.totals) return [];
@@ -174,36 +229,28 @@
 	</div>
 
 	{#if currentStats && modeData.length > 0}
-		<div class="stats-section">
-			<h4>Transportation Mode Distribution</h4>
-			<StackedBarH 
-				data={modeData}
-				height={50}
-				showLabels={true}
-				labelPosition="outside"
-			/>
-		</div>
+	<CordonStacked 
+		title="Transportation Mode Distribution"
+		modeData={modeData}
+		explanation="The distribution of transportation modes for all trips across Google's Environmental Insights Platform for 2023."
+	/>
 
-		<div class="current-selection">
-			<div class="stat-card">
-				<div class="stat-value">{currentStats.raw.toLocaleString()}</div>
-				<div class="stat-label">
-					{selectedMode.charAt(0).toUpperCase() + selectedMode.slice(1)} 
-					counts in {selectedYear}
-				</div>
-			</div>
-		</div>
+	<div class="stats-grid">
+		{#each statsData as d}
+		<DataCard 
+			title={d.title}
+			stats={d.stats}
+			explanation={d.explanation}
+		/>
+		{/each}
+	</div>
 
 		{#if timeSeriesData.length > 0}
-			<div class="time-series-section">
-				<h4>Time Series - All Cordon Locations Combined (2006-2023)</h4>
-				<StackedBarTimeSeries 
-					data={timeSeriesData}
-					height={250}
-					showLabels={true}
-					showYearLabels={true}
-				/>
-			</div>
+			<CordonTimeSeries 
+				title="Time Series - All Cordon Locations"
+				timeSeriesData={timeSeriesData}
+				explanation="The distribution of transportation modes for all trips across Google's Environmental Insights Platform for 2023."
+			/>
 		{/if}
 	{/if}
 </div>
@@ -234,8 +281,8 @@
 		font-size: 22px;
 		font-weight: 400;
 		padding-bottom: 2px;
+		background: #EEF2F6;
 		color: #000;
-		background: white;
 		border: 0px solid #e5e5e5;
 		border-radius: 0px;
 		cursor: pointer;
@@ -246,7 +293,7 @@
 	}
 
 	.location-dropdown:hover {
-		border-color: #d1d5db;
+		border-color: white;
 	}
 
 	.location-dropdown:focus {
@@ -259,80 +306,53 @@
 		font-size: 16px;
 	}
 
-	.stats-section {
-		background: #f9fafb;
-		padding: 20px;
-		border-radius: 8px;
-	}
-
-	.stats-section h4 {
-		margin: 0 0 15px 0;
-		font-size: 16px;
-		font-weight: 500;
-		color: #374151;
-	}
-
-	.time-series-section {
-		background: #f9fafb;
-		padding: 20px;
-		border-radius: 8px;
-	}
-
-	.time-series-section h4 {
-		margin: 0 0 15px 0;
-		font-size: 16px;
-		font-weight: 500;
-		color: #374151;
-	}
-
-	.current-selection {
-		display: flex;
-		gap: 15px;
-	}
-
-	.stat-card {
-		background: white;
-		padding: 20px;
-		border-radius: 8px;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-		flex: 1;
-		text-align: center;
-	}
-
-	.stat-value {
-		font-size: 32px;
-		font-weight: 600;
-		color: #111827;
-		margin-bottom: 8px;
-	}
-
-	.stat-label {
-		font-size: 14px;
-		color: #6b7280;
-		font-weight: 400;
+	.stats-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
 	}
 
 	@media (max-width: 1300px) {
+		.stats-grid {
+			grid-template-columns: 1fr;
+		}
+
 		.location-dropdown {
 			max-width: 250px;
 		}
 	}
 
 	@media (max-width: 950px) {
-		.stats-section {
-			padding: 15px;
+		.stats-grid {
+			grid-template-columns: 1fr 1fr;
 		}
 
-		.time-series-section {
-			padding: 15px;
+		.location-dropdown {
+			max-width: 100%;
 		}
 
-		.stat-card {
-			padding: 15px;
+		.info-panel {
+			gap: 10px;
 		}
 
-		.stat-value {
-			font-size: 24px;
+		.location-label {
+			font-size: 16px;
+		}
+
+		.location-dropdown {
+			font-size: 16px;
+		}
+	}
+
+	@media (max-width: 850px) {
+		.stats-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 620px) {
+		.stats-grid {
+			margin-top: 10px;
 		}
 	}
 </style>

@@ -256,8 +256,6 @@
 			explanation={d.explanation}
 		/>
 		{/each}
-
-
 		
 	</div>
 {/if}

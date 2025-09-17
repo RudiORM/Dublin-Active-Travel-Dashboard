@@ -1,7 +1,7 @@
 <script lang="ts">
 	import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.svelte';
-	import { getCordonPrimaryColor } from '$lib/utils/cordon/cordon-colors.js';
+	import { cordonColorSchemes } from '$lib/utils/cordon/cordon-colors.js';
 
 	// Props passed from parent
 	let { 
@@ -55,10 +55,18 @@
 	const modeData = $derived.by(() => {
 		if (!reshapedData) return [];
 
-		const modes = ['walking', 'cycling', 'cars', 'motorcycles', 'taxis', 'hgvs', 'bus'];
-		const data: Array<{label: string, value: number, color: string}> = [];
+		// Individual modes from data
+		const individualModes = ['walking', 'cycling', 'cars', 'motorcycles', 'taxis', 'hgvs', 'bus'];
+		
+		// Group into categories
+		const categories = {
+			walking: 0,
+			cycling: 0,
+			automobile: 0,
+			public: 0
+		};
 
-		modes.forEach(mode => {
+		individualModes.forEach(mode => {
 			let value = 0;
 			
 			if (selectedLocation) {
@@ -69,11 +77,35 @@
 				value = reshapedData.totals[mode]?.[selectedYear] || 0;
 			}
 
+			// Map to categories according to your mapping
+			if (mode === 'walking') {
+				categories.walking += value;
+			} else if (mode === 'cycling') {
+				categories.cycling += value;
+			} else if (['cars', 'motorcycles', 'taxis', 'hgvs'].includes(mode)) {
+				categories.automobile += value;
+			} else if (mode === 'bus') {
+				categories.public += value;
+			}
+		});
+
+		// Create data array for chart
+		const data: Array<{label: string, value: number, color: string}> = [];
+		
+		Object.entries(categories).forEach(([category, value]) => {
 			if (value > 0) {
+				let label = category.charAt(0).toUpperCase() + category.slice(1);
+				if (category === 'public') label = 'Public Transport';
+				if (category === 'automobile') label = 'Automobile';
+				
+				// Get the primary color directly from the color scheme
+				const colors = cordonColorSchemes[category as keyof typeof cordonColorSchemes] || cordonColorSchemes.walking;
+				const primaryColor = colors[colors.length - 1]; // Last (darkest) color
+				
 				data.push({
-					label: mode.charAt(0).toUpperCase() + mode.slice(1),
+					label: label,
 					value: value,
-					color: getCordonPrimaryColor(mode)
+					color: primaryColor
 				});
 			}
 		});

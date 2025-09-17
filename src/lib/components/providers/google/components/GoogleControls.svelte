@@ -27,5 +27,6 @@
 		selectedMetric={googleContext.selectedMetric}
 		selectedScope={googleContext.selectedScope}
 		selectedArea={googleContext.selectedArea}
+		{googleContext}
 	/>
 </DataBox>

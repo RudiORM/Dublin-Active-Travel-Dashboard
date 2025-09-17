@@ -11,9 +11,9 @@
 		selectedMetric,
 		selectedScope,
 		selectedArea,
-		censusContext  // Add this to match the first file's pattern
+		googleContext
 	} = $props();
-
+	
 	// Add currentStats derived value to match the pattern from the first file
 	const currentStats = $derived(
 		reshapedData.byArea || null
@@ -36,15 +36,15 @@
 		];
 	});
 
-	// Handle dropdown change - this was missing!
+	// Handle dropdown change
 	function handleAreaChange(event: Event) {
 		const target = event.target as HTMLSelectElement;
 		const newValue = target.value === 'null' ? null : target.value;
-		// Update through censusContext if available, otherwise update the prop directly
-		if (censusContext) {
-			censusContext.selectedArea = newValue;
+		// Update through googleContext
+		if (googleContext) {
+			googleContext.selectedArea = newValue;
 			// Update the map visualization to highlight the selected area
-			censusContext.updateVisualization?.();
+			googleContext.updateVisualization?.();
 		}
 	}
 
@@ -220,7 +220,7 @@
 <div class="info-panel">
 	<div class="panel-header">
 		<div class="header-inline">
-			<span class="area-label">Census statistics for</span>
+			<span class="area-label">Google mobility data for</span>
 			<select 
 				id="area-select" 
 				class="area-dropdown" 

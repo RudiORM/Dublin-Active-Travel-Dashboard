@@ -5,39 +5,39 @@
 // Color schemes for different modes
 export const cordonColorSchemes = {
 	cycling: [
-		'#DEECFD',
-		'#C3D6ED',
-		'#A8BFDC',
-		'#8CA8CB',
-		'#6E90B9',
-		'#5076A6'
+		'#DBF1FA',
+		'#C1E7F6',
+		'#A6DCF3',
+		'#89D1F1',
+		'#67C6EE',
+		'#33BBEE',	
 	],
 			
 	walking: [
-		'#EFE3E5',
-		'#EFCDD3',
-		'#EEB6C0',
-		'#EA9EAB',
-		'#E68693',
-		'#DE6E79'
+		'#F0D7D1',
+		'#F3B9AB',
+		'#F39984',
+		'#EB7A5D',
+		'#DF5839',
+		'#CC3311'
 	],
 
 	automobile: [
-		'#EAE8DD',
-		'#E1E0C3',
-		'#DAD8AA',
-		'#D3CF8F',
-		'#CEC674',
-		'#C9BC59'
+	'#D2EAE7',
+				'#B5DAD6',
+				'#96CBC4',
+				'#74BBB0',
+				'#4EAA9D',
+				'#009988'
 	],
 					
 	public: [
-		'#F5F5F5',
-		'#E9E9E9',
-		'#DFDEDE',
-		'#D3D2D2',
-		'#C6C6C6',
-		'#BBBBBB'
+		'#F6EED9',
+						'#F0E1B9',
+						'#EBD599',
+						'#E7C779',
+						'#E1B958',
+						'#DDAA33'
 	]
 };
 

@@ -71,9 +71,15 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 
 	.chart-section{
 		height: calc(100svh - 700px);
-		padding-left: 20px;
-		padding-right: 20px;
 		min-height: 160px;
+		padding: 10px;
+		padding-left: 40px;
+		padding-right: 40px;
+		max-height: 280px;
+	}
+
+	h4{
+		font-weight: 400;
 	}
 
 	.stats-section {
@@ -124,8 +130,7 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 
 	.info-button.expanded {
 		width: 560px;	
-		margin-top: 180px;
-		height: 240px;
+		height: calc(100svh - 640px);
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
@@ -137,6 +142,11 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		border: 0px solid white;
 		overflow-y: scroll;
 		padding: 0px;
+		max-height: 340px;
+		transform: translateY(50%);
+		margin-top: -60px;
+		min-height: 220px;
+
 
 
 	}

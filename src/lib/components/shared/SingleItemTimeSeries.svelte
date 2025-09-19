@@ -1,96 +1,80 @@
-<script lang="ts">
-	import { getCordonPrimaryColor } from '$lib/utils/cordon/cordon-colors.js';
-
+<script>
 	// Props
 	let { 
-		data = [],  // Array of { year: string, values: { [mode]: number } }
+		data = [],  // Array of { date: string, value: number } or { x: number, value: number }
+		color = 'black', // Single color for the bars
 		showLabels = true,
-		showYearLabels = true,
+		height = 200,
+		niceMax = 75000,
+		date = true, // If true, treat x-axis as dates; if false, treat as numbers
+
 	} = $props();
 
-	interface YearData {
-		year: string;
-		values: Record<string, number>;
-	}
-
-	interface ColorMap {
-		[key: string]: string;
-	}
-
-	// Map individual modes to categories
-	const modeToCategory: Record<string, string> = {
-		walking: 'walking',
-		pedestrians: 'walking',
-		cycling: 'cycling',
-		cyclists: 'cycling',
-		cars: 'automobile',
-		'cars / lvgs': 'automobile',
-		motorcycles: 'automobile',
-		taxis: 'automobile',
-		hgvs: 'automobile',
-		bus: 'public'
-	};
-
-	// Category colors
-	const categoryColors: ColorMap = {
-		walking: getCordonPrimaryColor('walking'),
-		cycling: getCordonPrimaryColor('cycling'),
-		automobile: getCordonPrimaryColor('cars'),
-		public: getCordonPrimaryColor('bus')
-	};
-
-	// Process data for each year, grouping by category
+	// Process data and extract values
 	const processedData = $derived.by(() => {
-		return data.map((yearData: YearData) => {
-			const yearValues = yearData.values || {};
+		
+		const processed = data.map((item, index) => {
+			let displayLabel = '';
+			let xValue = '';
 			
-			// Group values by category
-			const categoryTotals: Record<string, number> = {
-				walking: 0,
-				cycling: 0,
-				automobile: 0,
-				public: 0
-			};
+			if (date) {
+				// Date mode - only show labels for start, middle, and end
+				if (item.date) {
+					xValue = item.date;
+					const parts = item.date.split('/');
+					
+					// Determine which labels to show
+					const dataLength = data.length;
+					const middleIndex = Math.floor(dataLength / 2);
+					
+					if (index === 0 || index === middleIndex || index === dataLength - 1) {
+						if (parts.length === 3) {
+							const day = parts[0];
+							const month = parts[1];
+							const year = parts[2].slice(-2); // Get last 2 digits of year
+							// Format as DD/MM/YY for better readability
+							displayLabel = `${day}/${month}/${year}`;
+						} else {
+							// Fallback to original date if format is different
+							displayLabel = xValue;
+						}
+					}
+				}
+			} else {
+				// Numeric mode - use x value directly
+				xValue = item.x || index;
+				// Show every nth label to avoid crowding (adjust as needed)
+				if (index % Math.ceil(data.length / 10) === 0 || index === data.length - 1) {
+					displayLabel = xValue.toString();
+				}
+			}
 			
-			// Sum up values by category
-			Object.entries(yearValues).forEach(([mode, value]) => {
-				const category = modeToCategory[mode.toLowerCase()] || 'automobile';
-				categoryTotals[category] += value || 0;
-			});
-			
-			// Calculate total
-			const total = Object.values(categoryTotals).reduce((sum, val) => sum + val, 0);
-			
-			// Create segments for non-zero categories
-			const segments = Object.entries(categoryTotals)
-				.filter(([_, value]) => value > 0)
-				.map(([category, value]) => ({
-					mode: category,
-					value,
-					percentage: total > 0 ? (value / total) * 100 : 0,
-					color: categoryColors[category] || '#9CA3AF'
-				}));
-
 			return {
-				year: yearData.year,
-				total,
-				segments
+				xValue: xValue,
+				value: item.value || 0,
+				displayLabel: displayLabel
 			};
 		});
+		
+		return processed;
 	});
 
-	// Get maximum total for consistent scaling
-	const maxTotal = 110000
+	// Get maximum value for scaling
+	const maxValue = $derived.by(() => {
+		const values = processedData.map(d => d.value);
+		const max = Math.max(...values);
+		// Add 10% padding to prevent cutoff
+		return max * 1.1;
+	});
 
 	// Calculate nice round numbers for y-axis
 	const yAxisValues = $derived.by(() => {
-		// Add 5% padding to prevent cutoff
-		const paddedMax = maxTotal * 1.05;
+		if (maxValue === 0) return [0];
 		
 		// Round up to nearest nice number
-		const magnitude = Math.pow(10, Math.floor(Math.log10(paddedMax)));
-		const normalized = paddedMax / magnitude;
-		let niceMax = 120000;
+		const magnitude = Math.pow(10, Math.floor(Math.log10(maxValue)));
+		const normalized = maxValue / magnitude;
+		
 		
 		// Create 4 values (0, 1/3, 2/3, max)
 		return [
@@ -101,11 +85,13 @@
 		];
 	});
 
-	// Use the nice max for scaling (same as the highest y-axis value)
-	const scaleMax = $derived.by(() => yAxisValues[yAxisValues.length - 1]);
+	// Use the nice max for scaling
+	const scaleMax = $derived.by(() => {
+		return yAxisValues[yAxisValues.length - 1];
+	});
 
-	// Fixed chart width and bar calculations (matching first component)
-	const chartWidth = 560-80;
+	// Fixed chart width and bar calculations
+	const chartWidth = 560-60;
 	const yAxisPadding = 35; // Space for y-axis labels
 	const availableWidth = chartWidth - yAxisPadding;
 	
@@ -113,8 +99,14 @@
 	let barWidth = $derived.by(() => {
 		if (processedData.length === 0) return 20;
 		
-		// Using same calculation as first component
 		// We want gap = barWidth/8
+		// Total width = n * barWidth + (n-1) * gap
+		// Total width = n * barWidth + (n-1) * (barWidth/8)
+		// Total width = barWidth * (n + (n-1)/8)
+		// Total width = barWidth * ((8n + n - 1)/8)
+		// Total width = barWidth * ((9n - 1)/8)
+		// barWidth = (Total width * 8) / (9n - 1)
+		
 		const n = processedData.length;
 		const calculatedWidth = (availableWidth * 8) / (9 * n - 1);
 		
@@ -126,14 +118,14 @@
 	});
 
 	// Format numbers for y-axis labels
-	const formatNumber = (num: number) => {
+	const formatNumber = (num) => {
 		if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
 		if (num >= 1000) return `${(num / 1000).toFixed(0)}k`;
 		return num.toString();
 	};
 </script>
 
-<div class="time-series-container">
+<div class="time-series-container" style="height: {height}px;">
 	<div class="chart-wrapper">
 		<!-- Chart area -->
 		<div class="chart-container">
@@ -154,31 +146,23 @@
 				</div>
 
 				<div class="bars-wrapper" style="gap: {gapWidth}px;">
-					{#each processedData as yearData, index}
-						<div class="year-column">
+					{#each processedData as dataPoint, index}
+						{@const barHeight = scaleMax > 0 ? (dataPoint.value / scaleMax) * 100 : 0}
+						<div class="date-column">
 							<div 
-								class="stacked-bar-vertical" 
+								class="bar" 
 								style="
-									height: {(yearData.total / scaleMax) * 100}%;
+									height: {barHeight}%;
+									background-color: {color};
 									width: {barWidth}px;
 								"
+								title="{dataPoint.xValue}: {dataPoint.value.toLocaleString()}"
 							>
-								{#each yearData.segments as segment, segmentIndex}
-									<div 
-										class="bar-segment-vertical" 
-										style="
-											height: {segment.percentage}%; 
-											background-color: {segment.color};
-										"
-										title="{segment.mode}: {segment.value.toLocaleString()} ({segment.percentage.toFixed(1)}%)"
-									>
-									</div>
-								{/each}
 							</div>
 							
-							{#if showYearLabels}
-								<div class="year-label">
-									{yearData.year.slice(2, 4)}
+							{#if showLabels}
+								<div class="date-label">
+									{dataPoint.displayLabel}
 								</div>
 							{/if}
 						</div>
@@ -194,7 +178,6 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		height: 100%;
 		overflow: hidden;
 	}
 
@@ -217,7 +200,7 @@
 	}
 
 	.bars-container {
-		height: calc(100% - 30px); /* Account for year labels */
+		height: calc(100% - 30px); /* Account for date labels */
 		box-sizing: border-box;
 		position: relative;
 		padding-left: 35px; /* Space for y-axis labels */
@@ -266,7 +249,7 @@
 		margin-bottom: 10px;
 	}
 
-	.year-column {
+	.date-column {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -275,23 +258,20 @@
 		flex-shrink: 0;
 	}
 
-	.stacked-bar-vertical {
-		display: flex;
-		flex-direction: column-reverse;
-		overflow: hidden;
-	}
-
-	.bar-segment-vertical {
-		width: 100%;
-		position: relative;
+	.bar {
+		min-height: 2px; /* Minimum height for very small values */
 		transition: opacity 0.2s ease;
+		border-radius: 2px 2px 0 0;
+		opacity: 1;
+		z-index: 2;
 	}
 
-	.bar-segment-vertical:hover {
-		opacity: 0.8;
+	.bar:hover {
+		opacity: 1;
+		cursor: pointer;
 	}
 
-	.year-label {
+	.date-label {
 		font-size: 12px;
 		color: #6B7280;
 		font-weight: 500;
@@ -305,7 +285,7 @@
 
 	/* Simplified responsive adjustments */
 	@media (max-width: 640px) {
-		.year-label {
+		.date-label {
 			font-size: 10px;
 		}
 	}

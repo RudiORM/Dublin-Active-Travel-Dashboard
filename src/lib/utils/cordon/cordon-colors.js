@@ -110,3 +110,11 @@ export function getMarkerColor(mode, value, maxValue) {
 	// Use primary color for now, could add intensity variation later
 	return getCordonPrimaryColor(mode);
 }
+
+/**
+ * Get the selection color (gold) for highlighting selected cordons
+ * @returns {string} Gold color for selected items
+ */
+export function getSelectionColor() {
+	return '#F8D463'; // Gold color for selection
+}

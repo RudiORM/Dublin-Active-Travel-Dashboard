@@ -1,51 +1,33 @@
 <script>
 	// Props
 	let { 
-		selectedMode = $bindable('walking'),
-		selectedYear = $bindable('2023'),
+		selectedRoute = $bindable('Clontarf to City Center'),
 		onFilterChange = () => {}
 	} = $props();
 
-	// Options for each filter
-	const modeOptions = [
-		{ value: 'walking', label: 'Walking' },
-		{ value: 'cycling', label: 'Cycling' },
-		{ value: 'cars', label: 'Cars' },
-		{ value: 'motorcycles', label: 'Motorcycles' },
-		{ value: 'taxis', label: 'Taxis' },
-		{ value: 'hgvs', label: 'HGVs' },
-		{ value: 'bus', label: 'Bus' }
+	// Options for route filter
+	const routeOptions = [
+		{ value: 'Clontarf to City Center', label: 'Clontarf to City Center' },
+		{ value: 'Dun Laoghaire Coastal', label: 'Dun Laoghaire Coastal' },
+		{ value: 'Dodder Greenway', label: 'Dodder Greenway' },
+		{ value: 'Portmarnock Greenway', label: 'Portmarnock Greenway' }
 	];
 
-	const yearOptions = [
-		{ value: '2023', label: '2023' },
-		{ value: '2022', label: '2022' }
-	];
-
-	function cycleMode() {
-		const currentIndex = modeOptions.findIndex(opt => opt.value === selectedMode);
-		const nextIndex = (currentIndex + 1) % modeOptions.length;
-		selectedMode = modeOptions[nextIndex].value;
+	function cycleRoute() {
+		const currentIndex = routeOptions.findIndex(opt => opt.value === selectedRoute);
+		const nextIndex = (currentIndex + 1) % routeOptions.length;
+		selectedRoute = routeOptions[nextIndex].value;
 		onFilterChange();
 	}
 
-	function cycleYear() {
-		const currentIndex = yearOptions.findIndex(opt => opt.value === selectedYear);
-		const nextIndex = (currentIndex + 1) % yearOptions.length;
-		selectedYear = yearOptions[nextIndex].value;
-		onFilterChange();
-	}
-
-	// Get display labels
-	const modeLabel = $derived(modeOptions.find(opt => opt.value === selectedMode)?.label || selectedMode);
-	const yearLabel = $derived(yearOptions.find(opt => opt.value === selectedYear)?.label || selectedYear);
+	// Get display label
+	const routeLabel = $derived(routeOptions.find(opt => opt.value === selectedRoute)?.label || selectedRoute);
 </script>
 
 <div class="filter-bar">
 	<div class="filter-group">
-		<span class="filter-select" onclick={cycleMode}>{modeLabel}</span>
-		<span class="filter-label">counts in</span>
-		<span class="filter-select" onclick={cycleYear}>{yearLabel}</span>
+		<button class="filter-select" onclick={cycleRoute}>{routeLabel}</button>
+		<span class="filter-label">route data</span>
 	</div>
 </div>
 
@@ -78,6 +60,7 @@
 		margin-top: 3px;
 		color: #000;
 		background: #EEF2F6;
+		border: none;
 		border-bottom: 1px solid #000;
 		cursor: pointer;
 		font-family: 'Inter', sans-serif;

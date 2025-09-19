@@ -220,7 +220,7 @@
 <div class="info-panel">
 	<div class="panel-header">
 		<div class="header-inline">
-			<span class="area-label">Google mobility data for</span>
+			<span class="area-label">Mobility data for</span>
 			<select 
 				id="area-select" 
 				class="area-dropdown" 
@@ -328,6 +328,8 @@
 		flex-wrap: wrap;
 	}
 
+
+
 	.area-label {
 		font-size: 22px;
 		font-weight: 400;
@@ -339,6 +341,8 @@
 		font-size: 22px;
 		font-weight: 400;
 		padding-bottom: 2px;
+		margin-top: 3px;
+
 		color: #000;
 		background: #EEF2F6;
 		border: 0px solid #e5e5e5;

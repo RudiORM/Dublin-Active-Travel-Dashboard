@@ -7,6 +7,15 @@
 	import GoogleControls from '$lib/components/providers/google/components/GoogleControls.svelte';
 	import CordonProvider from '$lib/components/providers/cordon/CordonProvider.svelte';
 	import CordonControls from '$lib/components/providers/cordon/components/CordonControls.svelte';
+	import StravaProvider from '$lib/components/providers/strava/StravaProvider.svelte';
+	import StravaControls from '$lib/components/providers/strava/components/StravaControls.svelte';
+	import EcoCounterProvider from '$lib/components/providers/eco-counter/EcoCounterProvider.svelte';
+	import EcoCounterControls from '$lib/components/providers/eco-counter/components/EcoCounterControls.svelte';
+	import VivacityCounterProvider from '$lib/components/providers/vivacity/VivacityCounterProvider.svelte';
+	import VivacityCounterControls from '$lib/components/providers/vivacity/components/VivacityCounterControls.svelte';
+
+	// Get server-side data
+	let { data } = $props();
 
 
 	import { showOnlyDataSource } from '$lib/utils/map/layer-manager.js';
@@ -22,8 +31,8 @@
 	function handleProviderInitialized() {
 		providersInitialized++;
 		
-		// Once all providers are initialized, set correct layer visibility
-		if (providersInitialized >= 3 && map) {
+		// Set correct layer visibility after each provider initializes
+		if (map) {
 			showOnlyDataSource(map, selectedDataSource);
 		}
 	}
@@ -33,9 +42,12 @@
 		
 		// Show only the layers for the selected data source
 		if (map) {
-			// Handle the new 'canal' data source by treating it like census for now
+			// Handle the new data sources
 			let dataSourceForMap = selectedDataSource;
 			if (selectedDataSource === 'cordon') dataSourceForMap = 'cordon';
+			if (selectedDataSource === 'strava') dataSourceForMap = 'strava';
+			if (selectedDataSource === 'eco-counter') dataSourceForMap = 'eco-counter';
+			if (selectedDataSource === 'vivacity-counter') dataSourceForMap = 'vivacity-counter';
 			showOnlyDataSource(map, dataSourceForMap);
 		}
 	}
@@ -71,6 +83,30 @@
 				{/if}
 			{/snippet}
 		</CordonProvider>
+
+		<StravaProvider {map} onInitialized={handleProviderInitialized}>
+			{#snippet children(stravaContext: any)}
+				{#if selectedDataSource === 'strava'}
+					<StravaControls />
+				{/if}
+			{/snippet}
+		</StravaProvider>
+
+		<EcoCounterProvider {map} onInitialized={handleProviderInitialized} serverData={data}>
+			{#snippet children(ecoCounterContext: any)}
+				{#if selectedDataSource === 'eco-counter'}
+					<EcoCounterControls />
+				{/if}
+			{/snippet}
+		</EcoCounterProvider>
+
+		<VivacityCounterProvider {map} onInitialized={handleProviderInitialized} serverData={data}>
+			{#snippet children(vivacityCounterContext: any)}
+				{#if selectedDataSource === 'vivacity-counter'}
+					<VivacityCounterControls />
+				{/if}
+			{/snippet}
+		</VivacityCounterProvider>
 	{/if}
 </div>
 

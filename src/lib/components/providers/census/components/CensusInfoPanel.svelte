@@ -76,7 +76,7 @@
 				explanation: "The percentage of the working population who reported travelling to work, school or college by bicycle or on foot."
 			},
 			{
-				title: "Number of commuters",
+				title: "Total number of commuters",
 				stats: [
 					{ label: "commuters", value: `${cyclingData.raw.toLocaleString()}` },
 					{ label: "commuters", value: `${walkingData.raw.toLocaleString()}` },
@@ -186,6 +186,7 @@
 		font-size: 22px;
 		font-weight: 400;
 		padding-bottom: 2px;
+		margin-top: 3px;
 		color: #000;
 		background: #EEF2F6;
 		border: 0px solid #e5e5e5;

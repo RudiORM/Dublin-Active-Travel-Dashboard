@@ -1,25 +1,14 @@
 <script>
 	// Props
 	let { 
-		selectedMode = $bindable('walking'),
-		selectedYear = $bindable('2023'),
+		selectedMode = $bindable('pedestrian'),
 		onFilterChange = () => {}
 	} = $props();
 
-	// Options for each filter
+	// Options for travel mode filter
 	const modeOptions = [
-		{ value: 'walking', label: 'Walking' },
-		{ value: 'cycling', label: 'Cycling' },
-		{ value: 'cars', label: 'Cars' },
-		{ value: 'motorcycles', label: 'Motorcycles' },
-		{ value: 'taxis', label: 'Taxis' },
-		{ value: 'hgvs', label: 'HGVs' },
-		{ value: 'bus', label: 'Bus' }
-	];
-
-	const yearOptions = [
-		{ value: '2023', label: '2023' },
-		{ value: '2022', label: '2022' }
+		{ value: 'pedestrian', label: 'Walking' },
+		{ value: 'bike', label: 'Cycling' }
 	];
 
 	function cycleMode() {
@@ -29,23 +18,15 @@
 		onFilterChange();
 	}
 
-	function cycleYear() {
-		const currentIndex = yearOptions.findIndex(opt => opt.value === selectedYear);
-		const nextIndex = (currentIndex + 1) % yearOptions.length;
-		selectedYear = yearOptions[nextIndex].value;
-		onFilterChange();
-	}
-
-	// Get display labels
+	// Get display label
 	const modeLabel = $derived(modeOptions.find(opt => opt.value === selectedMode)?.label || selectedMode);
-	const yearLabel = $derived(yearOptions.find(opt => opt.value === selectedYear)?.label || selectedYear);
 </script>
 
 <div class="filter-bar">
 	<div class="filter-group">
+		<span class="filter-label">Show</span>
 		<span class="filter-select" onclick={cycleMode}>{modeLabel}</span>
-		<span class="filter-label">counts in</span>
-		<span class="filter-select" onclick={cycleYear}>{yearLabel}</span>
+		<span class="filter-label">counters</span>
 	</div>
 </div>
 

@@ -31,11 +31,16 @@
 		},
 		location: {
 			label: 'Location',
-			items: []
+			items: [
+				{ id: 'eco-counter', label: 'Eco-Counter' },
+				{ id: 'vivacity-counter', label: 'Vivacity' }
+			]
 		},
 		route: {
 			label: 'Route',
-			items: []
+			items: [
+				{ id: 'strava', label: 'Strava' }
+			]
 		}
 	};
 
@@ -232,7 +237,7 @@
 		top: 40px;
 		left: 40px;
 		background: #EEF2F6;
-		padding: 30px;
+		padding: 20px;
 		border-radius: 8px;
 		z-index: 10;
 		width: 240px;
@@ -248,7 +253,6 @@
 		top: 40px;
 		left: 40px;
 		background: #FFD249;
-		padding: 30px;
 		border-radius: 8px;
 		z-index: 10;
 		width: 240px;
@@ -256,11 +260,11 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-        text-align: center;
-        padding: 10px;
+        text-align: left;
+        padding: 20px;
         display: flex;
-		align-items: center;
-		justify-content: center;
+		font-size: 16px;
+		line-height: 22px;	
 	}
 
 
@@ -290,7 +294,7 @@
 		bottom: 40px;
 		left: 40px;
 		background: #EEF2F6;
-		padding: 30px;
+		padding: 20px;
 		border-radius: 8px;
 		z-index: 10;
 		width: 240px;
@@ -375,7 +379,7 @@
 
 	.item-button {
 		width: 100%;
-		padding: 10px 30px;
+		padding: 10px 20px;
 		background: transparent;
 		border: none;
 		text-align: left;
@@ -443,6 +447,19 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
+
+	
+		.logo{
+            max-width: 180px;
+            position: relative;
+            margin: auto;
+            left: 50%;
+            transform: translateX(-50%);
+			margin-top: 10px;
+       
+        }
+
+	
 
 	.modal-close {
 		position: absolute;

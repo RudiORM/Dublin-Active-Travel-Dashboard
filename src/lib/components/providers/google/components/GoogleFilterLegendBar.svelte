@@ -267,6 +267,7 @@
 		font-size: 22px;
 		font-weight: 400;
 		padding-bottom: 2px;
+		margin-top: 3px;
 		color: #000;
 		background: #EEF2F6;
 		border-bottom: 1px solid #000;
@@ -361,6 +362,7 @@
 		text-overflow: ellipsis;
 		width: 100%;
 		text-align: left;
+		margin-top:10px;
 	}
 
 	.legend-item:hover .color-rectangle {

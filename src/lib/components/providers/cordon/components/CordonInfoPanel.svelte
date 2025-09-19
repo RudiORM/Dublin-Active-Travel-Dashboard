@@ -165,12 +165,12 @@
 
 		return [
 			{
-				title: "Counts on 02/11/2023",
+				title: "Counts on a single day",
 				stats: [
 					{ label: "cycling counts", value: cycling2023.toLocaleString() },
 					{ label: "walking counts", value: walking2023.toLocaleString() },
 				],
-				explanation: "The total number of cyclists and pedestrians counted at cordon locations in 2022."
+				explanation: "The total number of cyclists and pedestrians counted at cordon locations at a single day in November 2023."
 			},
 			{
 				title: "Change from 2022 to 2023",
@@ -221,7 +221,7 @@
 				{#each availableLocations as location}
 					<option value={location.value || 'null'}>
 						{location.label}
-						{#if location.count > 0}({location.count}){/if}
+						
 					</option>
 				{/each}
 			</select>
@@ -232,7 +232,7 @@
 	<CordonStacked 
 		title="Transportation Mode Distribution"
 		modeData={modeData}
-		explanation="The distribution of transportation modes for all trips across Google's Environmental Insights Platform for 2023."
+		explanation="The distribution of transportation modes for all trips on a single day in 2023."
 	/>
 
 	<div class="stats-grid">
@@ -249,7 +249,7 @@
 			<CordonTimeSeries 
 				title="Time Series - All Cordon Locations"
 				timeSeriesData={timeSeriesData}
-				explanation="The distribution of transportation modes for all trips across Google's Environmental Insights Platform for 2023."
+				explanation="The historical distribution of transportation modes since 2006, summarised for all locations."
 			/>
 		{/if}
 	{/if}

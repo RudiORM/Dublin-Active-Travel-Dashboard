@@ -35,13 +35,22 @@
 		if (!map || !reshapedData || Object.keys(reshapedData).length === 0) return;
 		
 		// Update markers with current selection
-		updateCordonMarkers(map, reshapedData, selectedMode, selectedYear);
+		updateCordonMarkers(map, reshapedData, selectedMode, selectedYear, selectedLocation);
 	}
 
 	// Handle filter changes
 	function handleFilterChange() {
 		updateVisualization();
 	}
+
+	// Watch for changes to selection and update visualization
+	$effect(() => {
+		// This will run whenever selectedLocation, selectedMode, or selectedYear changes
+		if (map && reshapedData) {
+			console.log('Selection changed - Location:', selectedLocation, 'Mode:', selectedMode, 'Year:', selectedYear);
+			updateVisualization();
+		}
+	});
 
 	onMount(async () => {
 		if (!map) return;
@@ -75,6 +84,9 @@
 					
 					console.log(`${selectedLocation} - ${selectedMode} ${selectedYear}:`, 
 						$state.snapshot(reshapedData.byLocation[selectedLocation]?.data[selectedMode]?.[selectedYear]));
+					
+					// Update visualization to show selection
+					updateVisualization();
 				}
 			});
 

@@ -1,17 +1,36 @@
 <script>
 
-import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
+import SingleItemTimeSeries from '$lib/components/shared/SingleItemTimeSeries.svelte';
+import { getRouteColor } from '$lib/utils/strava/strava-colors.js';
 
 	// Props
 	let {
 		title,
-		stats = [],
 		explanation,
-		modeData,
+		timeSeriesData,
+		routeName,
+		totals
 	} = $props();
 
 	let showExplanation = $state(false);
 	let explanationButton;
+
+	// Transform the time series data for the chart component
+	const chartData = $derived.by(() => {
+		if (!timeSeriesData || timeSeriesData.length === 0) {
+			return [];
+		}
+		
+		return timeSeriesData.map((item) => ({
+			date: item.date,
+			value: item.value
+		}));
+	});
+
+	// Get the color for the selected route
+	const routeColor = $derived.by(() => {
+		return getRouteColor(routeName);
+	});
 </script>
 
 <div class="stats-section">
@@ -47,18 +66,23 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	<div class="stats-section-header">
 		<h4 class="title">{title}</h4>
 	</div>
-	<div class="stat-grid">
 
-		<div class="chart-section">
-			<StackedBarH 
-				data={modeData} 
-				height={50} 
-				showLabels={true} 
-				labelPosition="outside"
+	<div class="chart-section">
+		{#if chartData.length > 0}
+			<SingleItemTimeSeries 
+				data={chartData} 
+				color={routeColor}
+				height={200}
+				showLabels={true}
 			/>
-		</div>
-		
+		{:else}
+			<div class="no-data">
+				<p>No time series data available</p>
+			</div>
+		{/if}
 	</div>
+
+
 </div>
 
 <style>
@@ -75,7 +99,7 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 	.chart-section{
 		padding: 20px;
-		height: 160px;
+		min-height: 240px;
 	}
 
 	.stats-section {
@@ -101,6 +125,7 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		margin: 0;
 		color: #333;
 		font-size: 16px;
+		font-weight: 400;
 	}
 
 	.info-button {
@@ -126,28 +151,29 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 	.info-button.expanded {
 		width: 560px;	
-		margin-top: 160px;
-		height: 220px;
+		margin-top: -60px;
+		height: 300px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
 		display: flex;
-		align-items: center;
-		justify-content: center;
 		font-size: 14px;
 		margin-right: -20px;
 		border: 0px solid white;
 		overflow-y: scroll;
 		padding: 0px;
-
-
+		transform: translateY(50%);
+		text-align: left;
+		font-size: 16px;
+		line-height: 22px;	
+		align-items: flex-start;
 	}
 
 	.explanation-content {
-		padding: 0px;
-		text-align: center;
-		max-width: 90%;
-
+		text-align: left;
+        padding: 20px;
+		font-size: 16px;
+		line-height: 22px;	
 	}
 
 	.explanation-content p {
@@ -158,27 +184,20 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		font-weight: 400;
 	}
 
-	h4{
-		font-weight: 400;
-	}
-
-	.stat-grid {
+	.stats-summary {
 		display: flex;
-		flex-direction: column;
+		justify-content: space-around;
+		padding: 15px 20px;
+		border-top: 1px solid #eee;
+		background: #f8f9fa;
+		border-radius: 0 0 10px 10px;
 	}
 
 	.stat-item {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: center;
-		gap: 40px;
-		min-height: 96px;
-		padding-left: 15px;
-	}
-
-	.stat-item:first-child {
-		border-bottom: 1px solid #00000044;
-		gap: 20px;
+		gap: 5px;
 	}
 
 	.stat-label {
@@ -188,107 +207,50 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		font-weight: 400;
 	}
 
-	.stat-text {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
 	.stat-value {
 		font-size: 16px;
 		color: #000;
+		font-weight: 500;
 	}
 
-	.stat-label-bottom {
-		font-size: 16px;
-		color: #00000066;
-		font-weight: 400;
+	.no-data {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 200px;
+		color: #666;
+		font-style: italic;
 	}
 
-	@media (max-height: 908px) {
-		.stat-item {
-			min-height: 75px;
-			height: 75px;
-		}
-
-	
-
-	
-
-		
-	}
-
-
-	@media (max-height: 858px) {
-		.stat-item {
-			min-height: 70px;
-			height: 70px;
-		}
-
-		
-
-	
-
-	
-	}
-
-
-
-
-	@media (max-height: 808px) {
-		.stat-item {
-			min-height: 60px;
-			height: 60px;
-		}
-
-		
-
-
-		
-	}
-
-	@media (max-width: 1300px){
+	@media (max-width: 1300px) {
 		.info-button.expanded {
 			width: 270px;	
-	}}
-
-
-
+		}
+	}
 
 	@media (max-width: 950px) {
-
 		.info-button.expanded {
 			width: calc(100vw - 340px);
-	}
+		}
 
-
-
-	.stats-section {
-		
-		max-width: 100%;
-	}
+		.stats-section {
+			max-width: 100%;
+		}
 	}
 
 	@media (max-width: 650px) {
-		.stat-item {
-			min-height: 60px;
-			height: 60px;
-		}
-
 		.info-button.expanded {
 			width: calc(100vw - 80px);
+		}
+
+		.stats-summary {
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.stat-item {
+			flex-direction: row;
+			justify-content: space-between;
+		}
 	}
-
-	
-
-
-
-	}
-
-	
-
-	
-
-
-
 </style>

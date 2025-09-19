@@ -4,10 +4,12 @@
 		title,
 		stats = [],
 		explanation,
+        mode='bike'
 	} = $props();
 
 	let showExplanation = $state(false);
 	let explanationButton;
+
 </script>
 
 <div class="stats-section">
@@ -45,6 +47,7 @@
 	</div>
 	<div class="stat-grid">
 		<div class="stat-item">
+            {#if mode == 'bike'}
 			<span class="stat-label"
 				><svg
 					width="67"
@@ -81,9 +84,10 @@
 				<span class="stat-value">{stats[0].value}</span>
 				<span class="stat-label-bottom">{stats[0].label}</span>
 			</div>
-		</div>
-		{#if stats.length>1}
-		<div class="stat-item">
+
+            {:else}
+
+	
 			<span class="stat-label">
 				<svg
 					width="51"
@@ -117,12 +121,13 @@
 				</svg>
 			</span>
 			<div class="stat-text">
-				<span class="stat-value">{stats[1].value}</span>
-				<span class="stat-label-bottom">{stats[1].label}</span>
+				<span class="stat-value">{stats[0].value}</span>
+				<span class="stat-label-bottom">{stats[0].label}</span>
 			</div>
-		</div>
+	
 		{/if}
 	</div>
+</div>
 </div>
 
 <style>
@@ -191,39 +196,37 @@
 
 	.info-button.expanded {
 		width: calc(100% + 40px);	
-		margin-top: 206px;
-		height: 252px;
+        min-width: calc(100%);	
+		margin-top: -46px;
+		height: 130px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
 		display: flex;
+		align-items: center;
+		justify-content: center;
 		font-size: 14px;
 		margin-right: -20px;
 		border: 0px solid white;
 		overflow-y: scroll;
-        text-align: left;
-        padding: 20px;
-		font-size: 16px;
-		line-height: 22px;	
-
-
+		padding: 0px;
+        transform: translateY(50%);
 
 
 	}
 
 	.explanation-content {
-		text-align: left;
-        padding: 0px;
-		font-size: 16px;
-		line-height: 22px;	
+		padding: 0px;
+		text-align: center;
+		max-width: 90%;
 
 	}
 
 	.explanation-content p {
 		margin: 0;
 		font-size: 16px;
-		line-height: 22px;	
-		color: #000;
+		line-height: 1.5;
+		color: #333;
 		font-weight: 400;
 	}
 
@@ -237,12 +240,12 @@
 		flex-direction: row;
 		align-items: center;
 		gap: 40px;
-		min-height: 96px;
 		padding-left: 15px;
+        min-height: 70px;
+        height: 70px;
 	}
 
 	.stat-item:first-child {
-		border-bottom: 1px solid #00000044;
 		gap: 20px;
 	}
 
@@ -270,58 +273,6 @@
 		font-weight: 400;
 	}
 
-	@media (max-height: 908px) {
-		.stat-item {
-			min-height: 75px;
-			height: 75px;
-		}
-
-	
-
-		.info-button.expanded {
-			margin-top: 163px;
-			height: 210px;
-		}
-
-		
-	}
-
-
-	@media (max-height: 858px) {
-		.stat-item {
-			min-height: 70px;
-			height: 70px;
-		}
-
-		
-
-		.info-button.expanded {
-			margin-top: 152px;
-			height: 200px;
-		}
-
-	
-	}
-
-
-
-
-	@media (max-height: 808px) {
-		.stat-item {
-			min-height: 60px;
-			height: 60px;
-		}
-
-		
-
-		.info-button.expanded {
-			margin-top: 134px;
-			height: 180px;
-		}
-
-		
-	}
-
 
 
 
@@ -333,20 +284,7 @@
 	}
 	}
 
-	@media (max-width: 620px) {
-		.stat-item {
-			min-height: 60px;
-			height: 60px;
-		}
 
-		.info-button.expanded {
-			margin-top: 134px;
-			height: 180px;
-		}
-
-
-
-	}
 
 	
 

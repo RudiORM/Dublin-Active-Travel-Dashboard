@@ -1,4 +1,4 @@
-import { calculateMarkerSize, getMarkerColor } from './cordon-colors.js';
+import { calculateMarkerSize, getMarkerColor, getSelectionColor } from './cordon-colors.js';
 
 /**
  * Create circular markers for cordon count locations
@@ -56,10 +56,25 @@ export function addCordonMarkers(map, walkingData) {
 			source: 'cordon-markers',
 			paint: {
 				'circle-radius': ['get', 'markerSize'],
-				'circle-color': ['get', 'markerColor'],
+				'circle-color': [
+					'case',
+					['get', 'isSelected'],
+					getSelectionColor(), // Gold color for selected
+					['get', 'markerColor'] // Normal color for unselected
+				],
 				'circle-opacity': 0.8,
-				'circle-stroke-width': 1,
-				'circle-stroke-color': '#ffffff',
+				'circle-stroke-width': [
+					'case',
+					['get', 'isSelected'],
+					3, // Thicker stroke for selected
+					1  // Normal stroke for unselected
+				],
+				'circle-stroke-color': [
+					'case',
+					['get', 'isSelected'],
+					'#ffffff', // White stroke for selected
+					'#ffffff'  // White stroke for unselected
+				],
 				'circle-stroke-opacity': 0.9
 			}
 		});
@@ -75,8 +90,9 @@ export function addCordonMarkers(map, walkingData) {
  * @param {Object} cordonData - Processed cordon data
  * @param {string} selectedMode - Selected transportation mode
  * @param {string} selectedYear - Selected year
+ * @param {string|null} selectedLocation - Currently selected location
  */
-export function updateCordonMarkers(map, cordonData, selectedMode = 'walking', selectedYear = '2023') {
+export function updateCordonMarkers(map, cordonData, selectedMode = 'walking', selectedYear = '2023', selectedLocation = null) {
 	if (!map || !cordonData || !cordonData.byLocation) return;
 
 	const locationData = [];
@@ -96,10 +112,26 @@ export function updateCordonMarkers(map, cordonData, selectedMode = 'walking', s
 		}
 	});
 
-	// Calculate min/max for sizing
+	// Calculate min/max for sizing - use global max across all modes for consistent scaling
 	const values = locationData.map(d => d.value);
 	const minValue = Math.min(...values);
-	const maxValue = Math.max(...values);
+	
+	// Calculate global maximum across all modes and years for consistent scaling
+	let globalMaxValue = 0;
+	Object.keys(cordonData.byLocation).forEach(locationName => {
+		const location = cordonData.byLocation[locationName];
+		// Check all modes and years to find the absolute maximum
+		Object.keys(location.data).forEach(mode => {
+			Object.keys(location.data[mode]).forEach(year => {
+				const value = location.data[mode][year]?.raw || 0;
+				if (value > globalMaxValue) {
+					globalMaxValue = value;
+				}
+			});
+		});
+	});
+	
+	console.log(`Scaling markers: current mode max = ${Math.max(...values)}, global max = ${globalMaxValue}`);
 
 	// Create GeoJSON features
 	const features = locationData.map(location => ({
@@ -114,8 +146,9 @@ export function updateCordonMarkers(map, cordonData, selectedMode = 'walking', s
 			value: location.value,
 			mode: selectedMode,
 			year: selectedYear,
-			markerSize: calculateMarkerSize(location.value, minValue, maxValue),
-			markerColor: getMarkerColor(selectedMode, location.value, maxValue)
+			isSelected: selectedLocation === location.location, // Add selection state
+			markerSize: calculateMarkerSize(location.value, minValue, globalMaxValue),
+			markerColor: getMarkerColor(selectedMode, location.value, globalMaxValue)
 		}
 	}));
 

@@ -124,6 +124,10 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		fill: #000;
 	}
 
+	h4{
+		font-weight: 400;
+	}
+
 	.info-button.expanded {
 		width: 560px;	
 		margin-top: 160px;

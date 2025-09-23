@@ -2,7 +2,7 @@
 	import { onMount, setContext } from 'svelte';
 	import { fetchCensusData } from '$lib/services/census/census-api.js';
 	import { reshapeData } from '$lib/services/census/census-processor.js';
-	import { addGeoJSONSource, updateGeoJSONSource } from '$lib/services/map/mapbox-service.js';
+	import { addGeoJSONSource, updateGeoJSONSource, zoomToFeature, resetMapView } from '$lib/services/map/mapbox-service.js';
 	import { createChoroplethLayer, createBorderLayer, updateChoroplethVisualization } from '$lib/utils/census/census-layers.js';
 
 	// Props
@@ -110,14 +110,27 @@
 			map.on('click', 'census-choropleth', (e) => {
 				if (e.features.length > 0) {
 					const clickedFeature = e.features[0];
-					selectedArea = clickedFeature.properties.CSO_LEA;
+					const clickedAreaName = clickedFeature.properties.CSO_LEA;
+					
+					// Check if clicking on the same area (toggle zoom out)
+					if (selectedArea === clickedAreaName) {
+						// Zoom out to default view
+						resetMapView(map);
+						selectedArea = null;
+					} else {
+						// Zoom to the clicked feature
+						zoomToFeature(map, clickedFeature, { padding: 100, maxZoom: 11 });
+						selectedArea = clickedAreaName;
+					}
 					
 					// Update visualization to show selection
 					updateVisualization();
 					
 					// Log the data for the selected area
-					const statKey = `${selectedMode}_${selectedPlace}_${selectedYear}`;
-					console.log(`${selectedArea} - ${statKey}:`, $state.snapshot(reshapedData[statKey][selectedArea]));
+					if (selectedArea) {
+						const statKey = `${selectedMode}_${selectedPlace}_${selectedYear}`;
+						console.log(`${selectedArea} - ${statKey}:`, $state.snapshot(reshapedData[statKey][selectedArea]));
+					}
 				}
 			});
 

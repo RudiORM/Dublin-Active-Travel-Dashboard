@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fetchGoogleData } from '$lib/services/google/google-api.js';
 	import { reshapeGoogleData } from '$lib/services/google/google-processor.js';
-	import { addGeoJSONSource, updateGeoJSONSource } from '$lib/services/map/mapbox-service.js';
+	import { addGeoJSONSource, updateGeoJSONSource, zoomToFeature, resetMapView } from '$lib/services/map/mapbox-service.js';
 	import { createGoogleChoroplethLayer, createGoogleBorderLayer, updateGoogleVisualization } from '$lib/utils/google/google-layers.js';
 
 	// Props
@@ -108,14 +108,27 @@
 			map.on('click', 'google-choropleth', (e) => {
 				if (e.features.length > 0) {
 					const clickedFeature = e.features[0];
-					selectedArea = clickedFeature.properties.ENG_NAME_VALUE;
+					const clickedAreaName = clickedFeature.properties.ENG_NAME_VALUE;
+					
+					// Check if clicking on the same area (toggle zoom out)
+					if (selectedArea === clickedAreaName) {
+						// Zoom out to default view
+						resetMapView(map);
+						selectedArea = null;
+					} else {
+						// Zoom to the clicked feature
+						zoomToFeature(map, clickedFeature, { padding: 100, maxZoom: 11 });
+						selectedArea = clickedAreaName;
+					}
 					
 					// Update visualization to show selection
 					updateVisualization();
 					
 					// Log the data for the selected area
-					console.log(`${selectedArea} - ${selectedMode} ${selectedMetric} (${selectedScope}):`, 
-						$state.snapshot(reshapedData.byArea[selectedArea]?.[selectedMode]?.[selectedMetric]?.[selectedScope]));
+					if (selectedArea) {
+						console.log(`${selectedArea} - ${selectedMode} ${selectedMetric} (${selectedScope}):`, 
+							$state.snapshot(reshapedData.byArea[selectedArea]?.[selectedMode]?.[selectedMetric]?.[selectedScope]));
+					}
 				}
 			});
 

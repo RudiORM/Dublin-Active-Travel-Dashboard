@@ -45,7 +45,17 @@
 	};
 
 	function toggleSection(section: string) {
-		expandedSections[section] = !expandedSections[section];
+		const isCurrentlyExpanded = expandedSections[section];
+		
+		// Close all sections first
+		Object.keys(expandedSections).forEach(key => {
+			expandedSections[key] = false;
+		});
+		
+		// If the clicked section wasn't expanded, expand it
+		if (!isCurrentlyExpanded) {
+			expandedSections[section] = true;
+		}
 	}
 
 	function selectDataSource(dataSource: string) {
@@ -241,7 +251,7 @@
 		border-radius: 8px;
 		z-index: 10;
 		width: 240px;
-		height: calc(50% - 60px);
+		height: calc(45% - 60px);
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -256,7 +266,7 @@
 		border-radius: 8px;
 		z-index: 10;
 		width: 240px;
-		height: calc(50% - 60px);
+		height: calc(45% - 60px);
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -266,8 +276,6 @@
 		font-size: 16px;
 		line-height: 22px;	
 	}
-
-
 
 
 	.menu-content {
@@ -298,7 +306,7 @@
 		border-radius: 8px;
 		z-index: 10;
 		width: 240px;
-		height: calc(50% - 60px);
+		height: calc(55% - 60px);
         min-height: 300px;
 	}
 	

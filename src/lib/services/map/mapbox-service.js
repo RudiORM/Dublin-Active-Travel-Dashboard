@@ -26,7 +26,7 @@ export function initializeMap(container, options = {}) {
 	// Use lower zoom for mobile devices
 	const isMobile = isMobileDevice();
 	const defaultZoom = isMobile ? 8.5 : 9.5;
-	const defaultCenter = isMobile ? [-6.2203, 53.0998] : [-6.0203, 53.3998];
+	const defaultCenter = isMobile ? [-6.2203, 53.0998] : [-6.1203, 53.3998];
 
 	const defaultOptions = {
 		container,
@@ -66,6 +66,92 @@ export function updateGeoJSONSource(map, sourceId, geoJsonData) {
 	if (source) {
 		source.setData(geoJsonData);
 	}
+}
+
+/**
+ * Zoom to feature bounds with smooth animation
+ * @param {mapboxgl.Map} map - Map instance
+ * @param {Object} feature - GeoJSON feature to zoom to
+ * @param {Object} options - Zoom options
+ */
+export function zoomToFeature(map, feature, options = {}) {
+	if (!map || !feature || !feature.geometry) return;
+	
+	const defaultOptions = {
+		padding: 50,
+		duration: 1000,
+		maxZoom: 12
+	};
+	
+	const zoomOptions = { ...defaultOptions, ...options };
+	
+	// Calculate bounds of the feature
+	const bounds = new mapboxgl.LngLatBounds();
+	
+	if (feature.geometry.type === 'Polygon') {
+		feature.geometry.coordinates[0].forEach(coord => {
+			bounds.extend(coord);
+		});
+	} else if (feature.geometry.type === 'MultiPolygon') {
+		feature.geometry.coordinates.forEach(polygon => {
+			polygon[0].forEach(coord => {
+				bounds.extend(coord);
+			});
+		});
+	}
+
+	console.log('bounds',bounds);
+	
+	// Adjust bounds based on device type to account for UI positioning
+	const isMobile = isMobileDevice();
+	
+	if (isMobile) {
+		// Push bounds up by 0.1 degree latitude on mobile
+		const adjustment = 0.05;
+		const sw = bounds.getSouthWest();
+		const ne = bounds.getNorthEast();
+		
+		// Shift both corners up by the adjustment
+		bounds.setSouthWest([sw.lng, sw.lat - adjustment]);
+		bounds.setNorthEast([ne.lng, ne.lat - adjustment]);
+	} else {
+		// Push bounds left by 0.1 degree longitude on desktop
+		const adjustment = 0.05;
+		const sw = bounds.getSouthWest();
+		const ne = bounds.getNorthEast();
+		
+		// Shift both corners left by the adjustment
+		bounds.setSouthWest([sw.lng - adjustment, sw.lat]);
+		bounds.setNorthEast([ne.lng - adjustment, ne.lat]);
+	}
+	
+	console.log('adjusted bounds', bounds);
+	
+	// Fit map to bounds
+	map.fitBounds(bounds, zoomOptions);
+}
+
+/**
+ * Reset map to default view
+ * @param {mapboxgl.Map} map - Map instance
+ * @param {Object} options - Reset options
+ */
+export function resetMapView(map, options = {}) {
+	if (!map) return;
+	
+	const isMobile = isMobileDevice();
+	const defaultZoom = isMobile ? 8.5 : 9.5;
+	const defaultCenter = isMobile ? [-6.2203, 53.0998] : [-6.0203, 53.3998];
+	
+	const defaultOptions = {
+		center: defaultCenter,
+		zoom: defaultZoom,
+		duration: 1000
+	};
+	
+	const resetOptions = { ...defaultOptions, ...options };
+	
+	map.flyTo(resetOptions);
 }
 
 /**

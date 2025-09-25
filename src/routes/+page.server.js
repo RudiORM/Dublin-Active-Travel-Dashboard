@@ -35,11 +35,112 @@ export async function load() {
     let counterActivity = null;
     try {
       const counterActivityPath = path.join(process.cwd(), 'static', 'counter_activity.json');
-      const counterActivityData = fs.readFileSync(counterActivityPath, 'utf-8');
-      counterActivity = JSON.parse(counterActivityData);
-      console.log('Counter activity data loaded:', counterActivity.length, 'entries');
+      console.log('Attempting to load counter activity from:', counterActivityPath);
+      
+      if (fs.existsSync(counterActivityPath)) {
+        const counterActivityData = fs.readFileSync(counterActivityPath, 'utf-8');
+        counterActivity = JSON.parse(counterActivityData);
+        console.log('Counter activity data loaded successfully:', counterActivity.length, 'entries');
+      } else {
+        console.warn('counter_activity.json file does not exist at:', counterActivityPath);
+        console.log('Using hardcoded fallback for counter activity data...');
+        
+        // Fallback with hardcoded data for Vercel deployment
+        counterActivity = [
+          {"site_id":100000425,"total_7day_count":375123.0,"is_active":true},
+          {"site_id":100001297,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100001484,"total_7day_count":996563.0,"is_active":true},
+          {"site_id":100001485,"total_7day_count":4097306.0,"is_active":true},
+          {"site_id":100001486,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100001487,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100001488,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100001489,"total_7day_count":3994042.0,"is_active":true},
+          {"site_id":100001491,"total_7day_count":6043927.0,"is_active":true},
+          {"site_id":100003429,"total_7day_count":147121.0,"is_active":true},
+          {"site_id":100003430,"total_7day_count":56737.0,"is_active":true},
+          {"site_id":100006259,"total_7day_count":14441402.0,"is_active":true},
+          {"site_id":100006267,"total_7day_count":14066740.0,"is_active":true},
+          {"site_id":100006278,"total_7day_count":858207.0,"is_active":true},
+          {"site_id":100006286,"total_7day_count":4197903.0,"is_active":true},
+          {"site_id":100007092,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100007101,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100007106,"total_7day_count":2940232.0,"is_active":true},
+          {"site_id":100007778,"total_7day_count":5500938.0,"is_active":true},
+          {"site_id":100007793,"total_7day_count":1141812.0,"is_active":true},
+          {"site_id":100007794,"total_7day_count":1940981.0,"is_active":true},
+          {"site_id":100012163,"total_7day_count":1081.0,"is_active":true},
+          {"site_id":100016243,"total_7day_count":67169.0,"is_active":true},
+          {"site_id":100023988,"total_7day_count":223304.0,"is_active":true},
+          {"site_id":100027140,"total_7day_count":134180.0,"is_active":true},
+          {"site_id":100027167,"total_7day_count":509471.0,"is_active":true},
+          {"site_id":100027179,"total_7day_count":989469.0,"is_active":true},
+          {"site_id":100027458,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100030845,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100030846,"total_7day_count":4532434.0,"is_active":true},
+          {"site_id":100030847,"total_7day_count":6481867.0,"is_active":true},
+          {"site_id":100030848,"total_7day_count":11403469.0,"is_active":true},
+          {"site_id":100034543,"total_7day_count":323418.0,"is_active":true},
+          {"site_id":100034544,"total_7day_count":290863.0,"is_active":true},
+          {"site_id":100034545,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100041484,"total_7day_count":22976.0,"is_active":true},
+          {"site_id":100041485,"total_7day_count":22433.0,"is_active":true},
+          {"site_id":100041486,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100041487,"total_7day_count":90047.0,"is_active":true},
+          {"site_id":100043587,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100046611,"total_7day_count":677737.0,"is_active":true},
+          {"site_id":100049048,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100049049,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100049050,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100049051,"total_7day_count":352.0,"is_active":true},
+          {"site_id":100049052,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100049053,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100049327,"total_7day_count":12687.0,"is_active":true},
+          {"site_id":100049328,"total_7day_count":138912.0,"is_active":true},
+          {"site_id":100050524,"total_7day_count":875712.0,"is_active":true},
+          {"site_id":100050525,"total_7day_count":6203248.0,"is_active":true},
+          {"site_id":100050526,"total_7day_count":3114361.0,"is_active":true},
+          {"site_id":100057291,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100057964,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100057965,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100057966,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100059508,"total_7day_count":234323.0,"is_active":true},
+          {"site_id":100059509,"total_7day_count":359.0,"is_active":true},
+          {"site_id":100063159,"total_7day_count":857448.0,"is_active":true},
+          {"site_id":100063160,"total_7day_count":1136839.0,"is_active":true},
+          {"site_id":100063161,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100063162,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100063163,"total_7day_count":1412252.0,"is_active":true},
+          {"site_id":100063164,"total_7day_count":316621.0,"is_active":true},
+          {"site_id":100063165,"total_7day_count":0,"is_active":false},
+          {"site_id":100063166,"total_7day_count":4287579.0,"is_active":true},
+          {"site_id":100063167,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100063168,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100063169,"total_7day_count":0.0,"is_active":false},
+          {"site_id":100063170,"total_7day_count":1988437.0,"is_active":true},
+          {"site_id":100063178,"total_7day_count":646534.0,"is_active":true},
+          {"site_id":100063179,"total_7day_count":1363629.0,"is_active":true},
+          {"site_id":100063180,"total_7day_count":502442.0,"is_active":true},
+          {"site_id":100064636,"total_7day_count":35293.0,"is_active":true},
+          {"site_id":100064763,"total_7day_count":208120.0,"is_active":true},
+          {"site_id":300014830,"total_7day_count":0.0,"is_active":false},
+          {"site_id":300014831,"total_7day_count":251579.0,"is_active":true},
+          {"site_id":300014832,"total_7day_count":125982.0,"is_active":true},
+          {"site_id":300014833,"total_7day_count":0.0,"is_active":false},
+          {"site_id":300015980,"total_7day_count":628189.0,"is_active":true},
+          {"site_id":300017046,"total_7day_count":465692.0,"is_active":true},
+          {"site_id":300017047,"total_7day_count":307020.0,"is_active":true},
+          {"site_id":300017324,"total_7day_count":0.0,"is_active":false},
+          {"site_id":300020592,"total_7day_count":115261.0,"is_active":true},
+          {"site_id":300020593,"total_7day_count":66903.0,"is_active":true},
+          {"site_id":300040955,"total_7day_count":987120.0,"is_active":true},
+          {"site_id":300041339,"total_7day_count":8473.0,"is_active":true},
+          {"site_id":300050015,"total_7day_count":146058.0,"is_active":true}
+        ];
+        console.log('Using hardcoded counter activity data:', counterActivity.length, 'entries');
+      }
     } catch (error) {
-      console.warn('Could not load counter_activity.json:', error.message);
+      console.error('Error loading counter_activity.json:', error.message);
+      console.error('Full error:', error);
       counterActivity = [];
     }
 
@@ -47,11 +148,46 @@ export async function load() {
     let vivacityMarkers = null;
     try {
       const vivacityMarkersPath = path.join(process.cwd(), 'static', 'vivacity_markers.json');
-      const vivacityMarkersData = fs.readFileSync(vivacityMarkersPath, 'utf-8');
-      vivacityMarkers = JSON.parse(vivacityMarkersData);
-      console.log('Vivacity markers data loaded:', vivacityMarkers.length, 'entries');
+      console.log('Attempting to load vivacity markers from:', vivacityMarkersPath);
+      console.log('Current working directory:', process.cwd());
+      console.log('Directory contents:', fs.readdirSync(process.cwd()));
+      
+      // Check if static directory exists
+      const staticDir = path.join(process.cwd(), 'static');
+      if (fs.existsSync(staticDir)) {
+        console.log('Static directory exists. Contents:', fs.readdirSync(staticDir));
+      } else {
+        console.warn('Static directory does not exist at:', staticDir);
+      }
+      
+      if (fs.existsSync(vivacityMarkersPath)) {
+        const vivacityMarkersData = fs.readFileSync(vivacityMarkersPath, 'utf-8');
+        vivacityMarkers = JSON.parse(vivacityMarkersData);
+        console.log('Vivacity markers data loaded successfully:', vivacityMarkers.length, 'entries');
+      } else {
+        console.warn('vivacity_markers.json file does not exist at:', vivacityMarkersPath);
+        console.log('Trying fallback with hardcoded data...');
+        
+        // Fallback with hardcoded data for Vercel deployment
+        vivacityMarkers = [
+          {"sensor_id":"2158","lat":53.290352,"long":-6.13158,"pedestrian_total":150954,"cyclist_total":10448},
+          {"sensor_id":"2159","lat":53.293072,"long":-6.13799,"pedestrian_total":264953,"cyclist_total":7732},
+          {"sensor_id":"3763","lat":53.292042,"long":-6.13569,"pedestrian_total":325289,"cyclist_total":9685},
+          {"sensor_id":"3771","lat":53.28904,"long":-6.24341,"pedestrian_total":239536,"cyclist_total":15717},
+          {"sensor_id":"4158","lat":53.294338,"long":-6.14074,"pedestrian_total":113179,"cyclist_total":9228},
+          {"sensor_id":"4159","lat":53.301659,"long":-6.17776,"pedestrian_total":249785,"cyclist_total":8691},
+          {"sensor_id":"7487","lat":53.385639,"long":-6.25557,"pedestrian_total":99424,"cyclist_total":6006},
+          {"sensor_id":"8479","lat":53.293316,"long":-6.129289,"pedestrian_total":140066,"cyclist_total":2553},
+          {"sensor_id":"9712","lat":53.35128,"long":-6.2501,"pedestrian_total":464138,"cyclist_total":94010},
+          {"sensor_id":"9713","lat":53.35458,"long":-6.24669,"pedestrian_total":85103,"cyclist_total":70842},
+          {"sensor_id":"9714","lat":53.35458,"long":-6.24669,"pedestrian_total":70926,"cyclist_total":41910},
+          {"sensor_id":"9716","lat":53.360451,"long":-6.23901,"pedestrian_total":38310,"cyclist_total":56898}
+        ];
+        console.log('Using hardcoded vivacity markers:', vivacityMarkers.length, 'entries');
+      }
     } catch (error) {
-      console.warn('Could not load vivacity_markers.json:', error.message);
+      console.error('Error loading vivacity_markers.json:', error.message);
+      console.error('Full error:', error);
       vivacityMarkers = [];
     }
 

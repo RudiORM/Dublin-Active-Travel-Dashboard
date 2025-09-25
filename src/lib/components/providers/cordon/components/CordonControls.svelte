@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import CordonFilterBar from './CordonFilterBar.svelte';
 	import CordonInfoPanel from './CordonInfoPanel.svelte';
-	import DataBox from '$lib/components/shared/DataBox.svelte';
+	import DataBoxEco from '$lib/components/shared/DataBoxEco.svelte';
 
 	const cordon = getContext('cordon');
 
@@ -17,7 +17,7 @@
 	onFilterChange={handleFilterChange}
 />
 
-<DataBox>
+<DataBoxEco>
 	<CordonInfoPanel 
 		reshapedData={cordon.reshapedData}
 		selectedMode={cordon.selectedMode}
@@ -25,4 +25,4 @@
 		selectedLocation={cordon.selectedLocation}
 		cordonContext={cordon}
 	/>
-</DataBox>
+</DataBoxEco>

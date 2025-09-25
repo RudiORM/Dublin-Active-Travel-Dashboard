@@ -121,8 +121,8 @@ export function zoomToFeature(map, feature, options = {}) {
 		const ne = bounds.getNorthEast();
 		
 		// Shift both corners left by the adjustment
-		bounds.setSouthWest([sw.lng - adjustment, sw.lat]);
-		bounds.setNorthEast([ne.lng - adjustment, ne.lat]);
+		bounds.setSouthWest([sw.lng + adjustment, sw.lat]);
+		bounds.setNorthEast([ne.lng + adjustment, ne.lat]);
 	}
 	
 	console.log('adjusted bounds', bounds);

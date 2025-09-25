@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import DataBox from '../../../shared/DataBox.svelte';
+	import DataBoxEco from '../../../shared/DataBoxEco.svelte';
 	import VivacityCounterInfoPanel from './VivacityCounterInfoPanel.svelte';
 	import VivacityCounterFilterBar from './VivacityCounterFilterBar.svelte';
 
@@ -18,6 +18,6 @@
 
 <VivacityCounterFilterBar bind:selectedMode onFilterChange={handleFilterChange} />
 
-<DataBox>
+<DataBoxEco>
 	<VivacityCounterInfoPanel />
-</DataBox>
+</DataBoxEco>

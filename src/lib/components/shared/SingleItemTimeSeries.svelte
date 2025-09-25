@@ -123,6 +123,31 @@
 		if (num >= 1000) return `${(num / 1000).toFixed(0)}k`;
 		return num.toString();
 	};
+
+	// Tooltip state
+	let tooltipVisible = $state(false);
+	let tooltipX = $state(0);
+	let tooltipY = $state(0);
+	let tooltipData = $state({ xValue: '', value: 0 });
+
+	// Show tooltip
+	function showTooltip(event, dataPoint) {
+		const clientX = 'touches' in event ? event.touches[0].clientX : event.clientX;
+		const clientY = 'touches' in event ? event.touches[0].clientY : event.clientY;
+		
+		tooltipX = clientX;
+		tooltipY = clientY - 100;
+		tooltipData = { 
+			xValue: dataPoint.xValue, 
+			value: dataPoint.value
+		};
+		tooltipVisible = true;
+	}
+
+	// Hide tooltip
+	function hideTooltip() {
+		tooltipVisible = false;
+	}
 </script>
 
 <div class="time-series-container" style="height: {height}px;">
@@ -157,6 +182,10 @@
 									width: {barWidth}px;
 								"
 								title="{dataPoint.xValue}: {dataPoint.value.toLocaleString()}"
+								onmouseenter={(e) => showTooltip(e, dataPoint)}
+								onmouseleave={hideTooltip}
+								ontouchstart={(e) => showTooltip(e, dataPoint)}
+								ontouchend={hideTooltip}
 							>
 							</div>
 							
@@ -171,6 +200,19 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Tooltip -->
+	{#if tooltipVisible}
+		<div 
+			class="tooltip" 
+			style="left: {tooltipX}px; top: {tooltipY}px;"
+		>
+			<div class="tooltip-content">
+				<div class="tooltip-year">{date ? 'Date' : 'Hour'}: {tooltipData.xValue}</div>
+				<div class="tooltip-total">Counts: {tooltipData.value.toLocaleString()}</div>
+			</div>
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -283,10 +325,44 @@
 		white-space: nowrap;
 	}
 
+	/* Tooltip styles */
+	.tooltip {
+		position: fixed;
+		z-index: 1000;
+		pointer-events: none;
+		transform: translateX(-50%);
+	}
+
+	.tooltip-content {
+		background: rgba(0, 0, 0, 0.9);
+		color: white;
+		padding: 8px 12px;
+		border-radius: 6px;
+		font-size: 12px;
+		line-height: 1.4;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		white-space: nowrap;
+	}
+
+	.tooltip-year {
+		font-weight: 500;
+		margin-bottom: 2px;
+	}
+
+	.tooltip-total {
+		font-weight: 400;
+		opacity: 0.9;
+	}
+
 	/* Simplified responsive adjustments */
 	@media (max-width: 640px) {
 		.date-label {
 			font-size: 10px;
+		}
+		
+		.tooltip-content {
+			font-size: 11px;
+			padding: 6px 10px;
 		}
 	}
 </style>

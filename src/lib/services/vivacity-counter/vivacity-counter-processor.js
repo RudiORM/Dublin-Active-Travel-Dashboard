@@ -246,29 +246,28 @@ export function processVivacityCounterTimeSeriesData(timeSeriesData) {
 		return null;
 	}
 	
-	const { countlineId, dateRange } = timeSeriesData;
-	console.log('Countline ID:', countlineId);
+	const { countlineIds, dateRange } = timeSeriesData;
+	console.log('Countline IDs:', countlineIds);
 	console.log('Date range:', dateRange);
 	
-	// Process hourly data (use new structure first, fallback to legacy)
+	// Process hourly data (now aggregated, no countline ID needed)
 	let hourlyAverages = null;
 	if (hasHourlyData) {
-		hourlyAverages = processHourlyDataVivacity(timeSeriesData.hourly_7days, countlineId);
+		console.log('Processing aggregated hourly_7days data...');
+		hourlyAverages = processHourlyDataVivacityAggregated(timeSeriesData.hourly_7days);
 	} else if (hasLegacyData) {
-		hourlyAverages = processHourlyDataVivacity(timeSeriesData.hourly_30days, countlineId);
+		// For legacy data, try to use first countline ID if available
+		const legacyCountlineId = countlineIds && countlineIds[0];
+		hourlyAverages = processHourlyDataVivacity(timeSeriesData.hourly_30days, legacyCountlineId);
 	}
 	
-	// Process daily data for last 30 days
+	// Process daily data for last 30 days (now aggregated)
 	let dailyData = null;
 	if (hasDailyData) {
-		console.log('Processing daily_3months data for last 30 days...');
-		dailyData = processDailyDataVivacity(timeSeriesData.daily_3months, countlineId, 30);
-	} else if (timeSeriesData.monthly_3years && timeSeriesData.monthly_3years[countlineId]) {
-		console.log('Processing legacy monthly data...');
-		// Keep monthly data as dailyData for backwards compatibility
-		dailyData = processMonthlyDataVivacity(timeSeriesData.monthly_3years[countlineId]);
+		console.log('Processing aggregated daily_3months data for last 30 days...');
+		dailyData = processDailyDataVivacityAggregated(timeSeriesData.daily_3months, 30);
 	} else {
-		console.log('No daily or monthly data available - creating placeholder');
+		console.log('No daily data available - creating placeholder');
 		dailyData = {
 			pedestrian: [],
 			bike: []
@@ -288,36 +287,35 @@ export function processVivacityCounterTimeSeriesData(timeSeriesData) {
 		// We need to get ALL traffic types from the raw daily data
 		// The daily data we have only contains pedestrian and bike, but the raw data has all types
 		
-		// Since we only have pedestrian and bike data processed, we need to re-examine the raw data
-		// to get the total of ALL traffic types
-		if (hasDailyData && timeSeriesData.daily_3months && timeSeriesData.daily_3months[countlineId]) {
-			const dailyDataArray = timeSeriesData.daily_3months[countlineId];
+		// Since we now have aggregated data, we can calculate totals directly from the processed data
+		// The aggregated data already includes all vehicle types summed together
+		if (hasDailyData && timeSeriesData.daily_3months && Array.isArray(timeSeriesData.daily_3months)) {
+			const dailyDataArray = timeSeriesData.daily_3months;
 			let totalAllTraffic = 0;
 			
 			// Get the last 30 days of data (matching what we processed earlier)
-			const sortedData = [...dailyDataArray].sort((a, b) => new Date(b.from) - new Date(a.from));
-			const last30Days = sortedData.slice(0, 30);
+			const cutoffDate = new Date();
+			cutoffDate.setDate(cutoffDate.getDate() - 30);
+			cutoffDate.setHours(0, 0, 0, 0);
+			
+			const last30Days = dailyDataArray.filter(dataPoint => {
+				const date = new Date(dataPoint.from);
+				return date >= cutoffDate;
+			});
 			
 			last30Days.forEach(dayData => {
-				const { clockwise, anti_clockwise } = dayData;
+				// With aggregated data, all vehicle types are already summed (clockwise + anticlockwise)
+				const allTypes = ['pedestrian', 'cyclist', 'car', 'bus', 'agricultural_vehicle', 
+								  'cargo_bicycle', 'dog', 'electric_hackney_cab', 'emergency_car'];
 				
-				// Sum ALL traffic types for both directions
-				const allTypes = ['pedestrian', 'cyclist', 'jogger', 'cargo_bicycle', 'rental_bicycle',
-								  'car', 'taxi', 'van', 'minibus', 'bus', 'rigid', 'truck',
-								  'emergency_car', 'emergency_van', 'fire_engine', 'motorcycle', 
-								  'mobility_scooter', 'escooter'];
-				
+				// Sum all traffic types from the aggregated data
 				allTypes.forEach(type => {
-					totalAllTraffic += (clockwise?.[type] || 0) + (anti_clockwise?.[type] || 0);
+					totalAllTraffic += dayData[type] || 0;
 				});
 				
-				// Track pedestrian and cyclist totals specifically
-				totalPedestrianCount += (clockwise?.pedestrian || 0) + (anti_clockwise?.pedestrian || 0) +
-										(clockwise?.jogger || 0) + (anti_clockwise?.jogger || 0);
-				
-				totalCyclistCount += (clockwise?.cyclist || 0) + (anti_clockwise?.cyclist || 0) +
-									(clockwise?.cargo_bicycle || 0) + (anti_clockwise?.cargo_bicycle || 0) +
-									(clockwise?.rental_bicycle || 0) + (anti_clockwise?.rental_bicycle || 0);
+				// Track pedestrian and cyclist totals specifically from aggregated data
+				totalPedestrianCount += dayData.pedestrian || 0;
+				totalCyclistCount += dayData.cyclist || 0;
 			});
 			
 			// Calculate percentages of total traffic
@@ -709,4 +707,136 @@ function processMonthlyData(monthlyData) {
 	console.log('Processed monthly totals:', monthlyTotals);
 	
 	return monthlyTotals;
+}
+
+/**
+ * Process aggregated hourly vivacity data to create hourly averages
+ * This version handles pre-aggregated data (no countline keys)
+ * @param {Array} hourlyDataArray - Aggregated hourly data array
+ * @returns {Object} Processed hourly averages by travel mode
+ */
+function processHourlyDataVivacityAggregated(hourlyDataArray) {
+	if (!Array.isArray(hourlyDataArray)) {
+		console.warn('Aggregated hourly data is not an array');
+		return null;
+	}
+	
+	console.log(`Processing ${hourlyDataArray.length} aggregated hourly data points`);
+	
+	// Initialize hourly totals for each hour (0-23)
+	const hourlyTotals = {
+		pedestrian: new Array(24).fill(0).map(() => ({ total: 0, count: 0, days: new Set() })),
+		bike: new Array(24).fill(0).map(() => ({ total: 0, count: 0, days: new Set() }))
+	};
+	
+	// Process each hourly data point
+	hourlyDataArray.forEach((dataPoint, index) => {
+		const { from, to, pedestrian, cyclist } = dataPoint;
+		
+		if (!from) {
+			console.warn(`Skipping data point ${index} - no timestamp`);
+			return;
+		}
+		
+		// Parse the timestamp to get the hour and date
+		const date = new Date(from);
+		const hour = date.getHours();
+		const dayKey = date.toISOString().split('T')[0]; // Get YYYY-MM-DD for unique day tracking
+		
+		// Use the pre-aggregated totals (already combined clockwise + anticlockwise)
+		const pedestrianTotal = pedestrian || 0;
+		const cyclistTotal = cyclist || 0;
+		
+		// Add to hourly totals
+		if (hour >= 0 && hour < 24) {
+			hourlyTotals.pedestrian[hour].total += pedestrianTotal;
+			hourlyTotals.pedestrian[hour].count++;
+			hourlyTotals.pedestrian[hour].days.add(dayKey);
+			
+			hourlyTotals.bike[hour].total += cyclistTotal;
+			hourlyTotals.bike[hour].count++;
+			hourlyTotals.bike[hour].days.add(dayKey);
+		}
+	});
+	
+	// Calculate averages for each hour
+	const hourlyAverages = {
+		pedestrian: hourlyTotals.pedestrian.map((hourData, hour) => ({
+			hour: hour,
+			average: hourData.count > 0 ? Math.round(hourData.total / hourData.count) : 0,
+			totalDays: hourData.days.size
+		})),
+		bike: hourlyTotals.bike.map((hourData, hour) => ({
+			hour: hour,
+			average: hourData.count > 0 ? Math.round(hourData.total / hourData.count) : 0,
+			totalDays: hourData.days.size
+		}))
+	};
+	
+	console.log('Processed aggregated hourly averages:', hourlyAverages);
+	
+	return hourlyAverages;
+}
+
+/**
+ * Process aggregated daily vivacity data
+ * This version handles pre-aggregated data (no countline keys)
+ * @param {Array} dailyDataArray - Aggregated daily data array
+ * @param {number} lastNDays - Number of recent days to include (default: 30)
+ * @returns {Object} Processed daily data by travel mode
+ */
+function processDailyDataVivacityAggregated(dailyDataArray, lastNDays = 30) {
+	if (!Array.isArray(dailyDataArray)) {
+		console.warn('Aggregated daily data is not an array');
+		return { pedestrian: [], bike: [] };
+	}
+	
+	console.log(`Processing ${dailyDataArray.length} aggregated daily data points for last ${lastNDays} days`);
+	
+	// Get the cutoff date for filtering recent data
+	const cutoffDate = new Date();
+	cutoffDate.setDate(cutoffDate.getDate() - lastNDays);
+	cutoffDate.setHours(0, 0, 0, 0);
+	
+	const dailyTotals = {
+		pedestrian: [],
+		bike: []
+	};
+	
+	// Process each daily data point
+	dailyDataArray.forEach(dataPoint => {
+		const { from, to, pedestrian, cyclist } = dataPoint;
+		
+		if (!from) return;
+		
+		const date = new Date(from);
+		
+		// Only include recent data within the specified range
+		if (date >= cutoffDate) {
+			const dateStr = date.toISOString().split('T')[0];
+			
+			// Use the pre-aggregated totals
+			const pedestrianTotal = pedestrian || 0;
+			const cyclistTotal = cyclist || 0;
+			
+			dailyTotals.pedestrian.push({
+				date: dateStr,
+				count: pedestrianTotal
+			});
+			
+			dailyTotals.bike.push({
+				date: dateStr,
+				count: cyclistTotal
+			});
+		}
+	});
+	
+	// Sort by date for each travel mode
+	Object.keys(dailyTotals).forEach(travelMode => {
+		dailyTotals[travelMode].sort((a, b) => new Date(a.date) - new Date(b.date));
+	});
+	
+	console.log('Processed aggregated daily totals:', dailyTotals);
+	
+	return dailyTotals;
 }

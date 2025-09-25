@@ -108,15 +108,10 @@
 		const recentYear = monthlyData.slice(-12);
 		const previousYear = monthlyData.slice(-24, -12);
 		
-		console.log('Recent 12 months:', recentYear);
-		console.log('Previous 12 months:', previousYear);
 		
 		// Calculate totals for each period
 		const currentYearTotal = recentYear.reduce((sum, month) => sum + month.value, 0);
 		const previousYearTotal = previousYear.reduce((sum, month) => sum + month.value, 0);
-		
-		console.log('Current year total:', currentYearTotal);
-		console.log('Previous year total:', previousYearTotal);
 		
 		if (previousYearTotal === 0) {
 			return [{ label: "change", value: "N/A" }];
@@ -207,24 +202,12 @@
 			/>
 			<EcoCounterTimeSeries
 				travelMode="bike"
-				chartType="Monthly trends"
-				title="monthly "
+				chartType="monthly"
+				title="Monthly trends"
 				explanation="Monthly counts over the last 3 years"
 			/>
 		{/if}
-	{:else}
-		<EcoCounterTimeSeries
-			travelMode="pedestrian"
-			chartType="hourly"
-			title="Hourly Average Usage"
-			explanation="Average daily usage by hour over the last 30 days"
-		/>
-		<EcoCounterTimeSeries
-			travelMode="pedestrian"
-			chartType="monthly"
-			title="Monthly Usage Trends"
-			explanation="Monthly usage totals over the last 3 years"
-		/>
+	
 	{/if}
 {/if}
 
@@ -285,20 +268,7 @@
 		flex-wrap: wrap;
 	}
 
-	.location-selector {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		margin-top: 10px;
-	}
-
-	.location-label {
-		font-size: 14px;
-		font-weight: 500;
-		color: #333;
-		white-space: nowrap;
-	}
-
+	
 	
 	.location-dropdown {
 		font-size: 22px;
@@ -331,11 +301,7 @@
 
 
 
-
-
-
-
-	@media (max-width: 1300px) {
+	@media (max-width: 1200px) {
 	
 
 	.location-dropdown {

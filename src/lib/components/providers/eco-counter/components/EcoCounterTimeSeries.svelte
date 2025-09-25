@@ -330,7 +330,7 @@
 		font-style: italic;
 	}
 
-	@media (max-width: 1300px) {
+	@media (max-width: 1200px) {
 		.info-button.expanded {
 			width: 270px;	
 		}

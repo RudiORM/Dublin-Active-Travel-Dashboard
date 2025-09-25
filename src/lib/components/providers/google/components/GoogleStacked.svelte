@@ -247,7 +247,7 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		
 	}
 
-	@media (max-width: 1300px){
+	@media (max-width: 1200px){
 		.info-button.expanded {
 			width: 270px;	
 	}}

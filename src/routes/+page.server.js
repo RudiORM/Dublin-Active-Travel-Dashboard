@@ -1,5 +1,7 @@
 import { ECO_COUNTER_API, VIVACITY_API } from '$env/static/private';
 import { env } from '$env/dynamic/private';
+import fs from 'fs';
+import path from 'path';
 
 export async function load() {
   // Try SvelteKit env first, then fallback to process.env for development
@@ -29,6 +31,30 @@ export async function load() {
   } : null;
 
   try {
+    // Load counter activity data from static file
+    let counterActivity = null;
+    try {
+      const counterActivityPath = path.join(process.cwd(), 'static', 'counter_activity.json');
+      const counterActivityData = fs.readFileSync(counterActivityPath, 'utf-8');
+      counterActivity = JSON.parse(counterActivityData);
+      console.log('Counter activity data loaded:', counterActivity.length, 'entries');
+    } catch (error) {
+      console.warn('Could not load counter_activity.json:', error.message);
+      counterActivity = [];
+    }
+
+    // Load vivacity markers data from static file
+    let vivacityMarkers = null;
+    try {
+      const vivacityMarkersPath = path.join(process.cwd(), 'static', 'vivacity_markers.json');
+      const vivacityMarkersData = fs.readFileSync(vivacityMarkersPath, 'utf-8');
+      vivacityMarkers = JSON.parse(vivacityMarkersData);
+      console.log('Vivacity markers data loaded:', vivacityMarkers.length, 'entries');
+    } catch (error) {
+      console.warn('Could not load vivacity_markers.json:', error.message);
+      vivacityMarkers = [];
+    }
+
     // Calculate date range for last 7 days (Vivacity API limit for 1h buckets is 169h)
     // Align to hour boundaries for Vivacity API
     const to = new Date();
@@ -106,6 +132,42 @@ export async function load() {
     console.log('Vivacity Data structure:', vivacityData ? Object.keys(vivacityData) : 'null');
     console.log('Vivacity Metadata available:', !!vivacityMetadata);
     console.log('Vivacity Metadata structure:', vivacityMetadata ? Object.keys(vivacityMetadata) : 'null');
+
+    // Process vivacity metadata to extract countlines for each sensor
+    let processedVivacityMarkers = vivacityMarkers;
+    if (vivacityMetadata && vivacityMarkers) {
+      console.log('Processing vivacity metadata to extract countlines...');
+      processedVivacityMarkers = vivacityMarkers.map(marker => {
+        const sensorId = marker.sensor_id;
+        const sensorMetadata = vivacityMetadata[sensorId];
+        
+        let countlines = [];
+        if (sensorMetadata && sensorMetadata.view_points) {
+          // Extract all countlines from all view_points
+          Object.values(sensorMetadata.view_points).forEach(viewPoint => {
+            if (viewPoint.countlines) {
+              Object.entries(viewPoint.countlines).forEach(([countlineId, countlineData]) => {
+                countlines.push({
+                  id: countlineId,
+                  name: countlineData.name,
+                  description: countlineData.description,
+                  direction: countlineData.direction
+                });
+              });
+            }
+          });
+        }
+        
+        console.log(`Sensor ${sensorId}: found ${countlines.length} countlines`);
+        
+        return {
+          ...marker,
+          countlines: countlines
+        };
+      });
+      
+      console.log('Processed vivacity markers with countlines:', processedVivacityMarkers.length);
+    }
   
 
 
@@ -122,9 +184,13 @@ export async function load() {
       ecoCounterTraffic: ecoCounterTraffic,
       ecoCounterError: null,
       
+      // Counter activity data
+      counterActivity: counterActivity,
+      
       // Vivacity data (new structure)
       vivacityCounterSites: vivacityMetadata,
       vivacityCounterTraffic: vivacityData,
+      vivacityMarkers: processedVivacityMarkers, // Add the static markers data with pedestrian_total and countlines
       vivacityCounterError: vivacityApiKey ? null : 'VIVACITY_API environment variable is not set'
     };
     
@@ -136,8 +202,10 @@ export async function load() {
       ecoCounterSites: null,
       ecoCounterTraffic: null,
       ecoCounterError: error.message,
+      counterActivity: [],
       vivacityCounterSites: null,
       vivacityCounterTraffic: null,
+      vivacityMarkers: [],
       vivacityCounterError: error.message
     };
   }

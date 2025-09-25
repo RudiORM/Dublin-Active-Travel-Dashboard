@@ -43,7 +43,8 @@
 						description: location.description,
 						travelModes: location.travelModes,
 						isSelected: location.id === selectedLocationId,
-						filterMode: selectedMode // Add filter mode for color styling
+						filterMode: selectedMode, // Add filter mode for color styling
+						pedestrian_total: location.pedestrian_total || 0 // MISSING! Add activity data for sizing
 					},
 					geometry: {
 						type: 'Point',
@@ -98,6 +99,7 @@
 			console.log('Vivacity server data check:');
 			console.log('- vivacityCounterSites:', !!serverData.vivacityCounterSites);
 			console.log('- vivacityCounterTraffic:', !!serverData.vivacityCounterTraffic);
+			console.log('- vivacityMarkers:', !!serverData.vivacityMarkers);
 			console.log('- vivacityCounterError:', serverData.vivacityCounterError);
 
 			// Check for server errors
@@ -109,33 +111,44 @@
 			// Get the data from server
 			const sitesData = serverData.vivacityCounterSites;
 			const trafficData = serverData.vivacityCounterTraffic;
+			const markersData = serverData.vivacityMarkers;
 
 			console.log('Raw server data:');
 			console.log('- sitesData type:', typeof sitesData, 'available:', !!sitesData);
 			console.log('- trafficData type:', typeof trafficData, 'available:', !!trafficData);
+			console.log('- markersData type:', typeof markersData, 'available:', !!markersData);
 			
-			if (sitesData) {
-				console.log('- sitesData structure:', Array.isArray(sitesData) ? `Array(${sitesData.length})` : Object.keys(sitesData));
-			}
-			if (trafficData) {
-				console.log('- trafficData structure:', Array.isArray(trafficData) ? `Array(${trafficData.length})` : Object.keys(trafficData));
+			if (markersData) {
+				console.log('- markersData structure:', Array.isArray(markersData) ? `Array(${markersData.length})` : Object.keys(markersData));
 			}
 
-			if (!sitesData && !trafficData) {
-				console.warn('Both sitesData and trafficData are null/undefined - this might be expected if API keys are not set');
-				vivacityCounterData = [];
-				console.log('Set vivacityCounterData to empty array');
-			} else if (!sitesData) {
-				console.warn('No sites data available, but traffic data exists');
-				vivacityCounterData = [];
-			} else {
-				// Process the locations data
-				console.log('Processing vivacity locations data...');
-				const locations = processVivacityCounterLocations(sitesData);
-				console.log('Processed locations count:', locations.length);
+			// Use the static markers data with pedestrian_total values
+			if (markersData && Array.isArray(markersData) && markersData.length > 0) {
+				console.log('Using static vivacity markers data...');
 				
-				vivacityCounterData = locations;
-				console.log('Vivacity-counter data loaded successfully:', vivacityCounterData.length, 'locations');
+				// Transform the markers data to the expected format
+				vivacityCounterData = markersData.map(marker => {
+					console.log('Processing marker:', marker);
+					const transformed = {
+						id: marker.sensor_id,
+						name: `Sensor ${marker.sensor_id}`,
+						description: `Vivacity sensor at ${marker.lat}, ${marker.long}`,
+						latitude: marker.lat,
+						longitude: marker.long,
+						pedestrian_total: marker.pedestrian_total,
+						cyclist_total: marker.cyclist_total,
+						countlines: marker.countlines || [], // Include countlines from server processing
+						travelModes: ['pedestrian', 'bike']
+					};
+					console.log('Transformed marker with countlines:', transformed);
+					return transformed;
+				});
+				
+				console.log('Vivacity-counter data loaded from static markers:', vivacityCounterData.length, 'locations');
+				console.log('Sample transformed location:', vivacityCounterData[0]);
+			} else {
+				console.warn('No vivacity markers data available');
+				vivacityCounterData = [];
 			}
 
 			// Add markers to map directly like other providers (only once)
@@ -148,7 +161,7 @@
 				updateFilteredData();
 				
 				// Select default vivacity-counter location
-				const defaultLocationId = 100006267;
+				const defaultLocationId = '9712'; // Sensor 9712
 				const defaultLocation = vivacityCounterData.find(loc => loc.id === defaultLocationId);
 				
 				if (defaultLocation) {
@@ -219,6 +232,8 @@
 	async function fetchLocationTimeSeries(locationId) {
 		try {
 			console.log(`Fetching time series data for location: ${locationId}`);
+
+			console.log('vivacityCounterData', vivacityCounterData);
 			
 			// Find the location to get its countlines
 			const location = vivacityCounterData.find(loc => loc.id === locationId);
@@ -227,11 +242,12 @@
 				throw new Error(`No countlines available for location ${locationId}`);
 			}
 			
-			// Use the first countline ID for the time series request
-			const countlineId = location.countlines[0].id;
-			console.log(`Using countline ID ${countlineId} for location ${locationId}`);
+			// Use all countline IDs for the location
+			const countlineIds = location.countlines.map(cl => cl.id);
+			console.log(`Using countline IDs [${countlineIds.join(', ')}] for location ${locationId}`);
 			
-			const timeSeriesData = await fetchVivacityCounterTimeSeries(countlineId);
+			// Fetch time series data for all countlines of this location
+			const timeSeriesData = await fetchVivacityCounterTimeSeries(countlineIds);
 			console.log(`Raw time series data for location ${locationId}:`, timeSeriesData);
 			
 			// Process the time series data

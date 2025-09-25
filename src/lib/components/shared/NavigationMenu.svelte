@@ -101,6 +101,10 @@
 
 	<!-- Data Menu Section -->
 	<div class="sidebar">
+		<!-- Logo section for short height screens -->
+		<div class="sidebar-logo">
+			<img src="/svgs/DATD-logo-v3-outlinestroke.svg" alt="Logo" class="logo" />
+		</div>
 		<div class="sidebar-header">
 			<h3>Data</h3>
 		</div>
@@ -131,6 +135,13 @@
 					{/if}
 				</div>
 			{/each}
+		</div>
+		<!-- About button moved to bottom for short height screens -->
+		<div class="sidebar-about">
+			<div class="menu-content" onclick={() => clicked = true}>
+				<img class='sd-logo' src="/svgs/Smart-Dublin-Logo-light-2-blackandwhite.svg" alt="Logo" />
+				<p>About</p>
+			</div>
 		</div>
 	</div>
 </div>
@@ -411,6 +422,29 @@
 		border-bottom-right-radius: 8px;
 	}
 
+	/* Sidebar logo section (hidden by default, shown on short height screens) */
+	.sidebar-logo {
+		display: none;
+		margin-bottom: 20px;
+		flex-shrink: 0;
+		width: 100%;
+	}
+
+	.sidebar-logo .logo {
+		max-width: 120px;
+		height: auto;
+		display: block;
+		margin: 0 auto;
+	}
+
+	/* Sidebar about section (hidden by default, shown on short height screens) */
+	.sidebar-about {
+		display: none;
+		margin-top: 15px;
+		padding-top: 15px;
+		border-top: 1px solid #ddd;
+	}
+
 	/* Modal styles */
 	.modal-overlay {
 		display: none;
@@ -558,6 +592,142 @@
 		/* Show modal overlay when active */
 		.modal-overlay {
 			display: flex;
+		}
+	}
+
+	/* Short height responsive styles - under 650px height */
+	@media (max-height: 750px) and (min-width: 651px) {
+		.menu {
+			display: none; /* Hide the separate menu element */
+		}
+
+		.sidebar {
+			top: 40px; /* Position at top instead of bottom */
+			bottom: auto;
+			height: calc(100vh - 80px); /* Take up full height minus margins */
+			display: flex;
+			flex-direction: column;
+		}
+
+		.sidebar-logo {
+			display: flex; /* Show the logo in sidebar with flex centering */
+			justify-content: center;
+			align-items: center;
+			flex-shrink: 0;
+			width: calc(100% + 40px); /* Account for sidebar padding */
+			margin-left: -20px; /* Offset the sidebar padding */
+			margin-right: -20px; /* Offset the sidebar padding */
+		}
+
+		.logo{
+            position: relative;
+            margin: auto;
+            left: 0%;
+            transform: translateX(0%);
+			margin-top: 10px;
+       
+        }
+
+		.sidebar-header {
+			flex-shrink: 0;
+		}
+
+		.sidebar-header h3 {
+			font-size: 16px; /* Reduce font size */
+		}
+
+		.data-content {
+			flex: 1;
+			font-size: 16px; /* Reduce font size */
+			overflow-y: auto;
+		}
+
+		.section-header {
+			font-size: 16px; /* Reduce font size */
+		}
+
+		.item-button {
+			font-size: 16px; /* Reduce font size */
+		}
+
+		.sidebar-about {
+			display: block; /* Show the about button in sidebar */
+			flex-shrink: 0;
+			margin-top: 0px;
+		}
+
+		.sidebar-about .menu-content {
+			font-size: 16px; /* Reduce font size */
+			padding: 0px 12px; /* Reduce padding to make it less tall */
+		}
+
+		.sidebar-about .sd-logo {
+			width: 40px; /* Smaller logo for compact layout */
+		}
+	}
+
+	/* Responsive styles */
+	@media (max-width: 950px) {
+		.menu {
+			left: 20px;
+			top: 20px;
+			height: calc(50% - 30px);
+		}
+
+		.sidebar {
+			left: 20px;
+			bottom: 20px;
+			height: calc(50% - 30px);
+		}
+	}
+
+	/* Desktop mode under 650px height */
+	@media (min-width: 651px) and (max-height: 750px) {
+		.menu {
+			display: none;
+		}
+
+		.menu-overlay {
+			display: none;
+		}
+
+		.sidebar {
+			top: 40px;
+			bottom: 40px;
+			height: calc(100% - 80px);
+			display: flex;
+			flex-direction: column;
+		}
+
+
+		.sidebar .sidebar-header {
+			margin-bottom: 10px;
+			flex-shrink: 0;
+		}
+
+		.sidebar .sidebar-header h3 {
+			font-size: 16px;
+		}
+
+		.sidebar .data-content {
+			flex: 1;
+			font-size: 16px;
+			margin-bottom: 0px;
+			overflow-y: auto;
+		}
+
+		.sidebar .section-header {
+			font-size: 16px;
+			padding: 10px 12px;
+		}
+
+		.sidebar .item-button {
+			font-size: 16px;
+			padding: 8px 16px;
+		}
+
+		.sidebar .expand-icon {
+			font-size: 16px;
 		}
 	}
 </style>

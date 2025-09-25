@@ -1,7 +1,7 @@
 <script>
 	import GoogleFilterLegendBar from './GoogleFilterLegendBar.svelte';
 	import GoogleInfoPanel from './GoogleInfoPanel.svelte';
-	import DataBox from '$lib/components/shared/DataBox.svelte';
+	import DataBoxEco from '$lib/components/shared/DataBoxEco.svelte';
 
 	// Props from GoogleProvider
 	let { googleContext } = $props();
@@ -20,7 +20,7 @@
 	{googleContext}
 />
 
-<DataBox>
+<DataBoxEco>
 	<GoogleInfoPanel 
 		reshapedData={googleContext.reshapedData}
 		selectedMode={googleContext.selectedMode}
@@ -29,4 +29,4 @@
 		selectedArea={googleContext.selectedArea}
 		{googleContext}
 	/>
-</DataBox>
+</DataBoxEco>

@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import DataBox from '../../../shared/DataBox.svelte';
+	import DataBoxEco from '../../../shared/DataBoxEco.svelte';
 	import EcoCounterInfoPanel from './EcoCounterInfoPanel.svelte';
 	import EcoCounterFilterBar from './EcoCounterFilterBar.svelte';
 
@@ -18,6 +18,6 @@
 
 <EcoCounterFilterBar bind:selectedMode onFilterChange={handleFilterChange} />
 
-<DataBox>
+<DataBoxEco>
 	<EcoCounterInfoPanel />
-</DataBox>
+</DataBoxEco>

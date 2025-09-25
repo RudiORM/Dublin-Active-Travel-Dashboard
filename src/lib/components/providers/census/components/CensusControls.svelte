@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import CensusFilterLegendBar from './CensusFilterLegendBar.svelte';
 	import CensusInfoPanel from './CensusInfoPanel.svelte';
-	import DataBox from '$lib/components/shared/DataBox.svelte';
+	import DataBoxEco from '$lib/components/shared/DataBoxEco.svelte';
 
 	const census = getContext('census');
 
@@ -20,7 +20,7 @@
 	censusContext={census}
 />
 
-<DataBox>
+<DataBoxEco>
 	<CensusInfoPanel 
 		reshapedData={census.reshapedData}
 		selectedMode={census.selectedMode}
@@ -29,4 +29,4 @@
 		selectedArea={census.selectedArea}
 		censusContext={census}
 	/>
-</DataBox>
+</DataBoxEco>

@@ -5,12 +5,16 @@ import { env } from '$env/dynamic/private';
 // Handle POST requests to fetch traffic data from Vivacity API
 export async function POST({ request }) {
 	try {
-		// Extract the countline ID from the request body
+		// Extract the countline ID(s) from the request body
 		const { siteId } = await request.json();
 		
 		if (!siteId) {
-			return json({ error: 'Site ID (countline ID) is required' }, { status: 400 });
+			return json({ error: 'Site ID (countline ID or array of IDs) is required' }, { status: 400 });
 		}
+		
+		// Handle both single countline ID and array of countline IDs
+		const countlineIds = Array.isArray(siteId) ? siteId : [siteId];
+		console.log(`Processing countline IDs: [${countlineIds.join(', ')}]`);
 
 		// Try SvelteKit env first, then fallback to process.env for development
 		const vivacityApiKey = VIVACITY_API || env.VIVACITY_API || process.env.VIVACITY_API;
@@ -34,7 +38,7 @@ export async function POST({ request }) {
 			return date.toISOString().replace(/\.\d{3}Z$/, '.000Z');
 		}
 
-		console.log(`Fetching vivacity time series data for countline: ${siteId}`);
+		console.log(`Fetching vivacity time series data for countlines: [${countlineIds.join(', ')}]`);
 
 		// Calculate date range for last 7 days (hourly data)
 		// Align to hour boundaries for Vivacity API
@@ -60,10 +64,12 @@ export async function POST({ request }) {
 		console.log('from3MonthsISO:', from3MonthsISO);
 		console.log('toISO:', toISO);
 
+		// Join countline IDs for the API request
+		const countlineIdsParam = countlineIds.join(',');
 
 		// Define URLs for the API requests
-		const urlHourly = `https://api.vivacitylabs.com/countline/counts?countline_ids=${siteId}&from=${from7DaysISO}&to=${toISO}&time_bucket=1h&fill_zeros=true`;
-		const urlDaily = `https://api.vivacitylabs.com/countline/counts?countline_ids=${siteId}&from=${from3MonthsISO}&to=${to_todayISO}&time_bucket=24h`;
+		const urlHourly = `https://api.vivacitylabs.com/countline/counts?countline_ids=${countlineIdsParam}&from=${from7DaysISO}&to=${toISO}&time_bucket=1h&fill_zeros=true`;
+		const urlDaily = `https://api.vivacitylabs.com/countline/counts?countline_ids=${countlineIdsParam}&from=${from3MonthsISO}&to=${to_todayISO}&time_bucket=24h`;
 
 		console.log('Vivacity API URL (hourly):', urlHourly);
 		console.log('Vivacity API URL (daily):', urlDaily);
@@ -86,15 +92,79 @@ export async function POST({ request }) {
 					})
 			]);
 
-			console.log(`Vivacity time series data fetched successfully for countline: ${siteId}`);
+			console.log(`Vivacity time series data fetched successfully for countlines: [${countlineIds.join(', ')}]`);
+			
+			// Helper function to aggregate data from multiple countlines and combine directions
+			function aggregateVivacityData(data) {
+				if (!data || typeof data !== 'object') return data;
+				
+				// If data has countline keys, aggregate them
+				const countlineKeys = Object.keys(data);
+				if (countlineKeys.length === 0) return data;
+				
+				// Get all time periods from the first countline as reference
+				const firstCountlineData = data[countlineKeys[0]];
+				if (!Array.isArray(firstCountlineData)) return data;
+				
+				// Create aggregated data structure
+				const aggregatedData = firstCountlineData.map(timeEntry => {
+					const aggregatedEntry = {
+						from: timeEntry.from,
+						to: timeEntry.to,
+						// Initialize aggregated counts
+						pedestrian: 0,
+						cyclist: 0,
+						car: 0,
+						bus: 0,
+						// Add other vehicle types as needed
+						agricultural_vehicle: 0,
+						cargo_bicycle: 0,
+						dog: 0,
+						electric_hackney_cab: 0,
+						emergency_car: 0
+					};
+					
+					// Sum data from all countlines for this time period
+					countlineKeys.forEach(countlineId => {
+						const countlineData = data[countlineId];
+						const matchingEntry = countlineData.find(entry => entry.from === timeEntry.from);
+						
+						if (matchingEntry) {
+							// Combine clockwise and anticlockwise directions
+							['clockwise', 'anti_clockwise'].forEach(direction => {
+								if (matchingEntry[direction]) {
+									Object.keys(matchingEntry[direction]).forEach(vehicleType => {
+										const count = matchingEntry[direction][vehicleType] || 0;
+										if (aggregatedEntry.hasOwnProperty(vehicleType)) {
+											aggregatedEntry[vehicleType] += count;
+										} else {
+											aggregatedEntry[vehicleType] = (aggregatedEntry[vehicleType] || 0) + count;
+										}
+									});
+								}
+							});
+						}
+					});
+					
+					return aggregatedEntry;
+				});
+				
+				return aggregatedData;
+			}
+			
+			// Aggregate the data
+			const aggregatedHourly = aggregateVivacityData(hourly_7days);
+			const aggregatedDaily = aggregateVivacityData(daily_3months);
+			
+			console.log('Data aggregated for', countlineIds.length, 'countlines');
 			
 			// Structure the response with both hourly and daily data
 			const timeSeriesData = {
-				hourly_7days: hourly_7days,      // 7 days of hourly data
-				daily_3months: daily_3months,     // 3 months of daily data
-				weekly_year: null,                // Vivacity doesn't provide this format directly
-				monthly_3years: null,             // Vivacity doesn't provide this format directly
-				countlineId: siteId,
+				hourly_7days: aggregatedHourly,      // 7 days of hourly data (aggregated)
+				daily_3months: aggregatedDaily,      // 3 months of daily data (aggregated)
+				weekly_year: null,                   // Vivacity doesn't provide this format directly
+				monthly_3years: null,                // Vivacity doesn't provide this format directly
+				countlineIds: countlineIds,          // Array of countline IDs used
 				dateRange: {
 					hourly: {
 						from: from7DaysISO,

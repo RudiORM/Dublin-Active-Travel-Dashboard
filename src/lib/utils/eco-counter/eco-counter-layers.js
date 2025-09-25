@@ -27,7 +27,8 @@ export function addEcoCounterMarkers(map, locations) {
 				description: location.description,
 				travelModes: location.travelModes,
 				isSelected: false,
-				filterMode: 'pedestrian' // Default filter mode
+				filterMode: 'pedestrian', // Default filter mode
+				total_7day_count: location.total_7day_count || 0 // Add activity data for sizing
 			},
 			geometry: {
 				type: 'Point',
@@ -46,6 +47,8 @@ export function addEcoCounterMarkers(map, locations) {
 		});
 	}
 
+	console.log('eco-geojson', geojson);
+
 	// Add marker layer
 	if (!map.getLayer('eco-counter-markers')) {
 		map.addLayer({
@@ -54,10 +57,22 @@ export function addEcoCounterMarkers(map, locations) {
 			source: 'eco-counter-markers',
 			paint: {
 				'circle-radius': [
-					'case',
-					['get', 'isSelected'],
-					22, // Larger radius for selected
-					14  // Default radius
+					// All markers: scale based on activity only
+					'max',
+					8, // Minimum size
+					[
+						'min',
+						30, // Maximum size
+						[
+							'+',
+							3, // Base size
+							[
+								'*',
+								0.000005, // Scale factor
+								['get', 'total_7day_count']
+							]
+						]
+					]
 				],
 				'circle-opacity': 0.8,
 

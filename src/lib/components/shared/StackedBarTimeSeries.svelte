@@ -90,7 +90,7 @@
 		// Round up to nearest nice number
 		const magnitude = Math.pow(10, Math.floor(Math.log10(paddedMax)));
 		const normalized = paddedMax / magnitude;
-		let niceMax = 120000;
+		let niceMax = 240000;
 		
 		// Create 4 values (0, 1/3, 2/3, max)
 		return [
@@ -131,6 +131,33 @@
 		if (num >= 1000) return `${(num / 1000).toFixed(0)}k`;
 		return num.toString();
 	};
+
+	// Tooltip state
+	let tooltipVisible = $state(false);
+	let tooltipX = $state(0);
+	let tooltipY = $state(0);
+	let tooltipData = $state({ year: '', total: 0, segments: [] });
+
+	// Show tooltip
+	function showTooltip(event: MouseEvent | TouchEvent, yearData: any) {
+		const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+		const clientX = 'touches' in event ? event.touches[0].clientX : event.clientX;
+		const clientY = 'touches' in event ? event.touches[0].clientY : event.clientY;
+		
+		tooltipX = clientX;
+		tooltipY = clientY - 10;
+		tooltipData = { 
+			year: yearData.year, 
+			total: yearData.total, 
+			segments: yearData.segments 
+		};
+		tooltipVisible = true;
+	}
+
+	// Hide tooltip
+	function hideTooltip() {
+		tooltipVisible = false;
+	}
 </script>
 
 <div class="time-series-container">
@@ -162,6 +189,10 @@
 									height: {(yearData.total / scaleMax) * 100}%;
 									width: {barWidth}px;
 								"
+								onmouseenter={(e) => showTooltip(e, yearData)}
+								onmouseleave={hideTooltip}
+								ontouchstart={(e) => showTooltip(e, yearData)}
+								ontouchend={hideTooltip}
 							>
 								{#each yearData.segments as segment, segmentIndex}
 									<div 
@@ -187,6 +218,29 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Tooltip -->
+	{#if tooltipVisible}
+		<div 
+			class="tooltip" 
+			style="left: {tooltipX}px; top: {tooltipY-100}px;"
+		>
+			<div class="tooltip-content">
+				<div class="tooltip-year">Year: {tooltipData.year}</div>
+				<div class="tooltiptotal">Total: {tooltipData.total.toLocaleString()}</div>
+				{#if tooltipData.segments && tooltipData.segments.length > 0}
+					<div class="tooltip-divider"></div>
+					{#each tooltipData.segments as segment}
+						<div class="tooltip-segment">
+							<div class="tooltip-segment-color" style="background-color: {segment.color};"></div>
+							<span class="tooltip-segment-label">{segment.mode}:</span>
+							<span class="tooltip-segment-value">{segment.value.toLocaleString()}</span>
+						</div>
+					{/each}
+				{/if}
+			</div>
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -279,6 +333,7 @@
 		display: flex;
 		flex-direction: column-reverse;
 		overflow: hidden;
+		cursor: pointer;
 	}
 
 	.bar-segment-vertical {
@@ -303,10 +358,85 @@
 		white-space: nowrap;
 	}
 
+	/* Tooltip styles */
+	.tooltip {
+		position: fixed;
+		z-index: 1000;
+		pointer-events: none;
+		transform: translateX(-50%);
+	}
+
+	.tooltip-content {
+		background: rgba(0, 0, 0, 0.9);
+		color: white;
+		padding: 8px 12px;
+		border-radius: 6px;
+		font-size: 12px;
+		line-height: 1.4;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		white-space: nowrap;
+	}
+
+	.tooltip-year {
+		font-weight: 500;
+		margin-bottom: 2px;
+	}
+
+	.tooltip-total {
+		font-weight: 400;
+		opacity: 0.9;
+	}
+
+	.tooltip-divider {
+		height: 1px;
+		background: rgba(255, 255, 255, 0.3);
+		margin: 6px 0;
+	}
+
+	.tooltip-segment {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		margin-bottom: 3px;
+		font-size: 11px;
+	}
+
+	.tooltip-segment:last-child {
+		margin-bottom: 0;
+	}
+
+	.tooltip-segment-color {
+		width: 8px;
+		height: 8px;
+		border-radius: 2px;
+		flex-shrink: 0;
+	}
+
+	.tooltip-segment-label {
+		font-weight: 500;
+		text-transform: capitalize;
+		min-width: 60px;
+	}
+
+	.tooltip-segment-value {
+		font-weight: 600;
+		margin-left: auto;
+	}
+
+	.tooltip-segment-percent {
+		opacity: 0.8;
+		font-size: 10px;
+	}
+
 	/* Simplified responsive adjustments */
 	@media (max-width: 640px) {
 		.year-label {
 			font-size: 10px;
+		}
+		
+		.tooltip-content {
+			font-size: 11px;
+			padding: 6px 10px;
 		}
 	}
 </style>

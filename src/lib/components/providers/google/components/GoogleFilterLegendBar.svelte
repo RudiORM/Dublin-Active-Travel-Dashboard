@@ -226,7 +226,7 @@
 		top: 40px;
 		left: calc(240px + 80px);
 		background: #EEF2F6;
-		padding: 30px;
+		padding: 20px;
 		border-radius: 8px;
 		z-index: 10;
 		display: flex;
@@ -239,7 +239,7 @@
 		bottom: 40px;
 		left: calc(240px + 80px);
 		background: #EEF2F6;
-		padding: 30px;
+		padding: 20px;
 		border-radius: 8px;
 		z-index: 10;
 		display: flex;
@@ -382,7 +382,7 @@
 	}
 
 	/* Responsive Styles */
-	@media (max-width: 1300px) {
+	@media (max-width: 1200px) {
 		.filter-bar.desktop-split,
 		.legend-bar.desktop-split {
 			width: calc(100% - 310px - 240px - 160px);

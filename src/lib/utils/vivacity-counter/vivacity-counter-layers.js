@@ -12,6 +12,7 @@ export function addVivacityCounterMarkers(map, locations) {
 	console.log('=== ADDING VIVACITY MARKERS ===');
 	console.log('Adding vivacity-counter markers to map:', locations.length, 'locations');
 	console.log('Sample location:', locations[0]);
+	console.log('Sample location pedestrian_total:', locations[0]?.pedestrian_total);
 	
 	if (!map || !locations || locations.length === 0) {
 		console.warn('No map or locations provided for vivacity-counter markers');
@@ -23,8 +24,8 @@ export function addVivacityCounterMarkers(map, locations) {
 	const geojson = {
 		type: 'FeatureCollection',
 		features: locations.map((location, index) => {
-			console.log(`Feature ${index}: lat=${location.latitude}, lon=${location.longitude}`);
-			return {
+			console.log(`Feature ${index}: lat=${location.latitude}, lon=${location.longitude}, pedestrian_total=${location.pedestrian_total}`);
+			const feature = {
 				type: 'Feature',
 				properties: {
 					id: location.id,
@@ -32,28 +33,43 @@ export function addVivacityCounterMarkers(map, locations) {
 					description: location.description,
 					travelModes: location.travelModes,
 					isSelected: false,
-					filterMode: 'pedestrian' // Default filter mode
+					filterMode: 'pedestrian', // Default filter mode
+					pedestrian_total: location.pedestrian_total || 0 // Add activity data for sizing
 				},
 				geometry: {
 					type: 'Point',
 					coordinates: [location.longitude, location.latitude]
 				}
 			};
+			return feature;
 		})
 	};
 	
 	console.log('GeoJSON created with', geojson.features.length, 'features');
 	console.log('Sample feature coordinates:', geojson.features[0]?.geometry?.coordinates);
+	
+	// Log expected sizes for debugging
+	console.log('Expected marker sizes:');
+	geojson.features.forEach((feature, index) => {
+		const pedestrianTotal = feature.properties.pedestrian_total || 0;
+		const calculatedSize = Math.max(8, Math.min(30, 8 + (pedestrianTotal * 0.00005)));
+		console.log(`Feature ${index}: pedestrian_total=${pedestrianTotal}, expected size=${calculatedSize.toFixed(1)}px`);
+	});
+
+	console.log('geojson', geojson);
 
 	// Add source
 	if (map.getSource('vivacity-counter-markers')) {
+		console.log('source exists');
 		map.getSource('vivacity-counter-markers').setData(geojson);
 	} else {
+		console.log('source does not exist');
 		map.addSource('vivacity-counter-markers', {
 			type: 'geojson',
 			data: geojson
 		});
 	}
+
 
 	// Add marker layer
 	if (!map.getLayer('vivacity-counter-markers')) {
@@ -63,10 +79,22 @@ export function addVivacityCounterMarkers(map, locations) {
 			source: 'vivacity-counter-markers',
 			paint: {
 				'circle-radius': [
-					'case',
-					['get', 'isSelected'],
-					22, // Larger radius for selected
-					14  // Default radius
+					// All markers: scale based on activity only
+					'max',
+					8, // Minimum size
+					[
+						'min',
+						30, // Maximum size
+						[
+							'+',
+							3, // Base size
+							[
+								'*',
+								0.00005, // Scale factor
+								['get', 'pedestrian_total']
+							]
+						]
+					]
 				],
 				'circle-opacity': 0.8,
 
@@ -108,7 +136,6 @@ export function addVivacityCounterMarkers(map, locations) {
 		});
 	}
 
-	console.log('Vivacity-counter markers added successfully');
 }
 
 /**
@@ -139,15 +166,15 @@ export function updateVivacityCounterMarkers(map, selectedLocationId) {
 }
 
 /**
- * Remove eco-counter markers from the map
+ * Remove vivacity-counter markers from the map
  * TODO: Implement layer removal
  */
-export function removeEcoCounterMarkers(map) {
-	console.log('removeEcoCounterMarkers - TODO: Implement layer removal');
+export function removeVivacityCounterMarkers(map) {
+	console.log('removeVivacityCounterMarkers - TODO: Implement layer removal');
 	
 	if (!map) {
 		return;
 	}
 
-	// TODO: Remove all eco-counter related layers
+	// TODO: Remove all vivacity-counter related layers
 }

@@ -41,7 +41,7 @@
 		
 		const transformedData = hourlyData.map((item) => ({
 			date: `${item.hour.toString().padStart(2, '0')}:00`, // Format as "00:00", "01:00", etc.
-			value: Math.round(item.averageDailyCount * 100) / 100 // Round to 2 decimal places
+			value: Math.round(item.average * 100) / 100 // Round to 2 decimal places (changed from averageDailyCount to average)
 		}));
 		
 		console.log('VivacityCounterTimeSeries - transformed hourly data:', transformedData);
@@ -61,8 +61,8 @@
 		console.log(`Processing ${dailyData.length} daily data points for ${travelMode}:`, dailyData);
 		
 		const transformedData = dailyData.map((item) => ({
-			date: item.date, // Keep original date format for daily data (DD/MM/YYYY)
-			value: Math.round(item.value * 100) / 100 // Round to 2 decimal places
+			date: item.date, // Keep original date format for daily data (YYYY-MM-DD)
+			value: Math.round(item.count * 100) / 100 // Round to 2 decimal places (changed from value to count)
 		}));
 		
 		console.log('VivacityCounterTimeSeries - transformed daily data:', transformedData);
@@ -330,7 +330,7 @@
 		font-style: italic;
 	}
 
-	@media (max-width: 1300px) {
+	@media (max-width: 1200px) {
 		.info-button.expanded {
 			width: 270px;	
 		}

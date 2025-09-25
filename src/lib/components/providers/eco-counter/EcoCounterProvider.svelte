@@ -43,7 +43,8 @@
 						description: location.description,
 						travelModes: location.travelModes,
 						isSelected: location.id === selectedLocationId,
-						filterMode: selectedMode // Add filter mode for color styling
+						filterMode: selectedMode, // Add filter mode for color styling
+						total_7day_count: location.total_7day_count || 0 // Add activity data for marker sizing
 					},
 					geometry: {
 						type: 'Point',
@@ -152,15 +153,31 @@
 			// Get the data from server
 			const sitesData = serverData.ecoCounterSites;
 			const trafficData = serverData.ecoCounterTraffic;
+			const counterActivity = serverData.counterActivity || [];
 
 			if (!sitesData || !trafficData) {
 				throw new Error('Incomplete server data');
 			}
 
-			// Process just the locations data for now
-			const locations = processEcoCounterLocations(sitesData);
+			// Process locations data and filter by activity
+			const allLocations = processEcoCounterLocations(sitesData);
 			
-			ecoCounterData = locations;
+			// Filter locations to only include active ones with counter activity data
+			const activeLocations = allLocations.filter(location => {
+				const activityData = counterActivity.find(activity => activity.site_id === location.id);
+				return activityData && activityData.is_active === true;
+			});
+			
+			// Add activity data to locations for marker sizing
+			const locationsWithActivity = activeLocations.map(location => {
+				const activityData = counterActivity.find(activity => activity.site_id === location.id);
+				return {
+					...location,
+					total_7day_count: activityData ? activityData.total_7day_count : 0
+				};
+			});
+			
+			ecoCounterData = locationsWithActivity;
 			console.log('Eco-counter data loaded successfully from server:', ecoCounterData);
 
 			// Add markers to map directly like other providers (only once)

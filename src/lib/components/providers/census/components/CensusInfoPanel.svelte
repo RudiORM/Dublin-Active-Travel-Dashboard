@@ -39,8 +39,8 @@
 		const newValue = event.target.value === 'null' ? null : event.target.value;
 		censusContext.selectedArea = newValue;
 		
-		// Update the map visualization to highlight the selected area
-		censusContext.updateVisualization();
+		// Update the map visualization to highlight the selected area (skip source update)
+		censusContext.updateVisualization(true);
 	}
 
 	// Get display name for selected area
@@ -48,6 +48,9 @@
 		if (!selectedArea) return 'Dublin';
 		return selectedArea.replace(/_/g, ' ').replace(/-/g, ' ');
 	});
+
+	// Get the boundary type label for display
+	const boundaryTypeLabel = $derived(censusContext?.selectedBoundaryType === 'ed' ? 'Electoral Division' : 'Local Electoral Area');
 
 	// Prepare stats data for the cards
 	const statsData = $derived.by(() => {

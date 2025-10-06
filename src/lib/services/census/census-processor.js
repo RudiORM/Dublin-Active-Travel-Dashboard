@@ -70,9 +70,10 @@ export function extractModeData(properties, mode, placeOfBusiness, year) {
 /**
  * Function to reshape the data with statistic-first hierarchy
  * @param {Array} features - GeoJSON features
+ * @param {string} boundaryType - Either 'lea' or 'ed' for boundary type
  * @returns {Object} - Reshaped data structure
  */
-export function reshapeData(features) {
+export function reshapeData(features, boundaryType = 'lea') {
 	const reshaped = {};
 	
 	// Define all combinations
@@ -92,7 +93,8 @@ export function reshapeData(features) {
 	
 	// Process each feature
 	features.forEach(feature => {
-		const areaName = feature.properties.CSO_LEA;
+		// Get area name based on boundary type
+		const areaName = boundaryType === 'ed' ? feature.properties.ED_ENGLISH : feature.properties.CSO_LEA;
 		
 		// Generate all 12 combinations for this area
 		modes.forEach(mode => {

@@ -47,8 +47,6 @@ export function addEcoCounterMarkers(map, locations) {
 		});
 	}
 
-	console.log('eco-geojson', geojson);
-
 	// Add marker layer
 	if (!map.getLayer('eco-counter-markers')) {
 		map.addLayer({

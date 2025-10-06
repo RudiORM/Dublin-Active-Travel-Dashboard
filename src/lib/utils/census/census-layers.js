@@ -40,8 +40,9 @@ export function createBorderLayer(sourceId) {
  * @param {Object} statData - Statistics data
  * @param {string} selectedMode - Selected transportation mode
  * @param {string} selectedArea - Selected area name
+ * @param {string} boundaryType - Boundary type ('lea' or 'ed')
  */
-export function updateChoroplethVisualization(map, statData, selectedMode, selectedArea) {
+export function updateChoroplethVisualization(map, statData, selectedMode, selectedArea, boundaryType = 'lea') {
 	if (!map || !statData) return;
 	
 	// Get min and max values for the selected statistic (using percentages)
@@ -55,10 +56,13 @@ export function updateChoroplethVisualization(map, statData, selectedMode, selec
 	// Generate color stops
 	const colorStops = generateColorStops(selectedMode, minPercentage, maxPercentage);
 	
+	// Get the correct property name based on boundary type
+	const areaProperty = boundaryType === 'ed' ? 'ED_ENGLISH' : 'CSO_LEA';
+	
 	// Update the paint property
 	map.setPaintProperty('census-choropleth', 'fill-color', [
 		'case',
-		['==', ['get', 'CSO_LEA'], selectedArea || ''],
+		['==', ['get', areaProperty], selectedArea || ''],
 		getSelectionColor(),
 		[
 			'interpolate',

@@ -28,6 +28,11 @@
 		{ value: '2016', label: '2016' }
 	];
 
+	const boundaryOptions = [
+		{ value: 'lea', label: 'Local Electoral Area (31)' },
+		{ value: 'ed', label: 'Electoral Division (322)' }
+	];
+
 	function cycleMode() {
 		const currentIndex = modeOptions.findIndex(opt => opt.value === selectedMode);
 		const nextIndex = (currentIndex + 1) % modeOptions.length;
@@ -49,10 +54,25 @@
 		onFilterChange();
 	}
 
+	async function cycleBoundaryType() {
+		const currentIndex = boundaryOptions.findIndex(opt => opt.value === censusContext.selectedBoundaryType);
+		const nextIndex = (currentIndex + 1) % boundaryOptions.length;
+		const newBoundaryType = boundaryOptions[nextIndex].value;
+		
+		// Update the boundary type
+		censusContext.selectedBoundaryType = newBoundaryType;
+		
+		// Load the new boundary data
+		await censusContext.loadBoundaryData(newBoundaryType);
+		
+		onFilterChange();
+	}
+
 	// Get display labels
 	const modeLabel = $derived(modeOptions.find(opt => opt.value === selectedMode)?.label || selectedMode);
 	const placeLabel = $derived(placeOptions.find(opt => opt.value === selectedPlace)?.label || selectedPlace);
 	const yearLabel = $derived(yearOptions.find(opt => opt.value === selectedYear)?.label || selectedYear);
+	const boundaryLabel = $derived(boundaryOptions.find(opt => opt.value === censusContext?.selectedBoundaryType)?.label || 'LEA');
 
 	// Calculate min/max percentages from actual data (same logic as the map)
 	const dataRange = $derived.by(() => {
@@ -180,6 +200,8 @@
 			<span class="filter-select" onclick={cyclePlace}>{placeLabel}</span>
 			<span class="filter-label">in</span>
 			<span class="filter-select" onclick={cycleYear}>{yearLabel}</span>
+			<span class="filter-label">by</span>
+			<span class="filter-select" onclick={cycleBoundaryType}>{boundaryLabel}</span>
 		</div>
 	</div>
 
@@ -216,6 +238,8 @@
 		<span class="filter-select" onclick={cyclePlace}>{placeLabel}</span>
 		<span class="filter-label">in</span>
 		<span class="filter-select" onclick={cycleYear}>{yearLabel}</span>
+		<span class="filter-label">by</span>
+		<span class="filter-select" onclick={cycleBoundaryType}>{boundaryLabel}</span>
 	</div>
 </div>
 

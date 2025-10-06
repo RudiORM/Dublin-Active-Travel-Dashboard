@@ -9,6 +9,8 @@
 	import CordonControls from '$lib/components/providers/cordon/components/CordonControls.svelte';
 	import StravaProvider from '$lib/components/providers/strava/StravaProvider.svelte';
 	import StravaControls from '$lib/components/providers/strava/components/StravaControls.svelte';
+	import NTAProvider from '$lib/components/providers/nta/NTAProvider.svelte';
+	import NTAControls from '$lib/components/providers/nta/components/NTAControls.svelte';
 	import EcoCounterProvider from '$lib/components/providers/eco-counter/EcoCounterProvider.svelte';
 	import EcoCounterControls from '$lib/components/providers/eco-counter/components/EcoCounterControls.svelte';
 	import VivacityCounterProvider from '$lib/components/providers/vivacity/VivacityCounterProvider.svelte';
@@ -46,6 +48,7 @@
 			let dataSourceForMap = selectedDataSource;
 			if (selectedDataSource === 'cordon') dataSourceForMap = 'cordon';
 			if (selectedDataSource === 'strava') dataSourceForMap = 'strava';
+			if (selectedDataSource === 'nta') dataSourceForMap = 'nta';
 			if (selectedDataSource === 'eco-counter') dataSourceForMap = 'eco-counter';
 			if (selectedDataSource === 'vivacity-counter') dataSourceForMap = 'vivacity-counter';
 			showOnlyDataSource(map, dataSourceForMap);
@@ -91,6 +94,14 @@
 				{/if}
 			{/snippet}
 		</StravaProvider>
+
+		<NTAProvider {map} onInitialized={handleProviderInitialized}>
+			{#snippet children(ntaContext: any)}
+				{#if selectedDataSource === 'nta'}
+					<NTAControls />
+				{/if}
+			{/snippet}
+		</NTAProvider>
 
 		<EcoCounterProvider {map} onInitialized={handleProviderInitialized} serverData={data}>
 			{#snippet children(ecoCounterContext: any)}

@@ -32,14 +32,15 @@
 		location: {
 			label: 'Location',
 			items: [
-				{ id: 'eco-counter', label: 'Eco-Counter' },
-				{ id: 'vivacity-counter', label: 'Vivacity' }
+				{ id: 'eco-counter', label: 'Induction sensors' },
+				{ id: 'vivacity-counter', label: 'Computer vision' }
 			]
 		},
 		route: {
 			label: 'Route',
 			items: [
-				{ id: 'strava', label: 'Strava' }
+				{ id: 'strava', label: 'Strava' },
+				{ id: 'nta', label: 'Bike infrastructure' }
 			]
 		}
 	};

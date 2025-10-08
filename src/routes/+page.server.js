@@ -123,6 +123,10 @@ export async function load() {
         .then(response => {
           if (!response.ok) throw new Error(`Eco-Counter traffic HTTP error! status: ${response.status}`);
           return response.json();
+        })
+        .catch(error => {
+          console.error('Eco-Counter traffic API error:', error.message);
+          return null;
         }),
       
       // Eco-Counter: Sites data
@@ -130,6 +134,10 @@ export async function load() {
         .then(response => {
           if (!response.ok) throw new Error(`Eco-Counter sites HTTP error! status: ${response.status}`);
           return response.json();
+        })
+        .catch(error => {
+          console.error('Eco-Counter sites API error:', error.message);
+          return null;
         })
     ];
 
@@ -171,6 +179,14 @@ export async function load() {
     }
 
     const [ecoCounterTraffic, ecoCounterSites, vivacityData, vivacityMetadata] = await Promise.all(promises);
+    
+    // Log any errors in the eco-counter data
+    if (!ecoCounterSites) {
+      console.error('Eco-Counter Sites data is null/undefined');
+    }
+    if (!ecoCounterTraffic) {
+      console.error('Eco-Counter Traffic data is null/undefined');
+    }
 
     console.log('=== SERVER DATA FETCH RESULTS ===');
     console.log('Eco-Counter API Key available:', !!ecoCounterApiKey);

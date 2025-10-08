@@ -70,8 +70,8 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 	}
 
 	.chart-section{
-		height: calc(100svh - 700px);
-		min-height: 160px;
+		height: calc(100svh - 720px);
+		min-height: 140px;
 		padding: 10px;
 		padding-left: 40px;
 		padding-right: 40px;
@@ -147,8 +147,6 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		margin-top: -60px;
 		min-height: 220px;
 
-
-
 	}
 
 	.explanation-content {
@@ -214,6 +212,13 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 			min-height: 75px;
 			height: 75px;
 		}
+
+		.chart-section{
+		height: calc(100svh - 710px);
+		
+	}
+
+
 
 	
 

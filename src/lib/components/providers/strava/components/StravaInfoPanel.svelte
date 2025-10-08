@@ -234,7 +234,6 @@
 	}
 
 	.panel-header {
-		margin-bottom: 20px;
 	}
 
 	.cards-container {

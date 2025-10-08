@@ -270,6 +270,24 @@
 		font-weight: 400;
 	}
 
+	@media (max-height: 940px) {
+		.stat-item {
+			min-height: 85px;
+			height: 85px;
+		}
+
+	
+
+		.info-button.expanded {
+			margin-top: 182px;
+			height: 230px;
+		}
+
+		
+	}
+
+
+
 	@media (max-height: 908px) {
 		.stat-item {
 			min-height: 75px;

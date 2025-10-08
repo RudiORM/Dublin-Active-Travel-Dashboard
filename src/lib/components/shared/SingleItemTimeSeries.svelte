@@ -41,11 +41,14 @@
 					}
 				}
 			} else {
-				// Numeric mode - use x value directly
+				// Numeric mode - use x value directly (treat as hour)
 				xValue = item.x || index;
 				// Show every nth label to avoid crowding (adjust as needed)
-				if (index % Math.ceil(data.length / 10) === 0 || index === data.length - 1) {
-					displayLabel = xValue.toString();
+				// Don't show the last label
+				if (index % Math.ceil(data.length / 10) === 0 && index !== data.length - 1) {
+					// Format as HH:00 for hours
+					const hour = typeof xValue === 'number' ? xValue : parseInt(xValue);
+					displayLabel = `${hour.toString().padStart(2, '0')}:00`;
 				}
 			}
 			

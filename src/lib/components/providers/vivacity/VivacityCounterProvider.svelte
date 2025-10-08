@@ -67,10 +67,22 @@
 		get selectedMode() { return selectedMode; },
 		get isLoading() { return isLoading; },
 		get error() { return error; },
-		setSelectedLocation: (location) => {
+		setSelectedLocation: async (location) => {
 			selectedLocation = location;
 			selectedLocationId = location?.id || null;
 			updateMapVisualization();
+			
+			// Fetch time series data if a location is selected
+			if (location && location.id) {
+				try {
+					await fetchLocationTimeSeries(location.id);
+				} catch (error) {
+					console.error('Failed to fetch time series data:', error);
+				}
+			} else {
+				// Clear time series data if no location selected
+				selectedLocationTimeSeriesData = null;
+			}
 		},
 		setSelectedMode: (mode) => {
 			selectedMode = mode;
@@ -131,7 +143,7 @@
 					console.log('Processing marker:', marker);
 					const transformed = {
 						id: marker.sensor_id,
-						name: `Sensor ${marker.sensor_id}`,
+						name: marker.name || `Sensor ${marker.sensor_id}`,
 						description: `Vivacity sensor at ${marker.lat}, ${marker.long}`,
 						latitude: marker.lat,
 						longitude: marker.long,
@@ -204,6 +216,7 @@
 				
 				if (location) {
 					console.log('Vivacity-counter location selected:', location);
+					// Use the setSelectedLocation from context which handles time series fetching
 					selectedLocation = location;
 					selectedLocationId = locationId;
 					updateMapVisualization();

@@ -218,7 +218,6 @@
 		border-radius: 10px;
 		max-width: 570px;
 		position: relative;
-		margin-bottom: 20px;
 	}
 
 	.stats-section-header {

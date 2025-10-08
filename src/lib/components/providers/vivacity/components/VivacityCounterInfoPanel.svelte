@@ -14,6 +14,43 @@
 
 	const selectedMode = $derived(vivacityCounterProvider?.selectedMode);
 
+	// Get available locations, filtered by current mode and sorted alphabetically
+	let availableLocations = $derived.by(() => {
+		if (!data || data.length === 0) return [];
+		
+		const locations = data
+			.filter(location => {
+				// Filter by current mode
+				return location.travelModes && location.travelModes.includes(selectedMode);
+			})
+			.map(location => ({
+				value: location.id,
+				label: location.name,
+				id: location.id
+			}))
+			.sort((a, b) => a.label.localeCompare(b.label)); // Sort alphabetically
+		
+		return [
+			{ value: null, label: 'Select a location', id: null },
+			...locations
+		];
+	});
+
+	// Handle dropdown change
+	async function handleLocationChange(event) {
+		const target = event.target;
+		const newValue = target.value === 'null' ? null : target.value;
+		
+		if (newValue) {
+			const location = data.find(loc => loc.id === newValue);
+			if (location) {
+				await vivacityCounterProvider.setSelectedLocation(location);
+			}
+		} else {
+			await vivacityCounterProvider.setSelectedLocation(null);
+		}
+	}
+
 	$effect(() => {
 		console.log('selectedLocationTimeSeriesData',selectedLocationTimeSeriesData);
 	});
@@ -52,10 +89,26 @@
 
 {#if selectedLocation}
 
-
+<div class="info-panel">
 <div class="panel-header">
 	<div class="header-inline">
-		<span class="area-label">Vivacity-Counter data for {selectedLocation.name || 'Selected Location'}</span>
+		<span class="area-label">Vivacity sensor data for</span>
+
+	
+	<!-- Location dropdown -->
+	
+		<select 
+			id="vivacity-location-select" 
+			class="location-dropdown" 
+			value={selectedLocationId || 'null'} 
+			onchange={handleLocationChange}
+		>
+			{#each availableLocations as location}
+				<option value={location.value || 'null'}>
+					{location.label}
+				</option>
+			{/each}
+		</select>
 	</div>
 </div>
 
@@ -121,6 +174,7 @@
 	{/if}
 {/if}
 
+</div>
 
 {:else}
 	<div class="no-data">
@@ -146,6 +200,13 @@
 		border-radius: 8px;
 	}
 
+	.info-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		height: 100%;
+	}
+
 	.header-inline {
 		display: flex;
 		align-items: center;
@@ -164,23 +225,66 @@
 	}
 
 	.panel-header {
-		margin-bottom: 20px;
 	}
 
 	.cards-container {
 		display: flex;
 		gap: 20px;
-		margin-bottom: 20px;
 		flex-wrap: wrap;
 	}
 
+	.location-dropdown {
+		font-size: 22px;
+		font-weight: 400;
+		padding-bottom: 2px;
+		background: #EEF2F6;
+		color: #000;
+		border: 0px solid #e5e5e5;
+		border-radius: 0px;
+		cursor: pointer;
+		font-family: 'Inter', sans-serif;
+		transition: border-color 0.2s ease;
+		border-bottom: 1px solid #000;
+		max-width: 300px;
+	}
+
+	.location-dropdown:hover {
+		border-color: white;
+	}
+
+	.location-dropdown:focus {
+		outline: none;
+		border-color: #999;
+	}
+
+	.location-dropdown option {
+		padding: 8px;
+		font-size: 16px;
+	}
+
+	@media (max-width: 1200px) {
+		.location-dropdown {
+			max-width: 250px;
+		}
+	}
+
 	@media (max-width: 950px) {
+		.location-dropdown {
+			max-width: 100%;
+			font-size: 16px;
+		}
+
 		.cards-container {
 			flex-direction: column;
 			gap: 15px;
 		}
 
+		.info-panel {
+			gap: 10px;
+		}
+
 		.area-label {
-			font-size: 16px;}
+			font-size: 16px;
+		}
 	}
 </style>

@@ -39,8 +39,8 @@
 		route: {
 			label: 'Route',
 			items: [
+				{ id: 'nta', label: 'Infrastructure' },
 				{ id: 'strava', label: 'Strava' },
-				{ id: 'nta', label: 'Bike infrastructure' }
 			]
 		}
 	};

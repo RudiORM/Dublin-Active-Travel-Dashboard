@@ -94,7 +94,7 @@
 			bottom: calc(40% + 20px);
 			top: auto;
 			border-radius: 8px 8px 8px 8px;
-			padding: 20px 20px;
+			padding: 10px 20px;
 		}
 
 		.filter-select {

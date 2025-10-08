@@ -121,8 +121,13 @@ export async function load() {
       // Eco-Counter: Traffic data
       fetch('https://api.eco-counter.com/api/v2/statistical/adt/by/site?dateRange=lastMonth&groupBy=siteAndTravelMode&travelModes=pedestrian&travelModes=bike', ecoOptions)
         .then(response => {
+          console.log('Eco-Counter traffic response status:', response.status);
           if (!response.ok) throw new Error(`Eco-Counter traffic HTTP error! status: ${response.status}`);
           return response.json();
+        })
+        .then(data => {
+          console.log('Eco-Counter traffic data received:', data);
+          return data;
         })
         .catch(error => {
           console.error('Eco-Counter traffic API error:', error.message);
@@ -132,8 +137,13 @@ export async function load() {
       // Eco-Counter: Sites data
       fetch('https://api.eco-counter.com/api/v2/sites?page=1&pageSize=100&sortBy=id&orderBy=asc', ecoOptions)
         .then(response => {
+          console.log('Eco-Counter sites response status:', response.status);
           if (!response.ok) throw new Error(`Eco-Counter sites HTTP error! status: ${response.status}`);
           return response.json();
+        })
+        .then(data => {
+          console.log('Eco-Counter sites data received:', data);
+          return data;
         })
         .catch(error => {
           console.error('Eco-Counter sites API error:', error.message);
@@ -191,7 +201,9 @@ export async function load() {
     console.log('=== SERVER DATA FETCH RESULTS ===');
     console.log('Eco-Counter API Key available:', !!ecoCounterApiKey);
     console.log('Vivacity API Key available:', !!vivacityApiKey);
+    console.log('Eco-Counter Sites response:', ecoCounterSites);
     console.log('Eco-Counter Sites count:', ecoCounterSites?.data?.length || 0);
+    console.log('Eco-Counter Traffic response:', ecoCounterTraffic);
     console.log('Eco-Counter Traffic records:', ecoCounterTraffic?.data?.length || 0);
     console.log('Vivacity Data available:', !!vivacityData);
     console.log('Vivacity Data structure:', vivacityData ? Object.keys(vivacityData) : 'null');

@@ -195,7 +195,7 @@
 	<!-- Filter Section -->
 	<div class="filter-section">
 		<div class="filter-group">
-			<span class="filter-select" onclick={cycleMode}>{modeLabel}</span>
+			%<span class="filter-select" onclick={cycleMode}>{modeLabel}</span>
 			<span class="filter-label">to</span>
 			<span class="filter-select" onclick={cyclePlace}>{placeLabel}</span>
 			<span class="filter-label">in</span>
@@ -208,9 +208,9 @@
 	<!-- Legend Section -->
 	<div class="legend-section">
 		<div class="legend-content">
-			<div class="legend-title">
+			<!-- <div class="legend-title">
 				% of commuters {modeText}
-			</div>
+			</div> -->
 			<div class="legend-items">
 				{#each filterOptions as option}
 					<div 

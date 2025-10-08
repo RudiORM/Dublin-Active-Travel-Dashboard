@@ -136,11 +136,11 @@ export function addParkingStands(map, parkingData) {
 		'interpolate',
 		['linear'],
 		['get', 'no_stands'],
-		1, 8,    // 1 stand = 8px
-		5, 12,   // 5 stands = 12px
-		10, 16,  // 10 stands = 16px
-		20, 20,  // 20+ stands = 20px
-		50, 24   // 50+ stands = 24px
+		1, 6,    // 1 stand = 8px
+		5, 8,   // 5 stands = 12px
+		10, 12,  // 10 stands = 16px
+		20, 16,  // 20+ stands = 20px
+		50, 20   // 50+ stands = 24px
 	];
 
 	// Add parking stands layer (circles)
@@ -150,7 +150,7 @@ export function addParkingStands(map, parkingData) {
 		source: 'parking-stands',
 		paint: {
 			'circle-radius': sizeExpression,
-			'circle-color': '#4A90E2',  // Blue color for parking
+			'circle-color': '#33BBEE',  // Blue color for parking
 			'circle-stroke-width': 2,
 			'circle-stroke-color': '#ffffff',
 			'circle-opacity': 0.8

@@ -147,7 +147,7 @@
 		}
 	}
 
-	@media (max-width: 1300px) {
+	@media (max-width: 1200px) {
 
 		.segment-label.inside{
 			font-size: 12px;

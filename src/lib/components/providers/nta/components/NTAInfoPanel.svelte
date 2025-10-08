@@ -170,7 +170,7 @@
 <div class="info-panel">
 	<div class="panel-header">
 		<div class="header-inline">
-			<span class="area-label">{nta?.selectedDataSource === 'busconnects' ? 'BusConnects' : 'NTA'} Infrastructure Data</span>
+			<span class="area-label">{nta?.selectedDataSource === 'busconnects' ? 'BusConnects' : 'NTA'} Infrastructure</span>
 		</div>
 	</div>
 
@@ -235,13 +235,13 @@
 		align-items: center;
 		gap: 8px;
 		flex-wrap: wrap;
+		width: 100%;
 	}
 
 	.area-label {
 		font-size: 22px;
 		font-weight: 400;
 		color: #000;
-		white-space: nowrap;
 	}
 
 	.stats-grid {

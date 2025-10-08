@@ -41,7 +41,7 @@
 			return Object.entries(bikeTypes)
 				.sort(([,a], [,b]) => b - a)
 				.map(([type, count]) => ({
-					label: type.replace(/_/g, ' ').toLowerCase(),
+					label: type.replace(/_/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' '),
 					value: count,
 					color: getInfrastructureColor('nta', type)
 				}));

@@ -70,7 +70,7 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 
 	.chart-section{
 		padding: 20px;
-		height: 160px;
+		height: 180px;
 	}
 
 	.stats-section {
@@ -125,8 +125,8 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 
 	.info-button.expanded {
 		width: 560px;	
-		margin-top: 160px;
-		height: 220px;
+		margin-top: 180px;
+		height: 240px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);

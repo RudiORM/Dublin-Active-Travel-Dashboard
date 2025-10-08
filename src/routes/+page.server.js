@@ -64,9 +64,38 @@ export async function load() {
         console.log('Generated counter activity from vivacity markers:', counterActivity.length, 'entries');
       } else {
         console.warn('vivacity_markers.json file does not exist at:', vivacityMarkersPath);
-        console.log('Using empty arrays for vivacity data...');
-        vivacityMarkers = [];
-        counterActivity = [];
+        console.log('Using fallback vivacity data with names...');
+        
+        // Fallback with hardcoded data that includes names
+        vivacityMarkers = [
+          {"name":"Georges St Upper path LHS","sensor_id":"2158","lat":53.290352,"long":-6.13158,"pedestrian_total":147896,"cyclist_total":9448},
+          {"name":"george St path LHS","sensor_id":"2159","lat":53.293072,"long":-6.13799,"pedestrian_total":256153,"cyclist_total":7305},
+          {"name":"St Georges Upper St path LHS","sensor_id":"3763","lat":53.292042,"long":-6.13569,"pedestrian_total":315259,"cyclist_total":9253},
+          {"name":"Main St path LHS","sensor_id":"3771","lat":53.28904,"long":-6.24341,"pedestrian_total":228203,"cyclist_total":15610},
+          {"name":"George's St Lower path","sensor_id":"4158","lat":53.294338,"long":-6.14074,"pedestrian_total":113091,"cyclist_total":8937},
+          {"name":"Main St path LHS","sensor_id":"4159","lat":53.301659,"long":-6.17776,"pedestrian_total":261025,"cyclist_total":12992},
+          {"name":"DCU road outbound","sensor_id":"7487","lat":53.385639,"long":-6.25557,"pedestrian_total":152387,"cyclist_total":6995},
+          {"name":"East Pier path LHS","sensor_id":"8479","lat":53.293316,"long":-6.129289,"pedestrian_total":130478,"cyclist_total":2515},
+          {"name":"Drynam Heath road","sensor_id":"9510","lat":53.442619,"long":-6.1955,"pedestrian_total":6549,"cyclist_total":607},
+          {"name":"Ongar Distributor Rd road","sensor_id":"9646","lat":53.392021,"long":-6.43876,"pedestrian_total":19298,"cyclist_total":2400},
+          {"name":"Ongar Distributor Rd road","sensor_id":"9658","lat":53.387852,"long":-6.41443,"pedestrian_total":15240,"cyclist_total":9742},
+          {"name":"Amiens St road RHS","sensor_id":"9712","lat":53.35128,"long":-6.2501,"pedestrian_total":483839,"cyclist_total":94829},
+          {"name":"Seville Pl road","sensor_id":"9713","lat":53.35458,"long":-6.24669,"pedestrian_total":42935,"cyclist_total":32513},
+          {"name":"Amiens St path","sensor_id":"9714","lat":53.35458,"long":-6.24669,"pedestrian_total":36136,"cyclist_total":20731},
+          {"name":"Annesley Bridge Rd road","sensor_id":"9716","lat":53.360451,"long":-6.23901,"pedestrian_total":39342,"cyclist_total":54075},
+          {"name":"Ongar Distributor Rd road","sensor_id":"9739","lat":53.385799,"long":-6.40337,"pedestrian_total":5992,"cyclist_total":3022},
+          {"name":"Ongar Distributor Rd path","sensor_id":"9740","lat":53.385689,"long":-6.4033,"pedestrian_total":6833,"cyclist_total":3238},
+          {"name":"Ongar Distributor Rd path","sensor_id":"9741","lat":53.392132,"long":-6.4386,"pedestrian_total":90,"cyclist_total":72}
+        ];
+        
+        // Generate counter activity data from fallback markers
+        counterActivity = vivacityMarkers.map(marker => ({
+          site_id: parseInt(marker.sensor_id),
+          total_7day_count: (marker.pedestrian_total || 0) + (marker.cyclist_total || 0),
+          is_active: true
+        }));
+        console.log('Using fallback vivacity markers with names:', vivacityMarkers.length, 'entries');
+        console.log('Generated counter activity from fallback:', counterActivity.length, 'entries');
       }
     } catch (error) {
       console.error('Error loading vivacity_markers.json:', error.message);

@@ -45,6 +45,8 @@
 		const target = event.target as HTMLSelectElement;
 		const newValue = target.value === 'null' ? null : target.value;
 		cordonContext.selectedLocation = newValue;
+		// Explicitly update visualization to match map click behavior
+		cordonContext.updateVisualization();
 	}
 
 	// Get display name for selected location

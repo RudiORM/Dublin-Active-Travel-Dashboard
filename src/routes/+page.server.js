@@ -31,8 +31,24 @@ export async function load() {
   } : null;
 
   try {
-    // We'll generate counter activity from vivacity markers data instead
-    let counterActivity = [];
+    // Load counter activity data from static file for eco-counter
+    let counterActivity = null;
+    try {
+      const counterActivityPath = path.join(process.cwd(), 'static', 'counter_activity.json');
+      console.log('Attempting to load counter activity from:', counterActivityPath);
+      
+      if (fs.existsSync(counterActivityPath)) {
+        const counterActivityData = fs.readFileSync(counterActivityPath, 'utf-8');
+        counterActivity = JSON.parse(counterActivityData);
+        console.log('Counter activity data loaded successfully:', counterActivity.length, 'entries');
+      } else {
+        console.warn('counter_activity.json file does not exist at:', counterActivityPath);
+        counterActivity = [];
+      }
+    } catch (error) {
+      console.error('Error loading counter_activity.json:', error.message);
+      counterActivity = [];
+    }
 
     // Load vivacity markers data from static file
     let vivacityMarkers = null;
@@ -55,13 +71,13 @@ export async function load() {
         vivacityMarkers = JSON.parse(vivacityMarkersData);
         console.log('Vivacity markers data loaded successfully:', vivacityMarkers.length, 'entries');
         
-        // Generate counter activity data from vivacity markers
-        counterActivity = vivacityMarkers.map(marker => ({
+        // Generate counter activity data from vivacity markers (for vivacity use only)
+        const vivacityCounterActivity = vivacityMarkers.map(marker => ({
           site_id: parseInt(marker.sensor_id),
           total_7day_count: (marker.pedestrian_total || 0) + (marker.cyclist_total || 0),
           is_active: true
         }));
-        console.log('Generated counter activity from vivacity markers:', counterActivity.length, 'entries');
+        console.log('Generated counter activity from vivacity markers:', vivacityCounterActivity.length, 'entries');
       } else {
         console.warn('vivacity_markers.json file does not exist at:', vivacityMarkersPath);
         console.log('Using fallback vivacity data with names...');
@@ -88,20 +104,19 @@ export async function load() {
           {"name":"Ongar Distributor Rd path","sensor_id":"9741","lat":53.392132,"long":-6.4386,"pedestrian_total":90,"cyclist_total":72}
         ];
         
-        // Generate counter activity data from fallback markers
-        counterActivity = vivacityMarkers.map(marker => ({
+        // Generate counter activity data from fallback markers (for vivacity use only)
+        const vivacityCounterActivity = vivacityMarkers.map(marker => ({
           site_id: parseInt(marker.sensor_id),
           total_7day_count: (marker.pedestrian_total || 0) + (marker.cyclist_total || 0),
           is_active: true
         }));
         console.log('Using fallback vivacity markers with names:', vivacityMarkers.length, 'entries');
-        console.log('Generated counter activity from fallback:', counterActivity.length, 'entries');
+        console.log('Generated counter activity from fallback:', vivacityCounterActivity.length, 'entries');
       }
     } catch (error) {
       console.error('Error loading vivacity_markers.json:', error.message);
       console.error('Full error:', error);
       vivacityMarkers = [];
-      counterActivity = [];
     }
 
     // Calculate date range for last 7 days (Vivacity API limit for 1h buckets is 169h)
@@ -263,7 +278,7 @@ export async function load() {
       ecoCounterTraffic: ecoCounterTraffic ? { data: ecoCounterTraffic } : null,
       ecoCounterError: null,
       
-      // Counter activity data
+      // Counter activity data (for eco-counter filtering)
       counterActivity: counterActivity,
       
       // Vivacity data (new structure)

@@ -259,8 +259,8 @@ export async function load() {
 
     return {
       // Eco-Counter data (maintain existing structure for compatibility)
-      ecoCounterSites: ecoCounterSites,
-      ecoCounterTraffic: ecoCounterTraffic,
+      ecoCounterSites: ecoCounterSites ? { data: ecoCounterSites } : null,
+      ecoCounterTraffic: ecoCounterTraffic ? { data: ecoCounterTraffic } : null,
       ecoCounterError: null,
       
       // Counter activity data

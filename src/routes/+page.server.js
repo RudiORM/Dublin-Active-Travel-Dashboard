@@ -202,9 +202,11 @@ export async function load() {
     console.log('Eco-Counter API Key available:', !!ecoCounterApiKey);
     console.log('Vivacity API Key available:', !!vivacityApiKey);
     console.log('Eco-Counter Sites response:', ecoCounterSites);
-    console.log('Eco-Counter Sites count:', ecoCounterSites?.data?.length || 0);
+    console.log('Eco-Counter Sites count (data property):', ecoCounterSites?.data?.length || 0);
+    console.log('Eco-Counter Sites count (direct):', Array.isArray(ecoCounterSites) ? ecoCounterSites.length : 0);
     console.log('Eco-Counter Traffic response:', ecoCounterTraffic);
-    console.log('Eco-Counter Traffic records:', ecoCounterTraffic?.data?.length || 0);
+    console.log('Eco-Counter Traffic records (data property):', ecoCounterTraffic?.data?.length || 0);
+    console.log('Eco-Counter Traffic records (direct):', Array.isArray(ecoCounterTraffic) ? ecoCounterTraffic.length : 0);
     console.log('Vivacity Data available:', !!vivacityData);
     console.log('Vivacity Data structure:', vivacityData ? Object.keys(vivacityData) : 'null');
     console.log('Vivacity Metadata available:', !!vivacityMetadata);

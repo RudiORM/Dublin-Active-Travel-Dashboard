@@ -469,9 +469,13 @@
 		width: calc(100% - 40px);
 		height: calc(100% - 40px);
 		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
 		background: #FFD249;
 		z-index: 1001;
 		justify-content: center;
+		align-items: center;
         text-align: center;
         min-width: 300px;
         font-size: 16px;

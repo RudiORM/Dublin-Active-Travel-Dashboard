@@ -328,10 +328,7 @@
 		}
 
 
-	.info-panel {
-			gap: 10px;
 
-		}
 
 
 	.area-label {
@@ -347,6 +344,17 @@
 	}
 
 
+	@media (min-width: 651px) and (max-height: 750px) {
 
+.area-label {
+	font-size: 16px;
+}
+
+.location-dropdown {
+	font-size: 16px;
+}
+
+
+}
 
 </style>

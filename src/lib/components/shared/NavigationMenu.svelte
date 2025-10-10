@@ -276,13 +276,13 @@
 		left: 40px;
 		background: #FFD249;
 		border-radius: 8px;
-		z-index: 10;
+		z-index: 100;
 		width: 240px;
 		height: calc(45% - 60px);
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-        text-align: left;
+		justify-content: center;
+        text-align: center;
         padding: 20px;
         display: flex;
 		font-size: 16px;
@@ -472,7 +472,7 @@
 		background: #FFD249;
 		z-index: 1001;
 		justify-content: center;
-		align-items: center;
+        text-align: center;
         min-width: 300px;
         font-size: 16px;
         line-height: 1.5;
@@ -680,6 +680,12 @@
 			bottom: 20px;
 			height: calc(50% - 30px);
 		}
+
+		.menu-overlay{
+			left: 20px;
+			margin-top: -20px;
+			height: calc(50% - 30px);
+		}
 	}
 
 	/* Desktop mode under 650px height */
@@ -689,8 +695,8 @@
 		}
 
 		.menu-overlay {
-			display: none;
-		}
+			height: calc(100% - 80px);
+		margin-top:0px;		}
 
 		.sidebar {
 			top: 40px;

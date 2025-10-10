@@ -333,9 +333,7 @@
 			max-width: 100%;
 		}
 
-		.info-panel {
-			gap: 10px;
-		}
+	
 
 		.location-label {
 			font-size: 16px;
@@ -346,7 +344,7 @@
 		}
 	}
 
-	@media (max-width: 850px) {
+	@media (max-width: 900px) {
 		.stats-grid {
 			grid-template-columns: 1fr;
 		}
@@ -357,4 +355,19 @@
 			margin-top: 10px;
 		}
 	}
+
+	@media (min-width: 651px) and (max-height: 750px) {
+
+.location-label {
+	font-size: 16px;
+}
+
+.location-dropdown {
+	font-size: 16px;
+}
+
+
+}
+
+
 </style>

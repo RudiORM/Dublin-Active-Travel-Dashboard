@@ -201,19 +201,17 @@
 		margin-right: -20px;
 		border: 0px solid white;
 		overflow-y: scroll;
-        text-align: left;
+		justify-content: center;
+        text-align: center;
         padding: 20px;
 		font-size: 16px;
 		line-height: 22px;	
 
-
-
-
 	}
 
 	.explanation-content {
-		text-align: left;
-        padding: 0px;
+		justify-content: center;
+        text-align: center;        padding: 0px;
 		font-size: 16px;
 		line-height: 22px;	
 

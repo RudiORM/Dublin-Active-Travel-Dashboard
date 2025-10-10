@@ -150,4 +150,20 @@
 			min-width: 300px;
 		}
 	}
+
+	@media (min-width: 651px) and (max-height: 750px) {
+
+.filter-select {
+	font-size: 16px;
+}
+
+.filter-label {
+	font-size: 16px;
+}
+	
+
+}
+
+
+
 </style>

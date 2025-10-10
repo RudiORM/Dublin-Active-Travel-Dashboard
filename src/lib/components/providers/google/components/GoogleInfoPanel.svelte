@@ -395,10 +395,7 @@
 			max-width: 100%;
 	}
 
-	.info-panel {
-			gap: 10px;
-
-		}
+	
 
 
 	.area-label {
@@ -413,7 +410,7 @@
 }
 
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 		.stats-grid {
 
 			grid-template-columns: 1fr;
@@ -431,6 +428,19 @@
 		
 
 	
+}
+
+
+}
+
+@media (min-width: 651px) and (max-height: 750px) {
+
+.area-label {
+	font-size: 16px;
+}
+
+.area-dropdown {
+	font-size: 16px;
 }
 
 

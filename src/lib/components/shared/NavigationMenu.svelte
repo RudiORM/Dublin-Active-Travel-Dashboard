@@ -697,6 +697,10 @@
 		.menu {
 			display: none;
 		}
+		
+
+
+
 
 		.menu-overlay {
 			height: calc(100% - 80px);
@@ -739,6 +743,61 @@
 
 		.sidebar .expand-icon {
 			font-size: 16px;
+		}
+	}
+
+	@media (min-width: 651px) and (max-height: 600px) {
+		.menu {
+			display: none;
+		}
+		
+		.section-label{
+			font-size: 16px;
+		}
+
+
+
+		.menu-overlay {
+			height: calc(100% - 80px);
+		margin-top:0px;		}
+
+		.sidebar {
+			top: 40px;
+			bottom: 40px;
+			height: calc(100% - 80px);
+			display: flex;
+			flex-direction: column;
+		}
+
+
+		.sidebar .sidebar-header {
+			margin-bottom: 10px;
+			flex-shrink: 0;
+		}
+
+		.sidebar .sidebar-header h3 {
+			font-size: 16px;
+		}
+
+		.sidebar .data-content {
+			flex: 1;
+			font-size: 16px;
+			margin-bottom: 0px;
+			overflow-y: auto;
+		}
+
+		.sidebar .section-header {
+			font-size: 16px;
+			padding: 6px 12px;
+		}
+
+		.sidebar .item-button {
+			font-size: 14px;
+			padding: 6px 16px;
+		}
+
+		.sidebar .expand-icon {
+			font-size: 14px;
 		}
 	}
 </style>

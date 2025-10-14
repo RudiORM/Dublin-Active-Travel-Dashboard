@@ -497,12 +497,12 @@
 	@media (min-width: 651px) and (max-height: 750px) {
 
 		.filter-select {
-			font-size: 16px;
+			font-size: 14px;
 			line-height: 1;
 		}
 
 		.filter-label {
-			font-size: 16px;
+			font-size: 14px;
 			line-height: 1;
 
 		}

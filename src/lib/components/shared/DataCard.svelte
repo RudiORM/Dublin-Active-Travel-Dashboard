@@ -214,7 +214,6 @@
         text-align: center;        padding: 0px;
 		font-size: 16px;
 		line-height: 22px;	
-
 	}
 
 	.explanation-content p {
@@ -360,10 +359,63 @@
 			height: 180px;
 		}
 
-
-
 	}
 
+
+	@media (min-width: 651px) and (max-height: 750px) {
+
+.title {
+	font-size: 14px;
+}
+
+.stats-section{
+		max-width: 220px;
+		min-width: 220px;
+	}
+
+
+.info-button{
+	font-size: 14px;
+}
+
+.stat-value {
+		font-size: 14px;
+		color: #000;
+	}
+
+	.stats-section-header{
+		min-height: 50px;
+		height: 50px;
+	}
+
+	.stat-item{
+		min-height: 50px;
+		height: 50px;
+	}
+
+	
+
+	.stat-label-bottom {
+		font-size: 14px;
+		color: #00000066;
+		font-weight: 400;
+	}
+
+	.stat-item:first-child {
+		border-bottom: 1px solid #00000044;
+		gap: 10px;
+	}
+
+	.stat-item:last-child {
+		gap: 26px;
+	}
+
+
+
+
+
+
+}
 	
 
 	

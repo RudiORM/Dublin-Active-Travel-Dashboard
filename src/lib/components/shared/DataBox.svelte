@@ -15,8 +15,8 @@
 		background: #EEF2F6;
 		border-radius: 8px;
 		height: calc(100% - 80px);
-        min-width: 600px;
-		width: 600px;
+        min-width: 500px;
+		width: 500px;
 		padding: 20px;
 		overflow-y: auto;
 	}
@@ -51,5 +51,6 @@
 
 		}
 	}
+
 
 </style>

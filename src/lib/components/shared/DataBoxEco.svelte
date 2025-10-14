@@ -52,4 +52,11 @@
 		}
 	}
 
+	@media (min-width: 651px) and (max-height: 750px) {
+		.data-box {
+			 min-width: 500px;
+		width: 500px;
+		}
+	}
+
 </style>

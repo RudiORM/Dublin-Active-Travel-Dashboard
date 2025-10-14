@@ -286,14 +286,14 @@
 @media (min-width: 651px) and (max-height: 750px) {
 
 .area-label {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .area-dropdown {
-	font-size: 16px;
+	font-size: 14px;
+	width: 240px;
+
 }
-
-
 }
 
 	

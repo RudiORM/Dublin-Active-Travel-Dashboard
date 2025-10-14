@@ -281,9 +281,6 @@
 
 	
 
-
-		
-
 		.area-label {
 			font-size: 16px;
 		}

@@ -154,14 +154,14 @@
 					{ label: "of all trips", value: `${cyclingPercentage}%` },
 					{ label: "of all trips", value: `${walkingPercentage}%` },
 				],
-				explanation: `The percentage of all trips across Dublin which were on foot or by bike in 2023.`
+				explanation: `The percentage of all Google trips across Dublin which were on foot or by bike in 2023.`
 			},{
 				title: "Percentage of total distance",
 				stats: [
 					{ label: "distance travelled", value: `${cyclingDistancePercentage}%` },
 					{ label: "distance travelled", value: `${walkingDistancePercentage}%` },
 				],
-				explanation: `Walking and cycling trips as a percentage of total distance covered in 2023.`
+				explanation: `Walking and cycling Google trips, represented as a percentage of total distance covered in 2023.`
 			},
 			{
 				title: "Daily Trips",
@@ -169,7 +169,7 @@
 					{ label: "trips", value: Math.round(cyclingTrips/365).toLocaleString() },
 					{ label: "trips", value: Math.round(walkingTrips/365).toLocaleString() },
 				],
-				explanation: `The average walking and cycling trips a day in 2023.`
+				explanation: `The average daily number of walking and cycling trips for Google's Environmental Insights Platform in 2023.`
 
 			},
 			{
@@ -178,7 +178,7 @@
 					{ label: "tonnes CO2 saved", value: formatCO2(cyclingCO2Saved) },
 					{ label: "tonnes CO2 saved", value: formatCO2(walkingCO2Saved) },
 				],
-				explanation: "Calculated by multiplying active travel trips by the	 average automobile GPC emissions per trip."
+				explanation: "Calculated by multiplying the number ofwalking and cycling trips by the average automobile GPC emissions per trip."
 			},
 			
 		];
@@ -353,6 +353,7 @@
 		border-bottom: 1px solid #000;
 		max-width: 360px;
 		width: 340px;
+		
 	}
 
 	.area-dropdown:hover {
@@ -436,11 +437,12 @@
 @media (min-width: 651px) and (max-height: 750px) {
 
 .area-label {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .area-dropdown {
-	font-size: 16px;
+	font-size: 14px;
+	width: 310px;
 }
 
 

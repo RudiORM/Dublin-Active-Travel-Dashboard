@@ -4,7 +4,6 @@
 		data = [],  // Array of { date: string, value: number } or { x: number, value: number }
 		color = 'black', // Single color for the bars
 		showLabels = true,
-		height = 200,
 		niceMax = 75000,
 		date = true, // If true, treat x-axis as dates; if false, treat as numbers
 
@@ -21,23 +20,35 @@
 				// Date mode - only show labels for start, middle, and end
 				if (item.date) {
 					xValue = item.date;
-					const parts = item.date.split('/');
 					
 					// Determine which labels to show
 					const dataLength = data.length;
 					const middleIndex = Math.floor(dataLength / 2);
 					
 					if (index === 0 || index === middleIndex || index === dataLength - 1) {
-						if (parts.length === 3) {
-							const day = parts[0];
-							const month = parts[1];
-							const year = parts[2].slice(-2); // Get last 2 digits of year
-							// Format as DD/MM/YY for better readability
-							displayLabel = `${day}/${month}/${year}`;
-						} else {
-							// Fallback to original date if format is different
-							displayLabel = xValue;
+						// Try to parse and format the date
+						let formattedDate = '';
+						
+						// Check if it's in DD/MM/YY format (e.g., "01/11/24")
+						const slashParts = item.date.split('/');
+						if (slashParts.length === 3) {
+							const day = slashParts[0];
+							const month = slashParts[1];
+							const year = slashParts[2].slice(-2); // Get last 2 digits of year
+							formattedDate = `${day}/${month}/${year}`;
 						}
+						// Check if it's in YYYY-MM-DD format (e.g., "2025-09-16")
+						else if (item.date.includes('-')) {
+							const dateObj = new Date(item.date);
+							if (!isNaN(dateObj.getTime())) {
+								const day = dateObj.getDate().toString().padStart(2, '0');
+								const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+								const year = dateObj.getFullYear().toString().slice(-2);
+								formattedDate = `${day}/${month}/${year}`;
+							}
+						}
+						
+						displayLabel = formattedDate || xValue; // Fallback to original if parsing fails
 					}
 				}
 			} else {
@@ -93,33 +104,6 @@
 		return yAxisValues[yAxisValues.length - 1];
 	});
 
-	// Fixed chart width and bar calculations
-	const chartWidth = 560-60;
-	const yAxisPadding = 35; // Space for y-axis labels
-	const availableWidth = chartWidth - yAxisPadding;
-	
-	// Calculate bar width and gap based on the number of data points
-	let barWidth = $derived.by(() => {
-		if (processedData.length === 0) return 20;
-		
-		// We want gap = barWidth/8
-		// Total width = n * barWidth + (n-1) * gap
-		// Total width = n * barWidth + (n-1) * (barWidth/8)
-		// Total width = barWidth * (n + (n-1)/8)
-		// Total width = barWidth * ((8n + n - 1)/8)
-		// Total width = barWidth * ((9n - 1)/8)
-		// barWidth = (Total width * 8) / (9n - 1)
-		
-		const n = processedData.length;
-		const calculatedWidth = (availableWidth * 8) / (9 * n - 1);
-		
-		return Math.max(calculatedWidth, 2); // Minimum 2px width
-	});
-	
-	let gapWidth = $derived.by(() => {
-		return barWidth / 8;
-	});
-
 	// Format numbers for y-axis labels
 	const formatNumber = (num) => {
 		if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
@@ -153,14 +137,14 @@
 	}
 </script>
 
-<div class="time-series-container" style="height: {height}px;">
+<div class="time-series-container">
 	<div class="chart-wrapper">
 		<!-- Chart area -->
 		<div class="chart-container">
 			<!-- Bars -->
-			<div class="bars-container" style="width: {chartWidth}px;">
+			<div class="bars-container">
 				
-				<!-- Grid lines and Y-axis labels moved inside bars-container -->
+				<!-- Grid lines and Y-axis labels -->
 				<div class="grid-lines">
 					{#each yAxisValues as value, i}
 						<div 
@@ -173,7 +157,7 @@
 					{/each}
 				</div>
 
-				<div class="bars-wrapper" style="gap: {gapWidth}px;">
+				<div class="bars-wrapper">
 					{#each processedData as dataPoint, index}
 						{@const barHeight = scaleMax > 0 ? (dataPoint.value / scaleMax) * 100 : 0}
 						<div class="date-column">
@@ -182,7 +166,6 @@
 								style="
 									height: {barHeight}%;
 									background-color: {color};
-									width: {barWidth}px;
 								"
 								title="{dataPoint.xValue}: {dataPoint.value.toLocaleString()}"
 								onmouseenter={(e) => showTooltip(e, dataPoint)}
@@ -211,7 +194,29 @@
 			style="left: {tooltipX}px; top: {tooltipY}px;"
 		>
 			<div class="tooltip-content">
-				<div class="tooltip-year">{date ? 'Date' : 'Hour'}: {tooltipData.xValue}</div>
+				<div class="tooltip-year">
+					{date ? 'Date' : 'Time'}: 
+					{#if date}
+						{@const tooltipDate = tooltipData.xValue}
+						{@const slashParts = tooltipDate.split('/')}
+						{@const isSlashFormat = slashParts.length === 3}
+						{@const isDashFormat = tooltipDate.includes('-')}
+						{#if isSlashFormat}
+							{tooltipDate}
+						{:else if isDashFormat}
+							{@const dateObj = new Date(tooltipDate)}
+							{#if !isNaN(dateObj.getTime())}
+								{dateObj.getDate().toString().padStart(2, '0')}/{(dateObj.getMonth() + 1).toString().padStart(2, '0')}/{dateObj.getFullYear().toString().slice(-2)}
+							{:else}
+								{tooltipDate}
+							{/if}
+						{:else}
+							{tooltipDate}
+						{/if}
+					{:else}
+						{tooltipData.xValue.toString().padStart(2, '0')}:00
+					{/if}
+				</div>
 				<div class="tooltip-total">Counts: {tooltipData.value.toLocaleString()}</div>
 			</div>
 		</div>
@@ -223,6 +228,7 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
+		height: 100%;
 		overflow: hidden;
 	}
 
@@ -242,10 +248,12 @@
 		padding-bottom: 10px;
 		padding-top: 10px;
 		box-sizing: border-box;
+		padding-right: 20px;
 	}
 
 	.bars-container {
 		height: calc(100% - 30px); /* Account for date labels */
+		width: 100%;
 		box-sizing: border-box;
 		position: relative;
 		padding-left: 35px; /* Space for y-axis labels */
@@ -258,6 +266,7 @@
 		height: 100%;
 		width: 100%;
 		box-sizing: border-box;
+		gap: 2px;
 	}
 
 	.grid-lines {
@@ -300,10 +309,12 @@
 		align-items: center;
 		justify-content: flex-end;
 		height: 100%;
-		flex-shrink: 0;
+		flex: 1 1 0;
+		min-width: 10px;
 	}
 
 	.bar {
+		width: 100%;
 		min-height: 2px; /* Minimum height for very small values */
 		transition: opacity 0.2s ease;
 		border-radius: 2px 2px 0 0;

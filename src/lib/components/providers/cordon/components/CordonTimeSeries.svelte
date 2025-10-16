@@ -71,7 +71,7 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 
 	.chart-section{
 		height: calc(100svh - 720px);
-		min-height: 140px;
+		min-height: 120px;
 		padding: 10px;
 		padding-left: 40px;
 		padding-right: 40px;
@@ -88,6 +88,7 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		border-radius: 10px;
 		max-width: 570px;
 		position: relative;
+		margin-bottom:30px;
 	}
 
 	.stats-section-header {
@@ -145,7 +146,7 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		max-height: 340px;
 		transform: translateY(50%);
 		margin-top: -60px;
-		min-height: 220px;
+		min-height: 180px;
 
 	}
 
@@ -164,118 +165,39 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		font-weight: 400;
 	}
 
-	.stat-grid {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.stat-item {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 40px;
-		min-height: 96px;
-		padding-left: 15px;
-	}
-
-	.stat-item:first-child {
-		border-bottom: 1px solid #00000044;
-		gap: 20px;
-	}
-
-	.stat-label {
-		font-size: 12px;
-		color: #666;
-		text-transform: uppercase;
-		font-weight: 400;
-	}
-
-	.stat-text {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.stat-value {
-		font-size: 16px;
-		color: #000;
-	}
-
-	.stat-label-bottom {
-		font-size: 16px;
-		color: #00000066;
-		font-weight: 400;
-	}
 
 	@media (max-height: 908px) {
-		.stat-item {
-			min-height: 75px;
-			height: 75px;
-		}
+		
 
 		.chart-section{
 		height: calc(100svh - 710px);
 		
 	}
 
-
-
-	
-
-	
-
 		
 	}
 
 
-	@media (max-height: 858px) {
-		.stat-item {
-			min-height: 70px;
-			height: 70px;
-		}
+
 
 		
+
 
 	
-
-	
-	}
-
-
-
-
-	@media (max-height: 808px) {
-		.stat-item {
-			min-height: 60px;
-			height: 60px;
-		}
-
-		
-
-
-		
-	}
 
 	@media (max-width: 1200px){
 		.info-button.expanded {
 			width: 270px;	
 	}
 
-
-
 }
 	
-
-
-
 
 	@media (max-width: 950px) {
 
 		.info-button.expanded {
 			width: calc(100vw - 340px);
 	}
-
-
 
 	.stats-section {
 		
@@ -284,24 +206,82 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 	}
 
 	@media (max-width: 650px) {
-		.stat-item {
-			min-height: 60px;
-			height: 60px;
-		}
+		
 
 		.info-button.expanded {
 			width: calc(100vw - 80px);
 	}
 
-	
-
 
 
 	}
 
 	
 
-	
+
+@media (min-width: 651px) and (max-height: 750px) {
+	.stats-section-header {
+		height: 50px;
+		min-height: 50px;
+	}
+
+	.title {
+		font-weight: 400;
+		font-size: 14px;
+	}
+
+	.chart-section
+	{
+		height: 160px;
+	}
+
+
+
+
+	.explanation-content p {
+		font-size: 14px;
+	}
+
+	.info-button svg {
+		width: 90%;
+		height: 90%;
+		fill: #000;
+	}
+
+	.info-position{
+margin-top:-7px;
+	}
+
+}
+
+
+@media (min-width: 950px) and (max-width: 1200px) and (max-height: 750px) {
+
+.info-button.expanded {
+	width: 220px;
+	height: 240px;
+	margin-top: -50px;
+}
+
+.chart-section
+	{
+		height: 180px;
+	}
+}
+
+@media (min-width: 1200px) and (max-height: 750px) {
+
+.info-button.expanded {
+	width: 460px;
+	height: 205px;
+	margin-top: -50px;
+}
+
+.chart-section
+	{
+		height: 150px;
+	}
+}
 
 
 

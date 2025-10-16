@@ -161,14 +161,14 @@
 	<DataCardSingle
 		title="Counts"
 		stats={dailyStats}
-		explanation="The average daily count recorded at this eco-counter location over the last year."
+		explanation="The average daily count of pedestrians or cyclists recorded at this induction sensor over the last year."
 		mode={selectedMode}
 	/>
 
 	<DataCardSingle
 		title="Year-over-year change"
 		stats={changeStats}
-		explanation="The percentage change in counts between the last 12 months and the previous 12 months."
+		explanation="The percentage change in total counts between the last 12 months and the previous 12 months."
 		mode={selectedMode}
 	/>
 </div>
@@ -183,16 +183,17 @@
 				travelMode="pedestrian"
 				chartType="hourly"
 				title="Hourly average counts"
-				explanation="Average daily counts by hour over the last 30 days"
+				explanation="The average daily counts of pedestrians or cyclists recorded at this induction sensor over the last 30 days, by hour."
 			/>
 			<EcoCounterTimeSeries
 				travelMode="pedestrian"
 				chartType="monthly"
-				title="Monthly trends"
-				explanation="Monthly counts over the last 3 years"
+				title="Trends: last 3 years"
+				explanation="The total monthly counts of pedestrians or cyclists recorded at this induction sensor over the last 3 years."
 			/>
 		{/if}
 		
+		<div class="time-series-container">
 		{#if selectedLocation.travelModes.includes('bike') && selectedMode == 'bike'}
 			<EcoCounterTimeSeries
 				travelMode="bike"
@@ -207,6 +208,7 @@
 				explanation="Monthly counts over the last 3 years"
 			/>
 		{/if}
+	</div>
 	
 	{/if}
 {/if}
@@ -234,6 +236,10 @@
 		color: #666;
 		background: #fff;
 		border-radius: 8px;
+	}
+
+	.time-series-container {
+		padding-bottom: 20px;
 	}
 
 	.info-panel {
@@ -327,18 +333,12 @@
 			gap: 15px;
 		}
 
-
-
-
-
 	.area-label {
 		font-size: 16px;
 		
 	}
 
-	.area-dropdown {
-		font-size: 16px;
-	}
+	
 
 	
 	}
@@ -347,11 +347,13 @@
 	@media (min-width: 651px) and (max-height: 750px) {
 
 .area-label {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .location-dropdown {
-	font-size: 16px;
+	font-size: 14px;
+	max-width: 220px;
+
 }
 
 

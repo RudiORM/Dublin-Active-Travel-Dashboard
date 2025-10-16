@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import NTAStacked from './NTAStacked.svelte';
-	import ParkingStacked from './ParkingStacked.svelte';
-	import DataCard from '$lib/components/shared/DataCard.svelte';
 	import DataCardSingle from '$lib/components/shared/DataCardSingle.svelte';
 	import { getInfrastructureStats, getParkingStats } from '$lib/services/nta/nta-processor.js';
 	
@@ -155,16 +153,7 @@
 	});
 
 	// Total parking spaces stats
-	const totalParkingSpacesStats = $derived.by(() => {
-		if (!parkingStats) return [{ label: "parking spaces", value: "0" }];
-		return [{ label: "parking spaces", value: (parkingStats as any).totalStands.toLocaleString() }];
-	});
-
-	// Maximum parking spaces at a single location stats
-	const maxParkingSpacesStats = $derived.by(() => {
-		if (!parkingStats) return [{ label: "Heuston Station", value: "0" }];
-		return [{ label: "Heuston Station", value: (parkingStats as any).maxStands.toString() }];
-	});
+	
 </script>
 
 <div class="info-panel">
@@ -201,17 +190,7 @@
 					: 'Total length of bike lanes in the NTA dataset in kilometers.'}
 			/>
 			
-			<DataCardSingle 
-				title="Total Bike Parking Spaces"
-				stats={totalParkingSpacesStats}
-				explanation="Total number of individual bike parking spaces available across all parking locations in Dublin."
-			/>
-
-			<DataCardSingle 
-				title="Most bike parking"
-				stats={maxParkingSpacesStats}
-				explanation="The maximum number of bike parking spaces available at a single location in Dublin."
-			/>
+			
 		</div>
 
 		
@@ -295,7 +274,7 @@
 	@media (min-width: 651px) and (max-height: 750px) {
 
 .area-label {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 

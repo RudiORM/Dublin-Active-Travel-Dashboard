@@ -156,7 +156,7 @@
 	<DataCardSingle
 		title="Change from 2022 to 2023"
 		stats={changeStats}
-		explanation="Percentage change in estimated total route usage from 2022 to 2023."
+		explanation="Percentage change in estimated total route usage from 2022 to 2023, estimated from monthly Strava data."
 	/>
 
 
@@ -177,13 +177,13 @@
 	<DataCardSingle
 		title="Peak Month"
 		stats={peakMonthStats}
-		explanation="The month with the highest recorded cycling activity on this route."
+		explanation="The month with the highest recorded cycling activity on this route, estimated from monthly Strava data."
 	/>
 
 	<DataCardSingle
 		title="Peak Month Journeys"
 		stats={peakJourneysStats}
-		explanation="The number of estimated cycling journeys recorded during the peak month."
+		explanation="The number of cycling journeys recorded during the peak month, estimated from monthly Strava data."
 	/>
 </div>
 {/if}
@@ -262,7 +262,7 @@
 	@media (min-width: 651px) and (max-height: 750px) {
 
 .area-label {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 

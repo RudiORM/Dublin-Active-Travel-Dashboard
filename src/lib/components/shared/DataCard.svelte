@@ -47,10 +47,10 @@
 		<div class="stat-item">
 			<span class="stat-label"
 				><svg
-					width="67"
-					height="67"
+					
 					viewBox="0 0 67 67"
 					fill="none"
+					class='svg-img'
 					xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 				>
@@ -86,10 +86,9 @@
 		<div class="stat-item">
 			<span class="stat-label">
 				<svg
-					width="51"
-					height="51"
+					
 					viewBox="0 0 51 51"
-					fill="none"
+					class='svg-img2'
 					xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 				>
@@ -250,6 +249,16 @@
 		font-weight: 400;
 	}
 
+	.svg-img {
+	width: 67px;
+	height: 67px;
+}
+
+.svg-img2 {
+	width: 51px;
+	height: 51px;
+}
+
 	.stat-text {
 		display: flex;
 		flex-direction: column;
@@ -272,8 +281,6 @@
 			min-height: 85px;
 			height: 85px;
 		}
-
-	
 
 		.info-button.expanded {
 			margin-top: 182px;
@@ -338,8 +345,6 @@
 	}
 
 
-
-
 	@media (max-width: 950px) {
 
 	.stats-section {
@@ -358,11 +363,25 @@
 			margin-top: 134px;
 			height: 180px;
 		}
-
 	}
 
 
 	@media (min-width: 651px) and (max-height: 750px) {
+
+		.info-button svg{
+			height: 90%;
+			width: 90%;
+		}
+
+		.svg-img {
+	width: 57px;
+	height: 57px;
+}
+
+.svg-img2 {
+	width: 43px;
+	height: 43px;
+}
 
 .title {
 	font-size: 14px;
@@ -393,7 +412,6 @@
 		height: 50px;
 	}
 
-	
 
 	.stat-label-bottom {
 		font-size: 14px;
@@ -410,13 +428,31 @@
 		gap: 26px;
 	}
 
+	.info-button.expanded {
+			margin-top: 104px;
+			height: 150px;
+			font-size: 14px;
+			padding: 10px;
+		}
 
-
-
+		.explanation-content p {
+			font-size: 14px;
+			line-height: 20px;
+		}
 
 
 }
 	
+
+@media (max-width: 950px) and (max-height: 750px) {
+
+.stats-section {
+	
+	max-width: 100%;
+}
+
+
+}
 
 	
 

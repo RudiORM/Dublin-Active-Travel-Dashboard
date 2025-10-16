@@ -119,14 +119,73 @@
 	@media (min-width: 651px) and (max-height: 750px) {
 
 .filter-select {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .filter-label {
-	font-size: 16px;
+	font-size: 14px;
 }
 	
 
 }
+
+
+@media (max-width: 650px) {
+		.filter-bar {
+			width: calc(100% - 40px);
+			left: 20px;
+			min-width: 300px;
+		}
+	}
+
+	@media (min-width: 651px) and (max-height: 750px) {
+
+.filter-select {
+	font-size: 14px;
+}
+
+.filter-label {
+	font-size: 14px;
+}
+
+
+}
+
+
+@media (min-width: 1200px) and (max-height: 750px) {
+		.filter-select {
+			font-size: 14px;
+			line-height: 1;
+		}
+		.filter-label {
+			font-size: 14px;
+			line-height: 1;
+		}
+
+		.filter-bar {
+			width: calc(100% - 500px - 240px - 160px);
+		}
+		
+		
+	}
+
+	@media (min-width: 951px) and (max-width: 1200px) and (max-height: 750px) {
+		.filter-select {
+			font-size: 14px;
+			line-height: 1;
+		}
+		.filter-label {
+			font-size: 14px;
+			line-height: 1;
+		}
+
+		.filter-bar {
+			width: calc(100% - 260px - 240px - 160px);
+		}
+		
+		
+	}
+
+
 
 </style>

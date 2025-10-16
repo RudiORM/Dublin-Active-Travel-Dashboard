@@ -61,12 +61,15 @@
 		const monthlyData = timeSeriesData.monthlyData[travelMode];
 		console.log(`Processing ${monthlyData.length} monthly data points for ${travelMode}:`, monthlyData);
 		
-		const transformedData = monthlyData.map((item) => ({
+		// Filter to only include last 24 months of data (2 years)
+		const filteredData = monthlyData.slice(-24);
+		
+		const transformedData = filteredData.map((item) => ({
 			date: item.date, // Keep original date format for monthly data
 			value: Math.round(item.value * 100) / 100 // Round to 2 decimal places
 		}));
 		
-		console.log('EcoCounterTimeSeries - transformed monthly data:', transformedData);
+		console.log('EcoCounterTimeSeries - transformed monthly data (last 2 years):', transformedData);
 		return transformedData;
 	});
 
@@ -76,10 +79,7 @@
 	});
 
 	// Update title based on travel mode
-	const dynamicTitle = $derived.by(() => {
-		const modeLabel = travelMode === 'bike' ? 'Cycling' : 'Walking';
-		return `${modeLabel} - ${title}`;
-	});
+
 </script>
 
 
@@ -125,7 +125,6 @@
 			data={chartData}
 			color={seriesColor}
 			showLabels={true}
-			height={160}
 			niceMax={chartData.reduce((max, item) => Math.max(max, item.value), 0)}
 			date={chartType === 'monthly'? true : false}
 		/>
@@ -206,11 +205,14 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 5;
+		margin-top:-7px;
 	}
 
 	.chart-section{
 		padding: 20px;
-		min-height: 200px;
+		min-height: 160px;
+		height: calc(100svh - 690px);
+		max-height: 240px;
 	}
 
 	.stats-section {
@@ -262,9 +264,7 @@
 
 	.info-button.expanded {
 		width: 560px;	
-		height: 260px;
 		border-radius: 10px;
-		margin-top:-60px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
 		display: flex;
@@ -276,6 +276,10 @@
 		overflow-y: scroll;
 		padding: 0px;
 		transform: translateY(50%);
+		min-height: 220px;
+		height: calc(100svh - 630px);
+		max-height: 300px;
+		margin-top: -46px;
 	}
 
 	.explanation-content {
@@ -292,43 +296,6 @@
 		font-weight: 400;
 	}
 
-	.stats-summary {
-		display: flex;
-		justify-content: space-around;
-		padding: 15px 20px;
-		border-top: 1px solid #eee;
-		background: #f8f9fa;
-		border-radius: 0 0 10px 10px;
-	}
-
-	.stat-item {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 5px;
-	}
-
-	.stat-label {
-		font-size: 12px;
-		color: #666;
-		text-transform: uppercase;
-		font-weight: 400;
-	}
-
-	.stat-value {
-		font-size: 16px;
-		color: #000;
-		font-weight: 500;
-	}
-
-	.no-data {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 200px;
-		color: #666;
-		font-style: italic;
-	}
 
 	@media (max-width: 1200px) {
 		.info-button.expanded {
@@ -351,16 +318,70 @@
 			width: calc(100vw - 80px);
 		}
 
-		.stats-summary {
-			flex-direction: column;
-			gap: 10px;
-		}
+		
+	}
 
-		.stat-item {
-			flex-direction: row;
-			justify-content: space-between;
+
+@media (min-width: 651px) and (max-height: 750px) {
+
+	.info-button svg {
+		width: 90%;
+		height: 90%;
+		fill: #000;
+	}
+
+	.stats-section-header {
+		height: 50px;
+		min-height: 50px;
+	}
+
+	.title {
+		font-weight: 400;
+		font-size: 14px;
+	}
+
+	.chart-section{
+		padding: 20px;
+		min-height: 150px;
+		height: 150px;
+	}
+
+	.info-button.expanded{
+		margin-top: -46px;
+		height: 200px;
+		min-height: 200px;
+		width: 460px;
+	}
+
+
+
+}
+
+
+@media (max-width: 1200px) and (max-height: 750px) {
+		.info-button.expanded {
+			width: 220px;	
 		}
 	}
+
+	
+
+	@media (max-width: 950px) and (max-height: 750px) {
+		.info-button.expanded {
+			width: calc(100vw - 340px);
+		}}
+
+
+		@media (max-width: 650px) and (max-height: 750px) {
+		.info-button.expanded {
+			width: calc(100vw - 80px);
+		}
+
+		
+	}
+
+
+
 
 	</style>
 

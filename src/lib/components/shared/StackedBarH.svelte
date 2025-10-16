@@ -125,7 +125,7 @@
 	}
 
 	.label-text {
-		font-size: 16px;
+		font-size: 14px;
 		color: #374151;
 		font-weight: 400;
 	}
@@ -185,4 +185,21 @@
 }
 
 }
+
+@media (min-width: 651px) and (max-height: 750px) {
+
+	.segment-label.inside{
+	font-size: 14px;
+	margin-bottom: -25px;
+}
+
+.label-text {
+	font-size: 12px;
+
+}
+
+}
+
+
+
 </style>

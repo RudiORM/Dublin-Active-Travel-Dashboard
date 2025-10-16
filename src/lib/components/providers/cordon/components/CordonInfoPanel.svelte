@@ -180,7 +180,7 @@
 					{ label: "change", value: formatChange(cyclingChange) },
 					{ label: "change", value: formatChange(walkingChange) },
 				],
-				explanation: "The percentage change in cycling and walking counts from 2022 to 2023."
+				explanation: "The percentage difference in cycling and walking counts from November 2022 to November 2023."
 			}
 		];
 	});
@@ -246,7 +246,7 @@
 		/>
 		{/each}
 	</div>
-
+<div class="time-series-container">
 		{#if timeSeriesData.length > 0}
 			<CordonTimeSeries 
 				title="Time Series - All Cordon Locations"
@@ -254,6 +254,7 @@
 				explanation="The historical distribution of transportation modes since 2006, summarised for all locations."
 			/>
 		{/if}
+	</div>
 	{/if}
 </div>
 
@@ -334,7 +335,6 @@
 		}
 
 	
-
 		.location-label {
 			font-size: 16px;
 		}
@@ -359,15 +359,23 @@
 	@media (min-width: 651px) and (max-height: 750px) {
 
 .location-label {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .location-dropdown {
-	font-size: 16px;
+	font-size: 14px;
 }
 
-
 }
+
+@media (max-width: 1200px)  and (max-height: 750px){
+		
+
+		.location-dropdown {
+			max-width: 220px;
+		}
+	}
+
 
 
 </style>

@@ -69,7 +69,7 @@
 		const dataString = currentMode === 'pedestrian' ? 'pedestrianPercentage':'cyclistPercentage'
 		
 		
-		return [{ label: "share of total traffic", value: selectedLocationTimeSeriesData.summary[dataString].toFixed(1)+'%' }];
+		return [{ label: "share of traffic", value: selectedLocationTimeSeriesData.summary[dataString].toFixed(1)+'%' }];
 	});
 	const dailyTotals = $derived.by(() => {
 		if (!selectedLocationTimeSeriesData || !selectedLocationTimeSeriesData.summary || !selectedLocation?.travelModes) {
@@ -82,7 +82,7 @@
 		const dataString = currentMode === 'pedestrian' ? 'totalPedestrianCount':'totalCyclistCount'
 		
 		
-		return [{ label: "counts", value: selectedLocationTimeSeriesData.summary[dataString].toLocaleString()}];
+		return [{ label: "daily count", value: Math.round((selectedLocationTimeSeriesData.summary[dataString])/30).toLocaleString()}];
 	});
 
 </script>
@@ -114,19 +114,23 @@
 
 {#if dailyStats[0].value!='0'}
 <div class="cards-container">
-	<DataCardSingle
-		title="Share of traffic"
-		stats={dailyStats}
-		explanation="Walking as a percentage of total traffic at this vivacity-counter location."
-		mode={selectedMode?selectedMode:'walking'}
-	/>
 
 	<DataCardSingle
 		title="Counts"
 		stats={dailyTotals}
-		explanation="Percentage change in usage from the previous year."
+		explanation="The average daily count of pedestrians or cyclists at this computer vision sensor over the last month."
 		mode={selectedMode?selectedMode:'walking'}
 	/>
+
+
+	<DataCardSingle
+		title="Share of traffic"
+		stats={dailyStats}
+		explanation="Walking or cycling as a percentage of total traffic at this computer vision sensor."
+		mode={selectedMode?selectedMode:'walking'}
+	/>
+
+	
 </div>
 {/if}
 
@@ -140,15 +144,15 @@
 				travelMode="pedestrian"
 				chartType="hourly"
 				title="Hourly average counts"
-				explanation="Average counts by hour over the last 7 days"
+				explanation="The average daily counts of pedestrians or cyclists recorded at this computer vision sensor over the last 30 days, by hour."
 			/>
 
 			<VivacityCounterTimeSeries
 			travelMode="pedestrian"
 			chartType="daily"
-			title="Counts in the last 30 days"
-			explanation="Tota daily counts over the last 30 days"
-		/>
+			title="Trends: last 30 days"
+			explanation="The total daily counts of pedestrians or cyclists recorded at this computer vision sensor over the last 30 days."
+			/>
 		{/if}
 		
 		{#if selectedLocation.travelModes.includes('bike') && selectedMode=='bike'}
@@ -289,11 +293,11 @@
 	@media (min-width: 651px) and (max-height: 750px) {
 
 .area-label {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .location-dropdown {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 

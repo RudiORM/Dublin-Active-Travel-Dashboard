@@ -50,8 +50,7 @@
             {#if mode == 'bike'}
 			<span class="stat-label"
 				><svg
-					width="67"
-					height="67"
+					class='svg-img'
 					viewBox="0 0 67 67"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -90,8 +89,8 @@
 	
 			<span class="stat-label">
 				<svg
-					width="51"
-					height="51"
+				class='svg-img2'
+
 					viewBox="0 0 51 51"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -152,6 +151,11 @@
 		min-width: 270px;
 	}
 
+	.svg-img {
+width: 51px;
+height: 51px;
+}
+
 	.stats-section-header {
 		display: grid;
 		grid-template-columns: 70% 30%;
@@ -193,6 +197,16 @@
 		height: 100%;
 		fill: #000;
 	}
+
+	.svg-img {
+	width: 67px;
+	height: 67px;
+}
+
+.svg-img2 {
+	width: 51px;
+	height: 51px;
+}
 
 	.info-button.expanded {
 		width: calc(100% + 40px);	
@@ -288,8 +302,126 @@
 
 	
 
+
+
+
+	@media (max-height: 858px) {
+		.stat-item {
+			min-height: 70px;
+			height: 70px;
+		}
+
+		
+
+		.info-button.expanded {
+				height: 130px;
+		}
+
+	
+	}
+
+
+
+
+	@media (max-height: 808px) {
+		.stat-item {
+			min-height: 60px;
+			height: 60px;
+		}
+
+		
+
+		.info-button.expanded {
+			height: 120px;
+		}
+
+		
+	}
+
 	
 
+	@media (min-width: 651px) and (max-height: 750px) {
+
+.info-button svg{
+	height: 90%;
+	width: 90%;
+}
+
+
+.svg-img {
+	width: 57px;
+	height: 57px;
+}
+
+.svg-img2 {
+	width: 43px;
+	height: 43px;
+}
+
+
+.title {
+font-size: 14px;
+}
+
+.stats-section{
+max-width: 220px;
+min-width: 220px;
+}
+
+
+.info-button{
+font-size: 14px;
+}
+
+.stat-value {
+font-size: 14px;
+color: #000;
+}
+
+.stats-section-header{
+min-height: 50px;
+height: 50px;
+}
+
+.stat-item{
+min-height: 50px;
+height: 50px;
+}
+
+
+.stat-label-bottom {
+font-size: 14px;
+color: #00000066;
+font-weight: 400;
+}
+
+
+.stat-item:last-child {
+gap: 26px;
+}
+
+.info-button.expanded {
+	height: 100px;
+	font-size: 14px;
+	padding: 2px;
+}
+
+.explanation-content p {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+
+}
+
+
+@media (max-width: 950px) and (max-height: 750px) {
+
+.stats-section {
+
+max-width: 100%;
+}
+}
 
 
 </style>

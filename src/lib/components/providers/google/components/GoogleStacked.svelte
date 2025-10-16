@@ -71,6 +71,8 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		align-items: center;
 		justify-content: center;
 		z-index: 5;
+		margin-top:-7px;
+
 	}
 
 	.chart-section{
@@ -130,7 +132,7 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 	.info-button.expanded {
 		width: 560px;	
-		margin-top: 160px;
+		margin-top: 174px;
 		height: 220px;
 		border-radius: 10px;
 		background-color: #FFD249;
@@ -167,100 +169,27 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		flex-direction: column;
 	}
 
-	.stat-item {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 40px;
-		min-height: 96px;
-		padding-left: 15px;
-	}
 
-	.stat-item:first-child {
-		border-bottom: 1px solid #00000044;
-		gap: 20px;
-	}
-
-	.stat-label {
-		font-size: 12px;
-		color: #666;
-		text-transform: uppercase;
-		font-weight: 400;
-	}
-
-	.stat-text {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.stat-value {
-		font-size: 16px;
-		color: #000;
-	}
-
-	.stat-label-bottom {
-		font-size: 16px;
-		color: #00000066;
-		font-weight: 400;
-	}
-
-	@media (max-height: 908px) {
-		.stat-item {
-			min-height: 75px;
-			height: 75px;
-		}
-
-	
-
-	
-
-		
-	}
-
-
-	@media (max-height: 858px) {
-		.stat-item {
-			min-height: 70px;
-			height: 70px;
-		}
-
-		
-
-	
-
-	
-	}
-
-
-
-
-	@media (max-height: 808px) {
-		.stat-item {
-			min-height: 60px;
-			height: 60px;
-		}
-
-		
-
-
-		
-	}
 
 	@media (max-width: 1200px){
 		.info-button.expanded {
 			width: 270px;	
-	}}
+			height: 240px;
+			margin-top: 194px;
+	}
 
+	.chart-section{
+		height: 180px;
+	}
 
+}
 
-
+	
 	@media (max-width: 950px) {
 
 		.info-button.expanded {
 			width: calc(100vw - 340px);
 	}
-
 
 
 	.stats-section {
@@ -270,20 +199,82 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	}
 
 	@media (max-width: 650px) {
-		.stat-item {
-			min-height: 60px;
-			height: 60px;
-		}
+		
 
 		.info-button.expanded {
 			width: calc(100vw - 80px);
+	}}
+
+	
+@media (min-width: 651px) and (max-height: 750px) {
+	.stats-section-header {
+		height: 50px;
+		min-height: 50px;
+	}
+
+	.title {
+		font-weight: 400;
+		font-size: 14px;
+	}
+
+	.chart-section
+	{
+		height: 180px;
 	}
 
 	
+	.explanation-content{
+		padding: 0px;
+	}
 
 
+	.explanation-content p {
+		font-size: 14px;
 
 	}
+
+	.info-button svg {
+		width: 90%;
+		height: 90%;
+		fill: #000;
+	}
+
+
+
+}
+
+
+@media (min-width: 950px) and (max-width: 1200px) and (max-height: 750px) {
+
+.info-button.expanded {
+	width: 220px;
+	height: 230px;
+	margin-top: 180px;
+}
+
+.chart-section
+	{
+		height: 180px;
+	}
+}
+
+@media (min-width: 1200px) and (max-height: 750px) {
+
+.info-button.expanded {
+	width: 460px;
+	height: 210px;
+	margin-top: 160px;
+}
+
+.chart-section
+	{
+		height: 160px;
+	}
+}
+
+
+
+	
 
 	
 

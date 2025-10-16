@@ -61,32 +61,5 @@
 		
 
 <style>
-	.infrastructure-chart-container {
-		width: 100%;
-		background: #f9fafb;
-		border-radius: 8px;
-		padding:0px;
-		border: 0px solid #e5e7eb;
-	}
-
-	.chart-header h4 {
-		font-size: 14px;
-		font-weight: 600;
-		color: #1f2937;
-		margin: 0 0 16px 0;
-		font-family: 'Inter', sans-serif;
-	}
-
-	.no-chart-data {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 200px;
-		color: #6b7280;
-	}
-
-	.no-chart-data p {
-		margin: 0;
-		font-size: 14px;
-	}
+	
 </style>

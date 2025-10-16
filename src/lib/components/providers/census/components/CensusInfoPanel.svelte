@@ -283,7 +283,7 @@
 
 }
 
-@media (min-width: 651px) and (max-height: 750px) {
+@media  (min-width: 651px) and (max-height: 750px) {
 
 .area-label {
 	font-size: 14px;

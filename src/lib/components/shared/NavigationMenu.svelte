@@ -30,17 +30,17 @@
 			]
 		},
 		location: {
-			label: 'Location',
+			label: 'Sensor',
 			items: [
-				{ id: 'eco-counter', label: 'Induction sensors' },
+				{ id: 'eco-counter', label: 'Induction loop' },
 				{ id: 'vivacity-counter', label: 'Computer vision' }
 			]
 		},
 		route: {
 			label: 'Cycle Route',
 			items: [
-				{ id: 'nta', label: 'Infrastructure' },
 				{ id: 'strava', label: 'Strava' },
+				{ id: 'nta', label: 'Cycle paths' },
 			]
 		}
 	};
@@ -557,20 +557,20 @@
 		overflow-y: auto;
 	}
 
-	/* Responsive styles */
-	@media (max-width: 950px) {
-		.menu {
-			left: 20px;
-			top: 20px;
-			height: calc(50% - 30px);
+	@media (max-height: 800px) and (min-height: 700px) {
+		.menu-overlay{
+			height: 300px;
 		}
+	
+		.logo{
+            max-width: 160px;
+		}}
 
-		.sidebar {
-			left: 20px;
-			bottom: 20px;
-			height: calc(50% - 30px);
-		}
-	}
+
+
+	
+
+
 
 	@media (max-width: 650px) {
 
@@ -600,7 +600,28 @@
 		}
 	}
 
-	/* Short height responsive styles - under 650px height */
+	/* Responsive styles */
+	@media (max-width: 950px) {
+
+		.menu {
+			left: 20px;
+			top: 20px;
+			height: calc(50% - 30px);
+		}
+
+		.sidebar {
+			left: 20px;
+			bottom: 20px;
+			height: calc(50% - 30px);
+		}
+
+		.menu-overlay{
+			left: 20px;
+			margin-top: -20px;
+			height: calc(50% - 30px);
+		}
+	}
+
 	@media (max-height: 750px) and (min-width: 651px) {
 		.menu {
 			display: none; /* Hide the separate menu element */
@@ -669,42 +690,17 @@
 		.sidebar-about .sd-logo {
 			width: 40px; /* Smaller logo for compact layout */
 		}
-	}
 
-	/* Responsive styles */
-	@media (max-width: 950px) {
-		.menu {
-			left: 20px;
-			top: 20px;
-			height: calc(50% - 30px);
-		}
-
-		.sidebar {
-			left: 20px;
-			bottom: 20px;
-			height: calc(50% - 30px);
-		}
-
-		.menu-overlay{
-			left: 20px;
-			margin-top: -20px;
-			height: calc(50% - 30px);
-		}
-	}
-
-	/* Desktop mode under 650px height */
-	@media (min-width: 651px) and (max-height: 750px) {
 		.menu {
 			display: none;
 		}
 		
 
-
-
-
 		.menu-overlay {
 			height: calc(100% - 80px);
-		margin-top:0px;		}
+		margin-top:0px;	
+		font-size: 14px;
+		}
 
 		.sidebar {
 			top: 40px;
@@ -721,40 +717,42 @@
 		}
 
 		.sidebar .sidebar-header h3 {
-			font-size: 16px;
+			font-size: 14px;
 		}
 
 		.sidebar .data-content {
 			flex: 1;
-			font-size: 16px;
+			font-size: 14px;
 			margin-bottom: 0px;
 			overflow-y: auto;
 		}
 
 		.sidebar .section-header {
-			font-size: 16px;
+			font-size: 14px;
 			padding: 10px 12px;
 		}
 
 		.sidebar .item-button {
-			font-size: 16px;
+			font-size: 14px;
 			padding: 8px 16px;
 		}
 
 		.sidebar .expand-icon {
-			font-size: 16px;
+			font-size: 14px;
 		}
 	}
+
+	
 
 	@media (min-width: 651px) and (max-height: 600px) {
 		.menu {
 			display: none;
 		}
-		
-		.section-label{
-			font-size: 16px;
-		}
 
+		
+
+		
+		
 
 
 		.menu-overlay {
@@ -775,10 +773,6 @@
 			flex-shrink: 0;
 		}
 
-		.sidebar .sidebar-header h3 {
-			font-size: 16px;
-		}
-
 		.sidebar .data-content {
 			flex: 1;
 			font-size: 16px;
@@ -787,7 +781,6 @@
 		}
 
 		.sidebar .section-header {
-			font-size: 16px;
 			padding: 6px 12px;
 		}
 

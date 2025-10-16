@@ -80,7 +80,7 @@
 	});
 
 	// Get maximum total for consistent scaling
-	const maxTotal = 110000
+	const maxTotal = 110000;
 
 	// Calculate nice round numbers for y-axis
 	const yAxisValues = $derived.by(() => {
@@ -103,27 +103,6 @@
 
 	// Use the nice max for scaling (same as the highest y-axis value)
 	const scaleMax = $derived.by(() => yAxisValues[yAxisValues.length - 1]);
-
-	// Fixed chart width and bar calculations (matching first component)
-	const chartWidth = 560-80;
-	const yAxisPadding = 35; // Space for y-axis labels
-	const availableWidth = chartWidth - yAxisPadding;
-	
-	// Calculate bar width and gap based on the number of data points
-	let barWidth = $derived.by(() => {
-		if (processedData.length === 0) return 20;
-		
-		// Using same calculation as first component
-		// We want gap = barWidth/8
-		const n = processedData.length;
-		const calculatedWidth = (availableWidth * 8) / (9 * n - 1);
-		
-		return Math.max(calculatedWidth, 2); // Minimum 2px width
-	});
-	
-	let gapWidth = $derived.by(() => {
-		return barWidth / 8;
-	});
 
 	// Format numbers for y-axis labels
 	const formatNumber = (num: number) => {
@@ -165,9 +144,9 @@
 		<!-- Chart area -->
 		<div class="chart-container">
 			<!-- Bars -->
-			<div class="bars-container" style="width: {chartWidth}px;">
+			<div class="bars-container">
 				
-				<!-- Grid lines and Y-axis labels moved inside bars-container -->
+				<!-- Grid lines and Y-axis labels -->
 				<div class="grid-lines">
 					{#each yAxisValues as value, i}
 						<div 
@@ -180,15 +159,12 @@
 					{/each}
 				</div>
 
-				<div class="bars-wrapper" style="gap: {gapWidth}px;">
+				<div class="bars-wrapper">
 					{#each processedData as yearData, index}
 						<div class="year-column">
 							<div 
 								class="stacked-bar-vertical" 
-								style="
-									height: {(yearData.total / scaleMax) * 100}%;
-									width: {barWidth}px;
-								"
+								style="height: {(yearData.total / scaleMax) * 100}%;"
 								onmouseenter={(e) => showTooltip(e, yearData)}
 								onmouseleave={hideTooltip}
 								ontouchstart={(e) => showTooltip(e, yearData)}
@@ -272,6 +248,7 @@
 
 	.bars-container {
 		height: calc(100% - 30px); /* Account for year labels */
+		width: 100%;
 		box-sizing: border-box;
 		position: relative;
 		padding-left: 35px; /* Space for y-axis labels */
@@ -284,6 +261,7 @@
 		height: 100%;
 		width: 100%;
 		box-sizing: border-box;
+		gap: 2px;
 	}
 
 	.grid-lines {
@@ -326,7 +304,8 @@
 		align-items: center;
 		justify-content: flex-end;
 		height: 100%;
-		flex-shrink: 0;
+		flex: 1 1 0;
+		min-width: 12px;
 	}
 
 	.stacked-bar-vertical {
@@ -334,6 +313,7 @@
 		flex-direction: column-reverse;
 		overflow: hidden;
 		cursor: pointer;
+		width: 100%;
 	}
 
 	.bar-segment-vertical {
@@ -423,10 +403,7 @@
 		margin-left: auto;
 	}
 
-	.tooltip-segment-percent {
-		opacity: 0.8;
-		font-size: 10px;
-	}
+
 
 	/* Simplified responsive adjustments */
 	@media (max-width: 640px) {

@@ -63,9 +63,12 @@
 <div class="app-container">
 	{#if isLoading}
 		<div class="loading-overlay">
-			<div class="loading-spinner">
-				<div class="spinner"></div>
-				<p>Loading data...</p>
+			<div class="loading-content">
+				<img src="/svgs/DATD-logo-v3-outlinestroke.svg" alt="DATD Logo" class="loading-logo" />
+				<div class="loading-spinner">
+					<div class="spinner"></div>
+					<p>Loading data...</p>
+				</div>
 			</div>
 		</div>
 	{/if}
@@ -168,6 +171,20 @@
 		justify-content: center;
 		z-index: 9999;
 		backdrop-filter: blur(5px);
+	}
+
+	.loading-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.loading-logo {
+		width: 120px;
+		height: auto;
+		margin-bottom: 30px;
+		opacity: 0.9;
 	}
 
 	.loading-spinner {

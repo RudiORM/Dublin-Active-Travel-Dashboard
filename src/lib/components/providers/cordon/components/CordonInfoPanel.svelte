@@ -232,7 +232,7 @@
 
 	{#if currentStats && modeData.length > 0}
 	<CordonStacked 
-		title="Transportation Mode Distribution"
+		title="Transportation mode distribution"
 		modeData={modeData}
 		explanation="The distribution of transportation modes for all trips on a single day in 2023."
 	/>
@@ -249,7 +249,7 @@
 <div class="time-series-container">
 		{#if timeSeriesData.length > 0}
 			<CordonTimeSeries 
-				title="Time Series - All Cordon Locations"
+				title="Time series - all cordon locations"
 				timeSeriesData={timeSeriesData}
 				explanation="The historical distribution of transportation modes since 2006, summarised for all locations."
 			/>

@@ -148,7 +148,7 @@
 {#if dailyStats.length > 0}
 <div class="cards-container">
 	<DataCardSingle
-		title="2023 Daily Cyclists"
+		title="2023 daily cyclists"
 		stats={dailyStats}
 		explanation="Average number of cyclists using this route per day in 2023, estimated from monthly Strava data."
 	/>
@@ -164,7 +164,7 @@
 {/if}
 
 <StravaTimeSeries
-	title="Strava Route Usage Over Time"
+	title="Strava route usage over time"
 	explanation="This chart shows the estimated historical usage data for the selected Strava route. We use a model to estimate the total cycling activity based on Strava data and other factors."
 	timeSeriesData={timeSeriesData}
 	routeName={selectedRoute}
@@ -175,13 +175,13 @@
 <div class="cards-container" id='last'>
 
 	<DataCardSingle
-		title="Peak Month"
+		title="Peak month"
 		stats={peakMonthStats}
 		explanation="The month with the highest recorded cycling activity on this route, estimated from monthly Strava data."
 	/>
 
 	<DataCardSingle
-		title="Peak Month Journeys"
+		title="Peak month journeys"
 		stats={peakJourneysStats}
 		explanation="The number of cycling journeys recorded during the peak month, estimated from monthly Strava data."
 	/>

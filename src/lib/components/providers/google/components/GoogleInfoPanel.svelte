@@ -164,7 +164,7 @@
 				explanation: `Walking and cycling Google trips, represented as a percentage of total distance covered in 2023.`
 			},
 			{
-				title: "Daily Trips",
+				title: "Daily trips",
 				stats: [
 					{ label: "trips", value: Math.round(cyclingTrips/365).toLocaleString() },
 					{ label: "trips", value: Math.round(walkingTrips/365).toLocaleString() },
@@ -242,7 +242,7 @@
 	{#if totalStats}
 
 	<GoogleStacked 
-			title="Transportation Mode Distribution"
+			title="Transportation mode distribution"
 			modeData={modeData}
 			explanation="The distribution of transportation modes for all trips across Google's Environmental Insights Platform for 2023."
 		/>

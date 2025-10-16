@@ -188,8 +188,8 @@
 			<EcoCounterTimeSeries
 				travelMode="pedestrian"
 				chartType="monthly"
-				title="Trends: last 3 years"
-				explanation="The total monthly counts of pedestrians or cyclists recorded at this induction sensor over the last 3 years."
+				title="Trends: last 2 years"
+				explanation="The total monthly counts of pedestrians or cyclists recorded at this induction sensor over the last 2 years."
 			/>
 		{/if}
 		
@@ -205,7 +205,7 @@
 				travelMode="bike"
 				chartType="monthly"
 				title="Monthly trends"
-				explanation="Monthly counts over the last 3 years"
+				explanation="Monthly counts over the last 2 years"
 			/>
 		{/if}
 	</div>

@@ -32,17 +32,34 @@ export async function load() {
 
   try {
     // Load counter activity data from static file for eco-counter
-    let counterActivity = null;
+    let counterActivity = [];
     try {
-      const counterActivityPath = path.join(process.cwd(), 'static', 'counter_activity.json');
-      console.log('Attempting to load counter activity from:', counterActivityPath);
+      // Try multiple possible paths for production vs development
+      const possiblePaths = [
+        path.join(process.cwd(), 'static', 'counter_activity.json'),
+        path.join(process.cwd(), 'my-app', 'static', 'counter_activity.json'),
+        path.join(process.cwd(), '..', 'static', 'counter_activity.json'),
+        './static/counter_activity.json'
+      ];
       
-      if (fs.existsSync(counterActivityPath)) {
-        const counterActivityData = fs.readFileSync(counterActivityPath, 'utf-8');
+      let counterActivityData = null;
+      let loadedPath = null;
+      
+      for (const counterActivityPath of possiblePaths) {
+        console.log('Trying counter activity path:', counterActivityPath);
+        if (fs.existsSync(counterActivityPath)) {
+          counterActivityData = fs.readFileSync(counterActivityPath, 'utf-8');
+          loadedPath = counterActivityPath;
+          console.log('Successfully loaded counter activity from:', loadedPath);
+          break;
+        }
+      }
+      
+      if (counterActivityData) {
         counterActivity = JSON.parse(counterActivityData);
         console.log('Counter activity data loaded successfully:', counterActivity.length, 'entries');
       } else {
-        console.warn('counter_activity.json file does not exist at:', counterActivityPath);
+        console.warn('counter_activity.json file not found in any of the attempted paths');
         counterActivity = [];
       }
     } catch (error) {
@@ -53,24 +70,37 @@ export async function load() {
     // Load vivacity markers data from static file
     let vivacityMarkers = [];
     try {
-      const vivacityMarkersPath = path.join(process.cwd(), 'static', 'vivacity_markers.json');
-      console.log('Attempting to load vivacity markers from:', vivacityMarkersPath);
+      // Try multiple possible paths for production vs development
+      const possiblePaths = [
+        path.join(process.cwd(), 'static', 'vivacity_markers.json'),
+        path.join(process.cwd(), 'my-app', 'static', 'vivacity_markers.json'),
+        path.join(process.cwd(), '..', 'static', 'vivacity_markers.json'),
+        './static/vivacity_markers.json'
+      ];
       
-      if (fs.existsSync(vivacityMarkersPath)) {
-        const vivacityMarkersData = fs.readFileSync(vivacityMarkersPath, 'utf-8');
+      let vivacityMarkersData = null;
+      let loadedPath = null;
+      
+      for (const vivacityMarkersPath of possiblePaths) {
+        console.log('Trying vivacity markers path:', vivacityMarkersPath);
+        if (fs.existsSync(vivacityMarkersPath)) {
+          vivacityMarkersData = fs.readFileSync(vivacityMarkersPath, 'utf-8');
+          loadedPath = vivacityMarkersPath;
+          console.log('Successfully loaded from:', loadedPath);
+          break;
+        }
+      }
+      
+      if (vivacityMarkersData) {
         console.log('Raw vivacity markers file content length:', vivacityMarkersData.length);
-        console.log('Raw vivacity markers file content preview:', vivacityMarkersData.substring(0, 200));
-        
         vivacityMarkers = JSON.parse(vivacityMarkersData);
         console.log('Vivacity markers data loaded successfully:', vivacityMarkers.length, 'entries');
-        console.log('First vivacity marker:', vivacityMarkers[0]);
       } else {
-        console.warn('vivacity_markers.json file does not exist at:', vivacityMarkersPath);
+        console.warn('vivacity_markers.json file not found in any of the attempted paths');
         vivacityMarkers = [];
       }
     } catch (error) {
       console.error('Error loading vivacity_markers.json:', error.message);
-      console.error('Full error:', error);
       vivacityMarkers = [];
     }
 

@@ -161,16 +161,15 @@
 
 	.loading-overlay {
 		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background-color: rgba(255, 255, 255, 0.7);
+	
+		width: calc(100vw);
+		height: calc(100vh);
+		background-color:#EEF2F6dd;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		z-index: 9999;
-		backdrop-filter: blur(2px);
+		backdrop-filter: blur(5px);
 	}
 
 	.loading-content {
@@ -181,9 +180,9 @@
 	}
 
 	.loading-logo {
-		width: 120px;
+		width: 180px;
 		height: auto;
-		margin-bottom: 30px;
+		margin-bottom: 50px;
 		opacity: 0.9;
 	}
 
@@ -193,10 +192,10 @@
 	}
 
 	.spinner {
-		width: 50px;
-		height: 50px;
-		border: 4px solid #f3f3f3;
-		border-top: 4px solid #A8E9DA;
+		width: 70px;
+		height: 70px;
+		border: 5px solid #f3f3f3;
+		border-top: 5px solid #A8E9DA;
 		border-radius: 50%;
 		animation: spin 1s linear infinite;
 		margin: 0 auto 20px;

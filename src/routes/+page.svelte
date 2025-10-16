@@ -64,7 +64,7 @@
 	{#if isLoading}
 		<div class="loading-overlay">
 			<div class="loading-content">
-				<img src="/favicon.png" alt="DATD Logo" class="loading-logo" />
+				<img src="/svgs/DATD-logo-v3-outlinestroke.svg" alt="DATD Logo" class="loading-logo" />
 				<div class="loading-spinner">
 					<div class="spinner"></div>
 					<p>Loading data...</p>

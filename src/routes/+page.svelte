@@ -165,12 +165,12 @@
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-		background-color: rgba(255, 255, 255, 0.95);
+		background-color: rgba(255, 255, 255, 0.7);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		z-index: 9999;
-		backdrop-filter: blur(5px);
+		backdrop-filter: blur(2px);
 	}
 
 	.loading-content {

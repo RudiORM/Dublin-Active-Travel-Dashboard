@@ -58,14 +58,19 @@ export async function load() {
       
       if (fs.existsSync(vivacityMarkersPath)) {
         const vivacityMarkersData = fs.readFileSync(vivacityMarkersPath, 'utf-8');
+        console.log('Raw vivacity markers file content length:', vivacityMarkersData.length);
+        console.log('Raw vivacity markers file content preview:', vivacityMarkersData.substring(0, 200));
+        
         vivacityMarkers = JSON.parse(vivacityMarkersData);
         console.log('Vivacity markers data loaded successfully:', vivacityMarkers.length, 'entries');
+        console.log('First vivacity marker:', vivacityMarkers[0]);
       } else {
         console.warn('vivacity_markers.json file does not exist at:', vivacityMarkersPath);
         vivacityMarkers = [];
       }
     } catch (error) {
       console.error('Error loading vivacity_markers.json:', error.message);
+      console.error('Full error:', error);
       vivacityMarkers = [];
     }
 
@@ -221,6 +226,11 @@ export async function load() {
     if (vivacityMetadata) {
       console.log('Vivacity Metadata sample:', JSON.stringify(vivacityMetadata, null, 2).substring(0, 500) + '...');
     }
+
+    console.log('=== FINAL SERVER RETURN DATA ===');
+    console.log('vivacityMarkers length:', vivacityMarkers.length);
+    console.log('processedVivacityMarkers length:', processedVivacityMarkers.length);
+    console.log('counterActivity length:', counterActivity.length);
 
     return {
       // Eco-Counter data (maintain existing structure for compatibility)

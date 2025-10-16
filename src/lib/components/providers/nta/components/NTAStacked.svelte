@@ -186,8 +186,6 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 			width: calc(100vw - 340px);
 	}
 
-
-
 	.stats-section {
 		max-width: 100%;
 	}
@@ -292,13 +290,13 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 
 .info-button.expanded {
 	width: 220px;
-	height: 232px;
-	margin-top: 184px;
+	height: 272px;
+	margin-top: 224px;
 }
 
 .chart-section
 	{
-		height: 180px;
+		height: 220px;
 	}
 
 

@@ -217,6 +217,12 @@ import { getRouteColor } from '$lib/utils/strava/strava-colors.js';
 
 @media (min-width: 651px) and (max-height: 750px) {
 
+	.explanation-content p {
+		font-size: 14px;
+
+	}
+
+
 	.info-button svg {
 		width: 90%;
 		height: 90%;

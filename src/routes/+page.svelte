@@ -25,6 +25,10 @@
 	let map = $state();
 	let selectedDataSource = $state('census');
 	let providersInitialized = $state(0);
+	
+	// Total number of providers that need to initialize
+	const totalProviders = 7;
+	let isLoading = $derived(providersInitialized < totalProviders);
 
 	function handleMapLoad(mapInstance: any) {
 		map = mapInstance;
@@ -57,6 +61,15 @@
 </script>
 
 <div class="app-container">
+	{#if isLoading}
+		<div class="loading-overlay">
+			<div class="loading-spinner">
+				<div class="spinner"></div>
+				<p>Loading data...</p>
+			</div>
+		</div>
+	{/if}
+	
 	<MapContainer onMapLoad={handleMapLoad} />
 	
 	<NavigationMenu 
@@ -141,6 +154,45 @@
 		top: 0;
 		left: 0;
 		min-height: 450px;
+	}
 
+	.loading-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(255, 255, 255, 0.95);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 9999;
+		backdrop-filter: blur(5px);
+	}
+
+	.loading-spinner {
+		text-align: center;
+		color: #333;
+	}
+
+	.spinner {
+		width: 50px;
+		height: 50px;
+		border: 4px solid #f3f3f3;
+		border-top: 4px solid #A8E9DA;
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+		margin: 0 auto 20px;
+	}
+
+	.loading-spinner p {
+		margin: 0;
+		font-size: 16px;
+		font-weight: 500;
+	}
+
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
 	}
 </style>

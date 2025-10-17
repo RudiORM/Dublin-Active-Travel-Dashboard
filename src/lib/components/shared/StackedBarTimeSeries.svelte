@@ -326,6 +326,10 @@
 		opacity: 0.8;
 	}
 
+	.bar-segment-vertical:last-child {
+		border-radius: 4px 4px 0 0;
+	}
+
 	.year-label {
 		font-size: 12px;
 		color: #6B7280;

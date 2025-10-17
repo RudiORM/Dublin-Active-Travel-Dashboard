@@ -134,7 +134,7 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 5;
-		margin-top:-7px;
+		margin-top:-5px;
 	}
 
 	.stats-section {
@@ -148,13 +148,15 @@
 
 	.stats-section-header {
 		display: grid;
-		grid-template-columns: 70% 30%;
-		align-items: center;
+		grid-template-columns: 80% 20%;
+		align-items: flex-start;
 		border-radius: 10px 10px 0 0;
 		padding-left: 15px;
 		background: #A8E9DA;
-		min-height: 60px;
-		height: 60px;
+		min-height: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
 	}
 
 	h4{
@@ -168,7 +170,7 @@
 	}
 
 	.info-button {
-		justify-self: right;
+		justify-self: center;
 		width: 20px;
 		height: 20px;
 		border: none;
@@ -180,6 +182,8 @@
 		justify-content: center;
 		font-size: 16px;
 		padding: 0;
+		margin-top: 0px;
+		transform: translateX(50%);
 	}
 
 	.info-button svg {
@@ -190,8 +194,8 @@
 
 	.info-button.expanded {
 		width: calc(100% + 40px);	
-		margin-top: 206px;
-		height: 252px;
+		margin-top: 192px;
+		height: 242px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
@@ -205,6 +209,7 @@
         padding: 20px;
 		font-size: 16px;
 		line-height: 22px;	
+		transform: translateX(0%);
 
 	}
 
@@ -234,7 +239,7 @@
 		align-items: center;
 		gap: 40px;
 		min-height: 96px;
-		padding-left: 15px;
+		padding-left: 8px;
 	}
 
 	.stat-item:first-child {
@@ -283,8 +288,8 @@
 		}
 
 		.info-button.expanded {
-			margin-top: 182px;
-			height: 230px;
+			margin-top: 170px;
+			height: 220px;
 		}
 
 		
@@ -301,8 +306,8 @@
 	
 
 		.info-button.expanded {
-			margin-top: 163px;
-			height: 210px;
+			margin-top: 150px;
+			height: 200px;
 		}
 
 		
@@ -318,8 +323,8 @@
 		
 
 		.info-button.expanded {
-			margin-top: 152px;
-			height: 200px;
+			margin-top: 140px;
+			height: 190px;
 		}
 
 	
@@ -328,7 +333,7 @@
 
 
 
-	@media (max-height: 808px) {
+	@media (max-height: 786px) {
 		.stat-item {
 			min-height: 60px;
 			height: 60px;
@@ -337,8 +342,8 @@
 		
 
 		.info-button.expanded {
-			margin-top: 134px;
-			height: 180px;
+			margin-top: 120px;
+			height: 170px;
 		}
 
 		
@@ -360,8 +365,8 @@
 		}
 
 		.info-button.expanded {
-			margin-top: 134px;
-			height: 180px;
+			margin-top: 120px;
+			height: 170px;
 		}
 	}
 
@@ -372,6 +377,11 @@
 			height: 90%;
 			width: 90%;
 		}
+
+		.stats-section-header {
+		grid-template-columns: 90% 10%;
+		
+	}
 
 		.svg-img {
 	width: 57px;
@@ -406,6 +416,12 @@
 		min-height: 50px;
 		height: 50px;
 	}
+	
+
+	
+	.info-button {
+		margin-top: -2px;
+	}
 
 	.stat-item{
 		min-height: 50px;
@@ -429,7 +445,7 @@
 	}
 
 	.info-button.expanded {
-			margin-top: 104px;
+			margin-top: 100px;
 			height: 150px;
 			font-size: 14px;
 			padding: 10px;

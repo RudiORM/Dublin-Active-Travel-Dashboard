@@ -166,7 +166,7 @@
 	/>
 
 	<DataCardSingle
-		title="Year-over-year change"
+		title="Percentage change"
 		stats={changeStats}
 		explanation="The percentage change in total counts between the last 12 months and the previous 12 months."
 		mode={selectedMode}
@@ -182,13 +182,13 @@
 			<EcoCounterTimeSeries
 				travelMode="pedestrian"
 				chartType="hourly"
-				title="Hourly average counts"
+				title="Counts by hour"
 				explanation="The average daily counts of pedestrians or cyclists recorded at this induction sensor over the last 30 days, by hour."
 			/>
 			<EcoCounterTimeSeries
 				travelMode="pedestrian"
 				chartType="monthly"
-				title="Trends: last 2 years"
+				title="Counts by month"
 				explanation="The total monthly counts of pedestrians or cyclists recorded at this induction sensor over the last 2 years."
 			/>
 		{/if}
@@ -198,13 +198,13 @@
 			<EcoCounterTimeSeries
 				travelMode="bike"
 				chartType="hourly"
-				title="Average counts by hour"
+				title="Counts by hour"
 				explanation="The average counts by hour over the last 30 days"
 			/>
 			<EcoCounterTimeSeries
 				travelMode="bike"
 				chartType="monthly"
-				title="Monthly trends"
+				title="Counts by month"
 				explanation="Monthly counts over the last 2 years"
 			/>
 		{/if}
@@ -279,7 +279,6 @@
 	.location-dropdown {
 		font-size: 22px;
 		font-weight: 400;
-		padding-bottom: 2px;
 		background: #EEF2F6;
 		color: #000;
 		border: 0px solid #e5e5e5;
@@ -288,7 +287,7 @@
 		font-family: 'Inter', sans-serif;
 		transition: border-color 0.2s ease;
 		border-bottom: 1px solid #000;
-		max-width: 300px;
+		max-width: 330px;
 	}
 
 	.location-dropdown:hover {

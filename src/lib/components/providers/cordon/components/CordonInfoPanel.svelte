@@ -167,7 +167,7 @@
 
 		return [
 			{
-				title: "Counts on a single day",
+				title: "Daily Counts",
 				stats: [
 					{ label: "cycling counts", value: cycling2023.toLocaleString() },
 					{ label: "walking counts", value: walking2023.toLocaleString() },
@@ -175,7 +175,7 @@
 				explanation: "The total number of cyclists and pedestrians counted at cordon locations at a single day in November 2023."
 			},
 			{
-				title: "Change from 2022 to 2023",
+				title: "Change 2022 - 2023",
 				stats: [
 					{ label: "change", value: formatChange(cyclingChange) },
 					{ label: "change", value: formatChange(walkingChange) },
@@ -232,7 +232,7 @@
 
 	{#if currentStats && modeData.length > 0}
 	<CordonStacked 
-		title="Transportation mode distribution"
+		title="Transportation mode"
 		modeData={modeData}
 		explanation="The distribution of transportation modes for all trips on a single day in 2023."
 	/>
@@ -249,7 +249,7 @@
 <div class="time-series-container">
 		{#if timeSeriesData.length > 0}
 			<CordonTimeSeries 
-				title="Time series - all cordon locations"
+				title="Trends"
 				timeSeriesData={timeSeriesData}
 				explanation="The historical distribution of transportation modes since 2006, summarised for all locations."
 			/>
@@ -292,7 +292,8 @@
 		font-family: 'Inter', sans-serif;
 		transition: border-color 0.2s ease;
 		border-bottom: 1px solid #000;
-		max-width: 300px;
+		max-width: 360px;
+		margin-top: 3px;
 	}
 
 	.location-dropdown:hover {

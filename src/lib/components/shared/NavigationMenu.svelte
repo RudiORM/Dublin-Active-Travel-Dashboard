@@ -281,8 +281,7 @@
 		height: calc(45% - 60px);
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-        text-align: center;
+	
         padding: 20px;
         display: flex;
 		font-size: 16px;
@@ -456,8 +455,7 @@
 		height: 100%;
 		background: rgba(0, 0, 0, 0.5);
 		z-index: 999;
-		justify-content: center;
-		align-items: center;
+
         min-width: 300px;
 	}
 
@@ -601,7 +599,7 @@
 	}
 
 	/* Responsive styles */
-	@media (max-width: 950px) {
+	@media (min-width: 651px) and (max-width: 950px) {
 
 		.menu {
 			left: 20px;

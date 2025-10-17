@@ -165,7 +165,7 @@
 
 	{#if infrastructureStats}
 		<NTAStacked 
-			title={nta?.selectedDataSource === 'busconnects' ? 'Infastructure types distribution' : 'Infrastructure types distribution'}
+			title={nta?.selectedDataSource === 'busconnects' ? 'Infastructure type' : 'Infrastructure type'}
 			explanation={nta?.selectedDataSource === 'busconnects' 
 				? 'Distribution of different surface change types in the BusConnects dataset showing the breakdown of infrastructure modifications.' 
 				: 'Distribution of different cycling infrastructure types in the NTA dataset showing the variety of bike facilities available.'}
@@ -175,7 +175,7 @@
 
 		<div class="stats-grid">
 			<DataCardSingle 
-				title={nta?.selectedDataSource === 'busconnects' ? 'Total infrastructure length' : 'Total infrastructure length'}
+				title={nta?.selectedDataSource === 'busconnects' ? 'Total length' : 'Total length'}
 				stats={totalLengthStats}
 				explanation={nta?.selectedDataSource === 'busconnects' 
 					? 'Total length of BusConnects cycling infrastructure modifications in kilometers.' 
@@ -183,7 +183,7 @@
 			/>
 
 			<DataCardSingle 
-				title={nta?.selectedDataSource === 'busconnects' ? 'Segregated cycle lane length' : 'Bike lane length'}
+				title={nta?.selectedDataSource === 'busconnects' ? 'Segregated lanes' : 'Bike lanes'}
 				stats={segregatedLaneStats}
 				explanation={nta?.selectedDataSource === 'busconnects' 
 					? 'Total length of segregated cycle lanes in the BusConnects dataset in kilometers.' 

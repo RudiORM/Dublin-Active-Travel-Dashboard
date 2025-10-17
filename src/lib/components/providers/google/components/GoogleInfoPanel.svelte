@@ -149,21 +149,13 @@
 		
 		return [
 			{
-				title: "Percentage of all trips",
+				title: "Percentage of trips",
 				stats: [
-					{ label: "of all trips", value: `${cyclingPercentage}%` },
-					{ label: "of all trips", value: `${walkingPercentage}%` },
+					{ label: "by bicycle", value: `${cyclingPercentage}%` },
+					{ label: "on foot", value: `${walkingPercentage}%` },
 				],
 				explanation: `The percentage of all Google trips across Dublin which were on foot or by bike in 2023.`
 			},{
-				title: "Percentage of total distance",
-				stats: [
-					{ label: "distance travelled", value: `${cyclingDistancePercentage}%` },
-					{ label: "distance travelled", value: `${walkingDistancePercentage}%` },
-				],
-				explanation: `Walking and cycling Google trips, represented as a percentage of total distance covered in 2023.`
-			},
-			{
 				title: "Daily trips",
 				stats: [
 					{ label: "trips", value: Math.round(cyclingTrips/365).toLocaleString() },
@@ -171,12 +163,20 @@
 				],
 				explanation: `The average daily number of walking and cycling trips for Google's Environmental Insights Platform in 2023.`
 
-			},
-			{
-				title: "CO2 saved",
+			},{
+				title: "Percentage of distance",
 				stats: [
-					{ label: "tonnes CO2 saved", value: formatCO2(cyclingCO2Saved) },
-					{ label: "tonnes CO2 saved", value: formatCO2(walkingCO2Saved) },
+					{ label: "total trip distance", value: `${cyclingDistancePercentage}%` },
+					{ label: "total trip distance", value: `${walkingDistancePercentage}%` },
+				],
+				explanation: `Walking and cycling Google trips, represented as a percentage of total distance covered in 2023.`
+			},
+			
+			{
+				title: "CO2 emissions avoided",
+				stats: [
+					{ label: "tonnes per year", value: formatCO2(cyclingCO2Saved) },
+					{ label: "tonnes per year", value: formatCO2(walkingCO2Saved) },
 				],
 				explanation: "Calculated by multiplying the number ofwalking and cycling trips by the average automobile GPC emissions per trip."
 			},
@@ -242,7 +242,7 @@
 	{#if totalStats}
 
 	<GoogleStacked 
-			title="Transportation mode distribution"
+			title="Transportation mode"
 			modeData={modeData}
 			explanation="The distribution of transportation modes for all trips across Google's Environmental Insights Platform for 2023."
 		/>
@@ -351,8 +351,8 @@
 		font-family: 'Inter', sans-serif;
 		transition: border-color 0.2s ease;
 		border-bottom: 1px solid #000;
-		max-width: 360px;
-		width: 340px;
+		max-width: 380px;
+		width: 380px;
 		
 	}
 

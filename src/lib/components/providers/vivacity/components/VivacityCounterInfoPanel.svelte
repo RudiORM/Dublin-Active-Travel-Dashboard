@@ -143,35 +143,38 @@
 			<VivacityCounterTimeSeries
 				travelMode="pedestrian"
 				chartType="hourly"
-				title="Hourly average counts"
+				title="Counts by hour"
 				explanation="The average daily counts of pedestrians or cyclists recorded at this computer vision sensor over the last 30 days, by hour."
 			/>
+
+			<div class="time-series-container">
 
 			<VivacityCounterTimeSeries
 			travelMode="pedestrian"
 			chartType="daily"
-			title="Trends: last 30 days"
+			title="Counts by day"
 			explanation="The total daily counts of pedestrians or cyclists recorded at this computer vision sensor over the last 30 days."
 			/>
+			</div>
 		{/if}
 		
 		{#if selectedLocation.travelModes.includes('bike') && selectedMode=='bike'}
 			<VivacityCounterTimeSeries
 				travelMode="bike"
 				chartType="hourly"
-				title="Hourly Average Usage"
-				explanation="Average daily usage by hour over the last 30 days"
+				title="Counts by hour"
+				explanation="The total daily counts of pedestrians or cyclists recorded at this computer vision sensor over the last 30 days."
 
 			/>
 
-
+<div class="time-series-container">
 			<VivacityCounterTimeSeries
 				travelMode="bike"
 				chartType="daily"
-				title="Hourly Average Usage"
-				explanation="Average daily usage by hour over the last 30 days"
-			/>
-
+				title="Counts by day"
+				explanation="The total daily counts of pedestrians or cyclists recorded at this computer vision sensor over the last 30 days."
+				/>
+</div>
 		
 		{/if}
 	
@@ -211,6 +214,11 @@
 		height: 100%;
 	}
 
+	.time-series-container {
+		padding-bottom: 20px;
+	margin-bottom: 20px;
+	}
+
 	.header-inline {
 		display: flex;
 		align-items: center;
@@ -240,7 +248,6 @@
 	.location-dropdown {
 		font-size: 22px;
 		font-weight: 400;
-		padding-bottom: 2px;
 		background: #EEF2F6;
 		color: #000;
 		border: 0px solid #e5e5e5;
@@ -249,7 +256,7 @@
 		font-family: 'Inter', sans-serif;
 		transition: border-color 0.2s ease;
 		border-bottom: 1px solid #000;
-		max-width: 300px;
+		max-width: 303px;
 	}
 
 	.location-dropdown:hover {

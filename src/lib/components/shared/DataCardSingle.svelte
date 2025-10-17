@@ -134,12 +134,11 @@
 		position: absolute;
 		top: 0px;
 		right: 20px;
-		height: 60px;
+		height: 50px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		z-index: 5;
-		margin-top:-7px;
 	}
 
 	.stats-section {
@@ -159,16 +158,14 @@ height: 51px;
 	.stats-section-header {
 		display: grid;
 		grid-template-columns: 70% 30%;
-		align-items: center;
+		align-items: flex-start;
 		border-radius: 10px 10px 0 0;
 		padding-left: 15px;
 		background: #A8E9DA;
-		min-height: 60px;
-		height: 60px;
-	}
-
-	h4{
-		font-weight: 400;
+		min-height: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
 	}
 
 	.title {
@@ -176,6 +173,11 @@ height: 51px;
 		color: #333;
 		font-size: 16px;
 	}
+
+	h4 {
+		font-weight: 400;
+	}
+
 
 	.info-button {
 		justify-self: right;
@@ -190,6 +192,7 @@ height: 51px;
 		justify-content: center;
 		font-size: 16px;
 		padding: 0;
+		margin-top: 0px;
 	}
 
 	.info-button svg {
@@ -211,8 +214,8 @@ height: 51px;
 	.info-button.expanded {
 		width: calc(100% + 40px);	
         min-width: calc(100%);	
-		margin-top: -46px;
-		height: 130px;
+		margin-top: -51px;
+		height: 146px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
@@ -254,9 +257,9 @@ height: 51px;
 		flex-direction: row;
 		align-items: center;
 		gap: 40px;
-		padding-left: 15px;
-        min-height: 70px;
-        height: 70px;
+		padding-left: 8px;
+		min-height: 96px;
+		min-height: 96px;
 	}
 
 	.stat-item:first-child {
@@ -301,8 +304,20 @@ height: 51px;
 
 
 	
+	@media (max-height: 908px) {
+		.stat-item {
+			min-height: 75px;
+			height: 75px;
+		}
 
+	
 
+		.info-button.expanded {
+			height: 126px;
+		}
+
+		
+	}
 
 
 	@media (max-height: 858px) {
@@ -314,7 +329,7 @@ height: 51px;
 		
 
 		.info-button.expanded {
-				height: 130px;
+			height: 120px;
 		}
 
 	
@@ -332,13 +347,12 @@ height: 51px;
 		
 
 		.info-button.expanded {
-			height: 120px;
+			height: 110px;
 		}
-
-		
 	}
 
-	
+
+
 
 	@media (min-width: 651px) and (max-height: 750px) {
 
@@ -346,6 +360,7 @@ height: 51px;
 	height: 90%;
 	width: 90%;
 }
+
 
 
 .svg-img {
@@ -378,10 +393,13 @@ font-size: 14px;
 color: #000;
 }
 
-.stats-section-header{
-min-height: 50px;
-height: 50px;
-}
+	.stats-section-header{
+	min-height: 50px;
+	height: 50px;
+	}
+	
+
+	
 
 .stat-item{
 min-height: 50px;

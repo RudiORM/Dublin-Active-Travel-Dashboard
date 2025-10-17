@@ -10,6 +10,40 @@
 		stravaContext
 	} = $props();
 
+	// Get available routes, sorted alphabetically
+	let availableRoutes = $derived.by(() => {
+		if (!reshapedData?.byRoute) return [];
+		
+		const routes = Object.keys(reshapedData.byRoute)
+			.map(route => ({
+				value: route,
+				label: route,
+				id: route
+			}))
+			.sort((a, b) => a.label.localeCompare(b.label)); // Sort alphabetically
+		
+		return [
+			...routes
+		];
+	});
+
+	// Handle dropdown change
+	async function handleRouteChange(event) {
+		const target = event.target;
+		const newValue = target.value === 'null' ? null : target.value;
+		
+		if (newValue && stravaContext) {
+			// Update the selected route (same as map click)
+			stravaContext.selectedRoute = newValue;
+			stravaContext.selectedLocation = newValue;
+			
+			// Update the visualization to show the new selection
+			stravaContext.updateVisualization();
+			
+			console.log(`Route selected from dropdown: ${newValue}`);
+		}
+	}
+
 	// Derived data for the selected route
 	const routeData = $derived.by(() => {
 		if (!reshapedData?.byRoute?.[selectedRoute]) {
@@ -141,20 +175,34 @@
 <div class="info-panel">
 <div class="panel-header">
 	<div class="header-inline">
-		<span class="area-label">Strava cycling data for {selectedRoute}</span>
+		<span class="area-label">Strava cycling data for</span>
+
+		<!-- Route dropdown -->
+		<select 
+			id="strava-route-select" 
+			class="route-dropdown" 
+			value={selectedRoute || 'null'} 
+			onchange={handleRouteChange}
+		>
+			{#each availableRoutes as route}
+				<option value={route.value || 'null'}>
+					{route.label}
+				</option>
+			{/each}
+		</select>
 	</div>
 </div>
 
 {#if dailyStats.length > 0}
 <div class="cards-container">
 	<DataCardSingle
-		title="2023 daily cyclists"
+		title="Counts"
 		stats={dailyStats}
 		explanation="Average number of cyclists using this route per day in 2023, estimated from monthly Strava data."
 	/>
 
 	<DataCardSingle
-		title="Change from 2022 to 2023"
+		title="Percentage change"
 		stats={changeStats}
 		explanation="Percentage change in estimated total route usage from 2022 to 2023, estimated from monthly Strava data."
 	/>
@@ -164,8 +212,8 @@
 {/if}
 
 <StravaTimeSeries
-	title="Strava route usage over time"
-	explanation="This chart shows the estimated historical usage data for the selected Strava route. We use a model to estimate the total cycling activity based on Strava data and other factors."
+title="Counts by month"
+explanation="This chart shows the estimated historical usage data for the selected Strava route. We use a model to estimate the total cycling activity based on Strava data and other factors."
 	timeSeriesData={timeSeriesData}
 	routeName={selectedRoute}
 	totals={routeTotals}
@@ -213,8 +261,10 @@
 		font-size: 22px;
 		font-weight: 400;
 		color: #000;
-		word-wrap: break-word;
-		line-height: 1.3;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 100%;
 	}
 
 	.header-inline {
@@ -242,6 +292,40 @@
 		flex-wrap: wrap;
 	}
 
+	.route-dropdown {
+		font-size: 22px;
+		font-weight: 400;
+		background: #EEF2F6;
+		color: #000;
+		border: 0px solid #e5e5e5;
+		border-radius: 0px;
+		cursor: pointer;
+		font-family: 'Inter', sans-serif;
+		transition: border-color 0.2s ease;
+		border-bottom: 1px solid #000;
+		min-width: 316px;
+	}
+
+	.route-dropdown:hover {
+		border-color: white;
+	}
+
+	.route-dropdown:focus {
+		outline: none;
+		border-color: #999;
+	}
+
+	.route-dropdown option {
+		padding: 8px;
+		font-size: 16px;
+	}
+
+
+	@media (max-width: 1200px) {
+		.route-dropdown {
+			max-width: 250px;
+		}
+	}
 
 	@media (max-width: 950px) {
 		.cards-container {
@@ -249,26 +333,25 @@
 			gap: 15px;
 		}
 
-	
+		.route-dropdown {
+			max-width: 100%;
+			font-size: 16px;
+		}
 
-	.area-label {
-		font-size: 16px;
-		
-	}
-
-
+		.area-label {
+			font-size: 16px;
+		}
 	}
 
 	@media (min-width: 651px) and (max-height: 750px) {
+		.area-label {
+			font-size: 14px;
+		}
 
-.area-label {
-	font-size: 14px;
-}
-
-
-
-
-}
+		.route-dropdown {
+			font-size: 14px;
+		}
+	}
 
 	
 

@@ -107,7 +107,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 		gap: 8px;
-		margin-top: 8px;
+		margin-top: 20px;
 		width: 100%;
 	}
 
@@ -186,6 +186,13 @@
 
 }
 
+
+
+@media (min-height: 751px) {
+	.labels-grid {
+		margin-top: 20px;
+	}
+}
 @media (min-width: 651px) and (max-height: 750px) {
 
 	.segment-label.inside{
@@ -198,6 +205,13 @@
 
 }
 
+
+}
+
+@media (max-height: 860px) {
+	.labels-grid {
+		margin-top: 8px;
+	}
 }
 
 

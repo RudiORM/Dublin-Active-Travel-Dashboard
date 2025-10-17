@@ -61,17 +61,19 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	</div>
 </div>
 
+
+
 <style>
 	.info-position {
 		position: absolute;
 		top: 0px;
 		right: 20px;
-		height: 60px;
+		height: 50px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		z-index: 5;
-		margin-top:-7px;
+
 	}
 
 	.chart-section{
@@ -90,18 +92,21 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	.stats-section-header {
 		display: grid;
 		grid-template-columns: 70% 30%;
-		align-items: center;
+		align-items: flex-start;
 		border-radius: 10px 10px 0 0;
 		padding-left: 15px;
 		background: #A8E9DA;
-		min-height: 60px;
-		height: 60px;
+		min-height: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
 	}
 
 	.title {
 		margin: 0;
 		color: #333;
 		font-size: 16px;
+		
 	}
 
 	.info-button {
@@ -117,6 +122,7 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		justify-content: center;
 		font-size: 16px;
 		padding: 0;
+		margin-top: 0px;
 	}
 
 	.info-button svg {
@@ -125,10 +131,14 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		fill: #000;
 	}
 
+	h4{
+		font-weight: 400;
+	}
+
 	.info-button.expanded {
 		width: 560px;	
-		margin-top: 174px;
-		height: 220px;
+		margin-top: 160px;
+		height: 210px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
@@ -159,10 +169,6 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 		font-weight: 400;
 	}
 
-	h4{
-		font-weight: 400;
-	}
-
 	.stat-grid {
 		display: flex;
 		flex-direction: column;
@@ -170,29 +176,20 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 
 
-	@media (max-height: 858px) {
-		.chart-section
-	{
-		height: 150px;
-	}
-		
-	}
-
-
-
-
-
-
 	@media (max-width: 1200px){
 		.info-button.expanded {
 			width: 270px;	
-			margin-top: 174px;
-			height: 220px;
-	}}
+			height: 230px;
+			margin-top: 180px;
+	}
 
+	.chart-section{
+		height: 180px;
+	}
 
+}
 
-
+	
 	@media (max-width: 950px) {
 
 		.info-button.expanded {
@@ -200,8 +197,8 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	}
 
 
-
 	.stats-section {
+		
 		max-width: 100%;
 	}
 	}
@@ -211,24 +208,21 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 		.info-button.expanded {
 			width: calc(100vw - 80px);
-			height: 240px;
-			margin-top: 194px;
-	}
+	}}
 
-
-	.chart-section
-	{
-		height: 180px;
-	}
-
-	}
-
-
-
+	
 @media (min-width: 651px) and (max-height: 750px) {
 	.stats-section-header {
 		height: 50px;
 		min-height: 50px;
+	}
+	
+	.title {
+		padding-top: 8px;
+	}
+	
+	.info-button {
+		margin-top: -2px;
 	}
 
 	.title {
@@ -238,12 +232,18 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 
 	.chart-section
 	{
-		height: 160px;
+		height: 180px;
+	}
+
+	
+	.explanation-content{
+		padding: 0px;
 	}
 
 
 	.explanation-content p {
 		font-size: 14px;
+
 	}
 
 	.info-button svg {
@@ -253,11 +253,23 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 	}
 
 
+
 }
 
 
+@media (min-width: 950px) and (max-width: 1200px) and (max-height: 750px) {
 
+.info-button.expanded {
+	width: 220px;
+	height: 230px;
+	margin-top: 180px;
+}
 
+.chart-section
+	{
+		height: 180px;
+	}
+}
 
 @media (min-width: 1200px) and (max-height: 750px) {
 
@@ -274,61 +286,8 @@ import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
 }
 
 
-@media (min-width: 651px) and (max-height: 750px) {
-	.stats-section-header {
-		height: 50px;
-		min-height: 50px;
-	}
 
-	.title {
-		font-weight: 400;
-		font-size: 14px;
-	}
-
-
-	.explanation-content p {
-		font-size: 14px;
-	}
-
-	.info-button svg {
-		width: 90%;
-		height: 90%;
-		fill: #372f2f;
-	}
-
-
-
-}
-
-
-@media (min-width: 950px) and (max-width: 1200px) and (max-height: 750px) {
-
-.info-button.expanded {
-	width: 220px;
-	height: 232px;
-	margin-top: 184px;
-}
-
-.chart-section
-	{
-		height: 180px;
-	}
-
-
-}
-
-@media (min-width: 1200px) and (max-height: 750px) {
-
-.info-button.expanded {
-	width: 460px;
-	height: 200px;
-	margin-top: 154px;
-}
-
-}
-
-
-
+	
 
 	
 

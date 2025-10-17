@@ -62,7 +62,7 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		position: absolute;
 		top: 0px;
 		right: 20px;
-		height: 60px;
+		height: 50px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -70,12 +70,13 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 	}
 
 	.chart-section{
-		height: calc(100svh - 720px);
+		height: calc(100svh - 740px);
 		min-height: 120px;
+		max-height: 320px;
+
 		padding: 10px;
 		padding-left: 40px;
 		padding-right: 40px;
-		max-height: 280px;
 	}
 
 	h4{
@@ -94,12 +95,14 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 	.stats-section-header {
 		display: grid;
 		grid-template-columns: 70% 30%;
-		align-items: center;
+		align-items: flex-start;
 		border-radius: 10px 10px 0 0;
 		padding-left: 15px;
 		background: #A8E9DA;
-		min-height: 60px;
-		height: 60px;
+		min-height: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
 	}
 
 	.title {
@@ -121,6 +124,7 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		justify-content: center;
 		font-size: 16px;
 		padding: 0;
+		margin-top: 0px;
 	}
 
 	.info-button svg {
@@ -131,7 +135,9 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 
 	.info-button.expanded {
 		width: 560px;	
-		height: calc(100svh - 640px);
+		height: calc(100svh - 690px);
+		min-height: 170px;
+		max-height: 370px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
@@ -143,10 +149,8 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		border: 0px solid white;
 		overflow-y: scroll;
 		padding: 0px;
-		max-height: 340px;
 		transform: translateY(50%);
-		margin-top: -60px;
-		min-height: 180px;
+		margin-top: -50px;
 
 	}
 
@@ -168,14 +172,26 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 
 	@media (max-height: 908px) {
 		
-
 		.chart-section{
-		height: calc(100svh - 710px);
-		
+		height: calc(100svh - 680px);
+	}
+
+	.info-button.expanded {
+		height: calc(100svh - 630px);
 	}
 
 		
 	}
+
+	/* @media (max-height: 808px) {
+		
+		.chart-section{
+		height: calc(100svh - 640px);
+		
+	}
+
+		
+	} */
 
 
 
@@ -229,10 +245,18 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		font-weight: 400;
 		font-size: 14px;
 	}
+	
+	.info-button {
+		margin-top: -2px;
+	}
 
 	.chart-section
 	{
 		height: 160px;
+	}
+
+	.info-button.expanded {
+		height: 210px;
 	}
 
 
@@ -248,9 +272,6 @@ import StackedBarTimeSeries from '$lib/components/shared/StackedBarTimeSeries.sv
 		fill: #000;
 	}
 
-	.info-position{
-margin-top:-7px;
-	}
 
 }
 
@@ -273,13 +294,13 @@ margin-top:-7px;
 
 .info-button.expanded {
 	width: 460px;
-	height: 205px;
+	height: 190px;
 	margin-top: -50px;
 }
 
 .chart-section
 	{
-		height: 150px;
+		height: 140px;
 	}
 }
 

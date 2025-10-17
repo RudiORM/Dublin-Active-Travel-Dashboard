@@ -317,7 +317,7 @@
 		width: 100%;
 		min-height: 2px; /* Minimum height for very small values */
 		transition: opacity 0.2s ease;
-		border-radius: 2px 2px 0 0;
+		border-radius: 4px 4px 0 0;
 		opacity: 1;
 		z-index: 2;
 	}

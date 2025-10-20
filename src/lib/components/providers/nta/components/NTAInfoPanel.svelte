@@ -160,8 +160,8 @@
 		<NTAStacked 
 			title={nta?.selectedDataSource === 'busconnects' ? 'Infastructure type' : 'Infrastructure type'}
 			explanation={nta?.selectedDataSource === 'busconnects' 
-				? 'Cycling infrastructure modifications in Dublin as per BusConnects dataset.' 
-				: 'Cycling infrastructure modifications in Dublin as per NTA dataset.'}
+				? 'Cycling infrastructure modifications in Dublin as per data from BusConnects.' 
+				: 'Cycling infrastructure modifications in Dublin as per data from the NTA.'}
 			reshapedData={reshapedData}
 			selectedDataSource={nta?.selectedDataSource}
 		/>

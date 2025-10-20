@@ -179,8 +179,8 @@
 				title={nta?.selectedDataSource === 'busconnects' ? 'Segregated lanes' : 'Segregated lanes'}
 				stats={segregatedLaneStats}
 				explanation={nta?.selectedDataSource === 'busconnects' 
-					? 'Total length of segregated cycle lanes in Dublin in kilometers.' 
-					: 'Total length of segregated cycle lanes in Dublin in kilometers.'}
+					? 'Total length of segregated cycle lanes in Dublin in kilometers. ' 
+					: 'Total length of segregated cycle lanes in Dublin in kilometers. '}
 			/>
 			
 			

@@ -95,6 +95,7 @@
 			if (onInitialized) {
 				onInitialized();
 			}
+			
 
 		} catch (error) {
 			console.error('Error loading infrastructure data:', error);

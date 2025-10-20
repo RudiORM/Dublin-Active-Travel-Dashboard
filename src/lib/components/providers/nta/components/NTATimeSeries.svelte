@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import StackedBarH from '$lib/components/shared/StackedBarH.svelte';
+	import StackedBarHMany from '$lib/components/shared/StackedBarHMany.svelte';
 	import { getInfrastructureStats } from '$lib/services/nta/nta-processor.js';
 	import { getInfrastructureColor } from '$lib/utils/nta/nta-colors.js';
 
@@ -39,6 +39,7 @@
 			// Show bike types distribution for NTA
 			const bikeTypes = infrastructureStats.bikeTypes || {};
 			return Object.entries(bikeTypes)
+				.filter(([type]) => type !== 'Signed route')
 				.sort(([,a], [,b]) => b - a)
 				.map(([type, count]) => ({
 					label: type.replace(/_/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' '),
@@ -50,7 +51,7 @@
 </script>
 
 
-		<StackedBarH 
+		<StackedBarHMany 
 			data={chartData}
 			height={40}
 			showLabels={true}

@@ -19,9 +19,9 @@ import {
 function createNTAColorExpression() {
 	const expression = ['case'];
 	
-	// Add color cases for each BIKE type
+	// Add color cases for each cdo_1 type (matching the actual data)
 	Object.entries(NTA_BIKE_COLORS).forEach(([bikeType, color]) => {
-		expression.push(['==', ['get', 'BIKE'], bikeType], color);
+		expression.push(['==', ['get', 'cdo_1'], bikeType], color);
 	});
 	
 	// Default color
@@ -77,6 +77,8 @@ export function addNTARoutes(map, reshapedData, dataSource = 'nta') {
 			'line-join': 'round',
 			'line-cap': 'round'
 		},
+		// Hide Signed route features entirely from the visual layer
+		filter: ['!=', ['get', 'cdo_1'], 'Signed route'],
 		paint: {
 			'line-color': colorExpression, // Use property-based coloring
 			'line-width': 4, // Smaller line width as requested
@@ -106,6 +108,8 @@ export function updateNTARoutes(map, reshapedData, dataSource = 'nta') {
 			: createNTAColorExpression();
 		
 		map.setPaintProperty('nta-routes', 'line-color', colorExpression);
+		// Ensure Signed route features remain hidden on update
+		map.setFilter('nta-routes', ['!=', ['get', 'cdo_1'], 'Signed route']);
 	}
 
 	// Update the source with the current data

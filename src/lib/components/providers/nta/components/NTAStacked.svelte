@@ -72,7 +72,7 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 
 	.chart-section{
 		padding: 20px;
-		height: 160px;
+		height: 220px;
 	}
 
 	.stats-section {
@@ -131,8 +131,8 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 
 	.info-button.expanded {
 		width: 560px;	
-		margin-top: 160px;
-		height: 210px;
+		margin-top: 220px;
+		height: 270px;
 		border-radius: 10px;
 		background-color: #FFD249;
 		backdrop-filter: blur(5px);
@@ -173,12 +173,12 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 	@media (max-width: 1200px){
 		.info-button.expanded {
 			width: 270px;	
-			height: 230px;
-			margin-top: 180px;
+			height: 290px;
+			margin-top: 240px;
 	}
 
 	.chart-section{
-		height: 180px;
+		height: 240px;
 	}
 
 }
@@ -210,6 +210,12 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 		height: 50px;
 		min-height: 50px;
 	}
+
+	.info-button.expanded {
+	height: 270px;
+	margin-top: 220px;
+}
+
 	
 	.title {
 		padding-top: 8px;
@@ -226,7 +232,7 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 
 	.chart-section
 	{
-		height: 180px;
+		height: 220px;
 	}
 
 	
@@ -255,13 +261,13 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 
 .info-button.expanded {
 	width: 220px;
-	height: 230px;
-	margin-top: 180px;
+	height: 310px;
+	margin-top: 260px;
 }
 
 .chart-section
 	{
-		height: 180px;
+		height: 260px;
 	}
 }
 
@@ -269,24 +275,15 @@ import NTATimeSeries from './NTATimeSeries.svelte';
 
 .info-button.expanded {
 	width: 460px;
-	height: 200px;
-	margin-top: 150px;
+	height: 250px;
+	margin-top: 200px;
 }
 
 .chart-section
 	{
-		height: 150px;
+		height: 200px;
 	}
 }
-
-
-
-	
-
-	
-
-	
-
 
 
 </style>

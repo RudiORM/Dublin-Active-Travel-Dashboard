@@ -2,24 +2,17 @@
 	import { getContext } from 'svelte';
 	import NTAStacked from './NTAStacked.svelte';
 	import DataCardSingle from '$lib/components/shared/DataCardSingle.svelte';
-	import { getInfrastructureStats, getParkingStats } from '$lib/services/nta/nta-processor.js';
+	import { getInfrastructureStats} from '$lib/services/nta/nta-processor.js';
 	
 	// Props
 	let { 
 		reshapedData,
-		selectedRoute,
-		selectedLocation,
-		ntaContext
+	
 	} = $props();
 
 	// Get context to access selected data source
 	const nta = getContext('nta');
 
-	// Get parking statistics
-	const parkingStats = $derived.by(() => {
-		if (!nta?.parkingData) return null;
-		return getParkingStats(nta.parkingData);
-	});
 
 	// Get infrastructure statistics based on the selected data source
 	const infrastructureStats = $derived.by(() => {
@@ -34,7 +27,7 @@
 		if (!infrastructureStats) return [{ label: "km", value: "0" }];
 		
 		// Convert from meters to kilometers and format appropriately
-		const lengthInKm = infrastructureStats.totalLength / 1000;
+		const lengthInKm = infrastructureStats.totalLength;
 		
 		let formattedLength;
 		if (lengthInKm >= 100) {
@@ -131,8 +124,8 @@
 			// Filter for "BIKE_LANE" in NTA data
 			const features = reshapedData.geoJsonData?.features || [];
 			features.forEach((feature: any) => {
-				if (feature.properties?.BIKE === 'BIKE_LANE') {
-					segregatedLength += feature.properties?.Shape_Leng || 0;
+				if (feature.properties?.cdo_1 === 'Segregated cycle lane') {
+					segregatedLength += (feature.properties?.Shape_Leng || 0) * 1000;
 				}
 			});
 		}
@@ -167,8 +160,8 @@
 		<NTAStacked 
 			title={nta?.selectedDataSource === 'busconnects' ? 'Infastructure type' : 'Infrastructure type'}
 			explanation={nta?.selectedDataSource === 'busconnects' 
-				? 'Distribution of different surface change types in the BusConnects dataset showing the breakdown of infrastructure modifications.' 
-				: 'Distribution of different cycling infrastructure types in the NTA dataset showing the variety of bike facilities available.'}
+				? 'Cycling infrastructure modifications in Dublin as per BusConnects dataset.' 
+				: 'Cycling infrastructure modifications in Dublin as per NTA dataset.'}
 			reshapedData={reshapedData}
 			selectedDataSource={nta?.selectedDataSource}
 		/>
@@ -178,16 +171,16 @@
 				title={nta?.selectedDataSource === 'busconnects' ? 'Total length' : 'Total length'}
 				stats={totalLengthStats}
 				explanation={nta?.selectedDataSource === 'busconnects' 
-					? 'Total length of BusConnects cycling infrastructure modifications in kilometers.' 
-					: 'Total length of cycling infrastructure in the NTA dataset in kilometers.'}
+					? 'Total length of cycling infrastructure in Dublin in kilometers.' 
+					: 'Total length of cycling infrastructure in Dublin in kilometers.'}
 			/>
 
 			<DataCardSingle 
-				title={nta?.selectedDataSource === 'busconnects' ? 'Segregated lanes' : 'Bike lanes'}
+				title={nta?.selectedDataSource === 'busconnects' ? 'Segregated lanes' : 'Segregated lanes'}
 				stats={segregatedLaneStats}
 				explanation={nta?.selectedDataSource === 'busconnects' 
-					? 'Total length of segregated cycle lanes in the BusConnects dataset in kilometers.' 
-					: 'Total length of bike lanes in the NTA dataset in kilometers.'}
+					? 'Total length of segregated cycle lanes in Dublin in kilometers.' 
+					: 'Total length of segregated cycle lanes in Dublin in kilometers.'}
 			/>
 			
 			

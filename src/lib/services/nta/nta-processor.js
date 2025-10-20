@@ -38,8 +38,8 @@ export function reshapeNTAData(data) {
 	let totalLength = 0;
 	
 	filteredFeatures.forEach(feature => {
-		const bikeType = feature.properties?.BIKE || 'Unknown';
-		const direction = feature.properties?.DIR || 'Unknown';
+		const bikeType = feature.properties?.cdo_1 || 'Unknown';
+		const direction = feature.properties?.twoway || 'Unknown';
 		const length = feature.properties?.Shape_Leng || 0;
 		
 		bikeTypes[bikeType] = (bikeTypes[bikeType] || 0) + 1;
@@ -87,7 +87,7 @@ export function reshapeBusConnectsData(data) {
 		const bollard = feature.properties?.bollardpro !== undefined ? 
 			(feature.properties.bollardpro === 1 ? 'With Bollards' : 'No Bollards') : 'Unknown';
 		// Multiply BusConnects length by 1000 to convert to meters (assuming it's in km)
-		const length = (feature.properties?.Shape_Leng || 0) * 1000;
+		const length = (feature.properties?.Shape_Leng || 0);
 		
 		surfaceTypes[surfaceType] = (surfaceTypes[surfaceType] || 0) + 1;
 		twowayTypes[twoway] = (twowayTypes[twoway] || 0) + 1;

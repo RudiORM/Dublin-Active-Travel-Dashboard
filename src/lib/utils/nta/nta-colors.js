@@ -3,15 +3,15 @@
  * Provides colors and sizing for different infrastructure types
  */
 
-// Color palette for NTA BIKE types
+// Color palette for NTA cdo_1 types (matching actual data)
 export const NTA_BIKE_COLORS = {
-	'SEPARATE_TRAIL': '#96CBC4',      // Sea Green - dedicated trails
-	'BIKE_LANE': '#A6DCF3',          // Royal Blue - cycle lanes
-	'CYCLE_TRACK': '#32CD32',         // Lime Green - cycle tracks
-	'GREENWAY': '#228B22',            // Forest Green - greenways
-	'BIKE_FRIENDLY_PEDESTRIAN_PATH': '#F39984',         // Goldenrod - shared paths
-	'NON_TRAFFIC_TRAIL': '#EBD599',          // Blue Violet - contraflow
-	'ADVISORY_LANE': '#FF8C00'        // Dark Orange - advisory lanes
+	'Painted cycle lane': '#F39984',      // Sea Green - dedicated trails
+	'Footway level cycle track': '#EBD599',          // Royal Blue - cycle lanes
+	'Segregated cycle lane': '#A6DCF3',         // Lime Green - cycle tracks
+	'Shared foot and cycle path road adjacent': '#CCCCCC',            // Forest Green - greenways
+	'Traffic free': '#999999',         // Goldenrod - shared paths
+	'Bus lane': '#33BBEE',          // Blue Violet - contraflow
+	'Signed route': '#FF8C00'        // Dark Orange - advisory lanes
 };
 
 // Color palette for BusConnects cdo_1 types

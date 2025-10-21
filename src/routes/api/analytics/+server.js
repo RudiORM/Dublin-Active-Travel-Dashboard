@@ -57,12 +57,52 @@ export async function GET({ url }) {
   const result = filtered.slice(-limit).reverse();
   
   // Calculate summary stats
+  const pageviews = analyticsData.filter(d => d.type === 'pageview');
   const summary = {
     totalEvents: analyticsData.length,
-    pageviews: analyticsData.filter(d => d.type === 'pageview').length,
+    pageviews: pageviews.length,
     customEvents: analyticsData.filter(d => d.type === 'event').length,
-    uniquePages: [...new Set(analyticsData.filter(d => d.type === 'pageview').map(d => d.url))].length
+    uniquePages: [...new Set(pageviews.map(d => d.url))].length
   };
   
-  return json({ events: result, summary }, { headers: corsHeaders });
+  // Calculate page-specific stats
+  const pageStats = {};
+  pageviews.forEach(pv => {
+    if (!pageStats[pv.url]) {
+      pageStats[pv.url] = { count: 0, countries: {} };
+    }
+    pageStats[pv.url].count++;
+    
+    // Track country if available
+    if (pv.country) {
+      pageStats[pv.url].countries[pv.country] = (pageStats[pv.url].countries[pv.country] || 0) + 1;
+    }
+  });
+  
+  // Calculate time-based stats (by month)
+  const timeStats = {};
+  pageviews.forEach(pv => {
+    const date = new Date(pv.timestamp);
+    const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+    if (!timeStats[monthKey]) {
+      timeStats[monthKey] = 0;
+    }
+    timeStats[monthKey]++;
+  });
+  
+  // Calculate country stats
+  const countryStats = {};
+  analyticsData.forEach(event => {
+    if (event.country) {
+      countryStats[event.country] = (countryStats[event.country] || 0) + 1;
+    }
+  });
+  
+  return json({ 
+    events: result, 
+    summary,
+    pageStats,
+    timeStats,
+    countryStats
+  }, { headers: corsHeaders });
 }

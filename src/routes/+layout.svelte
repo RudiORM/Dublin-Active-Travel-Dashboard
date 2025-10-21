@@ -1,13 +1,18 @@
 <script lang="ts">
 	import '../app.css';
+	import favicon from '$lib/assets/favicon.svg';
 	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
 
 	let { children } = $props();
 
 	const ANALYTICS_ENDPOINT = '/api/analytics';
   
 	// Track page view
-	function trackPageView() {
+	async function trackPageView() {
+		// Get country from timezone (approximate)
+		const country = getCountryFromTimezone();
+		
 		const data = {
 			type: 'pageview',
 			url: window.location.pathname,
@@ -15,10 +20,36 @@
 			timestamp: Date.now(),
 			userAgent: navigator.userAgent,
 			screenWidth: window.innerWidth,
-			screenHeight: window.innerHeight
+			screenHeight: window.innerHeight,
+			country: country
 		};
 		
 		sendAnalytics(data);
+	}
+	
+	// Approximate country from timezone
+	function getCountryFromTimezone() {
+		try {
+			const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+			// Basic mapping of common timezones to countries
+			const timezoneMap: Record<string, string> = {
+				'Europe/Dublin': 'Ireland',
+				'Europe/London': 'United Kingdom',
+				'America/New_York': 'United States',
+				'America/Los_Angeles': 'United States',
+				'America/Chicago': 'United States',
+				'Europe/Paris': 'France',
+				'Europe/Berlin': 'Germany',
+				'Europe/Madrid': 'Spain',
+				'Europe/Rome': 'Italy',
+				'Asia/Tokyo': 'Japan',
+				'Asia/Shanghai': 'China',
+				'Australia/Sydney': 'Australia',
+			};
+			return timezoneMap[timezone] || timezone.split('/')[0]; // Fallback to continent
+		} catch (e) {
+			return 'Unknown';
+		}
 	}
 	
 	// Send data to API
@@ -50,14 +81,13 @@
 	});
 	
 	// Use afterNavigate for SvelteKit navigation in Svelte 5
-	import { afterNavigate } from '$app/navigation';
 	afterNavigate(() => {
 		trackPageView();
 	});
 </script>
 
 <svelte:head>
-	<link rel="icon" type="image/png" href="/favicon.png" />
+	<link rel="icon" href={favicon} />
 </svelte:head>
 
 {@render children?.()}

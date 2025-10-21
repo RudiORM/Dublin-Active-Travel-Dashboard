@@ -58,10 +58,20 @@ export async function GET({ url }) {
   
   // Calculate summary stats
   const pageviews = analyticsData.filter(d => d.type === 'pageview');
+  
+  // Calculate unique users (based on userAgent + screenWidth + screenHeight)
+  const uniqueUserIds = new Set();
+  analyticsData.forEach(event => {
+    if (event.userAgent && event.screenWidth && event.screenHeight) {
+      const userId = `${event.userAgent}-${event.screenWidth}x${event.screenHeight}`;
+      uniqueUserIds.add(userId);
+    }
+  });
+  
   const summary = {
     totalEvents: analyticsData.length,
     pageviews: pageviews.length,
-    customEvents: analyticsData.filter(d => d.type === 'event').length,
+    uniqueUsers: uniqueUserIds.size,
     uniquePages: [...new Set(pageviews.map(d => d.url))].length
   };
   
@@ -69,14 +79,25 @@ export async function GET({ url }) {
   const pageStats = {};
   pageviews.forEach(pv => {
     if (!pageStats[pv.url]) {
-      pageStats[pv.url] = { count: 0, countries: {} };
+      pageStats[pv.url] = { count: 0, countries: {}, uniqueUsers: new Set() };
     }
     pageStats[pv.url].count++;
+    
+    // Track unique users per page
+    if (pv.userAgent && pv.screenWidth && pv.screenHeight) {
+      const userId = `${pv.userAgent}-${pv.screenWidth}x${pv.screenHeight}`;
+      pageStats[pv.url].uniqueUsers.add(userId);
+    }
     
     // Track country if available
     if (pv.country) {
       pageStats[pv.url].countries[pv.country] = (pageStats[pv.url].countries[pv.country] || 0) + 1;
     }
+  });
+  
+  // Convert Set to count for JSON serialization
+  Object.keys(pageStats).forEach(url => {
+    pageStats[url].uniqueUsers = pageStats[url].uniqueUsers.size;
   });
   
   // Calculate time-based stats (by month)

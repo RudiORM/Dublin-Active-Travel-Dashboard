@@ -20,10 +20,16 @@ export async function POST({ request }) {
   try {
     const data = await request.json();
     
+    // Get country from Vercel's geo headers
+    const country = request.headers.get('x-vercel-ip-country') || 'Unknown';
+    const city = request.headers.get('x-vercel-ip-city') || '';
+    
     // Add unique ID and server timestamp
     const event = {
       id: crypto.randomUUID(),
       ...data,
+      country: country, // Override client-side country with server-side accurate data
+      city: city,
       serverTimestamp: Date.now()
     };
     
@@ -31,7 +37,9 @@ export async function POST({ request }) {
     const eventKey = `event:${event.serverTimestamp}:${event.id}`;
     await kv.set(eventKey, JSON.stringify(event));
     
-    // Set expiration to 90 days (optional - remove if you want to keep data forever)    
+    // Set expiration to 90 days (optional - remove if you want to keep data forever)
+    await kv.expire(eventKey, 60 * 60 * 24 * 90);
+    
     return json({ success: true }, { headers: corsHeaders });
   } catch (error) {
     console.error('Error storing analytics:', error);

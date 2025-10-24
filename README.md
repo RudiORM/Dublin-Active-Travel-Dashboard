@@ -190,4 +190,4 @@ We welcome contributions to improve the Dublin Active Travel Dashboard. Please s
 * Bug reporting and feature requests
 * Documentation improvements
 
-For technical questions or collaboration opportunities, please contact the Smart Dublin team.
+For technical questions or collaboration opportunities, please contact rudi@dataanddesign.ie .

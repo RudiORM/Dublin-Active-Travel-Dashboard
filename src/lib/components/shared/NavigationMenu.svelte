@@ -455,8 +455,11 @@
 		height: 100%;
 		background: rgba(0, 0, 0, 0.5);
 		z-index: 999;
-
-        min-width: 300px;
+		min-width: 300px;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		box-sizing: border-box;
 	}
 
     .modal-overlay-2 {
@@ -484,8 +487,9 @@
 		background: #EEF2F6;
 		border-radius: 12px;
 		padding: 30px;
-		width: calc(100% - 40px);
-		height: calc(100% - 40px);
+		width: 100%;
+		max-width: 500px;
+		max-height: calc(100vh - 40px);
 		overflow-y: auto;
 		position: relative;
 		display: flex;

@@ -127,18 +127,21 @@
 							value: Math.round(citywideView.kpis.avgDailyCount).toLocaleString()
 						}
 					]}
-					explanation="Mean daily total across all Dublin Vivacity countlines in the network, for walking or cycling only (depending on the filter), over the last 30 days."
+					explanation="Most recent complete UTC-day total across all Dublin Vivacity sensors for the selected mode (walking or cycling)."
 					mode={selectedMode === 'bike' ? 'bike' : 'pedestrian'}
 				/>
 				<DataCardSingle
-					title="Share of traffic"
+					title="Busiest day (last 30 days)"
 					stats={[
 						{
-							label: 'share of traffic',
-							value: `${citywideView.kpis.trafficSharePercent.toFixed(1)}%`
+							label:
+								citywideView.kpis.busiestDayTotal != null
+									? `${citywideView.kpis.busiestDayTotal.toLocaleString()} daily count`
+									: '— daily count',
+							value: citywideView.kpis.busiestDayLabel ?? '—'
 						}
 					]}
-					explanation="Walking or cycling as a percentage of all vehicle and person counts summed across the network (last 30 days)."
+					explanation="Calendar day (UTC) in the rolling last 30 days when the selected mode (walking or cycling) across all Vivacity sensors was highest."
 					mode={selectedMode === 'bike' ? 'bike' : 'pedestrian'}
 				/>
 			</div>

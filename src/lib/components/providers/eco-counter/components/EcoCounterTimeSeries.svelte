@@ -73,7 +73,7 @@
 			return [];
 		}
 
-		const weeklyData = timeSeriesData.weeklyData[travelMode];
+		const weeklyData = timeSeriesData.weeklyData[travelMode].slice(-24);
 		return weeklyData.map((item) => ({
 			date: item.date,
 			value: Math.round(item.value * 100) / 100

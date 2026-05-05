@@ -536,6 +536,34 @@ function modeCountFromEcoDailyRow(row, mode) {
 }
 
 /**
+ * Build last-12-month network totals from daily rows as a fallback.
+ * @param {Array<{ from: string, pedestrian?: number, bike?: number }>} dailyRows
+ * @param {'pedestrian'|'bike'} mode
+ * @returns {Array<{ monthKey: string, label: string, total: number }>}
+ */
+function buildEcoMonthlyBarsFromDaily(dailyRows, mode) {
+	if (!Array.isArray(dailyRows) || dailyRows.length === 0) return [];
+
+	/** @type {Map<string, number>} */
+	const byMonth = new Map();
+	for (const row of dailyRows) {
+		if (!row?.from) continue;
+		const d = new Date(row.from);
+		if (Number.isNaN(d.getTime())) continue;
+		const key = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+		byMonth.set(key, (byMonth.get(key) || 0) + modeCountFromEcoDailyRow(row, mode));
+	}
+
+	const keys = [...byMonth.keys()].sort();
+	const tail = keys.slice(-12);
+	return tail.map((monthKey) => ({
+		monthKey,
+		label: formatEcoMonthLabelUtc(monthKey),
+		total: Math.round(byMonth.get(monthKey) || 0)
+	}));
+}
+
+/**
  * Network overview from combined site + ADT data (Eco API lastMonth by site/mode).
  * @param {Array<Object>} combinedLocations - output of combineEcoCounterData
  * @param {'pedestrian'|'bike'} mode
@@ -554,13 +582,10 @@ export function processEcoCounterNetworkView(combinedLocations, mode, dailyAggre
 
 	const adtFor = (loc) => loc.traffic?.[mode]?.averageDailyTraffic ?? 0;
 
-	let sumModeAdt = 0;
-	for (const loc of withMode) {
-		sumModeAdt += adtFor(loc);
-	}
-
 	let busiestDayLabel = '—';
 	let busiestDayTotal = /** @type {number | null} */ (null);
+	let sum30 = 0;
+	let days30 = 0;
 	if (Array.isArray(dailyAggregated) && dailyAggregated.length > 0) {
 		const dailySorted = [...dailyAggregated].sort(
 			(a, b) => new Date(a.from) - new Date(b.from)
@@ -575,9 +600,13 @@ export function processEcoCounterNetworkView(combinedLocations, mode, dailyAggre
 		for (const row of dailySorted) {
 			const t = new Date(row.from).getTime();
 			const modeC = modeCountFromEcoDailyRow(row, mode);
-			if (t >= start30 && t < end0 && modeC > busiestDayModeCount) {
-				busiestDayModeCount = modeC;
-				busiestDayFrom = row.from;
+			if (t >= start30 && t < end0) {
+				sum30 += modeC;
+				days30 += 1;
+				if (modeC > busiestDayModeCount) {
+					busiestDayModeCount = modeC;
+					busiestDayFrom = row.from;
+				}
 			}
 		}
 		if (busiestDayFrom != null && busiestDayModeCount >= 0) {
@@ -585,6 +614,7 @@ export function processEcoCounterNetworkView(combinedLocations, mode, dailyAggre
 			busiestDayTotal = Math.round(busiestDayModeCount);
 		}
 	}
+	const avgDailyCount = days30 > 0 ? sum30 / days30 : 0;
 
 	// ~month volume for bar scale (ADT × days) — same order as ranking by ADT
 	const countsBySensorBars = withMode
@@ -605,11 +635,13 @@ export function processEcoCounterNetworkView(combinedLocations, mode, dailyAggre
 			label: x.label || x.monthKey,
 			total: Math.round(Number(x[key]) || 0)
 		}));
+	} else if (Array.isArray(dailyAggregated) && dailyAggregated.length > 0) {
+		monthlyNetworkBars = buildEcoMonthlyBarsFromDaily(dailyAggregated, mode);
 	}
 
 	return {
 		kpis: {
-			avgDailyCount: sumModeAdt,
+			avgDailyCount,
 			busiestDayLabel,
 			busiestDayTotal
 		},

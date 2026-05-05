@@ -172,7 +172,7 @@ export async function POST({ request }) {
 	const mergedMonths = mergeEcoMonthlyByMonthKeyMaps(monthMaps.filter(Boolean));
 	let networkMonthlyTotals = ecoNetworkMonthlyTotalsLast12FromMerged(mergedMonths);
 
-	if (networkMonthlyTotals.length === 0 && siteIds.length > 0) {
+	if (networkMonthlyTotals.length < 12 && siteIds.length > 0) {
 		const lookbackDays = 420;
 		const longStart = new Date(end.getTime() - lookbackDays * 24 * 60 * 60 * 1000);
 		const ddLong = formatDate(longStart);
@@ -190,7 +190,18 @@ export async function POST({ request }) {
 			}
 		});
 		const mergedLong = mergeEcoDailyByDayMaps(longDayMaps.filter(Boolean));
-		networkMonthlyTotals = ecoNetworkMonthlyTotalsFromDailyMap(mergedLong);
+		const fromDailyFallback = ecoNetworkMonthlyTotalsFromDailyMap(mergedLong);
+		if (networkMonthlyTotals.length === 0) {
+			networkMonthlyTotals = fromDailyFallback;
+		} else {
+			// Merge by monthKey and keep the most complete last-12 month window.
+			const byKey = new Map();
+			for (const m of fromDailyFallback) byKey.set(m.monthKey, m);
+			for (const m of networkMonthlyTotals) byKey.set(m.monthKey, m);
+			networkMonthlyTotals = [...byKey.values()]
+				.sort((a, b) => String(a.monthKey).localeCompare(String(b.monthKey)))
+				.slice(-12);
+		}
 	}
 
 	cacheSet(cacheKey, dailyAggregated, networkMonthlyTotals);

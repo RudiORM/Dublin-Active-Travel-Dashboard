@@ -10,7 +10,6 @@ import {
 	sameCountlineSet,
 	trimDailyToLastDays
 } from '$lib/server/vivacity-snapshot-merge.js';
-import { withVivacityCountsClasses } from '$lib/server/vivacity-counts-classes.js';
 
 const DAILY_COUNTLINE_CHUNK = 3;
 const DAILY_CHUNK_FETCH_CONCURRENCY = 3;
@@ -19,6 +18,7 @@ const DAILY_SPAN_DAYS = 365;
 const HOURLY_SPAN_FULL_DAYS = 30;
 /** With snapshot: hourly chart from Vivacity for this many days; daily stays on static JSON */
 const HOURLY_SPAN_SNAPSHOT_DAYS = 30;
+const TRAFFIC_SHARE_WINDOW_DAYS = 30;
 
 function chunkArray(arr, size) {
 	const out = [];
@@ -102,11 +102,11 @@ export async function POST({ request }) {
 		const fromDailyISO = formatDateForVivacity(fromDaily);
 		const toISO = formatDateForVivacity(to);
 		const to_todayISO = formatDateForVivacity(to_today);
+		const fromShareISO = formatDateForVivacity(new Date(to.getTime() - TRAFFIC_SHARE_WINDOW_DAYS * 24 * 60 * 60 * 1000));
+		const toShareISO = toISO;
 
 		const countlineIdsParam = countlineIds.join(',');
-		const urlHourly = withVivacityCountsClasses(
-			`https://api.vivacitylabs.com/countline/counts?countline_ids=${countlineIdsParam}&from=${fromHourlyISO}&to=${toISO}&time_bucket=1h&fill_zeros=true`
-		);
+		const urlHourly = `https://api.vivacitylabs.com/countline/counts?countline_ids=${countlineIdsParam}&from=${fromHourlyISO}&to=${toISO}&time_bucket=1h&fill_zeros=true`;
 
 		console.info('[vivacity-timeseries] POST', {
 			sensorId,
@@ -150,23 +150,21 @@ export async function POST({ request }) {
 		 * @param {string} fromIso
 		 * @param {string} toIso
 		 */
-		async function fetchDailyMergedByChunks(ids, fromIso, toIso) {
+		async function fetchDailyMergedByChunks(ids, fromIso, toIso, label = 'daily(24h)') {
 			const chunks = chunkArray(ids, DAILY_COUNTLINE_CHUNK);
 			if (chunks.length === 1) {
 				const param = chunks[0].join(',');
-				const url = withVivacityCountsClasses(
-					`https://api.vivacitylabs.com/countline/counts?countline_ids=${param}&from=${fromIso}&to=${toIso}&time_bucket=24h`
-				);
-				console.info('[vivacity-timeseries] daily(24h) single chunk', {
+				const url = `https://api.vivacitylabs.com/countline/counts?countline_ids=${param}&from=${fromIso}&to=${toIso}&time_bucket=24h`;
+				console.info(`[vivacity-timeseries] ${label} single chunk`, {
 					countlines: ids.length,
 					urlLen: url.length,
 					fromIso,
 					toIso
 				});
-				return fetchVivacityJson(url, 'daily(24h)', vivacityFetchOptions(240_000));
+				return fetchVivacityJson(url, label, vivacityFetchOptions(240_000));
 			}
 
-			console.info('[vivacity-timeseries] daily(24h) chunked', {
+			console.info(`[vivacity-timeseries] ${label} chunked`, {
 				countlines: ids.length,
 				chunks: chunks.length,
 				concurrency: DAILY_CHUNK_FETCH_CONCURRENCY,
@@ -181,15 +179,46 @@ export async function POST({ request }) {
 					slice.map(async (idChunk, k) => {
 						const idx = b + k + 1;
 						const param = idChunk.join(',');
-						const url = withVivacityCountsClasses(
-							`https://api.vivacitylabs.com/countline/counts?countline_ids=${param}&from=${fromIso}&to=${toIso}&time_bucket=24h`
+						const url = `https://api.vivacitylabs.com/countline/counts?countline_ids=${param}&from=${fromIso}&to=${toIso}&time_bucket=24h`;
+						return fetchVivacityJson(
+							url,
+							`${label} chunk ${idx}/${chunks.length}`,
+							vivacityFetchOptions(240_000)
 						);
-						return fetchVivacityJson(url, `daily(24h) chunk ${idx}/${chunks.length}`, vivacityFetchOptions(240_000));
 					})
 				);
 				chunkResults.push(...batch);
 			}
 			return mergeCountlineResponseObjects(chunkResults);
+		}
+
+		/**
+		 * @param {Record<string, unknown>} rawByCountline
+		 */
+		function summarizeTrafficShare30d(rawByCountline) {
+			let pedestrian = 0;
+			let cyclist = 0;
+			let totalTraffic = 0;
+			for (const rows of Object.values(rawByCountline || {})) {
+				if (!Array.isArray(rows)) continue;
+				for (const row of rows) {
+					for (const direction of ['clockwise', 'anti_clockwise']) {
+						const d = row?.[direction];
+						if (!d || typeof d !== 'object') continue;
+						for (const [k, v] of Object.entries(d)) {
+							const n = Number(v) || 0;
+							totalTraffic += n;
+							if (k === 'pedestrian' || k === 'jogger') pedestrian += n;
+							if (k === 'cyclist' || k === 'cargo_bicycle' || k === 'rental_bicycle') cyclist += n;
+						}
+					}
+				}
+			}
+			return {
+				pedestrian: Math.round(pedestrian),
+				cyclist: Math.round(cyclist),
+				totalTraffic: Math.round(totalTraffic)
+			};
 		}
 
 		try {
@@ -201,6 +230,7 @@ export async function POST({ request }) {
 
 			/** @type {unknown[]} */
 			let aggregatedDaily;
+			let trafficShare30d = summarizeTrafficShare30d(hourlyRaw);
 
 			if (useSnapshot && snapBlock) {
 				const snapRows = snapBlock.dailyAggregated;
@@ -227,6 +257,23 @@ export async function POST({ request }) {
 				aggregatedDaily = aggregateVivacityData(dailyRaw);
 			}
 
+			if (!trafficShare30d?.totalTraffic) {
+				try {
+					const shareRawDaily = await fetchDailyMergedByChunks(
+						countlineIds,
+						fromShareISO,
+						toShareISO,
+						'daily(24h) share-all-classes'
+					);
+					trafficShare30d = summarizeTrafficShare30d(shareRawDaily);
+				} catch (shareErr) {
+					console.warn(
+						'[vivacity-timeseries] share-all-classes daily fallback failed; using client fallback',
+						shareErr?.message || shareErr
+					);
+				}
+			}
+
 			const aggregatedHourly = aggregateVivacityData(hourlyRaw);
 
 			const dailyFromForMeta =
@@ -246,6 +293,7 @@ export async function POST({ request }) {
 				weekly_year: null,
 				monthly_3years: null,
 				countlineIds: countlineIds,
+				trafficShare30d,
 				dateRange: {
 					hourly: {
 						from: fromHourlyISO,

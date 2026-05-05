@@ -325,8 +325,21 @@ export function processVivacityCounterTimeSeriesData(timeSeriesData) {
 	let cyclistPercentage = 0;
 	let totalPedestrianCount = 0;
 	let totalCyclistCount = 0;
+	const shareFromServer = timeSeriesData?.trafficShare30d;
+
+	if (shareFromServer && typeof shareFromServer === 'object') {
+		const ped = Number(shareFromServer.pedestrian) || 0;
+		const cyc = Number(shareFromServer.cyclist) || 0;
+		const all = Number(shareFromServer.totalTraffic) || 0;
+		totalPedestrianCount = ped;
+		totalCyclistCount = cyc;
+		if (all > 0) {
+			pedestrianPercentage = (ped / all) * 100;
+			cyclistPercentage = (cyc / all) * 100;
+		}
+	}
 	
-	if (dailyData && dailyData.pedestrian && dailyData.bike) {
+	if (totalPedestrianCount === 0 && totalCyclistCount === 0 && dailyData && dailyData.pedestrian && dailyData.bike) {
 		// We need to get ALL traffic types from the raw daily data
 		// The daily data we have only contains pedestrian and bike, but the raw data has all types
 		
@@ -962,13 +975,15 @@ export function buildVivacityMonthlyBarsFromDaily(dailyRows, mode) {
 	}));
 }
 
-function totalAllVehicleCountsFromAggregatedRow(row) {
-	let t = 0;
-	for (const [k, v] of Object.entries(row)) {
-		if (k === 'from' || k === 'to') continue;
-		if (typeof v === 'number' && !Number.isNaN(v)) t += v;
-	}
-	return t;
+function formatUtcDayLabel(isoFrom) {
+	if (!isoFrom) return '—';
+	const d = new Date(isoFrom);
+	return d.toLocaleDateString('en-IE', {
+		weekday: 'short',
+		day: 'numeric',
+		month: 'short',
+		timeZone: 'UTC'
+	});
 }
 
 /**
@@ -993,21 +1008,26 @@ export function processCitywideVivacityResponse(response, mode) {
 	const start30 = end0 - 30 * 86400000;
 
 	let sum30 = 0;
-	let shareNum = 0;
-	let shareDen = 0;
+	let days30 = 0;
+	let busiestDayFrom = null;
+	let busiestDayModeCount = -1;
 
 	for (const row of dailySorted) {
 		const t = new Date(row.from).getTime();
 		const modeC = modeCountFromAggregatedDailyRow(row, mode);
 		if (t >= start30 && t < end0) {
 			sum30 += modeC;
-			shareNum += modeC;
-			shareDen += totalAllVehicleCountsFromAggregatedRow(row);
+			days30 += 1;
+			if (modeC > busiestDayModeCount) {
+				busiestDayModeCount = modeC;
+				busiestDayFrom = row.from;
+			}
 		}
 	}
 
-	const avgDaily = sum30 / 30;
-	const trafficSharePercent = shareDen > 0 ? (shareNum / shareDen) * 100 : 0;
+	const avgDaily = days30 > 0 ? sum30 / days30 : 0;
+	const busiestDayLabel = busiestDayFrom ? formatUtcDayLabel(busiestDayFrom) : '—';
+	const busiestDayTotal = busiestDayModeCount >= 0 ? Math.round(busiestDayModeCount) : null;
 	const rawList = Array.isArray(response.countsBySensor) ? response.countsBySensor : [];
 
 	const modeKey = mode === 'pedestrian' ? 'pedestrian' : 'bike';
@@ -1035,7 +1055,8 @@ export function processCitywideVivacityResponse(response, mode) {
 	return {
 		kpis: {
 			avgDailyCount: avgDaily,
-			trafficSharePercent
+			busiestDayLabel,
+			busiestDayTotal
 		},
 		countsBySensorBars,
 		monthlyNetworkBars

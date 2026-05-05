@@ -152,11 +152,11 @@
 					title="Total counts"
 					stats={[
 						{
-							label: 'network total',
+							label: 'daily count',
 							value: Math.round(networkView.kpis.avgDailyCount).toLocaleString()
 						}
 					]}
-					explanation="Sum of average daily traffic (ADT) for the selected mode across all active induction-loop sites in the network, for Eco-Counter’s last-month reporting window."
+					explanation="Most recent complete UTC-day total across all induction-loop sites for the selected mode."
 					mode={selectedMode === 'bike' ? 'bike' : 'pedestrian'}
 				/>
 				<DataCardSingle

@@ -56,16 +56,30 @@ export function nextUtcDayStartIso(lastFromIso, formatDateForVivacity) {
 
 /**
  * @param {string} [cwd]
+ * @param {(input: RequestInfo | URL, init?: RequestInit) => Promise<Response>} [fetcher]
+ * @param {string} [origin]
  * @returns {Promise<{ schemaVersion?: number, generatedAt?: string, sensors?: Record<string, { countlineIds?: string[], dailyAggregated?: unknown[] }> } | null>}
  */
-export async function readVivacitySensorTimeseriesSnapshot(cwd = process.cwd()) {
+export async function readVivacitySensorTimeseriesSnapshot(cwd = process.cwd(), fetcher = undefined, origin = '') {
 	try {
 		const p = join(cwd, 'static/data/vivacity-sensor-timeseries-snapshot.json');
 		const raw = await readFile(p, 'utf8');
 		const j = JSON.parse(raw);
 		if (j && typeof j === 'object' && j.sensors && typeof j.sensors === 'object') return j;
 	} catch {
-		// missing or invalid
+		// ignore fs read failure and try HTTP fallback below
+	}
+
+	// Serverless fallback: static assets are reliably served over HTTP on deployed hosts.
+	if (fetcher && origin) {
+		try {
+			const res = await fetcher(`${origin}/data/vivacity-sensor-timeseries-snapshot.json`);
+			if (!res.ok) return null;
+			const j = await res.json();
+			if (j && typeof j === 'object' && j.sensors && typeof j.sensors === 'object') return j;
+		} catch {
+			// missing or invalid
+		}
 	}
 	return null;
 }

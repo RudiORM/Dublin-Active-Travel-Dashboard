@@ -30,6 +30,7 @@ function chunkArray(arr, size) {
 
 export async function POST({ request }) {
 	try {
+		const origin = new URL(request.url).origin;
 		const body = await request.json();
 		const { siteId, sensorId: sensorIdRaw } = body;
 
@@ -67,7 +68,7 @@ export async function POST({ request }) {
 			return base;
 		}
 
-		const snapshot = await readVivacitySensorTimeseriesSnapshot();
+		const snapshot = await readVivacitySensorTimeseriesSnapshot(process.cwd(), fetch, origin);
 		const snapBlock = sensorId && snapshot?.sensors?.[sensorId] ? snapshot.sensors[sensorId] : null;
 		const useSnapshot =
 			Boolean(snapBlock) &&

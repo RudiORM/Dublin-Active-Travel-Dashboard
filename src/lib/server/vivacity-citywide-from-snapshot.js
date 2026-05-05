@@ -80,12 +80,14 @@ function buildCountsBySensorFromSnapshotDaily(normalizedSensors, snapSensors, en
 
 /**
  * @param {Array<{ id: string, name: string, countlineIds: string[] }>} normalizedSensors
+ * @param {(input: RequestInfo | URL, init?: RequestInit) => Promise<Response>} [fetcher]
+ * @param {string} [origin]
  * @returns {Promise<object | null>} citywide JSON or null to fall back to live Vivacity
  */
-export async function tryBuildCitywideFromSnapshot(normalizedSensors) {
+export async function tryBuildCitywideFromSnapshot(normalizedSensors, fetcher = undefined, origin = '') {
 	if (!normalizedSensors?.length) return null;
 
-	const snapshot = await readVivacitySensorTimeseriesSnapshot();
+	const snapshot = await readVivacitySensorTimeseriesSnapshot(process.cwd(), fetcher, origin);
 	/** @type {Record<string, { dailyAggregated?: unknown[], countlineIds?: string[] }> | null | undefined} */
 	const snapMap = snapshot?.sensors;
 	if (!snapMap || typeof snapMap !== 'object') return null;
@@ -110,7 +112,9 @@ export async function tryBuildCitywideFromSnapshot(normalizedSensors) {
 
 	const countsBySensor = buildCountsBySensorFromSnapshotDaily(normalizedSensors, snapMap, end0UtcMs);
 
-	const historicalMonthlyStore = /** @type {{ months?: unknown[] }} */ (await readMonthlyHistoricalStore());
+	const historicalMonthlyStore = /** @type {{ months?: unknown[] }} */ (
+		await readMonthlyHistoricalStore(undefined, fetcher, origin)
+	);
 	const networkMonthlyTotals = networkMonthlyTotalsLast12FromStore(historicalMonthlyStore);
 	const months = Array.isArray(historicalMonthlyStore.months) ? historicalMonthlyStore.months : [];
 	const lastMonthKeyAfter = getLastMonthKeyInStore(/** @type {{ monthKey: string }[]} */ (months));

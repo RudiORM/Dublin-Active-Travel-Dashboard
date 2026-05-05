@@ -125,6 +125,7 @@ async function readVivacityJson(response, label, urlLogged = '') {
 
 export async function POST({ request }) {
 	try {
+		const origin = new URL(request.url).origin;
 		const body = await request.json();
 		const sensors = body?.sensors;
 
@@ -158,7 +159,7 @@ export async function POST({ request }) {
 			return json({ error: 'No countline IDs in sensors payload' }, { status: 400 });
 		}
 
-		const fromSnapshot = await tryBuildCitywideFromSnapshot(normalizedSensors);
+		const fromSnapshot = await tryBuildCitywideFromSnapshot(normalizedSensors, fetch, origin);
 		if (fromSnapshot) {
 			console.info(LOG_PREFIX, 'serving citywide from static snapshot + monthly JSON (no Vivacity counts)');
 			logVivacityCitywideResult({

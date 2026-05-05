@@ -104,8 +104,17 @@ export function mergeMonthsIntoStore(store, newRows) {
 	return { ...store, months: merged };
 }
 
-/** @returns {Promise<object>} */
-export async function readMonthlyHistoricalStore(jsonPath = getMonthlyHistoricalJsonPath()) {
+/**
+ * @param {string} [jsonPath]
+ * @param {(input: RequestInfo | URL, init?: RequestInit) => Promise<Response>} [fetcher]
+ * @param {string} [origin]
+ * @returns {Promise<object>}
+ */
+export async function readMonthlyHistoricalStore(
+	jsonPath = getMonthlyHistoricalJsonPath(),
+	fetcher = undefined,
+	origin = ''
+) {
 	try {
 		const raw = await readFile(jsonPath, 'utf8');
 		const data = JSON.parse(raw);
@@ -113,6 +122,20 @@ export async function readMonthlyHistoricalStore(jsonPath = getMonthlyHistorical
 		if (!Array.isArray(data.months)) data.months = [];
 		return data;
 	} catch {
+		// Try deployed static asset path on serverless hosts.
+		if (fetcher && origin) {
+			try {
+				const res = await fetcher(`${origin}/data/vivacity-citywide-monthly-historical.json`);
+				if (res.ok) {
+					const data = await res.json();
+					if (!data || typeof data !== 'object') return { version: 1, months: [] };
+					if (!Array.isArray(data.months)) data.months = [];
+					return data;
+				}
+			} catch {
+				// ignore and return empty store below
+			}
+		}
 		return { version: 1, months: [] };
 	}
 }

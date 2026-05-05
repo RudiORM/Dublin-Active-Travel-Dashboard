@@ -1,0 +1,6561 @@
+[
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.22726053,
+      "Y": 53.34779261,
+      "location_stand": "East wall road outside the O2",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265138686,
+      "Y": 53.33424783,
+      "location_stand": "Camden street lower, outside centra shop",
+      "no_stands": 1
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.249765605,
+      "Y": 53.34494805,
+      "location_stand": "Marks lane",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.251051724,
+      "Y": 53.34851312,
+      "location_stand": "Custom House Quay, outside AIB International Centre",
+      "no_stands": 1
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.242272854,
+      "Y": 53.34296483,
+      "location_stand": "Pearce street outside garden area",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262080967,
+      "Y": 53.34817688,
+      "location_stand": "Middle abbey street, outside arnotts carpark",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.25176385,
+      "Y": 53.35182974,
+      "location_stand": "Foley street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.268160194,
+      "Y": 53.35686542,
+      "location_stand": "Bloomington street outside Dargans pharmacy.",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264363527,
+      "Y": 53.35398625,
+      "location_stand": "Parnell square north",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262504756,
+      "Y": 53.34211451,
+      "location_stand": "William street south, duke street gallery.",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.271338612,
+      "Y": 53.35055212,
+      "location_stand": "North king street",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.245986372,
+      "Y": 53.33485887,
+      "location_stand": "Maggot street lower outside Medmark healthcare",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.262797117,
+      "Y": 53.33769129,
+      "location_stand": "Cuffe street, across from O'callaghan Stephen green hotel",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.25826081,
+      "Y": 53.35392471,
+      "location_stand": "Parnell street outside temple hall",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264474839,
+      "Y": 53.3509772,
+      "location_stand": "Parnell street outside beauty chic",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259794384,
+      "Y": 53.35342112,
+      "location_stand": "Parnell street, outside 147 deli",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265522242,
+      "Y": 53.33630513,
+      "location_stand": "Wexford street, Infront of bank of ireland",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264283061,
+      "Y": 53.34393043,
+      "location_stand": "Bottom of George's street, beside the mercantile",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.252724081,
+      "Y": 53.33299531,
+      "location_stand": "Fitzwilliam Place",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.268814653,
+      "Y": 53.34846989,
+      "location_stand": "Capel street outside AIB bank",
+      "no_stands": 1
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.250445545,
+      "Y": 53.341293,
+      "location_stand": "Merrion street lower",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.258763075,
+      "Y": 53.33366002,
+      "location_stand": "Earlsfort Terrace",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257420629,
+      "Y": 53.34867644,
+      "location_stand": "Abbey street lower near abbey street luas station",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.249542981,
+      "Y": 53.35221799,
+      "location_stand": "Amiens street under train tracks",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259003133,
+      "Y": 53.35921696,
+      "location_stand": "North circular road outside carolans off licence",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26837343,
+      "Y": 53.35274391,
+      "location_stand": "Dorset Street Upper, outside Ritzy Rags Shop",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.252315044,
+      "Y": 53.35165203,
+      "location_stand": "Foley street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.268642992,
+      "Y": 53.35275832,
+      "location_stand": "Dorset street upper outside techno logic",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.261105984,
+      "Y": 53.35264945,
+      "location_stand": "Parnell street outside lomdis",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257088035,
+      "Y": 53.35410392,
+      "location_stand": "Top of Parnell street opposite Londis",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.261493564,
+      "Y": 53.33916468,
+      "location_stand": "St Stephens green Luas, in front of certus",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.254994571,
+      "Y": 53.34695679,
+      "location_stand": "Tara street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.228922158,
+      "Y": 53.34845548,
+      "location_stand": "Mayor street upper beside the point luas station",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.258693337,
+      "Y": 53.35708473,
+      "location_stand": "Mountjoy square noeth",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263477057,
+      "Y": 53.34307452,
+      "location_stand": "Exchequer Street, outside Fallon Byrne",
+      "no_stands": 1
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267122179,
+      "Y": 53.34103437,
+      "location_stand": "Stephens street upper, beside IBOA House",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264492273,
+      "Y": 53.34339079,
+      "location_stand": "George's street great south outside Dublin business school",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263179332,
+      "Y": 53.34308013,
+      "location_stand": "Exchequer street",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.266077459,
+      "Y": 53.3471065,
+      "location_stand": "Jervis street",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.272172779,
+      "Y": 53.34126417,
+      "location_stand": "Patrick street opposite daybreak shop",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.275383383,
+      "Y": 53.34595443,
+      "location_stand": "Opposite 179 Church street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.248770505,
+      "Y": 53.33677519,
+      "location_stand": "Baht street lower outside Larry Murphy's",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.247810274,
+      "Y": 53.33588071,
+      "location_stand": "Maggot street lower outside bank of ireland",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.255081743,
+      "Y": 53.34158766,
+      "location_stand": "",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.24988094,
+      "Y": 53.34336116,
+      "location_stand": "Westland row",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.245094538,
+      "Y": 53.34337317,
+      "location_stand": "Pearce street",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26622498,
+      "Y": 53.33866101,
+      "location_stand": "Aungier street outside DIT",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.269459724,
+      "Y": 53.35013744,
+      "location_stand": "Capel street outside Dublin College of Advanced Studies",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.268934011,
+      "Y": 53.35202907,
+      "location_stand": "Kings Inn Street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257198006,
+      "Y": 53.35419437,
+      "location_stand": "top of Parnell street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264808774,
+      "Y": 53.3508299,
+      "location_stand": "Parnell Street, outside Burger King",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267952323,
+      "Y": 53.348618,
+      "location_stand": "Mary street outside Mary Mall",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.269868761,
+      "Y": 53.35896725,
+      "location_stand": "Berkeley road outside Flanagans pharmacy",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.24368906,
+      "Y": 53.34900307,
+      "location_stand": "Mayor street lower outside AIB",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.24969855,
+      "Y": 53.34960348,
+      "location_stand": "George's Dock across the road from KPMG",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.260666102,
+      "Y": 53.34371105,
+      "location_stand": "Suffolk street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.261174381,
+      "Y": 53.3400639,
+      "location_stand": "",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.249374002,
+      "Y": 53.34383275,
+      "location_stand": "Westmoreland street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.255238652,
+      "Y": 53.34522827,
+      "location_stand": "Pearce street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267784685,
+      "Y": 53.34989648,
+      "location_stand": "Wolfe Tone Street, outside Alexanders bridal shop",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.268844157,
+      "Y": 53.3519178,
+      "location_stand": "Start of kings inn street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.266541481,
+      "Y": 53.34864922,
+      "location_stand": "Jervis street, outside McDonolds.",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26539886,
+      "Y": 53.33448808,
+      "location_stand": "Camden street lower",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.27489002,
+      "Y": 53.34357364,
+      "location_stand": "High street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263350993,
+      "Y": 53.33909021,
+      "location_stand": "York street, royal college of surgeons",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.268060952,
+      "Y": 53.34999014,
+      "location_stand": "Parnell street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259502023,
+      "Y": 53.35296244,
+      "location_stand": "Marlborough street outside eircom and kanoodle",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.266872734,
+      "Y": 53.35033197,
+      "location_stand": "Parnell street outside euro giant",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.256611943,
+      "Y": 53.35440329,
+      "location_stand": "Start of Summer hill",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26113683,
+      "Y": 53.34013196,
+      "location_stand": "St. Stephens Green, outside oxfam and specsavers",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267641187,
+      "Y": 53.34997173,
+      "location_stand": "Parnell Street, outside Alexander's bridal shop",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.250421405,
+      "Y": 53.34094069,
+      "location_stand": "Merrion square North",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.243741363,
+      "Y": 53.33881395,
+      "location_stand": "Mount street lower opposite new mount house",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263815016,
+      "Y": 53.33274144,
+      "location_stand": "Harcourt road, in front of regius building",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264456064,
+      "Y": 53.33893887,
+      "location_stand": "Mercer street outside DCC",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259013861,
+      "Y": 53.352234,
+      "location_stand": "Marlborough street outside admiral restraunt",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.255112588,
+      "Y": 53.34845308,
+      "location_stand": "Eden Quay ooutside Liberty Hall",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.254687458,
+      "Y": 53.35073224,
+      "location_stand": "Talbot Street outside Singer shop",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262134612,
+      "Y": 53.33883157,
+      "location_stand": "York street, across from Dublinbike station",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263308078,
+      "Y": 53.34064683,
+      "location_stand": "Johnstons place outside pearls shop",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26537472,
+      "Y": 53.33501182,
+      "location_stand": "Camden street lower, outside cracker nut cafe",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265439093,
+      "Y": 53.35618587,
+      "location_stand": "Blessignton street outside La Pausa cafe",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259095669,
+      "Y": 53.35946908,
+      "location_stand": "North circular road and belvidire road junction",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265355945,
+      "Y": 53.3351824,
+      "location_stand": "Camden street lower, across from Fontana cafe",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265075654,
+      "Y": 53.35358842,
+      "location_stand": "Parnell square west",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.250158548,
+      "Y": 53.34184388,
+      "location_stand": "Merrion street lower island",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.256172061,
+      "Y": 53.3341197,
+      "location_stand": "Hatch street lower",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.268229932,
+      "Y": 53.34716815,
+      "location_stand": "Capel street outside capel kebab and pizza house",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.266204864,
+      "Y": 53.34744836,
+      "location_stand": "Jervis street opposite TP Smiths",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.27913177,
+      "Y": 53.34645482,
+      "location_stand": "Aaran quay outside bank of Ireland",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267873198,
+      "Y": 53.34572226,
+      "location_stand": "Grattan bridge",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267226785,
+      "Y": 53.34433076,
+      "location_stand": "Parliament Street across from florentina restaurant",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267397106,
+      "Y": 53.34442924,
+      "location_stand": "Parliament street, outside subway",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257717013,
+      "Y": 53.34716014,
+      "location_stand": "Burgh quay",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.292895526,
+      "Y": 53.33847123,
+      "location_stand": "Fatima luas stop",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.277207285,
+      "Y": 53.34695199,
+      "location_stand": "Phoenix street north",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.246668994,
+      "Y": 53.33943693,
+      "location_stand": "Merrion square east",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.270769984,
+      "Y": 53.35073624,
+      "location_stand": "North kings street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.270670742,
+      "Y": 53.35059775,
+      "location_stand": "North kings streetboutside macro",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.248680651,
+      "Y": 53.33709791,
+      "location_stand": "Fitzwilliam street lower",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.272837967,
+      "Y": 53.36211259,
+      "location_stand": "Phisborough road opposite mc donalds",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262333095,
+      "Y": 53.34814966,
+      "location_stand": "Middle abbey street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262656301,
+      "Y": 53.34799275,
+      "location_stand": "Middle abbey street outside hidden hearing.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260793507,
+      "Y": 53.3481929,
+      "location_stand": "Middle abbey street, outside celebration party shop.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.256654859,
+      "Y": 53.33898211,
+      "location_stand": "St Stephen's green North",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.255034804,
+      "Y": 53.34144673,
+      "location_stand": "",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.258557886,
+      "Y": 53.34909033,
+      "location_stand": "Sack like place",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257915497,
+      "Y": 53.34132102,
+      "location_stand": "Goldsworthy street outside Foxx Coffee House",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.252296269,
+      "Y": 53.34185349,
+      "location_stand": "Lincoln Place",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.244401187,
+      "Y": 53.33711313,
+      "location_stand": "Mount street upper",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.245165616,
+      "Y": 53.33927038,
+      "location_stand": "Mount street lower opposite howl at the moon club",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.253649443,
+      "Y": 53.34738591,
+      "location_stand": "Georges Quay",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.238718927,
+      "Y": 53.34301848,
+      "location_stand": "Grand canal docks",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.238583475,
+      "Y": 53.34339239,
+      "location_stand": "Grand canal docks outside fresh",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.236217767,
+      "Y": 53.34491682,
+      "location_stand": "Blood stone road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.24309361,
+      "Y": 53.3476477,
+      "location_stand": "Both wall quay, opposite the Spenser.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.2415272,
+      "Y": 53.34621063,
+      "location_stand": "Sir john Robertson quay",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.252639592,
+      "Y": 53.3417502,
+      "location_stand": "Start of Leinster street south",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259177476,
+      "Y": 53.35260382,
+      "location_stand": "Marlborough street opposite An Board Pleanala",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.240792274,
+      "Y": 53.3378138,
+      "location_stand": "Mount street lower outside board bia",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265382767,
+      "Y": 53.33482844,
+      "location_stand": "Camden street lower, Infront of enable ireland",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.245928705,
+      "Y": 53.35520694,
+      "location_stand": "North strand road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.248283684,
+      "Y": 53.35334747,
+      "location_stand": "Amiens street outside the funky skunk",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.269626021,
+      "Y": 53.35134383,
+      "location_stand": "Bolton Street, outside DIT",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.25492081,
+      "Y": 53.34901267,
+      "location_stand": "Eden Quay outside Beresford Court",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.254671365,
+      "Y": 53.35066259,
+      "location_stand": "Talbot street outside Guiney and co.",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.258886456,
+      "Y": 53.3537389,
+      "location_stand": "Top of Parnell street outside Foleys pharmacy",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260423362,
+      "Y": 53.3399558,
+      "location_stand": "St Stephens green north outside permanent tsb",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267024279,
+      "Y": 53.34998454,
+      "location_stand": "Jervis Street outside Penny's",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265439093,
+      "Y": 53.33662064,
+      "location_stand": "Wexford street, djinn shop, across the road from opium",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.266015768,
+      "Y": 53.3392936,
+      "location_stand": "Aungier street, outside YMCA",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.25944972,
+      "Y": 53.35237568,
+      "location_stand": "Cathal Brugha street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259444356,
+      "Y": 53.35225641,
+      "location_stand": "Cathal Brugha Street outside DIT",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26539886,
+      "Y": 53.33423822,
+      "location_stand": "Camden street lower, Simon community shop,.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262373328,
+      "Y": 53.34211691,
+      "location_stand": "Coppinger row",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263774782,
+      "Y": 53.35127979,
+      "location_stand": "Parnell street outside Centra",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257439405,
+      "Y": 53.3362755,
+      "location_stand": "Start of st. Stephen's Green terrace.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.25215143,
+      "Y": 53.33690652,
+      "location_stand": "Pembroke street lower, opposite coffee angel.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259725988,
+      "Y": 53.34860279,
+      "location_stand": "O'Connell street, median, behind Sir John Gray monument",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.274455339,
+      "Y": 53.33232339,
+      "location_stand": "South Circular road tesco",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.266537458,
+      "Y": 53.34511458,
+      "location_stand": "Essex street east, outside the Clarence hotel",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.273295283,
+      "Y": 53.33919831,
+      "location_stand": "The coombe outside ovenden house.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260206103,
+      "Y": 53.34439721,
+      "location_stand": "College green, median",
+      "no_stands": 13
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.2726596,
+      "Y": 53.35032477,
+      "location_stand": "North king street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.253476441,
+      "Y": 53.3323394,
+      "location_stand": "End of Adelaide road beside kiosk",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.250662804,
+      "Y": 53.33551714,
+      "location_stand": "Start of Fitzwilliam square north",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.261388958,
+      "Y": 53.34824573,
+      "location_stand": "Middle abbey street,  outside independent house newspaper limited.",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263314784,
+      "Y": 53.34790949,
+      "location_stand": "Middle abbey street, outside austrailia travel.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.241157055,
+      "Y": 53.33936646,
+      "location_stand": "Grand canal street lower",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.244124919,
+      "Y": 53.33894527,
+      "location_stand": "Mount street lower opposite new mount house",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.258493513,
+      "Y": 53.34681028,
+      "location_stand": "D'Oliver street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.252858192,
+      "Y": 53.35146871,
+      "location_stand": "Foley street outside dance Irelamd",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.235854328,
+      "Y": 53.34555893,
+      "location_stand": "Blood stone road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.24304533,
+      "Y": 53.34893742,
+      "location_stand": "Mayor square outside Snap and national college of Ireland.",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.263821721,
+      "Y": 53.34194797,
+      "location_stand": "Fade street, outside the rage record store",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.255581975,
+      "Y": 53.33800839,
+      "location_stand": "Hume street",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267700195,
+      "Y": 53.34936332,
+      "location_stand": "Wolfe tone street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26718387,
+      "Y": 53.34796313,
+      "location_stand": "Wolfe tone street outside AXA office",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.261603534,
+      "Y": 53.34194076,
+      "location_stand": "Coppinger row",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.258242726,
+      "Y": 53.34913596,
+      "location_stand": "Saclville Place",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.26198709,
+      "Y": 53.34380633,
+      "location_stand": "Trinity street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.242224574,
+      "Y": 53.3428079,
+      "location_stand": "Pearce street opposite parser square",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267755181,
+      "Y": 53.350079,
+      "location_stand": "Parnell street outside cineworld.",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.256624013,
+      "Y": 53.34880213,
+      "location_stand": "Abbey Street Lower, outside Abbey Theatre.",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.255399585,
+      "Y": 53.34901748,
+      "location_stand": "Abbey Street Lower outside Beresford Court.",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.256809086,
+      "Y": 53.34580232,
+      "location_stand": "Pearce street and Townsend street",
+      "no_stands": 20
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260926276,
+      "Y": 53.3398373,
+      "location_stand": "Stephens green, in front of beneton shop",
+      "no_stands": 15
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.227487177,
+      "Y": 53.34842026,
+      "location_stand": "East wall road outside the O2",
+      "no_stands": 18
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.261851639,
+      "Y": 53.34615699,
+      "location_stand": "Bedford row, beside Ladbrokes",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.2569727,
+      "Y": 53.35029835,
+      "location_stand": "Talbot Street outside Carrolls shop",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259736717,
+      "Y": 53.34583434,
+      "location_stand": "Fleet Street, outside TGI restaurant.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262689829,
+      "Y": 53.34607693,
+      "location_stand": "Aston quay, outside house of colour",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262397468,
+      "Y": 53.3327959,
+      "location_stand": "Harcourt street outside Starbucks",
+      "no_stands": 17
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.269115061,
+      "Y": 53.33779779,
+      "location_stand": "New bride street , Infront of small green",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.243086904,
+      "Y": 53.33666389,
+      "location_stand": "Mount street ctescent",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.254668683,
+      "Y": 53.34915197,
+      "location_stand": "Beresford Place median",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.266076118,
+      "Y": 53.33774334,
+      "location_stand": "Kevin's street outside o haras pharmacy",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260073334,
+      "Y": 53.36081366,
+      "location_stand": "Dorset street outside gaa ticket office",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265628189,
+      "Y": 53.33737258,
+      "location_stand": "Wexford street, Infront of mega bikes.",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265334487,
+      "Y": 53.33563406,
+      "location_stand": "Camden street lower, outside ulster bank",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.256683022,
+      "Y": 53.35602898,
+      "location_stand": "Mountjoy square south outside dit",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26425758,
+      "Y": 53.34045385,
+      "location_stand": "Noel Purcell Walk, Infront of beaux lane house",
+      "no_stands": 25
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26260668,
+      "Y": 53.34104558,
+      "location_stand": "Chatham road, outside Mao restaurant",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263074726,
+      "Y": 53.34134584,
+      "location_stand": "William street south, outside dada restautsnt",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.261555254,
+      "Y": 53.34365901,
+      "location_stand": "Saint Andrew street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264543235,
+      "Y": 53.34274625,
+      "location_stand": "South George's street, outside Diwali",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264674664,
+      "Y": 53.34206327,
+      "location_stand": "George's street, outside Hogans pub",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.269145906,
+      "Y": 53.35812925,
+      "location_stand": "Berkeley road outside Berkeley wash",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26068756,
+      "Y": 53.35209391,
+      "location_stand": "Cathal Brugha street outside the Irish aid office",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.290507019,
+      "Y": 53.33420699,
+      "location_stand": "Cork street",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265275478,
+      "Y": 53.33621064,
+      "location_stand": "Camden street lower, Infront of icon health store.",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262984872,
+      "Y": 53.34294562,
+      "location_stand": "Drury street, outside Carousel",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263002306,
+      "Y": 53.34274225,
+      "location_stand": "Drury street outside Irish design shop",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.255485415,
+      "Y": 53.33438318,
+      "location_stand": "End of Hatch street lower, both sides of the road, outside cafe sol",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.25756681,
+      "Y": 53.33374331,
+      "location_stand": "Hatch street lower",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264339387,
+      "Y": 53.34348527,
+      "location_stand": "George's street, opposite Dublin business school",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.266876757,
+      "Y": 53.34402251,
+      "location_stand": "Open square beside Dublin City hall",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26842171,
+      "Y": 53.34736269,
+      "location_stand": "Capel street outside spar",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267835647,
+      "Y": 53.34653888,
+      "location_stand": "Great strand street, outside pantibar",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.268506199,
+      "Y": 53.34472227,
+      "location_stand": "Essex street west, outside the gaiety school of acting.",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267154366,
+      "Y": 53.34537639,
+      "location_stand": "Wellington quay",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.272738725,
+      "Y": 53.34685272,
+      "location_stand": "Four courts luas stop",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257389784,
+      "Y": 53.34818009,
+      "location_stand": "Marlborough street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.28135398,
+      "Y": 53.34313377,
+      "location_stand": "Thomas street across from the hill top bar",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.275115162,
+      "Y": 53.34155082,
+      "location_stand": "Francis street opposite the liberty bell pub",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.275891662,
+      "Y": 53.34326188,
+      "location_stand": "Cornmarket street outside farrow and ball",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.275187582,
+      "Y": 53.3480536,
+      "location_stand": "May lane outside Hanley at the bar",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.270484328,
+      "Y": 53.35087553,
+      "location_stand": "North kings street outside centra",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260164529,
+      "Y": 53.35221318,
+      "location_stand": "Cathal Brugha Street outside the Living Room pub",
+      "no_stands": 14
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267481595,
+      "Y": 53.34471186,
+      "location_stand": "Parliament street outside paramount hotel",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267346144,
+      "Y": 53.34468624,
+      "location_stand": "Parliament street outside spar shop",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264945567,
+      "Y": 53.34561337,
+      "location_stand": "Eustace street, outside the Italian corner restaurant",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264374256,
+      "Y": 53.34549008,
+      "location_stand": "Essex street, outside the shack restaurant.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26306802,
+      "Y": 53.34492803,
+      "location_stand": "Cope street, behind central bank",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262601316,
+      "Y": 53.34562138,
+      "location_stand": "Temple bar, outside Rory's fishing shop.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260741204,
+      "Y": 53.34577029,
+      "location_stand": "Fleet Street, outside hard rock cafe",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.25832051,
+      "Y": 53.34702084,
+      "location_stand": "Burgh quay",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.290792674,
+      "Y": 53.33423022,
+      "location_stand": "Cork street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259278059,
+      "Y": 53.34617781,
+      "location_stand": "Westmorleland street, outside Bewleys",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.271794587,
+      "Y": 53.34257811,
+      "location_stand": "Christchurch square",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.277763844,
+      "Y": 53.34286315,
+      "location_stand": "Thomas street outside st johns priory",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.272678375,
+      "Y": 53.34495686,
+      "location_stand": "Merchants quay",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.294609457,
+      "Y": 53.34817688,
+      "location_stand": "Parkgate street outside Landis\\subwau",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26865238,
+      "Y": 53.34804559,
+      "location_stand": "Capel street, outside mcQuillan tools",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.250543445,
+      "Y": 53.33552355,
+      "location_stand": "Fitzwilliam street upper",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.248227358,
+      "Y": 53.33788988,
+      "location_stand": "Fitzwilliam street lower",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.248077154,
+      "Y": 53.33777617,
+      "location_stand": "Fitzwilliam street lower",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.274377555,
+      "Y": 53.35003177,
+      "location_stand": "Church street Londis",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.277834922,
+      "Y": 53.34944898,
+      "location_stand": "Top of Smithfield",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.251549274,
+      "Y": 53.33571254,
+      "location_stand": "Fitzwilliam square north",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.285188198,
+      "Y": 53.35308412,
+      "location_stand": "Manor street",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263397932,
+      "Y": 53.34801997,
+      "location_stand": "Middle abbey street across the road from the Gin Palace  pub",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265190989,
+      "Y": 53.33592955,
+      "location_stand": "Camden street, Infront of great deals store.",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.269591153,
+      "Y": 53.35858467,
+      "location_stand": "Berkeley road outside post office",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264034957,
+      "Y": 53.34852353,
+      "location_stand": "Liffey street outside entrance to Arnotts.",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.244546026,
+      "Y": 53.33702184,
+      "location_stand": "Mount street uppwr",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.258653104,
+      "Y": 53.33091783,
+      "location_stand": "Charlemont place beside luas station",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.238808781,
+      "Y": 53.34258852,
+      "location_stand": "Grand canal docks",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.239453852,
+      "Y": 53.34532995,
+      "location_stand": "Admiral brown street",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.238279045,
+      "Y": 53.34498248,
+      "location_stand": "All along Forbes street",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.235983074,
+      "Y": 53.3450089,
+      "location_stand": "Blood stone /road horse fair intersection",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.235950887,
+      "Y": 53.34507375,
+      "location_stand": "A'll along bood stone road",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.238179803,
+      "Y": 53.34482395,
+      "location_stand": "All along Forbes street",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.264417171,
+      "Y": 53.34207047,
+      "location_stand": "Fade street, outside hogans bar",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.233445704,
+      "Y": 53.34433076,
+      "location_stand": "Benson street",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.236972809,
+      "Y": 53.34497847,
+      "location_stand": "Horse fair",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.287840903,
+      "Y": 53.35609622,
+      "location_stand": "Prussia street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262051463,
+      "Y": 53.3428119,
+      "location_stand": "Start of South William street, outside jewl in the crown",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26450032,
+      "Y": 53.35301127,
+      "location_stand": "Parnell square west outside the rotunda hospital",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.290662587,
+      "Y": 53.34183507,
+      "location_stand": "",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.279795617,
+      "Y": 53.34779341,
+      "location_stand": "Queen street, probation service",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.270240247,
+      "Y": 53.34315219,
+      "location_stand": "Christ church place, outside sunny's newsagent",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265384108,
+      "Y": 53.33649172,
+      "location_stand": "Wexford street, outside solo clothes shop.",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.276079416,
+      "Y": 53.34295923,
+      "location_stand": "Francis street outside reillys pharmacy",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.293238848,
+      "Y": 53.34612577,
+      "location_stand": "Houston train station",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.251306534,
+      "Y": 53.33771531,
+      "location_stand": "Top of baggot street lower, end of pembroke street lower",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264303178,
+      "Y": 53.34296563,
+      "location_stand": "Edge of exchequer street, outside pharmacy and rustic stone",
+      "no_stands": 13
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267253608,
+      "Y": 53.34496807,
+      "location_stand": "Essex street, outside zaytoon",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26409933,
+      "Y": 53.3442603,
+      "location_stand": "Dame street,  outside Nico's restaurant",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260648668,
+      "Y": 53.34896464,
+      "location_stand": "Prince's street north, outside penny's.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.252918541,
+      "Y": 53.34181265,
+      "location_stand": "Leinster street south outside TCD Leinster street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.266168654,
+      "Y": 53.33863779,
+      "location_stand": "Aungier street outside DIT",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.267496347,
+      "Y": 53.34391522,
+      "location_stand": "Start of castle street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Railing",
+      "X": -6.258029491,
+      "Y": 53.34132903,
+      "location_stand": "Molesworth street,",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265747547,
+      "Y": 53.35051289,
+      "location_stand": "Parnell Streer outside Aldi",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260790825,
+      "Y": 53.34894062,
+      "location_stand": "Prince's street north, outside penny's",
+      "no_stands": 18
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.250971258,
+      "Y": 53.35126939,
+      "location_stand": "Talbot street outside wake cup",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.269926429,
+      "Y": 53.35090915,
+      "location_stand": "Capel Street, outside The Horse Shoe shop",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263267845,
+      "Y": 53.35177931,
+      "location_stand": "Parnell street outside king fisher restraunt.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263511926,
+      "Y": 53.34102076,
+      "location_stand": "Johnstone place, outside pharmacy",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265024692,
+      "Y": 53.33286797,
+      "location_stand": "Camden street upper, outside damascus gate restaurant",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262032688,
+      "Y": 53.34383996,
+      "location_stand": "Trinity street, outside jack jones shop",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263313442,
+      "Y": 53.34680228,
+      "location_stand": "End of Liffey street lower, outside the grand social",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.272449046,
+      "Y": 53.33910542,
+      "location_stand": "End of Patricia street outside spar",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.269899607,
+      "Y": 53.34332353,
+      "location_stand": "Start of westborough street, beside the butchers bar",
+      "no_stands": 14
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.29202649,
+      "Y": 53.34690716,
+      "location_stand": "Heuston Luas stop",
+      "no_stands": 16
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.288935244,
+      "Y": 53.34351569,
+      "location_stand": "James street outside McCanns pub",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.280841678,
+      "Y": 53.34319623,
+      "location_stand": "Thomas street outside Massey bros funeral home",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265047491,
+      "Y": 53.34538679,
+      "location_stand": "Essex street east, outside costa cafe.",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264875829,
+      "Y": 53.34536358,
+      "location_stand": "Eustace street, outside the orseman pub",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263965219,
+      "Y": 53.3450073,
+      "location_stand": "Cecilia street, outside temple lane recording studios",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263536066,
+      "Y": 53.3450113,
+      "location_stand": "Cecilia street, outside luigi malones restaurant",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.261535138,
+      "Y": 53.34571905,
+      "location_stand": "Fleet Street, across from thunder road cafe",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.295009106,
+      "Y": 53.34846509,
+      "location_stand": "Infirmary road",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262722015,
+      "Y": 53.34809683,
+      "location_stand": "Middle abbey street outside arnotts.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264595538,
+      "Y": 53.34786626,
+      "location_stand": "Upper abbey street near the Jervia Luas stop.",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.252361983,
+      "Y": 53.35108127,
+      "location_stand": "Talbot street across the road from Paddy Power",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.238356829,
+      "Y": 53.34462059,
+      "location_stand": "Top of Forbes street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.236162782,
+      "Y": 53.3446302,
+      "location_stand": "All along blood stone road",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Stainless Steel Curved",
+      "X": -6.266330928,
+      "Y": 53.3602014,
+      "location_stand": "North Circular road outside Matter hospital.",
+      "no_stands": 25
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267299205,
+      "Y": 53.35003097,
+      "location_stand": "Parnell street outside Jervis medical centre",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.270107478,
+      "Y": 53.34501931,
+      "location_stand": "Wood quay, outside DCC",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257431358,
+      "Y": 53.34837783,
+      "location_stand": "Start of marborough street outside the abbey theatre",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.271288991,
+      "Y": 53.34610495,
+      "location_stand": "Ormond square",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263249069,
+      "Y": 53.34238835,
+      "location_stand": "Drury street, outside George's st. arcade",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.237128377,
+      "Y": 53.34872687,
+      "location_stand": "Sponsor Dock Luas station",
+      "no_stands": 34
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.296098083,
+      "Y": 53.34829617,
+      "location_stand": "Outside criminal courts of justice",
+      "no_stands": 42
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.297288984,
+      "Y": 53.3466958,
+      "location_stand": "Houston station,",
+      "no_stands": 166
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257094741,
+      "Y": 53.34794472,
+      "location_stand": "Eden quay",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.262814552,
+      "Y": 53.34105679,
+      "location_stand": "Chatham road, outside DIT music and drama",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265170872,
+      "Y": 53.35093077,
+      "location_stand": "Parnell street outside cycleways.",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259318292,
+      "Y": 53.34330432,
+      "location_stand": "Bottom of grafton streer",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.247524619,
+      "Y": 53.3359728,
+      "location_stand": "Baggot street lower outside tailored finance.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.267343462,
+      "Y": 53.34503372,
+      "location_stand": "Essex street, outside the porterhouse pub",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265596002,
+      "Y": 53.33655017,
+      "location_stand": "Wexford street, in front of whelans off licence",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26895681,
+      "Y": 53.34913196,
+      "location_stand": "Capel street outside codys of Capel Street.",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.266548187,
+      "Y": 53.35023351,
+      "location_stand": "Parnell street across the road from Euro Giant shop",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.258189082,
+      "Y": 53.35024071,
+      "location_stand": "Marlborough Street outside Spar shop",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.249909103,
+      "Y": 53.35103243,
+      "location_stand": "Amiens Street at Luas station",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265365332,
+      "Y": 53.33578381,
+      "location_stand": "Camden street, outside penny farthing cycles",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.265102476,
+      "Y": 53.33561404,
+      "location_stand": "Camden street lower, outside tommy Moore jewellers",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.261722893,
+      "Y": 53.35282476,
+      "location_stand": "Cavendish road outside the Ambassador theatre.",
+      "no_stands": 13
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.252375394,
+      "Y": 53.34952263,
+      "location_stand": "Beresford Place Infront of Busaras.",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257043779,
+      "Y": 53.34728023,
+      "location_stand": "Burgh quay, outside Jaffa deli",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257368326,
+      "Y": 53.34717936,
+      "location_stand": "Hawkins street, outside PCI college",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.259280741,
+      "Y": 53.34530433,
+      "location_stand": "Westmoreland street, outside fexco",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.25984937,
+      "Y": 53.34428192,
+      "location_stand": "College green, outside dubarry of Ireland shop",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.254621744,
+      "Y": 53.35223079,
+      "location_stand": "Mabbot lane",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.263420731,
+      "Y": 53.33592875,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.265754253,
+      "Y": 53.33960508,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.261592805,
+      "Y": 53.34363419,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.263879389,
+      "Y": 53.35145831,
+      "location_stand": "Parnell Street outside Centra",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.265408248,
+      "Y": 53.34110643,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.265803874,
+      "Y": 53.34514581,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.265716702,
+      "Y": 53.34523708,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.26422137,
+      "Y": 53.34497847,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.251496971,
+      "Y": 53.33775535,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.266094893,
+      "Y": 53.35038881,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.280289143,
+      "Y": 53.3472354,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.250061989,
+      "Y": 53.33728289,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.247862577,
+      "Y": 53.33837834,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.252391487,
+      "Y": 53.33794353,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.253306121,
+      "Y": 53.3381221,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.261253506,
+      "Y": 53.33945615,
+      "location_stand": "",
+      "no_stands": 1
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.261083186,
+      "Y": 53.33967315,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.25698477,
+      "Y": 53.33909421,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.261006743,
+      "Y": 53.33977164,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.266705096,
+      "Y": 53.34502571,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.249659657,
+      "Y": 53.34338438,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.280277073,
+      "Y": 53.34703925,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.2667346,
+      "Y": 53.34885416,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.260680854,
+      "Y": 53.34570624,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.26025036,
+      "Y": 53.34573587,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.259184182,
+      "Y": 53.34787667,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.26599431,
+      "Y": 53.34688074,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.255045533,
+      "Y": 53.3514511,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.265783757,
+      "Y": 53.34033214,
+      "location_stand": "Aungier street; outside queen beauty salon",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.264296472,
+      "Y": 53.35105325,
+      "location_stand": "Parnell street, outside Paddy Powers",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.268185675,
+      "Y": 53.3447647,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.265089065,
+      "Y": 53.33518961,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.260890067,
+      "Y": 53.35171207,
+      "location_stand": "O'Connell Street outside the Gresham hotel",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.262542307,
+      "Y": 53.34309454,
+      "location_stand": "Exchequer Street",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.263363063,
+      "Y": 53.34307372,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.263764054,
+      "Y": 53.34312737,
+      "location_stand": "Excheqer Street",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.262097061,
+      "Y": 53.34388319,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.267238855,
+      "Y": 53.34506734,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.278563142,
+      "Y": 53.3483386,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.266171336,
+      "Y": 53.34736029,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.251912713,
+      "Y": 53.33381458,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.277897954,
+      "Y": 53.34931769,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.26231432,
+      "Y": 53.34803598,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.259095669,
+      "Y": 53.34103037,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.256929785,
+      "Y": 53.34124416,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.249551028,
+      "Y": 53.34355492,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.260042489,
+      "Y": 53.34838503,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.257686168,
+      "Y": 53.33927598,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Hoops",
+      "X": -6.264009476,
+      "Y": 53.34846669,
+      "location_stand": "",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263313442,
+      "Y": 53.35443291,
+      "location_stand": "Top of Parnell square east.",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.255112588,
+      "Y": 53.3487581,
+      "location_stand": "Bresford Place beside Liberty Hall and bus eireann bus stop",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.272549629,
+      "Y": 53.33352788,
+      "location_stand": "Ovoca",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.257003546,
+      "Y": 53.34618021,
+      "location_stand": "Hawkins street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.258065701,
+      "Y": 53.35383416,
+      "location_stand": "Cumberland street North outside nam thanh supermarket",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.260721087,
+      "Y": 53.34278548,
+      "location_stand": "Clarendon street, across from BT",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.251509041,
+      "Y": 53.34995172,
+      "location_stand": "Store street outside Bus Eireann",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.264576763,
+      "Y": 53.35554873,
+      "location_stand": "North Frederick street outside Lady beauty Parlour",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.2644279,
+      "Y": 53.34248363,
+      "location_stand": "South George's street, outside laser dvd",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.248142868,
+      "Y": 53.34945698,
+      "location_stand": "Georges dock outside Ely chq",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.278260052,
+      "Y": 53.3472354,
+      "location_stand": "Smithfield near luas station",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.292752028,
+      "Y": 53.34093668,
+      "location_stand": "St James hospital",
+      "no_stands": 40
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.300144196,
+      "Y": 53.33877552,
+      "location_stand": "Brooksfield road outside mace",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.26120358,
+      "Y": 53.34525232,
+      "location_stand": "Back of fleet street car park",
+      "no_stands": ""
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.255120635,
+      "Y": 53.3473715,
+      "location_stand": "Tara street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.249292195,
+      "Y": 53.34397447,
+      "location_stand": "Bottom of Westmoreland street",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.258726865,
+      "Y": 53.34672142,
+      "location_stand": "D'Oliver street",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Top of Capel Street",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Swift Row",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bride Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Luke Street",
+      "no_stands": 14
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Francis Street at Thomas Street end",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Exchange Street Upper",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Charlemont Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Clanbrassil St north of Fumbally Lane",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Clanbrassil St south of Fumbally Lane",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mary Street east of Jervis Lane Lower",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Thomas Davis Street South at Francis St end",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ryders Row",
+      "no_stands": 16
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St Andrews Street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Dame Court",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Barrow Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ringsend Road",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Capel Street",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Green Street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Dorset Street Lower",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Blessington Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "King Street North",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Francis Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Patrick Street",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Moore Street",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Moore Street",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Moore Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bellevue",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Golden Lane",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St. Stephens Green South",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St. Stephens Green West",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Kevin Street Lower",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Richmond Street South",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Richmond Street South",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Pleasents Street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Oliver Bond Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Causeway Road",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Griffith Avenue",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Eden Quay",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Jervis Street 1",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Jervis Street 2",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Store Street",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "North Circular Road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "North Circular Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Philbsborough Road/Connaught St",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Cardiff Lane",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Redstables Market",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Marks Alley West",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Carman's Hall at Francis Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Carman's Hall at Meath Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Dean Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Thomas Street",
+      "no_stands": 16
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Augustine Street West at Cornmarket",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "North Wall Quay",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Northern Campshires",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Washington Street",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Greenville Terrace",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "North Circular Road Opposite Library",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "North Circular Road West of Berkeley Road",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Goldsmith Street Westside",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Phibsborough Road outside Doyles Bar",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Phibsborough Road Westside at Thunders Bakery",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Phibsborough Road Eastside south of NCR at AIB",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Phibsborough Road Eastside at Rothar",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "North Circular Road east of Phibsborough Rd at Doyles",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Stoney Batter eastside outside Centra",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Manor Street eastside at Grants",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Manor Street eastside outside No. 3",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Manor Street westside",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Stephen Street Lower",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "York Street, southside at Bright Wash",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Patrick Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bishop Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Cuffe Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Holles Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Pearse Street outside subway",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Pearse Street outside Trinity Business",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Parkgate Street outside Nancy Hands",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Parkgate Street outside Westbrook Motors",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Blackhall Place",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Haymarket",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Coke Lane",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Baggot Street Lower at James Street East (Bank of Ireland)",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Baggot Street Lower west of Pembroke St Lower",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Wilton Terrace, at junction with Wilton Place",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mount Street Lower outside No 33",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Herbert Street, south of Convent Close",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Sir John Rogerson's Quay east of Cardiff Lane",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Whitefriar Street, eastside south of Golden Lane",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Merrion Square North opposite No.6",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Fenian Street ,northside  east of Bass Place",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Adelaide Road , northside outside Eye and Ear Hospital",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ailesbury Road, northside, west of Merlyn Park",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Strand Road Car Park, opposite No.9 Adelaide Mews",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Sandymout Village, eastside opposite No .95",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Sandymout Village, westside outsideNo .95",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Tudor Road, westside opposite Cowper Gardens",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Pine Road, northeastern corner at Ringsend Park",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Fitzwilliam Street westside, north of Bridge Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ormond Quay Upper northside outside No.31-36",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ormond Quay Upper northside outside No. 20",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mary Street, southside east of Capel Street",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Yarnhall Street,  northside west of Bolton Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Parnell Square West south of entrance to Rotunda Hospital",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Parnell Square North opposite No. 18",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Beresford Lane, northside west of Gardiner Street Lower",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Talbot Street, northside under railway bridge",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Sheriff Street Upper,  northside opposite Castleforbes Street",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Sheriff Street Upper,  northside outside train station",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mountjoy Square South northside opposite No. 40-45",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mountjoy Square South, southside outside No. 48",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Gardiner Place northside at Temple Street",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715411.5653,
+      "Y": 734777.7955,
+      "location_stand": "Kings Inn Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715240.9941,
+      "Y": 735707.5394,
+      "location_stand": "Eccles street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715748.0852,
+      "Y": 735395.1692,
+      "location_stand": "Temple Street North",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715744.6884,
+      "Y": 735382.7171,
+      "location_stand": "Temple Street North",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714915.6044,
+      "Y": 734475.1011,
+      "location_stand": "Marys Lane",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 717559.0141,
+      "Y": 732263.7528,
+      "location_stand": "Herbert Park",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714891.6349,
+      "Y": 734165.2904,
+      "location_stand": "Merchants Quay",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715035.9584,
+      "Y": 733324.5788,
+      "location_stand": "New Street South",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714593.7771,
+      "Y": 733855.0555,
+      "location_stand": "Meath Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714709.2063,
+      "Y": 733366.1625,
+      "location_stand": "Newmarket",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714805.8794,
+      "Y": 733884.9108,
+      "location_stand": "Francis Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714989.9373,
+      "Y": 733926.4666,
+      "location_stand": "High Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714632.6442,
+      "Y": 733701.3773,
+      "location_stand": "Meath Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714372.6566,
+      "Y": 733738.4085,
+      "location_stand": "School Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714035.5732,
+      "Y": 733980.7875,
+      "location_stand": "James Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714444.5374,
+      "Y": 733981.3375,
+      "location_stand": "Bridgefoot Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713646.8884,
+      "Y": 734215.7708,
+      "location_stand": "St Johns Road West",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714205.7279,
+      "Y": 733984.8719,
+      "location_stand": "Watling Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714293.6437,
+      "Y": 733714.8625,
+      "location_stand": "† Taylorís lane",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714769.1713,
+      "Y": 733948.9631,
+      "location_stand": "†† Saint Augustine Street",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 711855.8159,
+      "Y": 733579.5818,
+      "location_stand": "Grattan Crescent",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715539.9289,
+      "Y": 731778.2679,
+      "location_stand": "† Leinster Square",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 721274.1949,
+      "Y": 738229.6324,
+      "location_stand": "† Howth Road",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 721461.4646,
+      "Y": 738209.6796,
+      "location_stand": "Raheny Main Street",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 720080.4543,
+      "Y": 735858.3008,
+      "location_stand": "Vernon Avenue",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715880.5903,
+      "Y": 736106.5454,
+      "location_stand": "Drumcondra Road Upper",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 716305.0323,
+      "Y": 736147.8404,
+      "location_stand": "† Clonliffe Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714624.6484,
+      "Y": 736870.8041,
+      "location_stand": "† Finglas Road",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713168.8994,
+      "Y": 739130.3766,
+      "location_stand": "Seamus Ennis Road",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713197.7814,
+      "Y": 738926.9737,
+      "location_stand": "Finglas Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 719658.1364,
+      "Y": 738961.7417,
+      "location_stand": "Coolock Main Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 721038.612,
+      "Y": 733538.5211,
+      "location_stand": "Poolbeg",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714426.4439,
+      "Y": 733733.518,
+      "location_stand": "South Earl Street.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714693.2518,
+      "Y": 734027.531,
+      "location_stand": "John Street West.",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714439.5889,
+      "Y": 733341.1125,
+      "location_stand": "Ormond Street.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 711518.2949,
+      "Y": 736920.5468,
+      "location_stand": "Ashtown Grove.",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714060.7656,
+      "Y": 733161.9352,
+      "location_stand": "Cameron Street.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 712437.4456,
+      "Y": 732931.5586,
+      "location_stand": "Benbulbin Road.",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713006.4992,
+      "Y": 732663.6503,
+      "location_stand": "Keeper Road.",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713006.4992,
+      "Y": 732663.6503,
+      "location_stand": "South Circular Road.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715063.2344,
+      "Y": 736630.9297,
+      "location_stand": "Prospect Way.",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713362.6358,
+      "Y": 733098.8582,
+      "location_stand": "South Circular Road.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714295.0942,
+      "Y": 738498.6981,
+      "location_stand": "Glasanaon Road.",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 716706.4443,
+      "Y": 734339.3748,
+      "location_stand": "City Quay.",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715430.2719,
+      "Y": 734159.7843,
+      "location_stand": "Essex Street East.",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715366.6408,
+      "Y": 734189.163,
+      "location_stand": "Wellington Quay.",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 718186.8303,
+      "Y": 736274.6827,
+      "location_stand": "Clontarf Road.",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715359.5431,
+      "Y": 734176.6214,
+      "location_stand": "Parliment Street",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 717418.866,
+      "Y": 736212.3466,
+      "location_stand": "Fairview Avenue Lower.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713124.8195,
+      "Y": 737100.7832,
+      "location_stand": "Bannow Road.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714976.2926,
+      "Y": 737624.5548,
+      "location_stand": "Old Finglas Road.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714988.8551,
+      "Y": 736876.5149,
+      "location_stand": "Prospect Square.",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713258.0059,
+      "Y": 738804.7184,
+      "location_stand": "Finglas Road.",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715410.6348,
+      "Y": 739762.6272,
+      "location_stand": "Ballymun road.",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715383.7086,
+      "Y": 739653.7401,
+      "location_stand": "Gateway Crescent.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715826.891,
+      "Y": 736943.2622,
+      "location_stand": "Millmount Avenue.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713254.2499,
+      "Y": 735938.0762,
+      "location_stand": "Navan Road.",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 719511.068,
+      "Y": 731718.6504,
+      "location_stand": "Strand Road Car Park.",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 711356.1167,
+      "Y": 732869.0107,
+      "location_stand": "Naas Road.",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 719468.6273,
+      "Y": 731934.0535,
+      "location_stand": "Strand Road Car Park.",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 718043.099,
+      "Y": 732330.8,
+      "location_stand": "Merrion Road",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 716695.975,
+      "Y": 734036.35,
+      "location_stand": "Pearse St",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714754.963,
+      "Y": 732197.764,
+      "location_stand": "Harolds Cross Rd",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714526.182,
+      "Y": 734013.314,
+      "location_stand": "Oliver Bond St",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 716110.956,
+      "Y": 736662.282,
+      "location_stand": "Drumcondra Rd Lwr",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715553.28,
+      "Y": 731456.404,
+      "location_stand": "Rathmines Rd Upr",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715870.477,
+      "Y": 732578.804,
+      "location_stand": "Charlemont St",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 716630.616,
+      "Y": 732849.465,
+      "location_stand": "Mespil Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715545.687,
+      "Y": 733040.072,
+      "location_stand": "Camden St Lwr",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 717611.569,
+      "Y": 732664.596,
+      "location_stand": "Pembroke Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714927.508,
+      "Y": 735224.535,
+      "location_stand": "Phibsboro Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 717795.693,
+      "Y": 735178.935,
+      "location_stand": "East Rd",
+      "no_stands": 12
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715539.511,
+      "Y": 731573.405,
+      "location_stand": "Rathgar Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 716587.097,
+      "Y": 736964.292,
+      "location_stand": "Grace Park Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713380.101,
+      "Y": 733296.721,
+      "location_stand": "James Walk",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 717151.583,
+      "Y": 733945.994,
+      "location_stand": "Pearse St",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713880.36,
+      "Y": 732069.747,
+      "location_stand": "Clogher Rd",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714670.789,
+      "Y": 731337.401,
+      "location_stand": "Harolds Cross Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713509.122,
+      "Y": 731827.746,
+      "location_stand": "Sundrive Rd",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714888.889,
+      "Y": 732743.555,
+      "location_stand": "Clanbrassil St Lwr",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 718373.438,
+      "Y": 733465.362,
+      "location_stand": "Irishtown Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714914.538,
+      "Y": 732979.093,
+      "location_stand": "Clanbrassil St Lwr",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715139.794,
+      "Y": 737554.414,
+      "location_stand": "St Davids Terrace",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715124.103,
+      "Y": 735412.363,
+      "location_stand": "Myrtle St",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 716870.904,
+      "Y": 733751.522,
+      "location_stand": "Hogan Pl",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 708357.319,
+      "Y": 732059.886,
+      "location_stand": "Greendale Rd",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715608.761,
+      "Y": 737960.796,
+      "location_stand": "The Rise",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713877.526,
+      "Y": 731300.64,
+      "location_stand": "Sundrive Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714270.675,
+      "Y": 734353.306,
+      "location_stand": "Ellis Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 716170.695,
+      "Y": 736909.796,
+      "location_stand": "Drumcondra Rd Upr",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 716516.949,
+      "Y": 731821.941,
+      "location_stand": "Ranelagh Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 713649.165,
+      "Y": 733823.213,
+      "location_stand": "Basin View",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 714234.558,
+      "Y": 731428.387,
+      "location_stand": "Kimmage Rd Lwr",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 717066.542,
+      "Y": 735728.597,
+      "location_stand": "North Strand Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 711936.28,
+      "Y": 736588.622,
+      "location_stand": "Navan Rd",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 711935.874,
+      "Y": 736640.89,
+      "location_stand": "Kinvara Ave",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 715787.497,
+      "Y": 734021.136,
+      "location_stand": "St Andrews St",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.198268,
+      "Y": 53.359426,
+      "location_stand": "Clontard Road Car Park",
+      "no_stands": 18
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.261713,
+      "Y": 53.353099,
+      "location_stand": "Cavendish road",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": -6.263217,
+      "Y": 53.354378,
+      "location_stand": "Parnell Square East",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Westmorland St/ Aston Quay Junction",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Lower bridge st",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mount Drummoud",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mount Drummoud 2",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Molesworth Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Sprout Kitchen, Sir John Rogerson's Quay",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Gerards, Sir John Rogerson's Quay",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "The Lir Academy, Grand Canal Quay",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Charlemont place",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Grand Parade",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Imagine, Barrow street",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Outside Apartments, Barrow street",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Outside Apartments, Barrow street",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Asgard Road",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Hume Street",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Capel Street",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Brunswick St North",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "8 Hatch Street Lower",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Arthur Cox, Hatch Street Lower",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Deloitte, Hatch Street upper",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Rathmines Road Upper",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Le Fanu Road, Ballyfermot",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "City Quay  & Creighton Street",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Shandon Cres",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "North Circular Road /Emmet Street",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Clonliffe Road",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "NCR/Belvedere Road junction",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Coultry Park",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Fagens pub, Botanic Ave",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Griffth park, Botanic Ave",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Our Lady of Dolours Chuch, Botanic Ave",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St Ita's Road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ballybough Road",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Calderwood Road",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Calderwood Road  2",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bushes Lane",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Kenilworth Square South",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Malahide Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Cumskeys bar,  Blackhorse Ave",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Clontarf Road",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Clontarf Road 2",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Loretto Convent, Sundrive Road 2",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Claddagh Grreen",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Richmond Row",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Armstrong Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Donore Avenue",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Greenville Avenue",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Spar Ranelagh Village",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ailesbury Gardens",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Finglas Village (Massey Bros)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Newbridge Avenue",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Richmond Street South",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mount Street Lower (Bord Gais)",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Leinster Street South (Trinity Point)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Thunder Road cafÈ - Fleet Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "York Street - RSCI",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Hanover Street East(Jct with Erne St Lower)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Hanover Street East(Opposite Eurospar)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "North Wall Quay (opposite 3arena)",
+      "no_stands": 11
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Commons Street (outside Bank of Ireland)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Commons Street(outside Havana)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Phibsborough Road (Student residences)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Western Way",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Parnell Street (Jct North Great Georges St)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mountjoy Street (Dublin International Youth Hospital)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Mountjoy Street (outside spar)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Sean McDermott Street Lower (swimming Pool)",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Harcourt Road (investec)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Harcourt Road (Baxter & Greene)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Baggot Street Upper (Paddy Power)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Orwell Road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Milltown Road (Churchtown Rd Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Serpentine Avenue",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Church Avenue",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Emmet Road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "South Circular Road (dolphin electrical)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "South Circular Road (house 582)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Lesson Street Upper",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Grosvenor Square (side of House 89)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Shelbourne Road (centra)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Jamestown Road (village shopping centre)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Grange Road (Donaghmede Shopping Centre)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "La Costa takeaway, Clontarf Road (in car park)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Seafield Road, Clontarf",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St Bridges Road, Clontarf",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Collins Avenue, Whitehall",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Barryscourt Road, Pedestrian crossing at NSC",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bulfin Road (outside 52)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Suir Road (zinc hair & beauty)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St Gabriels Road, Clontarf East",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Angelesea Road (Library)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "North Circular Road (moldova Shop) Phibsborough",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Edenmore Park",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St Assams Park",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bluebell Luas Stop, Naas Road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ringsend Road (Ash Ireland)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Omni Shopping Centre, Swords Road",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Glengarriff Parade",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Wilton Place",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Clanbrassil St Lower",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Molesworth St",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bolton St",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Grosvenor Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "City Quay",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Fleet St",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Pearce St",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ross Road",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bloomfield Ave (46)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "South Circular Road (Jct with Donore Ave)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bride St (Health Studio)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bride St (Opposite 79 at Park)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "4 Blessington St",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bride St (Canon Court)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Cuffe St (Opposite Mercer St Upper)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Swords Rd (Larkhill Rd Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Barryscourt",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Braithewaite St (Jct with Poole St)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bride St (Park Entrance)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "28 Killarney St",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Crumlin Rd (Shop Center)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Crumlin Rd (Jct with Brickfield Drive)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Crumlin Village (Jct with Lisle Rd)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St Marys Rd (Agnes Terrace Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Farnham Drive (Erins Isle GAA)",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Shanowen Rd (St Kevins Boys Club)",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Dunne St (Library)",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St Patricks Close (Jct with Kevin St Upper)",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ballyfermot Rd (McLoughlins Butchers)",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "46 Bulfin Rd",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Bluebell Rd (Community Center)",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Emmet Rd (outside Library)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Clonard Rd (Jct with Crumlin Road)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Long Mile Rd (outisde Kokonut Shop)",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "16 Errigal Rd",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "St Aidans Park Rd (Jct With Malahide Rd)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Belgove Rd (jct with Summerville)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Townsend St (Jct with Mark St)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": "",
+      "Y": "",
+      "location_stand": "Ranelagh Road",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.33678,
+      "Y": -6.2358456,
+      "location_stand": "Haddington Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.374318,
+      "Y": -6.2178078,
+      "location_stand": "Clancarthy Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.327709,
+      "Y": -6.2307652,
+      "location_stand": "Anglesea Road(RDS Main Venue Gate)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.337618,
+      "Y": -6.2679919,
+      "location_stand": "Kevin Street Lower (Outisde DIT Entrance)",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.361108,
+      "Y": -6.283,
+      "location_stand": "Cabra Road (Downeys Pub @ Dowth Ave Jct)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.344744,
+      "Y": -6.251984,
+      "location_stand": "Pearse Street (Outside GoHop)",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.334619,
+      "Y": -6.2717671,
+      "location_stand": "Daniel Street (Jct Harty Place)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.342148,
+      "Y": -6.244941,
+      "location_stand": "Erne Street Upper (Outsude Bike Shop) Jct Boyne St",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.3313,
+      "Y": -6.2649838,
+      "location_stand": "Lennox Street (Bretzel Bakery)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.339214,
+      "Y": -6.250658,
+      "location_stand": "Merrion Square South (Between house 76 & 77)",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.344121,
+      "Y": -6.248966,
+      "location_stand": "Pearse Street (The Lombard Pub)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.314549,
+      "Y": -6.300165,
+      "location_stand": "Ravendale Park (Outside the Four Provnces Pub)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.333091,
+      "Y": -6.23584,
+      "location_stand": "Northumberland Road (Baggot Lane Jct)",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.319346,
+      "Y": -6.31511,
+      "location_stand": "St Agnes Road (Outside Crumlin Garda Station)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.334827,
+      "Y": -6.257925,
+      "location_stand": "Conrad Hotel, Earlsfort Terrace",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.338313,
+      "Y": -6.266577,
+      "location_stand": "Bishop Street (Intreo/Welfare Centre)",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.326949,
+      "Y": -6.265378,
+      "location_stand": "Military Road, Rathmines (opposite Blackbird)",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.343927,
+      "Y": -6.248683,
+      "location_stand": "Pearse Street(Outside Goldsmith Hall)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.341513,
+      "Y": -6.2707143,
+      "location_stand": "Bride Road (Iveagh Fitness Club)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.356716,
+      "Y": -6.2676167,
+      "location_stand": "Blessington Street (Jct with Mountjoy Street)",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.336184,
+      "Y": -6.2733493,
+      "location_stand": "New Street South (Peadar Browns Pub)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.337025,
+      "Y": -6.2728832,
+      "location_stand": "New Street South (Fumbally Court)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.360855,
+      "Y": -6.27365,
+      "location_stand": "North Circular Road (Outside Mr Tubs Dry Cleaning)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.344291,
+      "Y": -6.249048,
+      "location_stand": "Lombard Street East (The Lombard Pub)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.343945,
+      "Y": -6.240987,
+      "location_stand": "Macken Street (Outside Flyfit Gym - Hanover St East Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.345896,
+      "Y": -6.252151,
+      "location_stand": "Moss Street (Jct with Townsend Street)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.350585,
+      "Y": -6.2706952,
+      "location_stand": "King Street North(Jct with Green Street)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.343184,
+      "Y": -6.244032,
+      "location_stand": "Pearse Street(Outside Maldron Hotel/Centra)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.367156,
+      "Y": -6.17288,
+      "location_stand": "Mount Prospect Avenue (Jct with Clontarf Rd)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.338403,
+      "Y": -6.280837,
+      "location_stand": "Cork Street (Robisnson Court opposite weaver park)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.338643,
+      "Y": -6.279866,
+      "location_stand": "Cork Street (Intreo Center)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.338478,
+      "Y": -6.279785,
+      "location_stand": "Cork Street (Southside Angling opposite Intreo)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.31216,
+      "Y": -6.247767,
+      "location_stand": "Wilder & Green, Milltown",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.353598,
+      "Y": -6.291439,
+      "location_stand": "Oxmantown Road (Cowper Street Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.354525,
+      "Y": -6.292933,
+      "location_stand": "Oxmantown Road (opposite the mascott pub)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.349167,
+      "Y": -6.281974,
+      "location_stand": "Blackhall Place(Jct with Blackhall Green)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.358943,
+      "Y": -6.25684,
+      "location_stand": "North Circular Road(Spar @ Portland Street Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.33704426,
+      "Y": -6.286518574,
+      "location_stand": "Cork Street (Centz)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.378562,
+      "Y": -6.178134,
+      "location_stand": "All Saints Drive (Outside Raheny GAA)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.338325,
+      "Y": -6.2723897,
+      "location_stand": "New Street South (Maldron Hotel)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.338254,
+      "Y": -6.262208,
+      "location_stand": "St Stephens Green (outside RSCI)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.364132,
+      "Y": -6.272032,
+      "location_stand": "Phibsborough Road (Opposite Bald Eagle Pub)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.36999,
+      "Y": -6.14895,
+      "location_stand": "Causeway Road Clontarf",
+      "no_stands": 27
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.34813,
+      "Y": -6.29417,
+      "location_stand": "Parkgate Street (Jct with infirmary road - Nancy Hands pub)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.34365,
+      "Y": -6.281284,
+      "location_stand": "Bridgefoot Street (Jct with Thomas Street)",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Temporary Racks",
+      "X": 53.348928,
+      "Y": -6.260975,
+      "location_stand": "Princes Street North (pennys at Oconnel Street)",
+      "no_stands": 13
+    },
+    {
+      "type_stands": "Temporary Racks",
+      "X": 53.34852,
+      "Y": -6.264058,
+      "location_stand": "Liffey Street",
+      "no_stands": 15
+    },
+    {
+      "type_stands": "Temporary Racks",
+      "X": 53.356239,
+      "Y": -6.244854,
+      "location_stand": "North Strand Road jct with Shamrock Place",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.3481122,
+      "Y": -6.2941508,
+      "location_stand": "Parkgate Street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.322805,
+      "Y": "†-6.236991",
+      "location_stand": "Mulberry Lane Car Park",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Temporary Racks",
+      "X": 53.341848,
+      "Y": -6.253055,
+      "location_stand": "Leinster Street South (Building No.9)",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.341653,
+      "Y": -6.3028928,
+      "location_stand": "Kilmainham Lane (House No.6)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.314828,
+      "Y": -6.295824,
+      "location_stand": "Kimmage Road Lower",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.349583,
+      "Y": -6.26769,
+      "location_stand": "Wolf Tone Street (opposite Griffith College)",
+      "no_stands": 6
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.332375,
+      "Y": -6.266876,
+      "location_stand": "Synge Street (close to Synge Lane)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.341087,
+      "Y": "†-6.236043",
+      "location_stand": "South Dock Street (jct with Barrow St)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.313495,
+      "Y": -6.24677,
+      "location_stand": "Milltown Road (outside Poise)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.336882,
+      "Y": -6.259567,
+      "location_stand": "St Stephens Green South",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.334384,
+      "Y": -6.258206,
+      "location_stand": "Earlsfort Terrace (Outside HPRA)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.346122,
+      "Y": "†-6.272299",
+      "location_stand": "Chancery Place (outside Dublin Christian Mission)",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.382456,
+      "Y": -6.195036,
+      "location_stand": "McAuley Road (Outside Entrance to St Pauls Artane FC)",
+      "no_stands": 9
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.322066,
+      "Y": -6.267124,
+      "location_stand": "Wynnefield Road (Outside Rathmine Bikes)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.335506,
+      "Y": "†-6.256507",
+      "location_stand": "Lesson Street Lower (Outside The Sugar Club)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.354491,
+      "Y": -6.229751,
+      "location_stand": "East Road (Jct with Bargy Road)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.367071,
+      "Y": -6.293967,
+      "location_stand": "Fassaugh Avenue (Outside Londis)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.334169,
+      "Y": "†-6.265531",
+      "location_stand": "Grantham Street (Jct with Camden St Lower)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.333541,
+      "Y": "†-6.241728",
+      "location_stand": "St Marys Road Ballsbridge (Jct with Baggot Lane)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.356739,
+      "Y": -6.233024,
+      "location_stand": "Church Road (Outside Colt Technology)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.349525,
+      "Y": "†-6.227120",
+      "location_stand": "East Wall Road (Jct with Sheriff St Upper)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.382604,
+      "Y": -6.277686,
+      "location_stand": "Fitzmaurice Rd (Outside Ballgall Credit Union)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.352352,
+      "Y": "†-6.243393",
+      "location_stand": "Seville Place (Jct with Oriel St Lower)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.335487,
+      "Y": "†-6.242767",
+      "location_stand": "Percy Place (opposite Investment house)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.341102,
+      "Y": "†-6.268772",
+      "location_stand": "Chancery Lane (Outside Plus Architecture)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.353055,
+      "Y": "†-6.244337",
+      "location_stand": "Seville Place (Jct with Coburg Place)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.333891,
+      "Y": "†-6.257983",
+      "location_stand": "Hatch Street Upper (Outside Eversheds)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.345087,
+      "Y": -6.2547123,
+      "location_stand": "Pearse Street (Outside Aras An Phiarsaigh)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.340457,
+      "Y": -6.243109,
+      "location_stand": "Eblana Villas (Jct with Grand Canal Street Lower)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.333835,
+      "Y": -6.2598105,
+      "location_stand": "Hatch Street Upper (Outside Hardwicke House)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.34707291,
+      "Y": -6.282331844,
+      "location_stand": "Blackhall Place (outside Spar)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.366893,
+      "Y": -6.292718,
+      "location_stand": "Fassaugh Avenue (Outside NCBI)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.328537,
+      "Y": -6.23059,
+      "location_stand": "Anglesea Road (Jct Merrion Road)",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.328424,
+      "Y": -6.230617,
+      "location_stand": "Anglesea Road (Jct Merrion Road)",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.33397937,
+      "Y": -6.261724242,
+      "location_stand": "Hatch Street Upper (Outside One Place Park)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.363278,
+      "Y": -6.243744,
+      "location_stand": "Richmond Road (Jct with Richmond Avenue)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.357415,
+      "Y": -6.257314,
+      "location_stand": "Mountjoy Square North (Jct with MJS East)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.362822,
+      "Y": -6.178398,
+      "location_stand": "Clontarf Road (Jct with Dollymount Park)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.323646,
+      "Y": -6.250202,
+      "location_stand": "Cullenswood Park ( Jct with Ranelagh Road)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.387103,
+      "Y": -6.242104,
+      "location_stand": "N1 Ramp Road (Just off Ellenfield Park)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.391242,
+      "Y": -6.234954,
+      "location_stand": "Lorcan Avenue (Outside Kilmardinny Inn)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.324841,
+      "Y": -6.240554,
+      "location_stand": "Morehampton Road (Jct with Herbert Park)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.323811,
+      "Y": -6.327954,
+      "location_stand": "Walkinstown Road (Carprk opposite Halfway house)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.39013,
+      "Y": -6.311036,
+      "location_stand": "Mellows Road (Outside Community Center)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.367375,
+      "Y": -6.298704,
+      "location_stand": "Fassaugh Avenue (Cabra House Pub)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.367392,
+      "Y": -6.299124,
+      "location_stand": "Fassaugh Avenue (outside spar & Centra)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.33391504,
+      "Y": -6.260607446,
+      "location_stand": "Hatch Street Upper (Outside Three Park Place)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.37237867,
+      "Y": -6.194035777,
+      "location_stand": "Sybil Hill Road (Entrance to St Annes Park)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.34591638,
+      "Y": -6.27587837,
+      "location_stand": "Arran Quay",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.333725,
+      "Y": -6.269798,
+      "location_stand": "Ovova Road (Outside City Building Supply)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.341311,
+      "Y": -6.257962,
+      "location_stand": "The Ivy, Molesworth Street (Jct with Dawson St)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.361605,
+      "Y": -6.28613,
+      "location_stand": "Imaal Road",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.37729,
+      "Y": -6.275765,
+      "location_stand": "Hockey Club, Old Finglas Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.371418,
+      "Y": -6.166817,
+      "location_stand": "James Larkin Road (Clontarf)",
+      "no_stands": 8
+    },
+    {
+      "type_stands": "Cargo bike stands",
+      "X": 53.336841,
+      "Y": -6.259403,
+      "location_stand": "St Stephens Green South",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.3759,
+      "Y": -6.209,
+      "location_stand": "Killester Ave (Jct with Killester Park)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.375602,
+      "Y": -6.209501,
+      "location_stand": "Killester Ave (Jct with Killester Park)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.355902,
+      "Y": -6.265499,
+      "location_stand": "Dorset Street Upper (Outside Gala)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.392112,
+      "Y": -6.205152,
+      "location_stand": "Coolock Drive (Jct with Oscar Traynor Rd)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.400056,
+      "Y": -6.171093,
+      "location_stand": "Elmfield Rise (Outside Spar)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.366278,
+      "Y": -6.256676,
+      "location_stand": "Carlingford Road (Opposite Andersons Creperie)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.38089,
+      "Y": -6.245648,
+      "location_stand": "Swords Road (The Viscount)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.35750389,
+      "Y": -6.248031086,
+      "location_stand": "William Street North (Outside Lowrys)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.349409,
+      "Y": -6.229783,
+      "location_stand": "North Wall Ave (Madden Property Consultants)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.341904,
+      "Y": -6.307589,
+      "location_stand": "Kilmainham Lane (Opposite La Dolce Vita)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.3240331,
+      "Y": -6.278548121,
+      "location_stand": "Harolds Cross Road (Greyhound Stadium)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.358146,
+      "Y": -6.267227,
+      "location_stand": "Nelson Street (Centre for Nurse Ed)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.36073337,
+      "Y": -6.26076081,
+      "location_stand": "Innisfallen Parade (Jct Dorset St Lower)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.335579,
+      "Y": -6.268985,
+      "location_stand": "Arnott Street (Jct with Heytesbury St)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.31449,
+      "Y": -6.282547,
+      "location_stand": "Terenure Road North (Terenure Laundrette)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.325842,
+      "Y": -6.289827,
+      "location_stand": "Eamoon Ceannt Park (Clogher Rd/Rutland Rd) Sundrive Pavillion",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.32797593,
+      "Y": -6.220836032,
+      "location_stand": "Holyrood Park (Jct with Sandymount Ave)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.346316,
+      "Y": -6.255063,
+      "location_stand": "Tara Street (irish Times)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.34600478,
+      "Y": -6.255049903,
+      "location_stand": "Tara Street (irish Times)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.386623,
+      "Y": -6.211416,
+      "location_stand": "Maryfield Ave (Ardlea Inn)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.393498,
+      "Y": -6.203269,
+      "location_stand": "Coolock Drive (Mr Price)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.331016,
+      "Y": -6.319627,
+      "location_stand": "Mourne Road (Our Lady of Mercy Secondary School)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.339315,
+      "Y": -6.316478,
+      "location_stand": "St Michaels Estate (opposite Community Sports Centre)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.35561866,
+      "Y": -6.265913827,
+      "location_stand": "Wellington Street (Delahuntys Bar)",
+      "no_stands": 0
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.338659,
+      "Y": -6.322062,
+      "location_stand": "Tyreconnell Road (Tesco)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.315996,
+      "Y": -6.26526,
+      "location_stand": "Rathmines Road Upper (Jct with Maxwell Lane)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.322721,
+      "Y": -6.230233,
+      "location_stand": "Angelesea Raod (Brookfield Apartments)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.333972,
+      "Y": -6.301908,
+      "location_stand": "Dolphin Road (Crumlin)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.34514,
+      "Y": -6.308024,
+      "location_stand": "Islandbridge",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand +Cargo Stand",
+      "X": 53.352257,
+      "Y": -6.28415,
+      "location_stand": "Manor Place (Manor Street Jct)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.368913,
+      "Y": -6.254743,
+      "location_stand": "Drumcondra Rd Upper (Outside Insomnia)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.376327,
+      "Y": -6.250063,
+      "location_stand": "Drumcondra Rd Upper ( Home Farm FC)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.384768,
+      "Y": -6.243105,
+      "location_stand": "Swords Road ( Holy Child Church @ railing)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.382077,
+      "Y": -6.244497,
+      "location_stand": "Swords Road (Jct Collins Ave)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.373835,
+      "Y": -6.175331,
+      "location_stand": "Saint Annes Car Park",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.355563,
+      "Y": -6.2647773,
+      "location_stand": "Frederick Street North",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.357288,
+      "Y": -6.266006,
+      "location_stand": "St Josephs Parade (National Training Center)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.307368,
+      "Y": -6.299807,
+      "location_stand": "Greenlea Road, Terenure",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.347219,
+      "Y": -6.283783,
+      "location_stand": "Ellis Street",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.381154,
+      "Y": -6.208471,
+      "location_stand": "McHughs, Malahide Road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.317304,
+      "Y": -6.332645,
+      "location_stand": "Kestral, Cromwellsfort Road",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.321338,
+      "Y": -6.234825,
+      "location_stand": "Spar, Donnybrook Road",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.350851,
+      "Y": -6.25142,
+      "location_stand": "Talbot Place",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.325628,
+      "Y": -6.226857,
+      "location_stand": "Simmonscourt Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.321919,
+      "Y": -6.25632,
+      "location_stand": "Lios na nOg, Oakley Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.354861,
+      "Y": -6.29025,
+      "location_stand": "Aughrim Street Sports Hall, Aughrim Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.353064,
+      "Y": -6.285122,
+      "location_stand": "Manor Street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.319003,
+      "Y": -6.281421,
+      "location_stand": "Clareville Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.321075,
+      "Y": -6.255761,
+      "location_stand": "Moyne Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.327007,
+      "Y": -6.258448,
+      "location_stand": "Mount Pleasant Square",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.331339,
+      "Y": -6.23449,
+      "location_stand": "Finance Ireland, Pembroke Road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.331121,
+      "Y": -6.2339,
+      "location_stand": "Hume House, Pembroke Road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.320952,
+      "Y": -6.257226,
+      "location_stand": "The hardware Store, Dunville Avenue",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.364032,
+      "Y": -6.199151,
+      "location_stand": "Seafield Road West, Clontarf",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.35830128,
+      "Y": -6.250524612,
+      "location_stand": "Richmond Street North",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.302703,
+      "Y": -6.297947,
+      "location_stand": "Terenure College Swimming Pool, Fortfield Road",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.321886,
+      "Y": -6.239063,
+      "location_stand": "Mount Eden Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.326692,
+      "Y": -6.258051,
+      "location_stand": "Old Mountpleasant 1",
+      "no_stands": 2
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.32661,
+      "Y": -6.257754,
+      "location_stand": "Old Mountpleasant 2",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.349867,
+      "Y": -6.34487,
+      "location_stand": "Main Street, Chapolizad",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.369308,
+      "Y": -6.271493,
+      "location_stand": "Prospect Square Installation",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.318298,
+      "Y": -6.2108075,
+      "location_stand": "Circle K, Merrion Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.355012,
+      "Y": -6.266235,
+      "location_stand": "Aparto, Dorset St Upper",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.340166,
+      "Y": -6.316787,
+      "location_stand": "Emmet Road (McDowells Pub)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.332867,
+      "Y": -6.26012,
+      "location_stand": "Adelaide Road (Montague House)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.37982,
+      "Y": -6.210781,
+      "location_stand": "Malahide Road (Kilmore Rd Jct)",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.337525,
+      "Y": -6.251547,
+      "location_stand": "Pembroke Street Lower (Californian Burrito Bar)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.339931,
+      "Y": -6.22746,
+      "location_stand": "Dermot O'Hurley Ave",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.336778,
+      "Y": -6.244001,
+      "location_stand": "Mount Street Crescent (Herbert St Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.321183,
+      "Y": -6.335011,
+      "location_stand": "Walkinstown Green (Heritage Credit Union)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.332977,
+      "Y": -6.249024,
+      "location_stand": "Mespil Road (Opposite building 39)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.351541,
+      "Y": -6.267718,
+      "location_stand": "Kings Inn Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.337751,
+      "Y": -6.323397,
+      "location_stand": "Tyrconnell Street (Tyreconnel Road Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.329331,
+      "Y": -6.258119,
+      "location_stand": "Dartmouth Road (Dartmouth Place Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.365796,
+      "Y": -6.262973,
+      "location_stand": "Crawford Ave (Iona Road Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.333881,
+      "Y": -6.251684,
+      "location_stand": "Cumberland Road (Fitzwilliam Place Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.332713,
+      "Y": -6.257413,
+      "location_stand": "Adelaide Road (jct Hatch Lane)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.332099,
+      "Y": -6.305912,
+      "location_stand": "Slievenamon Road (Keeper Road Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.331071,
+      "Y": -6.231793,
+      "location_stand": "Shelbourne Road (Starbucks)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.327586,
+      "Y": -6.235294,
+      "location_stand": "Herbert Park (astro turf entrance)",
+      "no_stands": 7
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.352445,
+      "Y": -6.291885,
+      "location_stand": "Swords Street (Thor Park)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.353166,
+      "Y": -6.291547,
+      "location_stand": "Swords Street (Finn Street Jct)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.339636,
+      "Y": -6.272362,
+      "location_stand": "Patrick Street (St Patricks Cathedral)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.364059,
+      "Y": -6.197649,
+      "location_stand": "Seafield Road West (St John Baptist School)",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.3723,
+      "Y": -6.252584,
+      "location_stand": "Drumcondra Road (Chilli Banana)",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.345667,
+      "Y": -6.25093,
+      "location_stand": "Townsend Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.340166,
+      "Y": -6.316787,
+      "location_stand": "Emmet Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.340891,
+      "Y": -6.265634,
+      "location_stand": "Aungier Street",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.340305,
+      "Y": -6.315118,
+      "location_stand": "Emmet Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.364387,
+      "Y": -6.275507,
+      "location_stand": "Leinster Street North",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.3524,
+      "Y": -6.289245,
+      "location_stand": "Oxmantown Road",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.374373,
+      "Y": -6.255575,
+      "location_stand": "Clare Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.335965,
+      "Y": -6.2624615,
+      "location_stand": "Clonmel Street",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.317272,
+      "Y": -6.2922769,
+      "location_stand": "Kimmage Grove",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.364992,
+      "Y": -6.260116,
+      "location_stand": "St Alphonsus Road",
+      "no_stands": 3
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.348463,
+      "Y": -6.28003,
+      "location_stand": "Blackhall Street",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.33703972,
+      "Y": -6.254552121,
+      "location_stand": "Ely Place",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.382512,
+      "Y": -6.261817,
+      "location_stand": "Albert College Park",
+      "no_stands": 10
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.350008,
+      "Y": -6.283897,
+      "location_stand": "Viking Place",
+      "no_stands": 4
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.342442,
+      "Y": -6.349356,
+      "location_stand": "Ballyfermot Road",
+      "no_stands": 5
+    },
+    {
+      "type_stands": "Sheffield Stand",
+      "X": 53.335294,
+      "Y": -6.294869,
+      "location_stand": "South Circular Road",
+      "no_stands": 5
+    }
+  ]

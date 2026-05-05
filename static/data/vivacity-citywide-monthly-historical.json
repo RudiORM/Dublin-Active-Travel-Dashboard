@@ -1,0 +1,78 @@
+{
+	"version": 1,
+	"notes": "Network totals (all Dublin Vivacity countlines, UTC calendar months). pedestrian + bike populated; missing complete months appended on citywide API when needed.",
+	"months": [
+		{
+			"monthKey": "2025-04",
+			"label": "Apr 2025",
+			"pedestrian": 1712807,
+			"bike": 73467
+		},
+		{
+			"monthKey": "2025-05",
+			"label": "May 2025",
+			"pedestrian": 1606972,
+			"bike": 87940
+		},
+		{
+			"monthKey": "2025-06",
+			"label": "Jun 2025",
+			"pedestrian": 1862117,
+			"bike": 76588
+		},
+		{
+			"monthKey": "2025-07",
+			"label": "Jul 2025",
+			"pedestrian": 2114968,
+			"bike": 185071
+		},
+		{
+			"monthKey": "2025-08",
+			"label": "Aug 2025",
+			"pedestrian": 2294819,
+			"bike": 285314
+		},
+		{
+			"monthKey": "2025-09",
+			"label": "Sept 2025",
+			"pedestrian": 2226591,
+			"bike": 326978
+		},
+		{
+			"monthKey": "2025-10",
+			"label": "Oct 2025",
+			"pedestrian": 2269479,
+			"bike": 244915
+		},
+		{
+			"monthKey": "2025-11",
+			"label": "Nov 2025",
+			"pedestrian": 2276564,
+			"bike": 312280
+		},
+		{
+			"monthKey": "2025-12",
+			"label": "Dec 2025",
+			"pedestrian": 2050998,
+			"bike": 309648
+		},
+		{
+			"monthKey": "2026-01",
+			"label": "Jan 2026",
+			"pedestrian": 1995318,
+			"bike": 307782
+		},
+		{
+			"monthKey": "2026-02",
+			"label": "Feb 2026",
+			"pedestrian": 2494000,
+			"bike": 305369
+		},
+		{
+			"monthKey": "2026-03",
+			"label": "Mar 2026",
+			"pedestrian": 2494000,
+			"bike": 424549
+		}
+	]
+}

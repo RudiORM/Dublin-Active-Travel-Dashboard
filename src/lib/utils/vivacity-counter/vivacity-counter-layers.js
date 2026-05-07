@@ -64,24 +64,7 @@ export function addVivacityCounterMarkers(map, locations) {
 			type: 'circle',
 			source: 'vivacity-counter-markers',
 			paint: {
-				'circle-radius': [
-					// All markers: scale based on activity only
-					'max',
-					8, // Minimum size
-					[
-						'min',
-						30, // Maximum size
-						[
-							'+',
-							3, // Base size
-							[
-								'*',
-								0.00005, // Scale factor
-								['get', 'pedestrian_total']
-							]
-						]
-					]
-				],
+				'circle-radius': 10,
 				'circle-opacity': 0.8,
 
 				'circle-color': [

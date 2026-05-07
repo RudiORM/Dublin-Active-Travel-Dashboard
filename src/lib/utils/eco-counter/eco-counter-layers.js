@@ -52,24 +52,7 @@ export function addEcoCounterMarkers(map, locations) {
 			type: 'circle',
 			source: 'eco-counter-markers',
 			paint: {
-				'circle-radius': [
-					// All markers: scale based on activity only
-					'max',
-					8, // Minimum size
-					[
-						'min',
-						30, // Maximum size
-						[
-							'+',
-							3, // Base size
-							[
-								'*',
-								0.000005, // Scale factor
-								['get', 'total_7day_count']
-							]
-						]
-					]
-				],
+				'circle-radius': 10,
 				'circle-opacity': 0.8,
 
 				'circle-color': [

@@ -1,0 +1,5278 @@
+{
+  "schemaVersion": 1,
+  "granularity": "P1W",
+  "generatedAtUtc": "2026-07-08T08:18:10Z",
+  "historyWeeks": 58,
+  "yoyCompareMonths": {
+    "prior": "2025-06",
+    "current": "2026-06"
+  },
+  "dateRange": {
+    "from": "2025-06-01T00:00:00Z",
+    "to": "2026-07-08T00:00:00Z"
+  },
+  "sensorCount": 21,
+  "sensors": {
+    "2158": {
+      "sensorId": "2158",
+      "countlineIds": [
+        "22997",
+        "22998",
+        "22999"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-05-26",
+          "pedestrian": 5439,
+          "bike": 304
+        },
+        {
+          "weekKey": "2025-06-02",
+          "pedestrian": 35387,
+          "bike": 2485
+        },
+        {
+          "weekKey": "2025-06-09",
+          "pedestrian": 34616,
+          "bike": 2214
+        },
+        {
+          "weekKey": "2025-06-16",
+          "pedestrian": 41073,
+          "bike": 2904
+        },
+        {
+          "weekKey": "2025-06-23",
+          "pedestrian": 39092,
+          "bike": 2755
+        },
+        {
+          "weekKey": "2025-06-30",
+          "pedestrian": 38117,
+          "bike": 2649
+        },
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 44383,
+          "bike": 3283
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 36292,
+          "bike": 2413
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 36531,
+          "bike": 2495
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 35460,
+          "bike": 2623
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 35426,
+          "bike": 2492
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 38957,
+          "bike": 2995
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 39912,
+          "bike": 2739
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 36959,
+          "bike": 2645
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 35407,
+          "bike": 2611
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 34381,
+          "bike": 2299
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 34260,
+          "bike": 2175
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 36426,
+          "bike": 2375
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 32807,
+          "bike": 1935
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 38236,
+          "bike": 2373
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 35867,
+          "bike": 2276
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 34555,
+          "bike": 2070
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 34144,
+          "bike": 1749
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 33932,
+          "bike": 2055
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 28054,
+          "bike": 1692
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 31574,
+          "bike": 1923
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 31511,
+          "bike": 1781
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 27805,
+          "bike": 1727
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 32255,
+          "bike": 1795
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 34887,
+          "bike": 1943
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 30106,
+          "bike": 1500
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 33749,
+          "bike": 1292
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 28411,
+          "bike": 1544
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 29190,
+          "bike": 1723
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 24951,
+          "bike": 1333
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 26812,
+          "bike": 1222
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 25062,
+          "bike": 1101
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 27587,
+          "bike": 1271
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 30646,
+          "bike": 1427
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 34855,
+          "bike": 1862
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 34181,
+          "bike": 1987
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 32810,
+          "bike": 1787
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 39699,
+          "bike": 2274
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 33758,
+          "bike": 1902
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 34264,
+          "bike": 1772
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 34678,
+          "bike": 1787
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 36541,
+          "bike": 2230
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 40341,
+          "bike": 2626
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 37040,
+          "bike": 2613
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 38252,
+          "bike": 2676
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 34977,
+          "bike": 2260
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 39345,
+          "bike": 2774
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 40868,
+          "bike": 3133
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 32595,
+          "bike": 1934
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 35431,
+          "bike": 2309
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 36969,
+          "bike": 2688
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 41161,
+          "bike": 3019
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 37597,
+          "bike": 2538
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 10509,
+          "bike": 806
+        }
+      ]
+    },
+    "2159": {
+      "sensorId": "2159",
+      "countlineIds": [
+        "22988",
+        "22989",
+        "22990"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-05-26",
+          "pedestrian": 8237,
+          "bike": 252
+        },
+        {
+          "weekKey": "2025-06-02",
+          "pedestrian": 63576,
+          "bike": 1788
+        },
+        {
+          "weekKey": "2025-06-09",
+          "pedestrian": 60383,
+          "bike": 1630
+        },
+        {
+          "weekKey": "2025-06-16",
+          "pedestrian": 66873,
+          "bike": 2030
+        },
+        {
+          "weekKey": "2025-06-23",
+          "pedestrian": 66931,
+          "bike": 1933
+        },
+        {
+          "weekKey": "2025-06-30",
+          "pedestrian": 67871,
+          "bike": 1913
+        },
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 70004,
+          "bike": 2507
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 63724,
+          "bike": 1787
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 66110,
+          "bike": 1835
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 66117,
+          "bike": 1789
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 63240,
+          "bike": 1753
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 68002,
+          "bike": 2390
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 68804,
+          "bike": 2089
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 65131,
+          "bike": 1915
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 63195,
+          "bike": 1789
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 59061,
+          "bike": 1802
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 60920,
+          "bike": 1670
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 61432,
+          "bike": 1883
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 57685,
+          "bike": 1403
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 64609,
+          "bike": 1827
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 62252,
+          "bike": 1730
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 61795,
+          "bike": 1512
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 62605,
+          "bike": 1431
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 62548,
+          "bike": 1622
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 54140,
+          "bike": 1248
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 64727,
+          "bike": 1482
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 63124,
+          "bike": 1427
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 62322,
+          "bike": 1327
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 65761,
+          "bike": 1402
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 75254,
+          "bike": 1440
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 62672,
+          "bike": 1246
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 67112,
+          "bike": 953
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 55870,
+          "bike": 1147
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 58716,
+          "bike": 1251
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 49614,
+          "bike": 1045
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 54528,
+          "bike": 959
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 51605,
+          "bike": 881
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 57586,
+          "bike": 945
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 59463,
+          "bike": 1066
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 63298,
+          "bike": 1252
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 63261,
+          "bike": 1438
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 59820,
+          "bike": 1257
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 69905,
+          "bike": 1644
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 60717,
+          "bike": 1347
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 64261,
+          "bike": 1327
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 64374,
+          "bike": 1295
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 60907,
+          "bike": 1564
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 65977,
+          "bike": 1892
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 65578,
+          "bike": 1766
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 64322,
+          "bike": 1805
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 59431,
+          "bike": 1553
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 66998,
+          "bike": 1882
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 71132,
+          "bike": 2301
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 62775,
+          "bike": 1505
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 64996,
+          "bike": 1730
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 66573,
+          "bike": 2004
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 69376,
+          "bike": 2305
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 67678,
+          "bike": 1871
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 18471,
+          "bike": 660
+        }
+      ]
+    },
+    "3763": {
+      "sensorId": "3763",
+      "countlineIds": [
+        "22994",
+        "22995",
+        "22996"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-05-26",
+          "pedestrian": 9877,
+          "bike": 281
+        },
+        {
+          "weekKey": "2025-06-02",
+          "pedestrian": 76454,
+          "bike": 2243
+        },
+        {
+          "weekKey": "2025-06-09",
+          "pedestrian": 74873,
+          "bike": 2037
+        },
+        {
+          "weekKey": "2025-06-16",
+          "pedestrian": 85798,
+          "bike": 2732
+        },
+        {
+          "weekKey": "2025-06-23",
+          "pedestrian": 82195,
+          "bike": 2549
+        },
+        {
+          "weekKey": "2025-06-30",
+          "pedestrian": 81922,
+          "bike": 2403
+        },
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 90095,
+          "bike": 3091
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 77687,
+          "bike": 2247
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 78994,
+          "bike": 2529
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 79587,
+          "bike": 2368
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 76144,
+          "bike": 2240
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 82159,
+          "bike": 2734
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 84809,
+          "bike": 2613
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 80546,
+          "bike": 2410
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 76907,
+          "bike": 2340
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 74051,
+          "bike": 2180
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 73245,
+          "bike": 2083
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 76185,
+          "bike": 2351
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 71039,
+          "bike": 1979
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 77804,
+          "bike": 2312
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 75147,
+          "bike": 2255
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 72952,
+          "bike": 2104
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 74399,
+          "bike": 1946
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 75265,
+          "bike": 2268
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 64115,
+          "bike": 1774
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 73855,
+          "bike": 1964
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 73624,
+          "bike": 1930
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 73954,
+          "bike": 1897
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 81175,
+          "bike": 1829
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 93878,
+          "bike": 2084
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 73656,
+          "bike": 1517
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 77585,
+          "bike": 1361
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 65632,
+          "bike": 1643
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 68144,
+          "bike": 1829
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 59612,
+          "bike": 1562
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 63616,
+          "bike": 1411
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 61782,
+          "bike": 1248
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 68546,
+          "bike": 1414
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 70503,
+          "bike": 1447
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 74671,
+          "bike": 1981
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 75501,
+          "bike": 1918
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 71689,
+          "bike": 1872
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 81074,
+          "bike": 2130
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 70844,
+          "bike": 1760
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 73725,
+          "bike": 1680
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 73706,
+          "bike": 1737
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 74138,
+          "bike": 1999
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 80936,
+          "bike": 2443
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 78339,
+          "bike": 2386
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 78372,
+          "bike": 2288
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 73950,
+          "bike": 2190
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 80767,
+          "bike": 2505
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 88161,
+          "bike": 2977
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 72683,
+          "bike": 2022
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 75680,
+          "bike": 2175
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 81340,
+          "bike": 2445
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 86283,
+          "bike": 2966
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 80048,
+          "bike": 2462
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 22900,
+          "bike": 824
+        }
+      ]
+    },
+    "3771": {
+      "sensorId": "3771",
+      "countlineIds": [
+        "45118",
+        "45119",
+        "45120",
+        "45122"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-05-26",
+          "pedestrian": 7660,
+          "bike": 343
+        },
+        {
+          "weekKey": "2025-06-02",
+          "pedestrian": 55687,
+          "bike": 3228
+        },
+        {
+          "weekKey": "2025-06-09",
+          "pedestrian": 55842,
+          "bike": 3147
+        },
+        {
+          "weekKey": "2025-06-16",
+          "pedestrian": 58048,
+          "bike": 3921
+        },
+        {
+          "weekKey": "2025-06-23",
+          "pedestrian": 68182,
+          "bike": 3870
+        },
+        {
+          "weekKey": "2025-06-30",
+          "pedestrian": 64033,
+          "bike": 3543
+        },
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 54704,
+          "bike": 3661
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 57168,
+          "bike": 3270
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 57237,
+          "bike": 3358
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 55921,
+          "bike": 3303
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 55125,
+          "bike": 3333
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 52250,
+          "bike": 3636
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 58897,
+          "bike": 3709
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 62242,
+          "bike": 3649
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 55397,
+          "bike": 3597
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 53635,
+          "bike": 3702
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 54020,
+          "bike": 3600
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 53075,
+          "bike": 3842
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 52649,
+          "bike": 3291
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 56313,
+          "bike": 3783
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 55904,
+          "bike": 3590
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 55104,
+          "bike": 3449
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 55214,
+          "bike": 3090
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 57092,
+          "bike": 3469
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 54853,
+          "bike": 2914
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 63301,
+          "bike": 3388
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 64153,
+          "bike": 3258
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 63238,
+          "bike": 3134
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 67806,
+          "bike": 3240
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 75425,
+          "bike": 3427
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 60819,
+          "bike": 2449
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 60368,
+          "bike": 2371
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 50530,
+          "bike": 2661
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 53128,
+          "bike": 2908
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 49167,
+          "bike": 2519
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 47613,
+          "bike": 2547
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 47645,
+          "bike": 2507
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 51533,
+          "bike": 2676
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 53422,
+          "bike": 2643
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 53205,
+          "bike": 3260
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 53116,
+          "bike": 3588
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 53465,
+          "bike": 3118
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 55393,
+          "bike": 3481
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 53214,
+          "bike": 3354
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 55487,
+          "bike": 3095
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 56318,
+          "bike": 3243
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 52915,
+          "bike": 3683
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 54276,
+          "bike": 3982
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 56515,
+          "bike": 4086
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 56475,
+          "bike": 4037
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 52506,
+          "bike": 3692
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 51570,
+          "bike": 3724
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 54439,
+          "bike": 4251
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 53701,
+          "bike": 3186
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 52904,
+          "bike": 3764
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 58819,
+          "bike": 4152
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 63163,
+          "bike": 4576
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 56896,
+          "bike": 3998
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 16274,
+          "bike": 1192
+        }
+      ]
+    },
+    "4158": {
+      "sensorId": "4158",
+      "countlineIds": [
+        "45111",
+        "45112",
+        "45113"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-05-26",
+          "pedestrian": 3293,
+          "bike": 227
+        },
+        {
+          "weekKey": "2025-06-02",
+          "pedestrian": 25941,
+          "bike": 2027
+        },
+        {
+          "weekKey": "2025-06-09",
+          "pedestrian": 25285,
+          "bike": 1828
+        },
+        {
+          "weekKey": "2025-06-16",
+          "pedestrian": 27456,
+          "bike": 2348
+        },
+        {
+          "weekKey": "2025-06-23",
+          "pedestrian": 26924,
+          "bike": 2095
+        },
+        {
+          "weekKey": "2025-06-30",
+          "pedestrian": 26387,
+          "bike": 2148
+        },
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 27504,
+          "bike": 2752
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 24548,
+          "bike": 2042
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 25922,
+          "bike": 1956
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 25256,
+          "bike": 2047
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 24633,
+          "bike": 2010
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 26563,
+          "bike": 2623
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 26631,
+          "bike": 2367
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 26124,
+          "bike": 2213
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 26711,
+          "bike": 2111
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 25590,
+          "bike": 2209
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 26633,
+          "bike": 2021
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 27268,
+          "bike": 2189
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 25580,
+          "bike": 1817
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 28271,
+          "bike": 2155
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 27434,
+          "bike": 2020
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 25953,
+          "bike": 1835
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 24381,
+          "bike": 1708
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 26951,
+          "bike": 1985
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 23258,
+          "bike": 1493
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 24639,
+          "bike": 1734
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 23474,
+          "bike": 1649
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 22261,
+          "bike": 1629
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 23019,
+          "bike": 1653
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 24869,
+          "bike": 1789
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 19007,
+          "bike": 1293
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 21703,
+          "bike": 1055
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 21443,
+          "bike": 1390
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 22997,
+          "bike": 1616
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 20366,
+          "bike": 1345
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 22974,
+          "bike": 863
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 21716,
+          "bike": 959
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 24394,
+          "bike": 1182
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 25099,
+          "bike": 1296
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 26118,
+          "bike": 1473
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 27627,
+          "bike": 1696
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 25030,
+          "bike": 1415
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 28617,
+          "bike": 1857
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 26591,
+          "bike": 1680
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 24648,
+          "bike": 1579
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 25170,
+          "bike": 1524
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 25585,
+          "bike": 1886
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 28152,
+          "bike": 2132
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 27207,
+          "bike": 2144
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 26830,
+          "bike": 2125
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 25196,
+          "bike": 1756
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 27464,
+          "bike": 2186
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 28772,
+          "bike": 2553
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 24159,
+          "bike": 1614
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 26126,
+          "bike": 1954
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 26385,
+          "bike": 2214
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 28300,
+          "bike": 2568
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 26376,
+          "bike": 2149
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 7774,
+          "bike": 830
+        }
+      ]
+    },
+    "4159": {
+      "sensorId": "4159",
+      "countlineIds": [
+        "45114",
+        "45115",
+        "45116",
+        "45117"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-05-26",
+          "pedestrian": 6561,
+          "bike": 480
+        },
+        {
+          "weekKey": "2025-06-02",
+          "pedestrian": 52187,
+          "bike": 3030
+        },
+        {
+          "weekKey": "2025-06-09",
+          "pedestrian": 52066,
+          "bike": 2806
+        },
+        {
+          "weekKey": "2025-06-16",
+          "pedestrian": 62238,
+          "bike": 4715
+        },
+        {
+          "weekKey": "2025-06-23",
+          "pedestrian": 57287,
+          "bike": 3724
+        },
+        {
+          "weekKey": "2025-06-30",
+          "pedestrian": 54065,
+          "bike": 3393
+        },
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 62007,
+          "bike": 6186
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 52633,
+          "bike": 3048
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 53675,
+          "bike": 3392
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 53952,
+          "bike": 3574
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 53135,
+          "bike": 3568
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 62200,
+          "bike": 5503
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 58271,
+          "bike": 4088
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 58170,
+          "bike": 3357
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 60558,
+          "bike": 3296
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 54877,
+          "bike": 2985
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 61078,
+          "bike": 2921
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 65391,
+          "bike": 3467
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 60761,
+          "bike": 2667
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 66081,
+          "bike": 3451
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 64253,
+          "bike": 3063
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 60271,
+          "bike": 2726
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 50248,
+          "bike": 2419
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 61446,
+          "bike": 2950
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 55249,
+          "bike": 2864
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 60258,
+          "bike": 2705
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 57329,
+          "bike": 2430
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 55553,
+          "bike": 2214
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 58323,
+          "bike": 2328
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 62523,
+          "bike": 2578
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 45866,
+          "bike": 1865
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 44533,
+          "bike": 1719
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 52380,
+          "bike": 1808
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 53068,
+          "bike": 2347
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 49865,
+          "bike": 1916
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 52039,
+          "bike": 2069
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 44181,
+          "bike": 2037
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 53920,
+          "bike": 2086
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 50568,
+          "bike": 2235
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 62915,
+          "bike": 2879
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 63986,
+          "bike": 3176
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 60579,
+          "bike": 2343
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 76925,
+          "bike": 3378
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 61679,
+          "bike": 2739
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 53292,
+          "bike": 2488
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 56799,
+          "bike": 2720
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 62705,
+          "bike": 3270
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 65104,
+          "bike": 3938
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 60641,
+          "bike": 3618
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 59057,
+          "bike": 3801
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 56461,
+          "bike": 2960
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 53455,
+          "bike": 4173
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 62183,
+          "bike": 4977
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 48704,
+          "bike": 2432
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 53041,
+          "bike": 2842
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 55486,
+          "bike": 3458
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 62106,
+          "bike": 5479
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 55622,
+          "bike": 3660
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 15899,
+          "bike": 1583
+        }
+      ]
+    },
+    "7487": {
+      "sensorId": "7487",
+      "countlineIds": [
+        "52453",
+        "52454",
+        "52455",
+        "54454",
+        "54455"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-05-26",
+          "pedestrian": 430,
+          "bike": 76
+        },
+        {
+          "weekKey": "2025-06-02",
+          "pedestrian": 6303,
+          "bike": 1139
+        },
+        {
+          "weekKey": "2025-06-09",
+          "pedestrian": 6930,
+          "bike": 1167
+        },
+        {
+          "weekKey": "2025-06-16",
+          "pedestrian": 7882,
+          "bike": 1301
+        },
+        {
+          "weekKey": "2025-06-23",
+          "pedestrian": 9422,
+          "bike": 1255
+        },
+        {
+          "weekKey": "2025-06-30",
+          "pedestrian": 13337,
+          "bike": 1121
+        },
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 15538,
+          "bike": 1218
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 16236,
+          "bike": 1127
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 13609,
+          "bike": 1047
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 10623,
+          "bike": 1048
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 6707,
+          "bike": 881
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 7131,
+          "bike": 1203
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 6336,
+          "bike": 1099
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 6899,
+          "bike": 1138
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 8738,
+          "bike": 1062
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 31775,
+          "bike": 1481
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 36696,
+          "bike": 1679
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 36457,
+          "bike": 1708
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 33642,
+          "bike": 1484
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 33574,
+          "bike": 1801
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 32722,
+          "bike": 1658
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 24599,
+          "bike": 1363
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 23254,
+          "bike": 1062
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 31339,
+          "bike": 1512
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 32508,
+          "bike": 1204
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 26931,
+          "bike": 1400
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 24726,
+          "bike": 1239
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 11896,
+          "bike": 932
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 12201,
+          "bike": 988
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 9765,
+          "bike": 760
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 2376,
+          "bike": 318
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 2756,
+          "bike": 342
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 6482,
+          "bike": 673
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 28935,
+          "bike": 1324
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 26176,
+          "bike": 1078
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 25869,
+          "bike": 989
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 21019,
+          "bike": 764
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 26798,
+          "bike": 1042
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 25567,
+          "bike": 951
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 13651,
+          "bike": 1114
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 27875,
+          "bike": 1447
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 23750,
+          "bike": 1214
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 18583,
+          "bike": 1189
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 24967,
+          "bike": 1365
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 18193,
+          "bike": 1143
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 13237,
+          "bike": 1064
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 13492,
+          "bike": 1311
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 14933,
+          "bike": 1485
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 12976,
+          "bike": 1406
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 12044,
+          "bike": 1051
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 11884,
+          "bike": 1123
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 8968,
+          "bike": 1187
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 8158,
+          "bike": 1342
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 5943,
+          "bike": 918
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 8430,
+          "bike": 957
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 7104,
+          "bike": 1018
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 8899,
+          "bike": 1032
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 11299,
+          "bike": 921
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 5183,
+          "bike": 313
+        }
+      ]
+    },
+    "8479": {
+      "sensorId": "8479",
+      "countlineIds": [
+        "54221",
+        "54222"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-05-26",
+          "pedestrian": 8755,
+          "bike": 115
+        },
+        {
+          "weekKey": "2025-06-02",
+          "pedestrian": 37940,
+          "bike": 574
+        },
+        {
+          "weekKey": "2025-06-09",
+          "pedestrian": 36227,
+          "bike": 558
+        },
+        {
+          "weekKey": "2025-06-16",
+          "pedestrian": 56466,
+          "bike": 870
+        },
+        {
+          "weekKey": "2025-06-23",
+          "pedestrian": 44065,
+          "bike": 608
+        },
+        {
+          "weekKey": "2025-06-30",
+          "pedestrian": 44624,
+          "bike": 616
+        },
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 67251,
+          "bike": 969
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 39844,
+          "bike": 619
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 42834,
+          "bike": 626
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 47238,
+          "bike": 789
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 51007,
+          "bike": 700
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 62290,
+          "bike": 950
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 45622,
+          "bike": 702
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 37834,
+          "bike": 657
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 33695,
+          "bike": 609
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 29201,
+          "bike": 609
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 30144,
+          "bike": 491
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 37183,
+          "bike": 738
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 25732,
+          "bike": 501
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 33472,
+          "bike": 593
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 28449,
+          "bike": 586
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 24377,
+          "bike": 489
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 36329,
+          "bike": 595
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 32465,
+          "bike": 665
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 19323,
+          "bike": 789
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 20814,
+          "bike": 877
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 22658,
+          "bike": 510
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 18866,
+          "bike": 442
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 18671,
+          "bike": 692
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 20823,
+          "bike": 602
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 41294,
+          "bike": 728
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 34746,
+          "bike": 759
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 21432,
+          "bike": 731
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 30932,
+          "bike": 513
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 17386,
+          "bike": 619
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 22142,
+          "bike": 739
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 23718,
+          "bike": 876
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 17999,
+          "bike": 1275
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 30657,
+          "bike": 539
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 33577,
+          "bike": 512
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 44439,
+          "bike": 668
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 25637,
+          "bike": 429
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 50101,
+          "bike": 682
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 26587,
+          "bike": 367
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 33082,
+          "bike": 452
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 37639,
+          "bike": 479
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 39246,
+          "bike": 503
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 49412,
+          "bike": 647
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 39869,
+          "bike": 559
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 44650,
+          "bike": 615
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 26915,
+          "bike": 378
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 43585,
+          "bike": 715
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 50724,
+          "bike": 881
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 30231,
+          "bike": 507
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 38489,
+          "bike": 563
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 44433,
+          "bike": 681
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 52775,
+          "bike": 895
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 42293,
+          "bike": 666
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 13117,
+          "bike": 226
+        }
+      ]
+    },
+    "9510": {
+      "sensorId": "9510",
+      "countlineIds": [
+        "55429",
+        "55430",
+        "55431",
+        "55426",
+        "55427",
+        "55428"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-06-02",
+          "pedestrian": 608,
+          "bike": 40
+        },
+        {
+          "weekKey": "2025-06-09",
+          "pedestrian": 830,
+          "bike": 77
+        },
+        {
+          "weekKey": "2025-06-16",
+          "pedestrian": 1202,
+          "bike": 85
+        },
+        {
+          "weekKey": "2025-06-23",
+          "pedestrian": 1274,
+          "bike": 153
+        },
+        {
+          "weekKey": "2025-06-30",
+          "pedestrian": 1879,
+          "bike": 215
+        },
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 1373,
+          "bike": 313
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 1685,
+          "bike": 407
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 1041,
+          "bike": 500
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 2923,
+          "bike": 346
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 1457,
+          "bike": 311
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 2658,
+          "bike": 282
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 2426,
+          "bike": 368
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 2219,
+          "bike": 504
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 1750,
+          "bike": 302
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 1886,
+          "bike": 193
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 1737,
+          "bike": 236
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 2000,
+          "bike": 95
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 501,
+          "bike": 62
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 425,
+          "bike": 21
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 190,
+          "bike": 10
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 66,
+          "bike": 4
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 166,
+          "bike": 20
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 103,
+          "bike": 28
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 245,
+          "bike": 12
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 274,
+          "bike": 33
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 363,
+          "bike": 13
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 346,
+          "bike": 163
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 679,
+          "bike": 387
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 438,
+          "bike": 308
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 72,
+          "bike": 34
+        }
+      ]
+    },
+    "9646": {
+      "sensorId": "9646",
+      "countlineIds": [
+        "56214",
+        "56215"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 2962,
+          "bike": 373
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 3333,
+          "bike": 400
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 3670,
+          "bike": 512
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 3657,
+          "bike": 557
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 3910,
+          "bike": 535
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 4490,
+          "bike": 587
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 4529,
+          "bike": 616
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 4443,
+          "bike": 500
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 4907,
+          "bike": 591
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 3983,
+          "bike": 470
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 4675,
+          "bike": 658
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 4417,
+          "bike": 525
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 3877,
+          "bike": 430
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 3312,
+          "bike": 323
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 3944,
+          "bike": 456
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 3700,
+          "bike": 377
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 4247,
+          "bike": 372
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 4069,
+          "bike": 320
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 3763,
+          "bike": 326
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 3705,
+          "bike": 353
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 3752,
+          "bike": 355
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 2670,
+          "bike": 226
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 2953,
+          "bike": 249
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 3604,
+          "bike": 286
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 3810,
+          "bike": 376
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 3466,
+          "bike": 281
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 3208,
+          "bike": 305
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 3192,
+          "bike": 278
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 3624,
+          "bike": 340
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 3179,
+          "bike": 347
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 3964,
+          "bike": 439
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 3854,
+          "bike": 492
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 3753,
+          "bike": 424
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 3811,
+          "bike": 461
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 1192,
+          "bike": 163
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 3393,
+          "bike": 395
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 3433,
+          "bike": 505
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 4241,
+          "bike": 531
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 4376,
+          "bike": 699
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 4258,
+          "bike": 744
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 4047,
+          "bike": 615
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 4043,
+          "bike": 590
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 4193,
+          "bike": 608
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 4378,
+          "bike": 735
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 3621,
+          "bike": 440
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 4013,
+          "bike": 662
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 4002,
+          "bike": 620
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 3743,
+          "bike": 754
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 3615,
+          "bike": 573
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 1142,
+          "bike": 192
+        }
+      ]
+    },
+    "9658": {
+      "sensorId": "9658",
+      "countlineIds": [
+        "56210",
+        "56211",
+        "56212",
+        "56213"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 2922,
+          "bike": 1914
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 3370,
+          "bike": 2194
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 3951,
+          "bike": 2763
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 3693,
+          "bike": 2606
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 3826,
+          "bike": 2489
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 3732,
+          "bike": 2283
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 3520,
+          "bike": 2416
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 3235,
+          "bike": 2153
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 4000,
+          "bike": 2172
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 3351,
+          "bike": 2195
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 3759,
+          "bike": 2427
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 3657,
+          "bike": 2260
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 2963,
+          "bike": 1933
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 2979,
+          "bike": 1662
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 3031,
+          "bike": 1926
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 2575,
+          "bike": 1606
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 2974,
+          "bike": 1819
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 2857,
+          "bike": 1831
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 2711,
+          "bike": 1677
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 2639,
+          "bike": 1645
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 2667,
+          "bike": 1764
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 2745,
+          "bike": 1175
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 3111,
+          "bike": 1210
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 2621,
+          "bike": 1241
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 3140,
+          "bike": 1655
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 2348,
+          "bike": 1226
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 1685,
+          "bike": 1229
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 1526,
+          "bike": 960
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 1586,
+          "bike": 1198
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 1988,
+          "bike": 1358
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 2590,
+          "bike": 1923
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 2918,
+          "bike": 2302
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 2402,
+          "bike": 1983
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 3056,
+          "bike": 2219
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 2505,
+          "bike": 2168
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 2551,
+          "bike": 1996
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 2821,
+          "bike": 2332
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 2890,
+          "bike": 2739
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 3048,
+          "bike": 3181
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 3087,
+          "bike": 3116
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 2883,
+          "bike": 2930
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 2634,
+          "bike": 2887
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 2873,
+          "bike": 2992
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 3221,
+          "bike": 3379
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 2544,
+          "bike": 2326
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 2890,
+          "bike": 2798
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 2932,
+          "bike": 2974
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 2927,
+          "bike": 3058
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 2943,
+          "bike": 2879
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 954,
+          "bike": 1012
+        }
+      ]
+    },
+    "9712": {
+      "sensorId": "9712",
+      "countlineIds": [
+        "56598",
+        "56599",
+        "56600",
+        "57751",
+        "56601",
+        "56602",
+        "56603",
+        "56604",
+        "57752"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 67674,
+          "bike": 12233
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 103019,
+          "bike": 21440
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 106427,
+          "bike": 21839
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 105514,
+          "bike": 21690
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 114238,
+          "bike": 21562
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 120151,
+          "bike": 23156
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 109233,
+          "bike": 20840
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 115346,
+          "bike": 23519
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 118196,
+          "bike": 23265
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 110434,
+          "bike": 21809
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 100066,
+          "bike": 18897
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 109973,
+          "bike": 21464
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 103844,
+          "bike": 18314
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 114322,
+          "bike": 22835
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 124738,
+          "bike": 33703
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 116406,
+          "bike": 31306
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 119118,
+          "bike": 30889
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 116305,
+          "bike": 31843
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 69010,
+          "bike": 18568
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 78775,
+          "bike": 17569
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 95431,
+          "bike": 25371
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 104348,
+          "bike": 30362
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 96500,
+          "bike": 26429
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 95590,
+          "bike": 25505
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 87491,
+          "bike": 21692
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 107365,
+          "bike": 27091
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 104463,
+          "bike": 27383
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 113275,
+          "bike": 33563
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 119534,
+          "bike": 33423
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 116550,
+          "bike": 32287
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 117642,
+          "bike": 31109
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 117667,
+          "bike": 32974
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 113852,
+          "bike": 31173
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 125220,
+          "bike": 34539
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 122551,
+          "bike": 36928
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 127108,
+          "bike": 39584
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 125687,
+          "bike": 40952
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 112736,
+          "bike": 36925
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 120955,
+          "bike": 36974
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 124641,
+          "bike": 39459
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 133302,
+          "bike": 42436
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 103419,
+          "bike": 33938
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 112998,
+          "bike": 36908
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 128837,
+          "bike": 38393
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 146661,
+          "bike": 41553
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 130017,
+          "bike": 39266
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 35226,
+          "bike": 13295
+        }
+      ]
+    },
+    "9713": {
+      "sensorId": "9713",
+      "countlineIds": [
+        "55997",
+        "55998",
+        "55999",
+        "56000",
+        "56001",
+        "58165"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 11128,
+          "bike": 9498
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 17139,
+          "bike": 20419
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 19884,
+          "bike": 21108
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 19788,
+          "bike": 19925
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 20544,
+          "bike": 17900
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 29375,
+          "bike": 20806
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 23968,
+          "bike": 20417
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 20620,
+          "bike": 18978
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 21548,
+          "bike": 19351
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 20747,
+          "bike": 17394
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 22040,
+          "bike": 14997
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 148,
+          "bike": 122
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 20256,
+          "bike": 12423
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 19667,
+          "bike": 12067
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 20480,
+          "bike": 12618
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 18942,
+          "bike": 11561
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 18036,
+          "bike": 10673
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 19048,
+          "bike": 10780
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 20237,
+          "bike": 15058
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 15184,
+          "bike": 10923
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 15898,
+          "bike": 10182
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 21000,
+          "bike": 15271
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 24036,
+          "bike": 17823
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 21837,
+          "bike": 15177
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 22917,
+          "bike": 15403
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 19443,
+          "bike": 12796
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 23063,
+          "bike": 15535
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 23759,
+          "bike": 17012
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 27296,
+          "bike": 21126
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 28211,
+          "bike": 21133
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 27038,
+          "bike": 20928
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 27200,
+          "bike": 20480
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 28601,
+          "bike": 21729
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 24343,
+          "bike": 20489
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 27707,
+          "bike": 22488
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 29216,
+          "bike": 24631
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 32028,
+          "bike": 26871
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 59049,
+          "bike": 26964
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 27126,
+          "bike": 25232
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 28201,
+          "bike": 25429
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 29292,
+          "bike": 26925
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 30051,
+          "bike": 28991
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 24184,
+          "bike": 22223
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 26574,
+          "bike": 24756
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 32060,
+          "bike": 26532
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 39302,
+          "bike": 28705
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 33265,
+          "bike": 26989
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 7872,
+          "bike": 8905
+        }
+      ]
+    },
+    "9714": {
+      "sensorId": "9714",
+      "countlineIds": [
+        "56002",
+        "56003",
+        "56004"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-07-07",
+          "pedestrian": 11587,
+          "bike": 5193
+        },
+        {
+          "weekKey": "2025-07-14",
+          "pedestrian": 19997,
+          "bike": 10480
+        },
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 18964,
+          "bike": 10095
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 17366,
+          "bike": 10415
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 17217,
+          "bike": 9592
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 26223,
+          "bike": 11506
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 21024,
+          "bike": 10944
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 17271,
+          "bike": 10573
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 17519,
+          "bike": 10606
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 17744,
+          "bike": 10390
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 18232,
+          "bike": 10259
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 160,
+          "bike": 82
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 16880,
+          "bike": 8807
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 16976,
+          "bike": 8544
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 17327,
+          "bike": 9148
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 16957,
+          "bike": 9131
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 16443,
+          "bike": 8467
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 17120,
+          "bike": 7974
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 15828,
+          "bike": 8260
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 11307,
+          "bike": 4891
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 11641,
+          "bike": 4582
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 14268,
+          "bike": 6365
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 16882,
+          "bike": 8247
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 15356,
+          "bike": 6845
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 16119,
+          "bike": 6359
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 14397,
+          "bike": 5611
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 16048,
+          "bike": 6772
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 16442,
+          "bike": 7326
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 15857,
+          "bike": 9755
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 17242,
+          "bike": 9454
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 17507,
+          "bike": 9394
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 19508,
+          "bike": 8988
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 20219,
+          "bike": 9582
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 17717,
+          "bike": 8925
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 19272,
+          "bike": 9849
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 19818,
+          "bike": 10655
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 20657,
+          "bike": 11242
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 22583,
+          "bike": 11604
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 17939,
+          "bike": 10578
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 18964,
+          "bike": 10711
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 19427,
+          "bike": 11381
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 19740,
+          "bike": 12244
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 16989,
+          "bike": 9476
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 17971,
+          "bike": 10721
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 22138,
+          "bike": 11232
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 27614,
+          "bike": 12017
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 22911,
+          "bike": 11562
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 5170,
+          "bike": 3783
+        }
+      ]
+    },
+    "9716": {
+      "sensorId": "9716",
+      "countlineIds": [
+        "56612",
+        "56613",
+        "56614",
+        "56615",
+        "56616"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 4299,
+          "bike": 3302
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 9135,
+          "bike": 14340
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 9703,
+          "bike": 14332
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 8844,
+          "bike": 13713
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 7538,
+          "bike": 9814
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 11213,
+          "bike": 13446
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 8747,
+          "bike": 11906
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 9728,
+          "bike": 15390
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 9202,
+          "bike": 14279
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 8070,
+          "bike": 12694
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 7525,
+          "bike": 10631
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 8302,
+          "bike": 12328
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 6775,
+          "bike": 9373
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 8059,
+          "bike": 12076
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 7594,
+          "bike": 11166
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 6830,
+          "bike": 8932
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 6836,
+          "bike": 8888
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 6645,
+          "bike": 9368
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 5133,
+          "bike": 4802
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 5662,
+          "bike": 4775
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 6498,
+          "bike": 7371
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 7556,
+          "bike": 8390
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 6270,
+          "bike": 8014
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 6690,
+          "bike": 7457
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 6936,
+          "bike": 6866
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 6892,
+          "bike": 8813
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 7755,
+          "bike": 9360
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 8762,
+          "bike": 12315
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 9821,
+          "bike": 13005
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 8443,
+          "bike": 12365
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 9356,
+          "bike": 12170
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 8712,
+          "bike": 13674
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 8724,
+          "bike": 12149
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 9191,
+          "bike": 13064
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 10076,
+          "bike": 15015
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 11560,
+          "bike": 16327
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 11129,
+          "bike": 16517
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 10554,
+          "bike": 15117
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 9250,
+          "bike": 15616
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 11034,
+          "bike": 16857
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 11856,
+          "bike": 17728
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 8547,
+          "bike": 13349
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 9483,
+          "bike": 15315
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 14043,
+          "bike": 16346
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 18129,
+          "bike": 17514
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 12162,
+          "bike": 16798
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 3257,
+          "bike": 5602
+        }
+      ]
+    },
+    "9719": {
+      "sensorId": "9719",
+      "countlineIds": [
+        "57361",
+        "57362",
+        "57363"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 168,
+          "bike": 2709
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 363,
+          "bike": 4724
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 484,
+          "bike": 6187
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 374,
+          "bike": 5236
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 202,
+          "bike": 2824
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 538,
+          "bike": 4399
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 326,
+          "bike": 4683
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 289,
+          "bike": 3544
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 388,
+          "bike": 4667
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 356,
+          "bike": 3799
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 359,
+          "bike": 3826
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 374,
+          "bike": 4237
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 263,
+          "bike": 5344
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 297,
+          "bike": 3150
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 271,
+          "bike": 2236
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 355,
+          "bike": 2767
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 250,
+          "bike": 2397
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 346,
+          "bike": 3518
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 594,
+          "bike": 6154
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 730,
+          "bike": 6737
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 540,
+          "bike": 5718
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 733,
+          "bike": 8135
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 576,
+          "bike": 6441
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 580,
+          "bike": 6191
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 574,
+          "bike": 7169
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 628,
+          "bike": 8642
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 598,
+          "bike": 10883
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 12161,
+          "bike": 9374
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 730,
+          "bike": 10742
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 372,
+          "bike": 5626
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 598,
+          "bike": 10182
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 806,
+          "bike": 13270
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 603,
+          "bike": 7021
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 759,
+          "bike": 8562
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 757,
+          "bike": 11138
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 756,
+          "bike": 14489
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 945,
+          "bike": 10534
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 203,
+          "bike": 4132
+        }
+      ]
+    },
+    "9739": {
+      "sensorId": "9739",
+      "countlineIds": [
+        "56189",
+        "56190"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-07-21",
+          "pedestrian": 656,
+          "bike": 306
+        },
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 1961,
+          "bike": 1120
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 8,
+          "bike": 12
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 1792,
+          "bike": 894
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 1936,
+          "bike": 882
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 1647,
+          "bike": 817
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 2010,
+          "bike": 1211
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 1894,
+          "bike": 1131
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 1021,
+          "bike": 572
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 1070,
+          "bike": 492
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 1324,
+          "bike": 672
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 1430,
+          "bike": 648
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 1426,
+          "bike": 629
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 1467,
+          "bike": 692
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 1628,
+          "bike": 807
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 1996,
+          "bike": 1065
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 2066,
+          "bike": 1253
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 1855,
+          "bike": 1085
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 2277,
+          "bike": 1231
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 1839,
+          "bike": 1204
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 1907,
+          "bike": 1093
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 1988,
+          "bike": 1202
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 2182,
+          "bike": 1503
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 2311,
+          "bike": 1700
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 2362,
+          "bike": 1615
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 2201,
+          "bike": 1527
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 1837,
+          "bike": 1435
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 2006,
+          "bike": 1469
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 2286,
+          "bike": 1615
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 1706,
+          "bike": 1135
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 2033,
+          "bike": 1412
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 1965,
+          "bike": 1499
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 1973,
+          "bike": 1442
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 2076,
+          "bike": 1361
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 662,
+          "bike": 484
+        }
+      ]
+    },
+    "9740": {
+      "sensorId": "9740",
+      "countlineIds": [
+        "56208",
+        "56209"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-07-28",
+          "pedestrian": 1737,
+          "bike": 845
+        },
+        {
+          "weekKey": "2025-08-04",
+          "pedestrian": 2107,
+          "bike": 1008
+        },
+        {
+          "weekKey": "2025-08-11",
+          "pedestrian": 2143,
+          "bike": 1187
+        },
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 2182,
+          "bike": 1224
+        },
+        {
+          "weekKey": "2025-08-25",
+          "pedestrian": 2067,
+          "bike": 1024
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 16,
+          "bike": 7
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 2076,
+          "bike": 958
+        },
+        {
+          "weekKey": "2025-09-22",
+          "pedestrian": 2285,
+          "bike": 1121
+        },
+        {
+          "weekKey": "2025-09-29",
+          "pedestrian": 1823,
+          "bike": 822
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 2266,
+          "bike": 1044
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 2382,
+          "bike": 987
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 2018,
+          "bike": 855
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 1946,
+          "bike": 760
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 2114,
+          "bike": 921
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 1753,
+          "bike": 751
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 1964,
+          "bike": 815
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 1902,
+          "bike": 867
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 1978,
+          "bike": 800
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 1905,
+          "bike": 696
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 1954,
+          "bike": 798
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 1771,
+          "bike": 499
+        },
+        {
+          "weekKey": "2025-12-29",
+          "pedestrian": 1868,
+          "bike": 493
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 2073,
+          "bike": 618
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 2215,
+          "bike": 807
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 1969,
+          "bike": 600
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 1994,
+          "bike": 689
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 1731,
+          "bike": 517
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 1906,
+          "bike": 627
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 2058,
+          "bike": 631
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 2244,
+          "bike": 736
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 2280,
+          "bike": 928
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 2161,
+          "bike": 801
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 2637,
+          "bike": 859
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 2278,
+          "bike": 851
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 2238,
+          "bike": 830
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 2328,
+          "bike": 897
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 2483,
+          "bike": 1048
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 2549,
+          "bike": 1307
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 2710,
+          "bike": 1431
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 2331,
+          "bike": 1254
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 2293,
+          "bike": 1192
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 2407,
+          "bike": 1181
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 2692,
+          "bike": 1300
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 2080,
+          "bike": 928
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 2311,
+          "bike": 1098
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 2336,
+          "bike": 1233
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 2219,
+          "bike": 1168
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 2330,
+          "bike": 1147
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 768,
+          "bike": 357
+        }
+      ]
+    },
+    "9741": {
+      "sensorId": "9741",
+      "countlineIds": [
+        "56216",
+        "56217"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2025-08-18",
+          "pedestrian": 122,
+          "bike": 34
+        },
+        {
+          "weekKey": "2025-09-01",
+          "pedestrian": 13,
+          "bike": 7
+        },
+        {
+          "weekKey": "2025-09-08",
+          "pedestrian": 5,
+          "bike": 2
+        },
+        {
+          "weekKey": "2025-09-15",
+          "pedestrian": 5,
+          "bike": 1
+        },
+        {
+          "weekKey": "2025-10-06",
+          "pedestrian": 83,
+          "bike": 13
+        },
+        {
+          "weekKey": "2025-10-13",
+          "pedestrian": 47,
+          "bike": 6
+        },
+        {
+          "weekKey": "2025-10-20",
+          "pedestrian": 1466,
+          "bike": 137
+        },
+        {
+          "weekKey": "2025-10-27",
+          "pedestrian": 4682,
+          "bike": 337
+        },
+        {
+          "weekKey": "2025-11-03",
+          "pedestrian": 6369,
+          "bike": 777
+        },
+        {
+          "weekKey": "2025-11-10",
+          "pedestrian": 5432,
+          "bike": 629
+        },
+        {
+          "weekKey": "2025-11-17",
+          "pedestrian": 5617,
+          "bike": 582
+        },
+        {
+          "weekKey": "2025-11-24",
+          "pedestrian": 5684,
+          "bike": 588
+        },
+        {
+          "weekKey": "2025-12-01",
+          "pedestrian": 5150,
+          "bike": 570
+        },
+        {
+          "weekKey": "2025-12-08",
+          "pedestrian": 2600,
+          "bike": 309
+        },
+        {
+          "weekKey": "2025-12-15",
+          "pedestrian": 1057,
+          "bike": 87
+        },
+        {
+          "weekKey": "2025-12-22",
+          "pedestrian": 24,
+          "bike": 2
+        },
+        {
+          "weekKey": "2026-01-05",
+          "pedestrian": 4,
+          "bike": 3
+        },
+        {
+          "weekKey": "2026-01-12",
+          "pedestrian": 4508,
+          "bike": 479
+        },
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 5386,
+          "bike": 535
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 5535,
+          "bike": 511
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 4785,
+          "bike": 464
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 5298,
+          "bike": 609
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 4589,
+          "bike": 342
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 6580,
+          "bike": 682
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 7475,
+          "bike": 802
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 2010,
+          "bike": 308
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 20,
+          "bike": 5
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 301,
+          "bike": 48
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 192,
+          "bike": 27
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 14,
+          "bike": 6
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 1595,
+          "bike": 146
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 7675,
+          "bike": 1080
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 7094,
+          "bike": 1078
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 6389,
+          "bike": 846
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 6141,
+          "bike": 985
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 6511,
+          "bike": 942
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 7118,
+          "bike": 1001
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 5041,
+          "bike": 643
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 1966,
+          "bike": 252
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 5470,
+          "bike": 778
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 6068,
+          "bike": 974
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 2399,
+          "bike": 322
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 1623,
+          "bike": 184
+        }
+      ]
+    },
+    "10849": {
+      "sensorId": "10849",
+      "countlineIds": [
+        "58478",
+        "58479",
+        "58480",
+        "58481",
+        "58477"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 1664,
+          "bike": 242
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 2343,
+          "bike": 2034
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 2283,
+          "bike": 1524
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 3535,
+          "bike": 797
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 4838,
+          "bike": 654
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 4134,
+          "bike": 483
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 3402,
+          "bike": 329
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 3433,
+          "bike": 302
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 2881,
+          "bike": 375
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 5087,
+          "bike": 424
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 4108,
+          "bike": 467
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 3255,
+          "bike": 531
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 3479,
+          "bike": 536
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 5059,
+          "bike": 675
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 3497,
+          "bike": 624
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 3971,
+          "bike": 550
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 3151,
+          "bike": 500
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 3997,
+          "bike": 601
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 2616,
+          "bike": 611
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 2601,
+          "bike": 440
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 4257,
+          "bike": 626
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 2453,
+          "bike": 501
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 2820,
+          "bike": 707
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 2977,
+          "bike": 574
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 901,
+          "bike": 180
+        }
+      ]
+    },
+    "10851": {
+      "sensorId": "10851",
+      "countlineIds": [
+        "58482",
+        "58483",
+        "58484"
+      ],
+      "weekly": [
+        {
+          "weekKey": "2026-01-19",
+          "pedestrian": 2578,
+          "bike": 425
+        },
+        {
+          "weekKey": "2026-01-26",
+          "pedestrian": 4333,
+          "bike": 725
+        },
+        {
+          "weekKey": "2026-02-02",
+          "pedestrian": 3773,
+          "bike": 666
+        },
+        {
+          "weekKey": "2026-02-09",
+          "pedestrian": 4492,
+          "bike": 755
+        },
+        {
+          "weekKey": "2026-02-16",
+          "pedestrian": 2700,
+          "bike": 621
+        },
+        {
+          "weekKey": "2026-02-23",
+          "pedestrian": 5089,
+          "bike": 903
+        },
+        {
+          "weekKey": "2026-03-02",
+          "pedestrian": 5059,
+          "bike": 946
+        },
+        {
+          "weekKey": "2026-03-09",
+          "pedestrian": 4549,
+          "bike": 822
+        },
+        {
+          "weekKey": "2026-03-16",
+          "pedestrian": 5187,
+          "bike": 976
+        },
+        {
+          "weekKey": "2026-03-23",
+          "pedestrian": 4949,
+          "bike": 953
+        },
+        {
+          "weekKey": "2026-03-30",
+          "pedestrian": 3006,
+          "bike": 792
+        },
+        {
+          "weekKey": "2026-04-06",
+          "pedestrian": 3014,
+          "bike": 721
+        },
+        {
+          "weekKey": "2026-04-13",
+          "pedestrian": 5460,
+          "bike": 1200
+        },
+        {
+          "weekKey": "2026-04-20",
+          "pedestrian": 6004,
+          "bike": 1302
+        },
+        {
+          "weekKey": "2026-04-27",
+          "pedestrian": 6237,
+          "bike": 1224
+        },
+        {
+          "weekKey": "2026-05-04",
+          "pedestrian": 5038,
+          "bike": 1308
+        },
+        {
+          "weekKey": "2026-05-11",
+          "pedestrian": 4912,
+          "bike": 1081
+        },
+        {
+          "weekKey": "2026-05-18",
+          "pedestrian": 5410,
+          "bike": 1273
+        },
+        {
+          "weekKey": "2026-05-25",
+          "pedestrian": 5429,
+          "bike": 1933
+        },
+        {
+          "weekKey": "2026-06-01",
+          "pedestrian": 3974,
+          "bike": 1102
+        },
+        {
+          "weekKey": "2026-06-08",
+          "pedestrian": 5673,
+          "bike": 1322
+        },
+        {
+          "weekKey": "2026-06-15",
+          "pedestrian": 6247,
+          "bike": 1354
+        },
+        {
+          "weekKey": "2026-06-22",
+          "pedestrian": 5483,
+          "bike": 1674
+        },
+        {
+          "weekKey": "2026-06-29",
+          "pedestrian": 3781,
+          "bike": 1257
+        },
+        {
+          "weekKey": "2026-07-06",
+          "pedestrian": 1074,
+          "bike": 466
+        }
+      ]
+    }
+  }
+}

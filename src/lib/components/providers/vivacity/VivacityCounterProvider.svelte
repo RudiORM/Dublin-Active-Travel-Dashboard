@@ -3,7 +3,8 @@
 	import { getContext } from 'svelte';
 	import { fetchVivacityCounterLocations, fetchVivacityCounterTraffic, fetchVivacityCounterTimeSeries } from '../../../services/vivacity-counter/vivacity-counter-api.js';
 	import { loadCitywideData, peekCitywideCache } from '../../../services/vivacity-counter/vivacity-citywide-load.js';
-	import { processCitywideVivacityResponse, processVivacityCounterLocations, processVivacityCounterTraffic, combineVivacityCounterData, processVivacityCounterTimeSeriesData } from '../../../services/vivacity-counter/vivacity-counter-processor.js';
+	import { processVivacityCounterLocations, processVivacityCounterTraffic, combineVivacityCounterData, processVivacityCounterTimeSeriesData } from '../../../services/vivacity-counter/vivacity-counter-processor.js';
+	import { processEcoCounterNetworkView } from '../../../services/eco-counter/eco-counter-processor.js';
 	import { addVivacityCounterMarkers, updateVivacityCounterMarkers } from '../../../utils/vivacity-counter/vivacity-counter-layers.js';
 
 	// Props
@@ -21,13 +22,35 @@
 	let selectedMode = $state('pedestrian');
 	let isLoading = $state(false);
 	let error = $state(null);
-	let citywideRaw = $state(null);
 	let citywideError = $state(null);
 	let citywideLoading = $state(false);
+	/** Merged network weekly buckets (last ~4 weeks) from weekly snapshot. */
+	let vivacityNetworkWeeklyRecent = $state(
+		/** @type {null | Array<{ weekKey: string, pedestrian?: number, bike?: number }>} */ (null)
+	);
+	/** Last 12 network calendar months from weekly snapshot rollup. */
+	let vivacityNetworkMonthlyTotals = $state(
+		/** @type {null | Array<{ monthKey: string, label?: string, pedestrian?: number, bike?: number }>} */ (null)
+	);
+	/** Per-sensor totals from last four complete weekly buckets. */
+	let vivacityPerSiteLast30d = $state(
+		/** @type {null | Array<{ siteId: string | number, pedestrian?: number, bike?: number }>} */ (null)
+	);
+	/** Per-sensor weekly rows from snapshot (network YoY KPI). */
+	let vivacityPerSiteWeekly = $state(
+		/** @type {null | Array<{ siteId: string | number, weekly?: Array<{ weekKey: string, pedestrian?: number, bike?: number }> }>} */ (null)
+	);
 
 	const citywideView = $derived.by(() => {
-		if (!citywideRaw) return null;
-		return processCitywideVivacityResponse(citywideRaw, selectedMode);
+		if (!vivacityCounterData.length) return null;
+		return processEcoCounterNetworkView(
+			vivacityCounterData,
+			selectedMode,
+			vivacityNetworkWeeklyRecent ?? undefined,
+			vivacityNetworkMonthlyTotals ?? undefined,
+			vivacityPerSiteLast30d ?? undefined,
+			vivacityPerSiteWeekly ?? undefined
+		);
 	});
 
 	// Filter data based on selected mode
@@ -121,7 +144,7 @@
 
 		const cached = peekCitywideCache(sensors);
 		if (cached) {
-			citywideRaw = cached;
+			applyCitywidePayload(cached);
 			citywideError = null;
 			return;
 		}
@@ -129,13 +152,35 @@
 		citywideLoading = true;
 		citywideError = null;
 		try {
-			citywideRaw = await loadCitywideData(sensors);
+			const payload = await loadCitywideData(sensors);
+			applyCitywidePayload(payload);
 		} catch (e) {
 			citywideError = e?.message || 'Citywide data failed to load';
-			citywideRaw = null;
+			vivacityNetworkWeeklyRecent = null;
+			vivacityNetworkMonthlyTotals = null;
+			vivacityPerSiteLast30d = null;
+			vivacityPerSiteWeekly = null;
 		} finally {
 			citywideLoading = false;
 		}
+	}
+
+	function applyCitywidePayload(payload) {
+		if (!payload || typeof payload !== 'object') {
+			vivacityNetworkWeeklyRecent = null;
+			vivacityNetworkMonthlyTotals = null;
+			vivacityPerSiteLast30d = null;
+			vivacityPerSiteWeekly = null;
+			return;
+		}
+		vivacityNetworkWeeklyRecent = Array.isArray(payload.networkWeeklyRecent)
+			? payload.networkWeeklyRecent
+			: [];
+		vivacityNetworkMonthlyTotals = Array.isArray(payload.networkMonthlyTotals)
+			? payload.networkMonthlyTotals
+			: [];
+		vivacityPerSiteLast30d = Array.isArray(payload.perSiteLast30d) ? payload.perSiteLast30d : null;
+		vivacityPerSiteWeekly = Array.isArray(payload.perSiteWeekly) ? payload.perSiteWeekly : null;
 	}
 
 	// Use map directly like other providers do

@@ -3,6 +3,12 @@
  * Processes raw API data into usable format for components
  */
 
+import {
+	excludeEcoIncompleteWeeklyRows,
+	rollupEcoWeeklyRowsToMonthlyMap,
+	ecoCurrentMonthKeyUtc
+} from '$lib/services/eco-counter/eco-counter-processor.js';
+
 /** Vivacity internal countline / hardware codes, e.g. `S2_AmiensSt_road_RHS_smdb` */
 function looksLikeVivacityInternalId(s) {
 	const t = String(s).trim();
@@ -389,7 +395,10 @@ export function processVivacityCounterTimeSeriesData(timeSeriesData) {
 
 	let weeklyBars = { pedestrian: [], bike: [] };
 	let monthlyBars = { pedestrian: [], bike: [] };
-	if (hasDailyData && Array.isArray(timeSeriesData.daily_3months)) {
+	if (Array.isArray(timeSeriesData.snapshotSensorWeekly) && timeSeriesData.snapshotSensorWeekly.length > 0) {
+		weeklyBars = buildVivacityWeeklyBarsFromSnapshotRows(timeSeriesData.snapshotSensorWeekly);
+		monthlyBars = buildVivacityMonthlyBarsFromSnapshotWeekly(timeSeriesData.snapshotSensorWeekly);
+	} else if (hasDailyData && Array.isArray(timeSeriesData.daily_3months)) {
 		const rawDaily = timeSeriesData.daily_3months;
 		weeklyBars = {
 			pedestrian: buildVivacityWeeklyBarsFromDaily(rawDaily, 'pedestrian'),
@@ -901,6 +910,43 @@ function vivacityUtcWeekStartString(isoFrom) {
 	const diffToMonday = (dow + 6) % 7;
 	const mon = new Date(Date.UTC(y, m, day - diffToMonday));
 	return mon.toISOString().slice(0, 10);
+}
+
+/**
+ * Weekly totals from offline weekly snapshot (`weekKey` = YYYY-MM-DD Monday).
+ * @param {Array<{ weekKey: string, pedestrian?: number, bike?: number }>} weeklyRows
+ * @returns {{ pedestrian: Array<{ date: string, value: number }>, bike: Array<{ date: string, value: number }> }}
+ */
+export function buildVivacityWeeklyBarsFromSnapshotRows(weeklyRows) {
+	const complete = excludeEcoIncompleteWeeklyRows(weeklyRows);
+	const sorted = [...complete].sort((a, b) => String(a.weekKey).localeCompare(String(b.weekKey)));
+	const out = { pedestrian: [], bike: [] };
+	for (const row of sorted) {
+		if (!row?.weekKey) continue;
+		out.pedestrian.push({ date: row.weekKey, value: Math.round(Number(row.pedestrian) || 0) });
+		out.bike.push({ date: row.weekKey, value: Math.round(Number(row.bike) || 0) });
+	}
+	return out;
+}
+
+/**
+ * Monthly totals rolled up from weekly snapshot rows.
+ * @param {Array<{ weekKey: string, pedestrian?: number, bike?: number }>} weeklyRows
+ * @returns {{ pedestrian: Array<{ date: string, value: number }>, bike: Array<{ date: string, value: number }> }}
+ */
+export function buildVivacityMonthlyBarsFromSnapshotWeekly(weeklyRows) {
+	const completeWeeks = excludeEcoIncompleteWeeklyRows(weeklyRows);
+	const byMonth = rollupEcoWeeklyRowsToMonthlyMap(completeWeeks);
+	const currentMonth = ecoCurrentMonthKeyUtc();
+	const out = { pedestrian: [], bike: [] };
+	const sorted = [...byMonth.entries()]
+		.sort((a, b) => a[0].localeCompare(b[0]))
+		.filter(([monthKey]) => monthKey !== currentMonth);
+	for (const [monthKey, v] of sorted) {
+		out.pedestrian.push({ date: `${monthKey}-01`, value: Math.round(v.pedestrian || 0) });
+		out.bike.push({ date: `${monthKey}-01`, value: Math.round(v.bike || 0) });
+	}
+	return out;
 }
 
 /**

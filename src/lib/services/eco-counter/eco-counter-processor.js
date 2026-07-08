@@ -164,8 +164,10 @@ export function accumulateEcoDailyFromRawFlows(hourly30Payload) {
 	const byDay = new Map();
 
 	for (const flow of flows) {
-		const travelMode = flow.travelMode;
-		if (travelMode !== 'pedestrian' && travelMode !== 'bike') continue;
+		const travelMode = normalizeEcoTravelMode(
+			flow.travelMode ?? flow.travel_mode ?? flow.mode ?? flow.userType
+		);
+		if (!travelMode) continue;
 		const data = flow.data;
 		if (!Array.isArray(data)) continue;
 		for (const interval of data) {
@@ -200,6 +202,33 @@ export function mergeEcoDailyByDayMaps(dayMaps) {
 		}
 	}
 	return merged;
+}
+
+/**
+ * Per-site sums over the same P1D window as `dayMaps[i]` for `siteIds[i]` (before merge).
+ * Used so overview “counts by sensor” matches merged raw history, not statistical ADT×30.
+ * @param {(Map<string, { pedestrian: number, bike: number }>|null|undefined)[]} dayMaps
+ * @param {number[]} siteIds
+ * @returns {Array<{ siteId: number, pedestrian: number, bike: number }>}
+ */
+export function ecoPerSiteTotalsFromDayMaps(dayMaps, siteIds) {
+	if (!Array.isArray(siteIds) || !Array.isArray(dayMaps)) return [];
+	return siteIds.map((siteId, i) => {
+		const m = dayMaps[i];
+		let pedestrian = 0;
+		let bike = 0;
+		if (m && typeof m.entries === 'function') {
+			for (const [, v] of m.entries()) {
+				pedestrian += v.pedestrian || 0;
+				bike += v.bike || 0;
+			}
+		}
+		return {
+			siteId: Number(siteId),
+			pedestrian: Math.round(pedestrian),
+			bike: Math.round(bike)
+		};
+	});
 }
 
 /**
@@ -301,12 +330,23 @@ function extractEcoAggregatedTravelModeSeries(payload) {
 	}
 
 	if (typeof payload === 'object' && !Array.isArray(payload)) {
+		/** Prefer one series per mode: some domains expose both `bike` and `bicycle` (same counts), which would double monthly totals. */
 		function pullModeKeyedArrays(obj) {
 			if (!obj || typeof obj !== 'object') return;
-			for (const key of ['pedestrian', 'bike', 'bicycle', 'cyclist', 'walker', 'walking']) {
+			const pedKeys = ['pedestrian', 'walker', 'walking'];
+			const bikeKeys = ['bike', 'bicycle', 'cyclist'];
+			for (const key of pedKeys) {
 				const arr = obj[key];
 				if (Array.isArray(arr) && arr.length) {
 					pushSeries(key, arr);
+					break;
+				}
+			}
+			for (const key of bikeKeys) {
+				const arr = obj[key];
+				if (Array.isArray(arr) && arr.length) {
+					pushSeries(key, arr);
+					break;
 				}
 			}
 		}
@@ -338,14 +378,6 @@ function extractEcoAggregatedTravelModeSeries(payload) {
 				if (out.length) return out;
 			}
 		}
-
-		for (const key of ['pedestrian', 'bike', 'bicycle', 'cyclist', 'walker', 'walking']) {
-			const arr = payload[key];
-			if (Array.isArray(arr) && arr.length) {
-				pushSeries(key, arr);
-			}
-		}
-		if (out.length) return out;
 
 		const dataMaybe = payload.data;
 		if (Array.isArray(dataMaybe)) {
@@ -433,10 +465,15 @@ export function accumulateEcoMonthlyFromAggregatedP1M(payload) {
 	const byMonth = new Map();
 
 	for (const { travelMode, data } of seriesList) {
+		/** Drop repeated month rows within the same flow (some payloads duplicate buckets). */
+		const seenMonth = new Set();
 		for (const interval of data) {
 			const parsed = ecoP1MIntervalToMonthCount(interval);
 			if (!parsed) continue;
 			const { monthKey, count } = parsed;
+			const dedupeKey = `${travelMode}:${monthKey}`;
+			if (seenMonth.has(dedupeKey)) continue;
+			seenMonth.add(dedupeKey);
 			if (!byMonth.has(monthKey)) {
 				byMonth.set(monthKey, { pedestrian: 0, bike: 0 });
 			}
@@ -484,7 +521,10 @@ function formatEcoMonthLabelUtc(monthKey) {
  */
 export function ecoNetworkMonthlyTotalsLast12FromMerged(mergedMap) {
 	if (!mergedMap || typeof mergedMap.entries !== 'function') return [];
-	const sorted = [...mergedMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+	const currentMonth = ecoCurrentMonthKeyUtc();
+	const sorted = [...mergedMap.entries()]
+		.sort((a, b) => a[0].localeCompare(b[0]))
+		.filter(([monthKey]) => monthKey !== currentMonth);
 	const tail = sorted.slice(-12);
 	return tail.map(([monthKey, v]) => ({
 		monthKey,
@@ -518,59 +558,175 @@ export function ecoNetworkMonthlyTotalsFromDailyMap(byDay) {
 	return ecoNetworkMonthlyTotalsLast12FromMerged(byMonth);
 }
 
-function formatUtcDayLabel(isoFrom) {
-	if (!isoFrom) return '—';
-	const d = new Date(isoFrom);
+/** Recent weekly buckets used for citywide KPIs and per-site bar totals. */
+export const ECO_CITYWIDE_RECENT_WEEKS = 4;
+
+/** Monday of the current ISO week in UTC (`YYYY-MM-DD`). */
+export function ecoCurrentWeekKeyUtc(now = new Date()) {
+	const d = new Date(now);
+	d.setUTCHours(0, 0, 0, 0);
+	const weekday = d.getUTCDay();
+	const daysFromMonday = weekday === 0 ? 6 : weekday - 1;
+	d.setUTCDate(d.getUTCDate() - daysFromMonday);
+	const y = d.getUTCFullYear();
+	const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+	const day = String(d.getUTCDate()).padStart(2, '0');
+	return `${y}-${m}-${day}`;
+}
+
+/** Current calendar month in UTC (`YYYY-MM`). */
+export function ecoCurrentMonthKeyUtc(now = new Date()) {
+	const d = new Date(now);
+	const y = d.getUTCFullYear();
+	const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+	return `${y}-${m}`;
+}
+
+/**
+ * Drop the in-progress current week (incomplete bucket).
+ * @param {Array<{ weekKey: string, pedestrian?: number, bike?: number }>} weeklyRows
+ */
+export function excludeEcoIncompleteWeeklyRows(weeklyRows, now = new Date()) {
+	if (!Array.isArray(weeklyRows)) return [];
+	const currentWeek = ecoCurrentWeekKeyUtc(now);
+	return weeklyRows.filter((r) => r?.weekKey && r.weekKey !== currentWeek);
+}
+
+/**
+ * @param {Array<{ weekKey: string, pedestrian?: number, bike?: number }>} weeklyRows
+ * @param {'pedestrian'|'bike'} mode
+ * @param {number} [approxDays]
+ */
+export function ecoNetworkKpisFromWeeklyTotals(weeklyRows, mode, approxDays = ECO_CITYWIDE_RECENT_WEEKS * 7) {
+	const modeKey = mode === 'pedestrian' ? 'pedestrian' : 'bike';
+	const tail = Array.isArray(weeklyRows) ? weeklyRows : [];
+	const sum = tail.reduce((s, w) => s + (Number(w[modeKey]) || 0), 0);
+	const avgDailyCount = approxDays > 0 ? sum / approxDays : 0;
+	return { avgDailyCount };
+}
+
+/** e.g. `2026-06` → `Jun '26` */
+export function formatEcoMonthShortYearLabel(monthKey) {
+	const parts = String(monthKey).split('-');
+	if (parts.length !== 2) return String(monthKey);
+	const y = Number(parts[0]);
+	const mo = Number(parts[1]);
+	if (!Number.isFinite(y) || !Number.isFinite(mo)) return String(monthKey);
+	const monthShort = new Date(Date.UTC(y, mo - 1, 1)).toLocaleDateString('en-IE', {
+		month: 'short',
+		timeZone: 'UTC'
+	});
+	return `${monthShort} '${String(y).slice(-2)}`;
+}
+
+/** e.g. `Jun '26 vs '25` */
+export function formatEcoYoyPeriodLabel(currentMonthKey, priorMonthKey) {
+	const monthShort = formatEcoMonthShortYearLabel(currentMonthKey).split(' ')[0];
+	const currentYy = String(currentMonthKey).slice(2, 4);
+	const priorYy = String(priorMonthKey).slice(2, 4);
+	return `${monthShort} '${currentYy} vs '${priorYy}`;
+}
+
+/** Last completed calendar month and the same month one year earlier (`YYYY-MM`). */
+export function ecoLastCompletedMonthKeys(now = new Date()) {
+	const d = new Date(now);
+	if (d.getUTCHours() !== 0 || d.getUTCMinutes() !== 0) {
+		d.setUTCHours(0, 0, 0, 0);
+	}
+	const firstOfCurrent = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1));
+	const lastCompleted = new Date(firstOfCurrent.getTime() - 86400000);
+	const currentMonthKey = `${lastCompleted.getUTCFullYear()}-${String(lastCompleted.getUTCMonth() + 1).padStart(2, '0')}`;
+	const priorMonthKey = `${lastCompleted.getUTCFullYear() - 1}-${String(lastCompleted.getUTCMonth() + 1).padStart(2, '0')}`;
+	return {
+		currentMonthKey,
+		priorMonthKey,
+		periodLabel: formatEcoYoyPeriodLabel(currentMonthKey, priorMonthKey)
+	};
+}
+
+/**
+ * Network YoY for last completed month vs same month prior year.
+ * Only sites with mode totals > 0 in both months are included.
+ * @param {Array<{ siteId?: string|number, weekly?: Array<{ weekKey: string, pedestrian?: number, bike?: number }> }>} perSiteWeekly
+ * @param {'pedestrian'|'bike'} mode
+ */
+export function ecoNetworkYoyFromSiteWeekly(perSiteWeekly, mode, now = new Date()) {
+	const modeKey = mode === 'pedestrian' ? 'pedestrian' : 'bike';
+	const { currentMonthKey, priorMonthKey, periodLabel } = ecoLastCompletedMonthKeys(now);
+
+	let sumPrior = 0;
+	let sumCurrent = 0;
+	let eligibleCount = 0;
+
+	for (const block of perSiteWeekly || []) {
+		const weekly = excludeEcoIncompleteWeeklyRows(block?.weekly || []);
+		const byMonth = rollupEcoWeeklyRowsToMonthlyMap(weekly);
+		const prior = byMonth.get(priorMonthKey);
+		const current = byMonth.get(currentMonthKey);
+		if (!prior || !current) continue;
+		const priorVal = Number(prior[modeKey]) || 0;
+		const currentVal = Number(current[modeKey]) || 0;
+		if (priorVal <= 0 || currentVal <= 0) continue;
+		sumPrior += priorVal;
+		sumCurrent += currentVal;
+		eligibleCount += 1;
+	}
+
+	if (eligibleCount === 0 || sumPrior <= 0) {
+		return {
+			percentChange: null,
+			formatted: 'N/A',
+			periodLabel,
+			eligibleCount,
+			sumPrior: 0,
+			sumCurrent: 0
+		};
+	}
+
+	const percentChange = ((sumCurrent - sumPrior) / sumPrior) * 100;
+	const formatted =
+		percentChange >= 0 ? `+${percentChange.toFixed(1)}%` : `${percentChange.toFixed(1)}%`;
+
+	return {
+		percentChange,
+		formatted,
+		periodLabel,
+		eligibleCount,
+		sumPrior: Math.round(sumPrior),
+		sumCurrent: Math.round(sumCurrent)
+	};
+}
+
+/** @param {string} weekKey `YYYY-MM-DD` Monday */
+export function formatEcoWeekKeyLabel(weekKey) {
+	if (!weekKey) return '—';
+	const d = new Date(`${weekKey}T00:00:00Z`);
+	if (Number.isNaN(d.getTime())) return '—';
 	return d.toLocaleDateString('en-IE', {
-		weekday: 'short',
 		day: 'numeric',
 		month: 'short',
+		year: 'numeric',
 		timeZone: 'UTC'
 	});
 }
 
-function modeCountFromEcoDailyRow(row, mode) {
-	return mode === 'pedestrian'
-		? Number(row.pedestrian) || 0
-		: Number(row.bike) || 0;
-}
-
 /**
- * Build last-12-month network totals from daily rows as a fallback.
- * @param {Array<{ from: string, pedestrian?: number, bike?: number }>} dailyRows
- * @param {'pedestrian'|'bike'} mode
- * @returns {Array<{ monthKey: string, label: string, total: number }>}
- */
-function buildEcoMonthlyBarsFromDaily(dailyRows, mode) {
-	if (!Array.isArray(dailyRows) || dailyRows.length === 0) return [];
-
-	/** @type {Map<string, number>} */
-	const byMonth = new Map();
-	for (const row of dailyRows) {
-		if (!row?.from) continue;
-		const d = new Date(row.from);
-		if (Number.isNaN(d.getTime())) continue;
-		const key = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
-		byMonth.set(key, (byMonth.get(key) || 0) + modeCountFromEcoDailyRow(row, mode));
-	}
-
-	const keys = [...byMonth.keys()].sort();
-	const tail = keys.slice(-12);
-	return tail.map((monthKey) => ({
-		monthKey,
-		label: formatEcoMonthLabelUtc(monthKey),
-		total: Math.round(byMonth.get(monthKey) || 0)
-	}));
-}
-
-/**
- * Network overview from combined site + ADT data (Eco API lastMonth by site/mode).
+ * Network overview from combined site data and weekly snapshot aggregates.
  * @param {Array<Object>} combinedLocations - output of combineEcoCounterData
  * @param {'pedestrian'|'bike'} mode
- * @param {Array<{ from: string, pedestrian?: number, bike?: number }>|null|undefined} dailyAggregated - merged P1D raw across sites (optional; busiest-day KPI)
- * @param {Array<{ monthKey: string, label?: string, pedestrian?: number, bike?: number }>|null|undefined} networkMonthlyTotals - merged P1M across sites (optional; monthly network chart)
+ * @param {Array<{ weekKey: string, pedestrian?: number, bike?: number }>|null|undefined} networkWeeklyRecent - merged network weekly buckets (last ~4 weeks)
+ * @param {Array<{ monthKey: string, label?: string, pedestrian?: number, bike?: number }>|null|undefined} networkMonthlyTotals - network monthly chart
+ * @param {Array<{ siteId: number, pedestrian?: number, bike?: number }>|null|undefined} perSiteLast30d - per-site sums from recent weekly buckets
+ * @param {Array<{ siteId?: string|number, weekly?: Array<{ weekKey: string, pedestrian?: number, bike?: number }> }>|null|undefined} perSiteWeekly - per-site weekly rows for YoY KPI
  */
-export function processEcoCounterNetworkView(combinedLocations, mode, dailyAggregated, networkMonthlyTotals) {
+export function processEcoCounterNetworkView(
+	combinedLocations,
+	mode,
+	networkWeeklyRecent,
+	networkMonthlyTotals,
+	perSiteLast30d,
+	perSiteWeekly
+) {
 	if (!Array.isArray(combinedLocations) || combinedLocations.length === 0) {
 		return null;
 	}
@@ -580,70 +736,55 @@ export function processEcoCounterNetworkView(combinedLocations, mode, dailyAggre
 	);
 	if (withMode.length === 0) return null;
 
-	const adtFor = (loc) => loc.traffic?.[mode]?.averageDailyTraffic ?? 0;
+	const kpis = ecoNetworkKpisFromWeeklyTotals(networkWeeklyRecent, mode);
+	const eligibleIds = new Set(withMode.map((l) => String(l.id)));
+	const weeklyForYoy = (perSiteWeekly || []).filter((b) => eligibleIds.has(String(b.siteId)));
+	const yoy = ecoNetworkYoyFromSiteWeekly(weeklyForYoy, mode);
 
-	let busiestDayLabel = '—';
-	let busiestDayTotal = /** @type {number | null} */ (null);
-	let sum30 = 0;
-	let days30 = 0;
-	if (Array.isArray(dailyAggregated) && dailyAggregated.length > 0) {
-		const dailySorted = [...dailyAggregated].sort(
-			(a, b) => new Date(a.from) - new Date(b.from)
-		);
-		const now = new Date();
-		now.setUTCHours(0, 0, 0, 0);
-		const end0 = now.getTime();
-		const start30 = end0 - 30 * 86400000;
-
-		let busiestDayFrom = null;
-		let busiestDayModeCount = -1;
-		for (const row of dailySorted) {
-			const t = new Date(row.from).getTime();
-			const modeC = modeCountFromEcoDailyRow(row, mode);
-			if (t >= start30 && t < end0) {
-				sum30 += modeC;
-				days30 += 1;
-				if (modeC > busiestDayModeCount) {
-					busiestDayModeCount = modeC;
-					busiestDayFrom = row.from;
-				}
-			}
-		}
-		if (busiestDayFrom != null && busiestDayModeCount >= 0) {
-			busiestDayLabel = formatUtcDayLabel(busiestDayFrom);
-			busiestDayTotal = Math.round(busiestDayModeCount);
+	/** @type {Map<number, { pedestrian: number, bike: number }>} */
+	const perSiteMap = new Map();
+	if (Array.isArray(perSiteLast30d)) {
+		for (const row of perSiteLast30d) {
+			const sid = Number(row.siteId);
+			if (!Number.isFinite(sid)) continue;
+			perSiteMap.set(sid, {
+				pedestrian: Number(row.pedestrian) || 0,
+				bike: Number(row.bike) || 0
+			});
 		}
 	}
-	const avgDailyCount = days30 > 0 ? sum30 / days30 : 0;
+	const modeKey = mode === 'pedestrian' ? 'pedestrian' : 'bike';
 
-	// ~month volume for bar scale (ADT × days) — same order as ranking by ADT
 	const countsBySensorBars = withMode
-		.map((loc) => ({
-			id: loc.id,
-			name: loc.name || `Site ${loc.id}`,
-			total: Math.round(adtFor(loc) * 30)
-		}))
+		.map((loc) => {
+			const id = Number(loc.id);
+			const raw = Number.isFinite(id) ? perSiteMap.get(id) : undefined;
+			const total = raw != null ? Math.round(raw[modeKey] ?? 0) : 0;
+			return {
+				id: loc.id,
+				name: loc.name || `Site ${loc.id}`,
+				total
+			};
+		})
 		.filter((b) => b.total > 0)
 		.sort((a, b) => b.total - a.total);
 
 	/** @type {Array<{ monthKey: string, label: string, total: number }>} */
 	let monthlyNetworkBars = [];
 	if (Array.isArray(networkMonthlyTotals) && networkMonthlyTotals.length > 0) {
-		const key = mode === 'pedestrian' ? 'pedestrian' : 'bike';
 		monthlyNetworkBars = networkMonthlyTotals.map((x) => ({
 			monthKey: x.monthKey,
 			label: x.label || x.monthKey,
-			total: Math.round(Number(x[key]) || 0)
+			total: Math.round(Number(x[modeKey]) || 0)
 		}));
-	} else if (Array.isArray(dailyAggregated) && dailyAggregated.length > 0) {
-		monthlyNetworkBars = buildEcoMonthlyBarsFromDaily(dailyAggregated, mode);
 	}
 
 	return {
 		kpis: {
-			avgDailyCount,
-			busiestDayLabel,
-			busiestDayTotal
+			avgDailyCount: kpis.avgDailyCount,
+			yoyFormatted: yoy.formatted,
+			yoyPeriodLabel: yoy.periodLabel,
+			yoyEligibleCount: yoy.eligibleCount
 		},
 		countsBySensorBars,
 		monthlyNetworkBars
@@ -728,16 +869,12 @@ export function processEcoCounterTimeSeriesData(timeSeriesData) {
 		}))
 	};
 	
-	// Process monthly data if available
+	// Weekly / monthly from static weekly snapshot (no API fallback)
 	let monthlyData = null;
-	if (timeSeriesData.monthly_3years) {
-		monthlyData = processMonthlyData(timeSeriesData.monthly_3years);
-	}
-
-	// Process weekly data if available
 	let weeklyData = null;
-	if (timeSeriesData.weekly_year) {
-		weeklyData = processWeeklyData(timeSeriesData.weekly_year);
+	if (Array.isArray(timeSeriesData.snapshotSiteWeekly) && timeSeriesData.snapshotSiteWeekly.length > 0) {
+		weeklyData = buildEcoWeeklyChartFromSnapshotRows(timeSeriesData.snapshotSiteWeekly);
+		monthlyData = buildEcoMonthlyChartFromSnapshotWeekly(timeSeriesData.snapshotSiteWeekly);
 	}
 	
 	
@@ -810,6 +947,84 @@ function processWeeklyData(weeklyPayload) {
 
 	const hasAny = weeklyTotals.pedestrian.length > 0 || weeklyTotals.bike.length > 0;
 	return hasAny ? weeklyTotals : null;
+}
+
+/** `YYYY-MM-DD` (Monday) → `DD/MM/YYYY` for SingleItemTimeSeries */
+export function ecoWeekKeyToDisplayDate(weekKey) {
+	const parts = String(weekKey).split('-');
+	if (parts.length !== 3) return null;
+	const y = Number(parts[0]);
+	const mo = Number(parts[1]);
+	const d = Number(parts[2]);
+	if (!Number.isFinite(y) || !Number.isFinite(mo) || !Number.isFinite(d)) return null;
+	const day = String(d).padStart(2, '0');
+	const month = String(mo).padStart(2, '0');
+	return `${day}/${month}/${y}`;
+}
+
+/**
+ * Roll weekly snapshot rows into calendar months (month of weekKey Monday).
+ * @param {Array<{ weekKey: string, pedestrian?: number, bike?: number }>} weeklyRows
+ * @returns {Map<string, { pedestrian: number, bike: number }>}
+ */
+export function rollupEcoWeeklyRowsToMonthlyMap(weeklyRows) {
+	/** @type {Map<string, { pedestrian: number, bike: number }>} */
+	const byMonth = new Map();
+	if (!Array.isArray(weeklyRows)) return byMonth;
+	for (const row of weeklyRows) {
+		if (!row?.weekKey || row.weekKey.length < 7) continue;
+		const monthKey = row.weekKey.slice(0, 7);
+		if (!/^\d{4}-\d{2}$/.test(monthKey)) continue;
+		if (!byMonth.has(monthKey)) {
+			byMonth.set(monthKey, { pedestrian: 0, bike: 0 });
+		}
+		const t = byMonth.get(monthKey);
+		t.pedestrian += Number(row.pedestrian) || 0;
+		t.bike += Number(row.bike) || 0;
+	}
+	return byMonth;
+}
+
+/**
+ * @param {Array<{ weekKey: string, pedestrian?: number, bike?: number }>} weeklyRows
+ * @returns {{ pedestrian: Array<{ date: string, value: number }>, bike: Array<{ date: string, value: number }> } | null}
+ */
+export function buildEcoWeeklyChartFromSnapshotRows(weeklyRows) {
+	const complete = excludeEcoIncompleteWeeklyRows(weeklyRows);
+	if (!complete.length) return null;
+	const sorted = [...complete].sort((a, b) => String(a.weekKey).localeCompare(String(b.weekKey)));
+	const weeklyTotals = { pedestrian: [], bike: [] };
+	for (const row of sorted) {
+		const date = ecoWeekKeyToDisplayDate(row.weekKey);
+		if (!date) continue;
+		weeklyTotals.pedestrian.push({ date, value: Math.round(Number(row.pedestrian) || 0) });
+		weeklyTotals.bike.push({ date, value: Math.round(Number(row.bike) || 0) });
+	}
+	const hasAny = weeklyTotals.pedestrian.length > 0 || weeklyTotals.bike.length > 0;
+	return hasAny ? weeklyTotals : null;
+}
+
+/**
+ * @param {Array<{ weekKey: string, pedestrian?: number, bike?: number }>} weeklyRows
+ * @returns {{ pedestrian: Array<{ date: string, value: number }>, bike: Array<{ date: string, value: number }> } | null}
+ */
+export function buildEcoMonthlyChartFromSnapshotWeekly(weeklyRows) {
+	const completeWeeks = excludeEcoIncompleteWeeklyRows(weeklyRows);
+	const byMonth = rollupEcoWeeklyRowsToMonthlyMap(completeWeeks);
+	if (byMonth.size === 0) return null;
+	const currentMonth = ecoCurrentMonthKeyUtc();
+	const monthlyTotals = { pedestrian: [], bike: [] };
+	const sorted = [...byMonth.entries()]
+		.sort((a, b) => a[0].localeCompare(b[0]))
+		.filter(([monthKey]) => monthKey !== currentMonth);
+	for (const [monthKey, v] of sorted) {
+		const date = ecoMonthKeyToDisplayDate(monthKey);
+		if (!date) continue;
+		monthlyTotals.pedestrian.push({ date, value: Math.round(v.pedestrian || 0) });
+		monthlyTotals.bike.push({ date, value: Math.round(v.bike || 0) });
+	}
+	const hasAny = monthlyTotals.pedestrian.length > 0 || monthlyTotals.bike.length > 0;
+	return hasAny ? monthlyTotals : null;
 }
 
 /** `YYYY-MM` → `DD/MM/YYYY` (first day of month, UTC) for SingleItemTimeSeries */

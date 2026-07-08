@@ -127,21 +127,18 @@
 							value: Math.round(citywideView.kpis.avgDailyCount).toLocaleString()
 						}
 					]}
-					explanation="Most recent complete UTC-day total across all Dublin Vivacity sensors for the selected mode (walking or cycling)."
+					explanation="Average daily count for the selected mode across all Dublin Vivacity sensors, estimated from the last four weekly buckets in the offline snapshot (total ÷ 28 days)."
 					mode={selectedMode === 'bike' ? 'bike' : 'pedestrian'}
 				/>
 				<DataCardSingle
-					title="Busiest day (last 30 days)"
+					title="Percentage change"
 					stats={[
 						{
-							label:
-								citywideView.kpis.busiestDayTotal != null
-									? `${citywideView.kpis.busiestDayTotal.toLocaleString()} daily count`
-									: '— daily count',
-							value: citywideView.kpis.busiestDayLabel ?? '—'
+							label: citywideView.kpis.yoyPeriodLabel ?? '—',
+							value: citywideView.kpis.yoyFormatted ?? 'N/A'
 						}
 					]}
-					explanation="Calendar day (UTC) in the rolling last 30 days when the selected mode (walking or cycling) across all Vivacity sensors was highest."
+					explanation="Year-on-year change in network totals for the last completed calendar month vs the same month one year earlier. Only sensors with counts greater than zero in both months are included."
 					mode={selectedMode === 'bike' ? 'bike' : 'pedestrian'}
 				/>
 			</div>
@@ -151,10 +148,12 @@
 					items={citywideView.countsBySensorBars || []}
 					barColor={seriesColor}
 					onSelectSensor={handleBarChartSensorSelect}
+					explanation="Total counts for the selected travel mode at each Dublin Vivacity sensor over the last four complete weeks, from the offline weekly snapshot. Click a row to open that sensor."
 				/>
 				<VivacityCitywideMonthlyChart
 					items={citywideView.monthlyNetworkBars || []}
 					barColor={seriesColor}
+					explanation="Network totals for the selected travel mode by calendar month (last twelve complete months), summed across all sensors from the offline weekly snapshot."
 				/>
 			</div>
 		{:else}
@@ -166,14 +165,14 @@
 				<DataCardSingle
 					title="Counts"
 					stats={dailyTotals}
-					explanation="The average daily count of pedestrians or cyclists at this computer vision sensor over the last month."
+					explanation="Average daily count over the last 30 days from live hourly Vivacity API data (pedestrian or cycling modes only)."
 					mode={selectedMode ? selectedMode : 'walking'}
 				/>
 
 				<DataCardSingle
 					title="Share of traffic"
 					stats={dailyStats}
-					explanation="Walking or cycling as a percentage of total traffic at this computer vision sensor."
+					explanation="Walking or cycling as a percentage of total traffic at this sensor over the last 30 days (from live hourly Vivacity API)."
 					mode={selectedMode ? selectedMode : 'walking'}
 				/>
 			</div>
@@ -199,8 +198,8 @@
 							onTitleClick={toggleDetailPeriod}
 							explanation={
 								detailPeriod === 'weekly'
-									? 'Total pedestrian counts per week (Monday–Sunday, UTC) for up to the last 26 weeks within the past six months.'
-									: 'Total pedestrian counts per calendar month (UTC) for the last twelve months.'
+									? 'Weekly totals for this sensor from the offline weekly snapshot (current incomplete week excluded).'
+									: 'Monthly totals for this sensor, rolled up from the offline weekly snapshot (current incomplete month excluded).'
 							}
 						/>
 					</div>
@@ -224,8 +223,8 @@
 							onTitleClick={toggleDetailPeriod}
 							explanation={
 								detailPeriod === 'weekly'
-									? 'Total cycling counts per week (Monday–Sunday, UTC) for up to the last 26 weeks within the past six months (includes cyclist, cargo bike, and rental bicycle where reported).'
-									: 'Total cycling counts per calendar month (UTC) for the last twelve months (includes cyclist, cargo bike, and rental bicycle where reported).'
+									? 'Weekly totals for this sensor from the offline weekly snapshot (current incomplete week excluded).'
+									: 'Monthly totals for this sensor, rolled up from the offline weekly snapshot (current incomplete month excluded).'
 							}
 						/>
 					</div>

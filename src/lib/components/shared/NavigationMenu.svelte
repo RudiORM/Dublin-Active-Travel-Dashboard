@@ -40,7 +40,7 @@
 			label: 'Cycle Route',
 			items: [
 				{ id: 'strava', label: 'Strava' },
-				{ id: 'nta', label: 'Cycle paths' },
+				{ id: 'nta', label: 'Cycle paths' }
 			]
 		}
 	};

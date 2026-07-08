@@ -1,23 +1,18 @@
 import { json } from '@sveltejs/kit';
-import { ECO_COUNTER_API } from '$env/static/private';
 import {
-	accumulateEcoDailyFromRawFlows,
-	accumulateEcoMonthlyFromAggregatedP1M,
-	mergeEcoDailyByDayMaps,
-	mergeEcoMonthlyByMonthKeyMaps,
-	ecoDailyMapToAggregatedRows,
-	ecoNetworkMonthlyTotalsFromDailyMap,
-	ecoNetworkMonthlyTotalsLast12FromMerged
-} from '$lib/services/eco-counter/eco-counter-processor.js';
+	readEcoCounterWeeklySnapshot,
+	ecoNetworkMonthlyTotalsFromWeeklySnapshot,
+	ecoPerSiteLast30dFromWeeklySnapshot,
+	ecoNetworkRecentWeeksFromSnapshot,
+	ecoPerSiteWeeklyFromSnapshot
+} from '$lib/server/eco-counter-weekly-snapshot.js';
+import { ECO_CITYWIDE_RECENT_WEEKS } from '$lib/services/eco-counter/eco-counter-processor.js';
 
 const MAX_SITES = 120;
-/** Eco API round-trips dominate; higher concurrency cuts wall time (tune if rate-limited). */
-const FETCH_CONCURRENCY = 28;
-/** Merged network totals change slowly; avoids repeating ~N remote calls per session. */
 const CACHE_TTL_MS = 8 * 60 * 1000;
 const MAX_CACHE_ENTRIES = 8;
 
-/** @type {Map<string, { expires: number, dailyAggregated: Array<{ from: string, pedestrian: number, bike: number }>, networkMonthlyTotals: Array<{ monthKey: string, label: string, pedestrian: number, bike: number }> }>} */
+/** @type {Map<string, { expires: number, networkWeeklyRecent: Array<{ weekKey: string, pedestrian: number, bike: number }>, networkMonthlyTotals: Array<{ monthKey: string, label: string, pedestrian: number, bike: number }>, perSiteLast30d: Array<{ siteId: number, pedestrian: number, bike: number }>, perSiteWeekly: Array<{ siteId: number, weekly: Array<{ weekKey: string, pedestrian?: number, bike?: number }> }>, source?: string }>} */
 const responseCache = new Map();
 
 function cachePrune() {
@@ -34,59 +29,19 @@ function cacheGet(key) {
 		responseCache.delete(key);
 		return null;
 	}
-	return { dailyAggregated: row.dailyAggregated, networkMonthlyTotals: row.networkMonthlyTotals };
+	return row;
 }
 
-function cacheSet(key, dailyAggregated, networkMonthlyTotals) {
-	responseCache.set(key, {
-		expires: Date.now() + CACHE_TTL_MS,
-		dailyAggregated,
-		networkMonthlyTotals
-	});
+function cacheSet(key, payload) {
+	responseCache.set(key, { ...payload, expires: Date.now() + CACHE_TTL_MS });
 	cachePrune();
 }
 
-function formatDate(d) {
-	const date = ('0' + d.getDate()).slice(-2);
-	const month = ('0' + (d.getMonth() + 1)).slice(-2);
-	const year = d.getFullYear();
-	return `${year}-${month}-${date}`;
-}
-
 /**
- * Run async tasks with a fixed concurrency limit (pool).
- * @template T, R
- * @param {T[]} items
- * @param {number} limit
- * @param {(item: T, index: number) => Promise<R>} fn
- * @returns {Promise<R[]>}
- */
-async function mapPool(items, limit, fn) {
-	const results = /** @type {R[]} */ (new Array(items.length));
-	let index = 0;
-
-	async function worker() {
-		for (;;) {
-			const i = index++;
-			if (i >= items.length) return;
-			results[i] = await fn(items[i], i);
-		}
-	}
-
-	const n = Math.min(limit, items.length);
-	await Promise.all(Array.from({ length: n }, () => worker()));
-	return results;
-}
-
-/**
- * POST { siteIds: number[] } — merge last-30d P1D raw traffic across sites, and last-12 calendar months
- * from merged `P1M` aggregated history (~3y window per site). If that yields no months, falls back to
- * summing merged **P1D raw** over a longer window (~420d) and bucketing by calendar month.
+ * POST { siteIds: number[] } — citywide overview entirely from weekly snapshot (no Eco API).
  */
 export async function POST({ request }) {
-	if (!ECO_COUNTER_API) {
-		return json({ error: 'Eco-Counter API not configured' }, { status: 500 });
-	}
+	const origin = new URL(request.url).origin;
 
 	let body;
 	try {
@@ -105,106 +60,48 @@ export async function POST({ request }) {
 	].slice(0, MAX_SITES);
 
 	if (siteIds.length === 0) {
-		return json({ dailyAggregated: [], networkMonthlyTotals: [] });
+		return json({
+			networkWeeklyRecent: [],
+			networkMonthlyTotals: [],
+			perSiteLast30d: [],
+			perSiteWeekly: [],
+			source: 'weekly-snapshot'
+		});
 	}
 
-	const end = new Date();
-	const dd = formatDate(end);
-	const start = new Date(end.getTime() - 30 * 24 * 60 * 60 * 1000);
-	const dd2 = formatDate(start);
-
 	const sortedKey = siteIds.slice().sort((a, b) => a - b).join(',');
-	const cacheKey = `${dd2}|${dd}|${sortedKey}`;
+	const cacheKey = `${sortedKey}|weekly-v3`;
 
 	const cached = cacheGet(cacheKey);
 	if (cached) {
 		return json({
-			dailyAggregated: cached.dailyAggregated,
+			networkWeeklyRecent: cached.networkWeeklyRecent,
 			networkMonthlyTotals: cached.networkMonthlyTotals,
+			perSiteLast30d: cached.perSiteLast30d,
+			perSiteWeekly: cached.perSiteWeekly,
+			source: cached.source,
 			cached: true
 		});
 	}
 
-	const options = {
-		method: 'GET',
-		headers: {
-			accept: 'application/json',
-			'X-API-KEY': ECO_COUNTER_API
-		}
+	const snapshot = await readEcoCounterWeeklySnapshot(process.cwd(), fetch, origin);
+	const networkWeeklyRecent = snapshot
+		? ecoNetworkRecentWeeksFromSnapshot(snapshot, siteIds, ECO_CITYWIDE_RECENT_WEEKS)
+		: [];
+	const networkMonthlyTotals = snapshot
+		? ecoNetworkMonthlyTotalsFromWeeklySnapshot(snapshot, siteIds)
+		: [];
+	const perSiteLast30d = snapshot ? ecoPerSiteLast30dFromWeeklySnapshot(snapshot, siteIds) : [];
+	const perSiteWeekly = snapshot ? ecoPerSiteWeeklyFromSnapshot(snapshot, siteIds) : [];
+
+	const payload = {
+		networkWeeklyRecent,
+		networkMonthlyTotals,
+		perSiteLast30d,
+		perSiteWeekly,
+		source: 'weekly-snapshot'
 	};
+	cacheSet(cacheKey, payload);
 
-	const urlFor = (siteId) =>
-		`https://api.eco-counter.com/api/v2/history/traffic/raw?siteId=${siteId}&include=&startDate=${dd2}&endDate=${dd}&startTime=00%3A00&endTime=00%3A00&granularity=P1D&gapFilling=false&travelModes=bike&travelModes=pedestrian`;
-
-	const monthlyEnd = new Date();
-	const ddMonthly = formatDate(monthlyEnd);
-	const monthlyStart = new Date(monthlyEnd.getTime() - 364 * 3 * 24 * 60 * 60 * 1000);
-	const ddMonthlyStart = formatDate(monthlyStart);
-	const urlMonthlyFor = (siteId) =>
-		`https://api.eco-counter.com/api/v2/history/traffic/aggregated?siteId=${siteId}&include=&startDate=${ddMonthlyStart}&endDate=${ddMonthly}&startTime=00%3A00&endTime=00%3A00&granularity=P1M&groupBy=travelMode&gapFilling=false&travelModes=pedestrian&travelModes=bike`;
-
-	const [dayMaps, monthMaps] = await Promise.all([
-		mapPool(siteIds, FETCH_CONCURRENCY, async (siteId) => {
-			try {
-				const res = await fetch(urlFor(siteId), options);
-				if (!res.ok) return null;
-				const j = await res.json();
-				return accumulateEcoDailyFromRawFlows(j);
-			} catch {
-				return null;
-			}
-		}),
-		mapPool(siteIds, FETCH_CONCURRENCY, async (siteId) => {
-			try {
-				const res = await fetch(urlMonthlyFor(siteId), options);
-				if (!res.ok) return null;
-				const j = await res.json();
-				return accumulateEcoMonthlyFromAggregatedP1M(j);
-			} catch {
-				return null;
-			}
-		})
-	]);
-
-	const merged = mergeEcoDailyByDayMaps(dayMaps.filter(Boolean));
-	const dailyAggregated = ecoDailyMapToAggregatedRows(merged);
-
-	const mergedMonths = mergeEcoMonthlyByMonthKeyMaps(monthMaps.filter(Boolean));
-	let networkMonthlyTotals = ecoNetworkMonthlyTotalsLast12FromMerged(mergedMonths);
-
-	if (networkMonthlyTotals.length < 12 && siteIds.length > 0) {
-		const lookbackDays = 420;
-		const longStart = new Date(end.getTime() - lookbackDays * 24 * 60 * 60 * 1000);
-		const ddLong = formatDate(longStart);
-		const urlLongDaily = (siteId) =>
-			`https://api.eco-counter.com/api/v2/history/traffic/raw?siteId=${siteId}&include=&startDate=${ddLong}&endDate=${dd}&startTime=00%3A00&endTime=00%3A00&granularity=P1D&gapFilling=false&travelModes=bike&travelModes=pedestrian`;
-
-		const longDayMaps = await mapPool(siteIds, FETCH_CONCURRENCY, async (siteId) => {
-			try {
-				const res = await fetch(urlLongDaily(siteId), options);
-				if (!res.ok) return null;
-				const j = await res.json();
-				return accumulateEcoDailyFromRawFlows(j);
-			} catch {
-				return null;
-			}
-		});
-		const mergedLong = mergeEcoDailyByDayMaps(longDayMaps.filter(Boolean));
-		const fromDailyFallback = ecoNetworkMonthlyTotalsFromDailyMap(mergedLong);
-		if (networkMonthlyTotals.length === 0) {
-			networkMonthlyTotals = fromDailyFallback;
-		} else {
-			// Merge by monthKey and keep the most complete last-12 month window.
-			const byKey = new Map();
-			for (const m of fromDailyFallback) byKey.set(m.monthKey, m);
-			for (const m of networkMonthlyTotals) byKey.set(m.monthKey, m);
-			networkMonthlyTotals = [...byKey.values()]
-				.sort((a, b) => String(a.monthKey).localeCompare(String(b.monthKey)))
-				.slice(-12);
-		}
-	}
-
-	cacheSet(cacheKey, dailyAggregated, networkMonthlyTotals);
-
-	return json({ dailyAggregated, networkMonthlyTotals, cached: false });
+	return json({ ...payload, cached: false });
 }

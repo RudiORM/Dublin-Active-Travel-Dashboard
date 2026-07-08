@@ -14,6 +14,8 @@
     "build:vivacity-sensor-snapshot": "python3 scripts/fetch_vivacity_sensor_timeseries_snapshot.py",
     "build:vivacity-sensor-snapshot:merge-missing": "python3 scripts/fetch_vivacity_sensor_timeseries_snapshot.py --merge-missing",
     "build:vivacity-sensor-snapshot:node": "node scripts/build-vivacity-sensor-timeseries-snapshot.mjs",
+    "build:eco-counter-monthly-snapshot": "node scripts/build-eco-counter-monthly-snapshot.mjs",
+    "build:eco-counter-monthly-snapshot:py": "python3 scripts/fetch_eco_counter_monthly_snapshot.py",
     "vivacity:list-new-sensors": "node scripts/list-vivacity-sensors-not-in-markers.mjs",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},

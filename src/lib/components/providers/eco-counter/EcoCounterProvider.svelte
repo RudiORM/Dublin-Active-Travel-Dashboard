@@ -16,15 +16,23 @@
 
 	// State for eco-counter data
 	let ecoCounterData = $state([]);
-	/** Merged P1D counts across all active sites (last ~30d); powers busiest-day KPI on overview. */
-	let ecoNetworkDailyAggregated = $state(
-		/** @type {null | Array<{ from: string, pedestrian?: number, bike?: number }>} */ (null)
+	/** Merged network weekly buckets (last ~4 weeks) for citywide KPIs. */
+	let ecoNetworkWeeklyRecent = $state(
+		/** @type {null | Array<{ weekKey: string, pedestrian?: number, bike?: number }>} */ (null)
 	);
-	/** Last 12 merged calendar months from P1M aggregated history (all sites). */
+	/** Last 12 merged calendar months from weekly snapshot (all sites). */
 	let ecoNetworkMonthlyTotals = $state(
 		/** @type {null | Array<{ monthKey: string, label?: string, pedestrian?: number, bike?: number }>} */ (
 			null
 		)
+	);
+	/** Per-site totals from last four weekly buckets in snapshot (citywide sensor bars). */
+	let ecoPerSiteLast30d = $state(
+		/** @type {null | Array<{ siteId: number, pedestrian?: number, bike?: number }>} */ (null)
+	);
+	/** Per-site weekly rows from snapshot (network YoY KPI). */
+	let ecoPerSiteWeekly = $state(
+		/** @type {null | Array<{ siteId: number, weekly?: Array<{ weekKey: string, pedestrian?: number, bike?: number }> }>} */ (null)
 	);
 	let filteredEcoCounterData = $state([]);
 	let selectedLocation = $state(/** @type {null | Object} */ (null));
@@ -32,7 +40,7 @@
 	let selectedLocationTimeSeriesData = $state(null);
 	let selectedMode = $state('pedestrian');
 	let isLoading = $state(false);
-	/** True while POST /api/eco-counter/citywide is in flight (busiest-day KPI). */
+	/** True while POST /api/eco-counter/citywide is in flight. */
 	let ecoNetworkDailyLoading = $state(false);
 	/** True while fetching / processing time series for the selected site (avoids “no data” flash). */
 	let ecoTimeSeriesLoading = $state(false);
@@ -79,8 +87,10 @@
 		return processEcoCounterNetworkView(
 			ecoCounterData,
 			selectedMode,
-			ecoNetworkDailyAggregated ?? undefined,
-			ecoNetworkMonthlyTotals ?? undefined
+			ecoNetworkWeeklyRecent ?? undefined,
+			ecoNetworkMonthlyTotals ?? undefined,
+			ecoPerSiteLast30d ?? undefined,
+			ecoPerSiteWeekly ?? undefined
 		);
 	});
 
@@ -153,10 +163,12 @@
 
 	// Use map directly like other providers do
 
-	async function fetchEcoNetworkDaily(siteIds) {
+	async function fetchEcoNetworkSnapshot(siteIds) {
 		if (!siteIds.length) {
-			ecoNetworkDailyAggregated = [];
+			ecoNetworkWeeklyRecent = [];
 			ecoNetworkMonthlyTotals = [];
+			ecoPerSiteLast30d = [];
+			ecoPerSiteWeekly = [];
 			ecoNetworkDailyLoading = false;
 			return;
 		}
@@ -168,16 +180,22 @@
 				body: JSON.stringify({ siteIds })
 			});
 			if (!res.ok) {
-				ecoNetworkDailyAggregated = null;
+				ecoNetworkWeeklyRecent = null;
 				ecoNetworkMonthlyTotals = null;
+				ecoPerSiteLast30d = null;
+				ecoPerSiteWeekly = null;
 				return;
 			}
 			const j = await res.json();
-			ecoNetworkDailyAggregated = Array.isArray(j.dailyAggregated) ? j.dailyAggregated : [];
+			ecoNetworkWeeklyRecent = Array.isArray(j.networkWeeklyRecent) ? j.networkWeeklyRecent : [];
 			ecoNetworkMonthlyTotals = Array.isArray(j.networkMonthlyTotals) ? j.networkMonthlyTotals : [];
+			ecoPerSiteLast30d = Array.isArray(j.perSiteLast30d) ? j.perSiteLast30d : null;
+			ecoPerSiteWeekly = Array.isArray(j.perSiteWeekly) ? j.perSiteWeekly : null;
 		} catch {
-			ecoNetworkDailyAggregated = null;
+			ecoNetworkWeeklyRecent = null;
 			ecoNetworkMonthlyTotals = null;
+			ecoPerSiteLast30d = null;
+			ecoPerSiteWeekly = null;
 		} finally {
 			ecoNetworkDailyLoading = false;
 		}
@@ -207,9 +225,11 @@
 			}
 
 			ecoCounterData = combined;
-			ecoNetworkDailyAggregated = null;
+			ecoNetworkWeeklyRecent = null;
 			ecoNetworkMonthlyTotals = null;
-			void fetchEcoNetworkDaily(combined.map((l) => l.id));
+			ecoPerSiteLast30d = null;
+			ecoPerSiteWeekly = null;
+			void fetchEcoNetworkSnapshot(combined.map((l) => l.id));
 
 			if (map && ecoCounterData.length > 0) {
 				addEcoCounterMarkers(map, ecoCounterData);
@@ -220,8 +240,10 @@
 
 		} catch (err) {
 			error = err.message;
-			ecoNetworkDailyAggregated = null;
+			ecoNetworkWeeklyRecent = null;
 			ecoNetworkMonthlyTotals = null;
+			ecoPerSiteLast30d = null;
+			ecoPerSiteWeekly = null;
 			ecoNetworkDailyLoading = false;
 		} finally {
 			isLoading = false;

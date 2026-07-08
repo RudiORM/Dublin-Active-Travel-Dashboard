@@ -73,14 +73,16 @@
 		return hourlyChartData;
 	});
 
-	const useDateAxis = $derived(chartType === 'weekly' || chartType === 'monthly');
+	const hasDisplayableChartData = $derived.by(() => {
+		return chartData.length > 0 && chartData.reduce((max, item) => Math.max(max, item.value), 0) > 0;
+	});
 
-	// Update title based on travel mode
-	
+	const showSection = $derived(chartType !== 'hourly' || hasDisplayableChartData);
+
+	const useDateAxis = $derived(chartType === 'weekly' || chartType === 'monthly');
 </script>
 
-
-
+{#if showSection}
 <div class="stats-section">
 	<div class="info-position">
 		<button
@@ -130,25 +132,19 @@
 	</div>
 
 	<div class="chart-section">
-		{#if chartData.length > 0}
-		{#if chartData.reduce((max, item) => Math.max(max, item.value), 0) > 0}
-		<SingleItemTimeSeries
-			data={chartData}
-			color={seriesColor}
-			showLabels={true}
-			height={160}
-			niceMax={chartData.reduce((max, item) => Math.max(max, item.value), 0)}
-			date={useDateAxis}
-		/>
-	
-	{/if}
-	{/if}
+		{#if hasDisplayableChartData}
+			<SingleItemTimeSeries
+				data={chartData}
+				color={seriesColor}
+				showLabels={true}
+				height={160}
+				niceMax={chartData.reduce((max, item) => Math.max(max, item.value), 0)}
+				date={useDateAxis}
+			/>
+		{/if}
 	</div>
-
-	
-
-
 </div>
+{/if}
 
 <!-- <div class="stats-section">
 	<div class="info-position">

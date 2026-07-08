@@ -100,20 +100,35 @@
 		const currentMode = ecoCounterProvider.selectedMode;
 		const monthlyData = selectedLocationTimeSeriesData.monthlyData[currentMode];
 
-		if (!monthlyData || monthlyData.length < 24) {
+		if (!monthlyData || monthlyData.length < 1) {
 			return [{ label: 'change', value: 'N/A' }];
 		}
 
-		const recentYear = monthlyData.slice(-12);
-		const previousYear = monthlyData.slice(-24, -12);
-		const currentYearTotal = recentYear.reduce((sum, month) => sum + month.value, 0);
-		const previousYearTotal = previousYear.reduce((sum, month) => sum + month.value, 0);
+		const parseMonth = (dateStr) => {
+			const parts = String(dateStr).split('/');
+			if (parts.length !== 3) return null;
+			const month = Number(parts[1]);
+			const year = Number(parts[2]);
+			if (!Number.isFinite(month) || !Number.isFinite(year)) return null;
+			return { month, year };
+		};
 
-		if (previousYearTotal === 0) {
+		const lastMonth = monthlyData[monthlyData.length - 1];
+		const lastParsed = parseMonth(lastMonth.date);
+		if (!lastParsed) {
 			return [{ label: 'change', value: 'N/A' }];
 		}
 
-		const percentageChange = ((currentYearTotal - previousYearTotal) / previousYearTotal) * 100;
+		const priorMonth = monthlyData.find((row) => {
+			const p = parseMonth(row.date);
+			return p && p.month === lastParsed.month && p.year === lastParsed.year - 1;
+		});
+
+		if (!priorMonth || priorMonth.value === 0) {
+			return [{ label: 'change', value: 'N/A' }];
+		}
+
+		const percentageChange = ((lastMonth.value - priorMonth.value) / priorMonth.value) * 100;
 		const formattedChange =
 			percentageChange >= 0 ? `+${percentageChange.toFixed(1)}%` : `${percentageChange.toFixed(1)}%`;
 
@@ -156,23 +171,20 @@
 							value: Math.round(networkView.kpis.avgDailyCount).toLocaleString()
 						}
 					]}
-					explanation="Most recent complete UTC-day total across all induction-loop sites for the selected mode."
+					explanation="Average daily count for the selected mode across all active sites, estimated from the last four weekly buckets in the offline snapshot (total ÷ 28 days)."
 					mode={selectedMode === 'bike' ? 'bike' : 'pedestrian'}
 				/>
 				<DataCardSingle
-					title="Busiest day (last 30 days)"
+					title="Percentage change"
 					stats={[
 						ecoNetworkDailyLoading
 							? { label: '', value: 'Loading...' }
 							: {
-									label:
-										networkView.kpis.busiestDayTotal != null
-											? `${networkView.kpis.busiestDayTotal.toLocaleString()} daily count`
-											: '— daily count',
-									value: networkView.kpis.busiestDayLabel ?? '—'
+									label: networkView.kpis.yoyPeriodLabel ?? '—',
+									value: networkView.kpis.yoyFormatted ?? 'N/A'
 								}
 					]}
-					explanation="Calendar day (UTC) in the rolling last 30 days when the sum of counts for the selected mode across all active induction-loop sites was highest (from merged daily Eco-Counter history)."
+					explanation="Year-on-year change in network totals for the last completed calendar month vs the same month one year earlier. Only sites with counts greater than zero in both months are included."
 					mode={selectedMode === 'bike' ? 'bike' : 'pedestrian'}
 				/>
 			</div>
@@ -182,12 +194,12 @@
 					items={networkView.countsBySensorBars || []}
 					barColor={seriesColor}
 					onSelectSensor={handleBarChartSiteSelect}
-					explanation="Estimated volume per site for the selected mode over roughly one month (average daily traffic × 30), from Eco-Counter last-month ADT. Bars are scaled to the busiest site. Click a row to open that site on the map and in the detail view."
+					explanation="Total counts for the selected travel mode at each induction-loop site over the last four weeks, from the offline weekly snapshot (sum of the most recent weekly buckets per site). Bars are scaled to the busiest site. Click a row to open that site."
 				/>
 				<VivacityCitywideMonthlyChart
 					items={networkView.monthlyNetworkBars || []}
 					barColor={seriesColor}
-					explanation="Total counts for the selected travel mode summed across all active induction-loop sites, by calendar month (last twelve months). Values normally come from Eco-Counter monthly aggregated history (~3-year window per site); if that endpoint returns nothing usable, the same chart is built by summing daily raw counts over a longer window (~14 months of days) instead."
+					explanation="Network totals for the selected travel mode by calendar month (last twelve months), summed across all active sites from the offline weekly snapshot and rolled up from weekly buckets."
 				/>
 			</div>
 		{:else}
@@ -205,14 +217,14 @@
 				<DataCardSingle
 					title="Counts"
 					stats={dailyStats}
-					explanation="The average daily count of pedestrians or cyclists recorded at this induction sensor over the last year."
+					explanation="Average daily count over the last year, derived from monthly totals in the offline weekly snapshot."
 					mode={selectedMode}
 				/>
 
 				<DataCardSingle
 					title="Percentage change"
 					stats={changeStats}
-					explanation="The percentage change in total counts between the last 12 months and the previous 12 months."
+					explanation="Year-on-year change for the last completed calendar month vs the same month one year earlier (from the offline weekly snapshot)."
 					mode={selectedMode}
 				/>
 			</div>
@@ -235,8 +247,8 @@
 					onTitleClick={toggleDetailPeriod}
 					explanation={
 						detailPeriod === 'weekly'
-							? 'The total weekly counts of pedestrians or cyclists recorded at this induction sensor over the last year.'
-							: 'The total monthly counts of pedestrians or cyclists recorded at this induction sensor over the last 2 years.'
+							? 'Weekly totals for this site from the offline weekly snapshot (~1 year).'
+							: 'Monthly totals for this site, rolled up from the offline weekly snapshot.'
 					}
 				/>
 			{/if}
@@ -258,8 +270,8 @@
 						onTitleClick={toggleDetailPeriod}
 						explanation={
 							detailPeriod === 'weekly'
-								? 'The total weekly counts of cyclists recorded at this induction sensor over the last year.'
-								: 'Monthly counts over the last 2 years'
+								? 'Weekly totals for this site from the offline weekly snapshot (~1 year).'
+								: 'Monthly totals for this site, rolled up from the offline weekly snapshot.'
 						}
 					/>
 				{/if}

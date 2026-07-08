@@ -166,5 +166,13 @@
 		"long": -6.3584,
 		"pedestrian_total": 0,
 		"cyclist_total": 0
+	},
+	{
+		"name": "Glenmalure Villas",
+		"sensor_id": "10607",
+		"lat": 53.337509,
+		"long": -6.29934,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
 	}
 ]

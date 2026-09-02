@@ -34,7 +34,11 @@
 		}
 
 		const locations = allLocations
-			.filter((location) => location.travelModes?.includes(selectedMode))
+			.filter(
+				(location) =>
+					location.travelModes?.includes(selectedMode) ||
+					[100059508, 100064636].includes(Number(location.id))
+			)
 			.map((location) => {
 				const id = Number(location.id);
 				return {

@@ -14,6 +14,14 @@
 		// Returning to this datasource should default back to overview.
 		void ecoCounterProvider.setSelectedLocation(null);
 	});
+
+	// Keep filter bar in sync when provider switches mode (e.g. bike-only site click).
+	$effect(() => {
+		const providerMode = ecoCounterProvider?.selectedMode;
+		if (providerMode && providerMode !== selectedMode) {
+			selectedMode = providerMode;
+		}
+	});
 	
 	function handleFilterChange() {
 		ecoCounterProvider.setSelectedMode(selectedMode);

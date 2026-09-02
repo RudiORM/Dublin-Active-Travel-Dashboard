@@ -14,6 +14,20 @@
 	// Props
 	let { map = null, children, onInitialized = () => {}, serverData = null } = $props();
 
+	/** Bike-only Fingal sites still shown when the pedestrian filter is active. */
+	const ECO_ALWAYS_VISIBLE_SITE_IDS = new Set([
+		100059508, // Coast Road Totem
+		100064636 // Morton Stadium Swords
+	]);
+
+	function isEcoAlwaysVisible(location) {
+		return ECO_ALWAYS_VISIBLE_SITE_IDS.has(Number(location?.id));
+	}
+
+	function locationMatchesMode(location, mode) {
+		return Boolean(location?.travelModes?.includes(mode)) || isEcoAlwaysVisible(location);
+	}
+
 	// State for eco-counter data
 	let ecoCounterData = $state([]);
 	/** Merged network weekly buckets (last ~4 weeks) for citywide KPIs. */
@@ -48,11 +62,10 @@
 
 	// Filter data based on selected mode
 	function updateFilteredData() {
-		// Always filter by selected mode (pedestrian or bike)
-		filteredEcoCounterData = ecoCounterData.filter(location => 
-			location.travelModes && location.travelModes.includes(selectedMode)
+		filteredEcoCounterData = ecoCounterData.filter((location) =>
+			locationMatchesMode(location, selectedMode)
 		);
-		
+
 		// Update map visualization when filter changes (only update data, don't recreate layers)
 		if (map && map.getSource('eco-counter-markers')) {
 			
@@ -67,7 +80,7 @@
 						description: location.description,
 						travelModes: location.travelModes,
 						isSelected: location.id === selectedLocationId,
-						filterMode: selectedMode, // Add filter mode for color styling
+						filterMode: selectedMode,
 						total_7day_count: location.total_7day_count || 0 // Add activity data for marker sizing
 					},
 					geometry: {
@@ -99,7 +112,8 @@
 		if (
 			selectedLocation &&
 			selectedMode &&
-			!selectedLocation.travelModes?.includes(selectedMode)
+			!selectedLocation.travelModes?.includes(selectedMode) &&
+			!isEcoAlwaysVisible(selectedLocation)
 		) {
 			selectedLocation = null;
 			selectedLocationId = null;
@@ -116,6 +130,20 @@
 
 	/** Single path for map, dropdown, and bar chart so loading state and IDs stay consistent. */
 	async function applySelectedLocation(/** @type {null | Object} */ location) {
+		// Bike-only always-visible sites: switch mode so charts/KPIs work.
+		if (
+			location?.travelModes?.length &&
+			!location.travelModes.includes(selectedMode)
+		) {
+			const nextMode = location.travelModes.includes('bike')
+				? 'bike'
+				: location.travelModes[0];
+			if (nextMode && nextMode !== selectedMode) {
+				selectedMode = nextMode;
+				updateFilteredData();
+			}
+		}
+
 		selectedLocation = location;
 		const rawId = location?.id;
 		selectedLocationId =

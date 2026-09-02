@@ -88,8 +88,13 @@
 			<img src="/svgs/DATD-logo-v3-outlinestroke.svg" alt="Logo" class="logo" />
 		</div>
 		<div class="menu-content" onclick={() => clicked = true}>
-			<img class='sd-logo' src="/svgs/Smart-Dublin-Logo-light-2-blackandwhite.svg" alt="Logo" />
-			<p>About</p>
+			<div class="about-brand">
+				<div class="about-logos">
+					<img class="about-logo" src="/svgs/Smart-Dublin-Logo-light-2-blackandwhite.svg" alt="Smart Dublin" />
+					<img class="about-logo" src="/PHC-Main-Logo_BLK.png" alt="Public Health Campus" />
+				</div>
+				<p>About</p>
+			</div>
 		</div>
 	</div>
 
@@ -140,8 +145,13 @@
 		<!-- About button moved to bottom for short height screens -->
 		<div class="sidebar-about">
 			<div class="menu-content" onclick={() => clicked = true}>
-				<img class='sd-logo' src="/svgs/Smart-Dublin-Logo-light-2-blackandwhite.svg" alt="Logo" />
-				<p>About</p>
+				<div class="about-brand">
+					<div class="about-logos">
+						<img class="about-logo" src="/svgs/Smart-Dublin-Logo-light-2-blackandwhite.svg" alt="Smart Dublin" />
+						<img class="about-logo" src="/PHC-Main-Logo_BLK.png" alt="Public Health Campus" />
+					</div>
+					<p>About</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -202,8 +212,13 @@
 			<!-- Bottom section with menu-content -->
 			<div class="modal-bottom-section">
                 <div class="menu-content" onclick={() => { clicked = true }}>
-					<img class='sd-logo' src="/svgs/Smart-Dublin-Logo-light-2-blackandwhite.svg" alt="Logo" />
-					<p>About</p>
+					<div class="about-brand">
+						<div class="about-logos">
+							<img class="about-logo" src="/svgs/Smart-Dublin-Logo-light-2-blackandwhite.svg" alt="Smart Dublin" />
+							<img class="about-logo" src="/PHC-Main-Logo_BLK.png" alt="Public Health Campus" />
+						</div>
+						<p>About</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -290,17 +305,42 @@
 
 
 	.menu-content {
-		font-size: 17px;
+		font-size: 16px;
 		background: #A8E9DA;
 		border-radius: 8px;
 		padding: 12px 15px;
 		display: flex;
 		flex-direction: row;
-		gap: 20px;
-		justify-content: space-between;
+		justify-content: flex-start;
+		align-items: flex-start;
 		max-width: 100%;
 		width: 100%;
 		cursor: pointer;
+	}
+
+	.about-brand {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		align-items: flex-start;
+	}
+
+	.about-brand p {
+		margin: 0;
+	}
+
+	.about-logos {
+		display: flex;
+		flex-direction: row;
+		gap: 12px;
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	.about-logo {
+		height: 28px;
+		width: auto;
+		display: block;
 	}
 
 	.sd-logo {
@@ -686,8 +726,20 @@
 		}
 
 		.sidebar-about .menu-content {
-			font-size: 16px; /* Reduce font size */
-			padding: 0px 12px; /* Reduce padding to make it less tall */
+			font-size: 12px;
+			padding: 12px 15px;
+		}
+
+		.sidebar-about .about-brand {
+			gap: 10px;
+		}
+
+		.sidebar-about .about-logo {
+			height: 26px;
+		}
+
+		.sidebar-about .about-logos {
+			gap: 10px;
 		}
 
 		.sidebar-about .sd-logo {

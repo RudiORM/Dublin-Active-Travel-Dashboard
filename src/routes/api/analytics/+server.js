@@ -40,7 +40,6 @@ export async function POST({ request }) {
   // KV is only available when Vercel env vars are set (production). Local dev: accept and skip storage.
   try {
     await kv.set(eventKey, JSON.stringify(event));
-    await kv.expire(eventKey, 60 * 60 * 24 * 90);
   } catch {
     // no-op
   }

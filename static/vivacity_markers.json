@@ -174,5 +174,125 @@
 		"long": -6.29934,
 		"pedestrian_total": 0,
 		"cyclist_total": 0
+	},
+	{
+		"name": "Harry Reynolds Road path",
+		"sensor_id": "11339",
+		"lat": 53.614952,
+		"long": -6.191174,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Chapel Street road",
+		"sensor_id": "11340",
+		"lat": 53.609074,
+		"long": -6.19364,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Clonard Road crossing",
+		"sensor_id": "11341",
+		"lat": 53.60696,
+		"long": -6.202515,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Clonard Road road",
+		"sensor_id": "11342",
+		"lat": 53.60709,
+		"long": -6.202577,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Hamilton Road path",
+		"sensor_id": "11344",
+		"lat": 53.603191,
+		"long": -6.18568,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Hamilton Road path (east)",
+		"sensor_id": "11347",
+		"lat": 53.603264,
+		"long": -6.183921,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Dublin Street path",
+		"sensor_id": "11350",
+		"lat": 53.604118,
+		"long": -6.18452,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Drogheda Street road",
+		"sensor_id": "12671",
+		"lat": 53.613289,
+		"long": -6.189126,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Quay Street road",
+		"sensor_id": "12673",
+		"lat": 53.609386,
+		"long": -6.18342,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "St George's Square road",
+		"sensor_id": "12675",
+		"lat": 53.608372,
+		"long": -6.182847,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Pump Lane road",
+		"sensor_id": "12676",
+		"lat": 53.60606,
+		"long": -6.179288,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Skerries Road path",
+		"sensor_id": "12677",
+		"lat": 53.605663,
+		"long": -6.171711,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Convent Lane road",
+		"sensor_id": "13244",
+		"lat": 53.610916,
+		"long": -6.185407,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "R132 road",
+		"sensor_id": "13249",
+		"lat": 53.587677,
+		"long": -6.189616,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
+	},
+	{
+		"name": "Castlemill Link Road path",
+		"sensor_id": "13251",
+		"lat": 53.611595,
+		"long": -6.205206,
+		"pedestrian_total": 0,
+		"cyclist_total": 0
 	}
 ]

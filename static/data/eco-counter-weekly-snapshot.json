@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "granularity": "P1W",
-  "generatedAtUtc": "2026-10-08T15:40:25Z",
+  "generatedAtUtc": "2026-10-08T15:56:44Z",
   "historyWeeks": 58,
   "yoyCompareMonths": {
     "prior": "2025-09",
@@ -6365,6 +6365,11 @@
           "weekKey": "2026-08-24",
           "pedestrian": 0,
           "bike": 17614
+        },
+        {
+          "weekKey": "2026-10-05",
+          "pedestrian": 0,
+          "bike": 10727
         }
       ]
     },

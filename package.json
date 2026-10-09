@@ -17,6 +17,7 @@
     "build:eco-counter-monthly-snapshot": "node scripts/build-eco-counter-monthly-snapshot.mjs",
     "build:eco-counter-monthly-snapshot:py": "python3 scripts/fetch_eco_counter_monthly_snapshot.py",
     "vivacity:list-new-sensors": "node scripts/list-vivacity-sensors-not-in-markers.mjs",
+    "update:weekly-snapshots": "python3 scripts/update_weekly_snapshots.py",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {

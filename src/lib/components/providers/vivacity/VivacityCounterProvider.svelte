@@ -204,8 +204,6 @@
 			}
 
 			// Get the data from server
-			const sitesData = serverData.vivacityCounterSites;
-			const trafficData = serverData.vivacityCounterTraffic;
 			const markersData = serverData.vivacityMarkers;
 
 			// Use the static markers data with pedestrian_total values

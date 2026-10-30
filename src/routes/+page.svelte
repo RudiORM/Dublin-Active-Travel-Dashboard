@@ -29,6 +29,7 @@
 	});
 
 	import { showOnlyDataSource } from '$lib/utils/map/layer-manager.js';
+	import { trackPageView } from '$lib/analytics/track.js';
 
 	let map = $state();
 	let selectedDataSource = $state('census');
@@ -38,56 +39,8 @@
 	const totalProviders = 7;
 	let isLoading = $derived(providersInitialized < totalProviders);
 
-	// Analytics tracking function
 	function trackDataSourceView(dataSource: string) {
-		const ANALYTICS_ENDPOINT = '/api/analytics';
-		
-		// Get country from timezone
-		function getCountryFromTimezone() {
-			try {
-				const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-				const timezoneMap: Record<string, string> = {
-					'Europe/Dublin': 'Ireland',
-					'Europe/London': 'United Kingdom',
-					'America/New_York': 'United States',
-					'America/Los_Angeles': 'United States',
-					'America/Chicago': 'United States',
-					'Europe/Paris': 'France',
-					'Europe/Berlin': 'Germany',
-					'Europe/Madrid': 'Spain',
-					'Europe/Rome': 'Italy',
-					'Asia/Tokyo': 'Japan',
-					'Asia/Shanghai': 'China',
-					'Australia/Sydney': 'Australia',
-				};
-				return timezoneMap[timezone] || timezone.split('/')[0];
-			} catch (e) {
-				return 'Unknown';
-			}
-		}
-		
-		const analyticsData = {
-			type: 'pageview',
-			url: `/data/${dataSource}`,
-			referrer: document.referrer,
-			timestamp: Date.now(),
-			userAgent: navigator.userAgent,
-			screenWidth: window.innerWidth,
-			screenHeight: window.innerHeight,
-			country: getCountryFromTimezone()
-		};
-		
-		if (navigator.sendBeacon) {
-			const blob = new Blob([JSON.stringify(analyticsData)], { type: 'application/json' });
-			navigator.sendBeacon(ANALYTICS_ENDPOINT, blob);
-		} else {
-			fetch(ANALYTICS_ENDPOINT, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(analyticsData),
-				keepalive: true
-			}).catch(() => {});
-		}
+		trackPageView(`/data/${dataSource}`);
 	}
 
 	function handleMapLoad(mapInstance: any) {
@@ -115,14 +68,7 @@
 		
 		// Show only the layers for the selected data source
 		if (map) {
-			// Handle the new data sources
-			let dataSourceForMap = selectedDataSource;
-			if (selectedDataSource === 'cordon') dataSourceForMap = 'cordon';
-			if (selectedDataSource === 'strava') dataSourceForMap = 'strava';
-			if (selectedDataSource === 'nta') dataSourceForMap = 'nta';
-			if (selectedDataSource === 'eco-counter') dataSourceForMap = 'eco-counter';
-			if (selectedDataSource === 'vivacity-counter') dataSourceForMap = 'vivacity-counter';
-			showOnlyDataSource(map, dataSourceForMap);
+			showOnlyDataSource(map, selectedDataSource);
 		}
 	}
 </script>

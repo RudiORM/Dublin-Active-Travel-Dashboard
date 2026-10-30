@@ -38,21 +38,6 @@ export function describeVivacityMetadataPayload(raw) {
 	return { shape: typeof raw };
 }
 
-/**
- * @param {unknown} countsPayload countline/counts JSON (often keyed by countline id)
- */
-export function describeVivacityCountsPayload(countsPayload) {
-	if (countsPayload == null) return { shape: 'null' };
-	if (Array.isArray(countsPayload)) {
-		return { shape: 'array', length: countsPayload.length };
-	}
-	if (typeof countsPayload === 'object') {
-		const keys = Object.keys(countsPayload);
-		return { shape: 'object', keyCount: keys.length, keysSample: keys.slice(0, 8) };
-	}
-	return { shape: typeof countsPayload };
-}
-
 export function logVivacitySsrMerge(args) {
 	const {
 		staticMarkerCount,
@@ -61,8 +46,7 @@ export function logVivacitySsrMerge(args) {
 		normalizedKeyCount,
 		normalizedKeysSample,
 		markersWithCountlines,
-		sampleMarkers,
-		probeCountsDiag
+		sampleMarkers
 	} = args;
 
 	console.info(LOG, 'SSR merge summary', {
@@ -72,8 +56,7 @@ export function logVivacitySsrMerge(args) {
 		normalizedSensorKeyCount: normalizedKeyCount,
 		normalizedKeysSample,
 		markersWithAtLeastOneCountline: markersWithCountlines,
-		sampleMarkers,
-		probeCountline22988: probeCountsDiag ?? null
+		sampleMarkers
 	});
 
 	if (hasVivacityApiKey && staticMarkerCount > 0 && markersWithCountlines === 0) {

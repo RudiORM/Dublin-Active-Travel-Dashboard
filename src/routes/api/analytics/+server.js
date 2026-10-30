@@ -3,12 +3,13 @@
 
 import { json } from '@sveltejs/kit';
 import { kv } from '@vercel/kv';
+import { env } from '$env/dynamic/private';
 
 // CORS headers for cross-origin requests
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type'
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization'
 };
 
 export async function OPTIONS() {
@@ -47,8 +48,13 @@ export async function POST({ request }) {
   return json({ success: true }, { headers: corsHeaders });
 }
 
-// GET - Retrieve analytics data (for dashboard)
-export async function GET({ url }) {
+// GET - Retrieve analytics data (for dashboard). Requires `Authorization: Bearer <ANALYTICS_READ_TOKEN>`.
+export async function GET({ request }) {
+  const token = env.ANALYTICS_READ_TOKEN;
+  if (!token || request.headers.get('authorization') !== `Bearer ${token}`) {
+    return json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders });
+  }
+
   try {
     let keys = [];
     try {

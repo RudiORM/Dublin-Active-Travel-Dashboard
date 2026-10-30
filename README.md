@@ -139,13 +139,15 @@ cp .env.example .env
 
 ### Environment Configuration
 ```bash
-# Required API keys
-ECOVISIO_API_KEY=your_ecovisio_api_key
+# Required
 PUBLIC_MAPBOX_TOKEN=your_mapbox_token
-VIVACITY_API=your_vivacity_api_key
+ECO_COUNTER_API=your_eco_counter_api_key     # Eco-Counter REST v2 (induction loops)
+VIVACITY_API=your_vivacity_api_key           # Vivacity (computer vision)
 
-# Optional configuration
-NODE_ENV=development
+# Analytics (Vercel KV / Upstash Redis) — set automatically when KV is linked on Vercel
+KV_REST_API_URL=...
+KV_REST_API_TOKEN=...
+ANALYTICS_READ_TOKEN=long_random_string      # required to read GET /api/analytics (send as `Authorization: Bearer <token>`)
 ```
 
 ### Development
@@ -161,11 +163,14 @@ npm run preview
 ```
 
 ### Deployment
-The application can be deployed to any static hosting service that supports SvelteKit:
-* Vercel
-* Netlify
-* GitHub Pages
-* Traditional web servers with static file serving
+The app is deployed on **Vercel** (`@sveltejs/adapter-auto`). It needs a server runtime — the page load and `/api/*` routes call the Eco-Counter and Vivacity APIs with private keys — so it cannot be deployed as a purely static site.
+
+### Weekly snapshots
+`.github/workflows/weekly-snapshot.yml` runs every Monday at 07:00 UTC. It runs `scripts/update_weekly_snapshots.py`, which incrementally updates `static/data/eco-counter-weekly-snapshot.json`, `static/data/vivacity-weekly-snapshot.json` and the Vivacity sensor manifest, then commits them to `main` (triggering a Vercel redeploy). It needs the `ECO_COUNTER_API` and `VIVACITY_API` repository secrets. To run it locally:
+
+```bash
+npm run update:weekly-snapshots
+```
 
 ## Data Processing <a name="data-processing"></a>
 

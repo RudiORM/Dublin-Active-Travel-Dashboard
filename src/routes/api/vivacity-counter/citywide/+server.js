@@ -1,4 +1,5 @@
 import { json } from '@sveltejs/kit';
+import { createResponseCache } from '$lib/server/response-cache.js';
 import {
 	readVivacityWeeklySnapshot,
 	vivacityNetworkMonthlyTotalsFromWeeklySnapshot,
@@ -9,33 +10,7 @@ import {
 import { ECO_CITYWIDE_RECENT_WEEKS } from '$lib/services/eco-counter/eco-counter-processor.js';
 
 const MAX_SENSORS = 120;
-const CACHE_TTL_MS = 8 * 60 * 1000;
-const MAX_CACHE_ENTRIES = 8;
-
-/** @type {Map<string, { expires: number, networkWeeklyRecent: Array<{ weekKey: string, pedestrian: number, bike: number }>, networkMonthlyTotals: Array<{ monthKey: string, label: string, pedestrian: number, bike: number }>, perSiteLast30d: Array<{ siteId: string, pedestrian: number, bike: number }>, perSiteWeekly: Array<{ siteId: string, weekly: Array<{ weekKey: string, pedestrian?: number, bike?: number }> }>, source?: string }>} */
-const responseCache = new Map();
-
-function cachePrune() {
-	while (responseCache.size > MAX_CACHE_ENTRIES) {
-		const first = responseCache.keys().next().value;
-		responseCache.delete(first);
-	}
-}
-
-function cacheGet(key) {
-	const row = responseCache.get(key);
-	if (!row) return null;
-	if (Date.now() > row.expires) {
-		responseCache.delete(key);
-		return null;
-	}
-	return row;
-}
-
-function cacheSet(key, payload) {
-	responseCache.set(key, { ...payload, expires: Date.now() + CACHE_TTL_MS });
-	cachePrune();
-}
+const responseCache = createResponseCache({ ttlMs: 8 * 60 * 1000, maxEntries: 8 });
 
 /**
  * POST { sensors: [{ id, name, countlineIds }] } — citywide overview from weekly snapshot only (no Vivacity API).
@@ -75,7 +50,7 @@ export async function POST({ request }) {
 	}
 
 	const cacheKey = `${sensorIds.slice().sort().join(',')}|weekly-v2`;
-	const cached = cacheGet(cacheKey);
+	const cached = responseCache.get(cacheKey);
 	if (cached) {
 		return json({
 			networkWeeklyRecent: cached.networkWeeklyRecent,
@@ -106,7 +81,7 @@ export async function POST({ request }) {
 		perSiteWeekly,
 		source: 'weekly-snapshot'
 	};
-	cacheSet(cacheKey, payload);
+	responseCache.set(cacheKey, payload);
 
 	return json({ ...payload, cached: false });
 }

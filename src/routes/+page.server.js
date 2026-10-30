@@ -8,10 +8,8 @@ import {
 } from '$lib/server/vivacity-metadata-merge.js';
 import {
 	describeVivacityMetadataPayload,
-	describeVivacityCountsPayload,
 	logVivacitySsrMerge
 } from '$lib/server/vivacity-load-diagnostics.js';
-import { withVivacityCountsClasses } from '$lib/server/vivacity-counts-classes.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -101,18 +99,6 @@ export async function load() {
       vivacityMarkers = [];
     }
 
-    // Calculate date range for last 7 days (Vivacity API limit for 1h buckets is 169h)
-    // Align to hour boundaries for Vivacity API
-    const to = new Date();
-    to.setMinutes(0, 0, 0); // Set to top of current hour
-    
-    const from = new Date(to.getTime() - (7 * 24 * 60 * 60 * 1000)); // 7 days ago
-    from.setMinutes(0, 0, 0); // Set to top of hour
-    
-    // Format dates to match Vivacity API format: YYYY-MM-DDTHH:mm:ss.000Z
-    const fromISO = from.toISOString().replace(/\.\d{3}Z$/, '.000Z');
-    const toISO = to.toISOString().replace(/\.\d{3}Z$/, '.000Z');
-
     // Set up all API calls
     const promises = [
       // Eco-Counter: Traffic data
@@ -144,24 +130,6 @@ export async function load() {
 
     // Add Vivacity API calls if API key is available
     if (vivacityOptions) {
-      // Vivacity: Counter data
-      const vivacityUrl = withVivacityCountsClasses(
-        `https://api.vivacitylabs.com/countline/counts?countline_ids=22988&from=${fromISO}&to=${toISO}&time_bucket=1h&fill_zeros=true`
-      );
-
-      
-      promises.push(
-        fetch(vivacityUrl, vivacityOptions)
-          .then(response => {
-            if (!response.ok) throw new Error(`Vivacity counts HTTP error! status: ${response.status}`);
-            return response.json();
-          })
-          .catch((error) => {
-            console.warn('[DATD Vivacity] probe countline/counts (22988) failed:', error?.message || error);
-            return null;
-          })
-      );
-
       // Vivacity: Counter locations metadata
       promises.push(
         fetch('https://api.vivacitylabs.com/hardware/metadata', vivacityOptions)
@@ -175,12 +143,11 @@ export async function load() {
           })
       );
     } else {
-      // Add null placeholders if no Vivacity API key
-      promises.push(Promise.resolve(null));
+      // Null placeholder if no Vivacity API key
       promises.push(Promise.resolve(null));
     }
 
-    const [ecoCounterTraffic, ecoCounterSites, vivacityData, vivacityMetadata] = await Promise.all(promises);
+    const [ecoCounterTraffic, ecoCounterSites, vivacityMetadata] = await Promise.all(promises);
 
     // Static markers have no countlines — merge from /hardware/metadata (shape varies by API version).
     const normalizedVivacityMeta = normalizeVivacityHardwareMetadataRoot(vivacityMetadata);
@@ -225,8 +192,7 @@ export async function load() {
         normalizedKeyCount: normalizedVivacityMeta ? Object.keys(normalizedVivacityMeta).length : 0,
         normalizedKeysSample: normalizedVivacityMeta ? Object.keys(normalizedVivacityMeta).slice(0, 10) : [],
         markersWithCountlines: markersWithCl,
-        sampleMarkers,
-        probeCountsDiag: describeVivacityCountsPayload(vivacityData)
+        sampleMarkers
       });
     } else if (vivacityApiKey) {
       console.info('[DATD Vivacity] SSR merge skipped: no rows in static/vivacity_markers.json', {
@@ -244,8 +210,6 @@ export async function load() {
       counterActivity: counterActivity,
       
       // Vivacity data (separate from eco-counter)
-      vivacityCounterSites: vivacityMetadata,
-      vivacityCounterTraffic: vivacityData,
       vivacityMarkers: processedVivacityMarkers, // Static markers data with lat/long and totals
       vivacityCounterError: vivacityApiKey ? null : 'VIVACITY_API environment variable is not set'
     };
@@ -258,8 +222,6 @@ export async function load() {
       ecoCounterTraffic: null,
       ecoCounterError: error.message,
       counterActivity: [],
-      vivacityCounterSites: null,
-      vivacityCounterTraffic: null,
       vivacityMarkers: [],
       vivacityCounterError: error.message
     };

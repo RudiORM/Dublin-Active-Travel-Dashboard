@@ -49,6 +49,12 @@
 		cordonContext.updateVisualization();
 	}
 
+	// Yearly totals run to the latest report year; per-location counts only exist for 2022 and 2023
+	const totalYears = $derived(
+		Object.keys(reshapedData?.totals?.walking || {}).sort()
+	);
+	const latestTotalYear = $derived(totalYears[totalYears.length - 1] || '2023');
+
 	// Get display name for selected location
 	const displayName = $derived.by(() => {
 		if (!selectedLocation) return 'All Locations';
@@ -78,7 +84,7 @@
 				value = reshapedData.byLocation[selectedLocation]?.data[mode]?.[selectedYear]?.raw || 0;
 			} else {
 				// Get total for all locations
-				value = reshapedData.totals[mode]?.[selectedYear] || 0;
+				value = reshapedData.totals[mode]?.[latestTotalYear] || 0;
 			}
 
 			// Map to categories according to your mapping
@@ -134,28 +140,31 @@
 
 	// Prepare the DataCard stats
 	const statsData = $derived.by(() => {
-		let walking2022, cycling2022, walking2023, cycling2023;
+		const toYear = selectedLocation ? '2023' : latestTotalYear;
+		const fromYear = String(Number(toYear) - 1);
+		let walkingFrom, cyclingFrom, walkingTo, cyclingTo;
 
 		if (selectedLocation) {
 			// Get data for selected location
-			walking2022 = reshapedData.byLocation[selectedLocation]?.data.walking?.['2022']?.raw || 0;
-			cycling2022 = reshapedData.byLocation[selectedLocation]?.data.cycling?.['2022']?.raw || 0;
-			walking2023 = reshapedData.byLocation[selectedLocation]?.data.walking?.['2023']?.raw || 0;
-			cycling2023 = reshapedData.byLocation[selectedLocation]?.data.cycling?.['2023']?.raw || 0;
+			const data = reshapedData.byLocation[selectedLocation]?.data;
+			walkingFrom = data?.walking?.[fromYear]?.raw || 0;
+			cyclingFrom = data?.cycling?.[fromYear]?.raw || 0;
+			walkingTo = data?.walking?.[toYear]?.raw || 0;
+			cyclingTo = data?.cycling?.[toYear]?.raw || 0;
 		} else {
 			// Get totals for all locations
-			walking2022 = reshapedData.totals.walking?.['2022'] || 0;
-			cycling2022 = reshapedData.totals.cycling?.['2022'] || 0;
-			walking2023 = reshapedData.totals.walking?.['2023'] || 0;
-			cycling2023 = reshapedData.totals.cycling?.['2023'] || 0;
+			walkingFrom = reshapedData.totals.walking?.[fromYear] || 0;
+			cyclingFrom = reshapedData.totals.cycling?.[fromYear] || 0;
+			walkingTo = reshapedData.totals.walking?.[toYear] || 0;
+			cyclingTo = reshapedData.totals.cycling?.[toYear] || 0;
 		}
 
 		// Calculate percentage changes
-		const walkingChange = walking2022 > 0 
-			? ((walking2023 - walking2022) / walking2022 * 100).toFixed(1)
+		const walkingChange = walkingFrom > 0 
+			? ((walkingTo - walkingFrom) / walkingFrom * 100).toFixed(1)
 			: '0';
-		const cyclingChange = cycling2022 > 0 
-			? ((cycling2023 - cycling2022) / cycling2022 * 100).toFixed(1)
+		const cyclingChange = cyclingFrom > 0 
+			? ((cyclingTo - cyclingFrom) / cyclingFrom * 100).toFixed(1)
 			: '0';
 
 		// Format with + or - sign
@@ -169,18 +178,18 @@
 			{
 				title: "Daily Counts",
 				stats: [
-					{ label: "cycling counts", value: cycling2023.toLocaleString() },
-					{ label: "walking counts", value: walking2023.toLocaleString() },
+					{ label: "cycling counts", value: cyclingTo.toLocaleString() },
+					{ label: "walking counts", value: walkingTo.toLocaleString() },
 				],
-				explanation: "The total number of cyclists and pedestrians counted at cordon locations at a single day in November 2023."
+				explanation: `The total number of cyclists and pedestrians counted at cordon locations at a single day in November ${toYear}.`
 			},
 			{
-				title: "Change 2022 - 2023",
+				title: `Change ${fromYear} - ${toYear}`,
 				stats: [
 					{ label: "change", value: formatChange(cyclingChange) },
 					{ label: "change", value: formatChange(walkingChange) },
 				],
-				explanation: "The percentage difference in cycling and walking counts from November 2022 to November 2023."
+				explanation: `The percentage difference in cycling and walking counts from November ${fromYear} to November ${toYear}.`
 			}
 		];
 	});
@@ -189,7 +198,7 @@
 	const timeSeriesData = $derived.by(() => {
 		if (!reshapedData || !reshapedData.totals) return [];
 
-		const years = ['2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022', '2023','2024'];
+		const years = totalYears;
 		const modes = ['walking', 'cycling', 'cars', 'motorcycles', 'taxis', 'hgvs', 'bus'];
 		
 		return years.map(year => {
@@ -234,7 +243,7 @@
 	<CordonStacked 
 		title="Transportation mode"
 		modeData={modeData}
-		explanation="The distribution of transportation modes for all trips on a single day in 2023."
+		explanation={`The distribution of transportation modes for all trips on a single day in ${selectedLocation ? selectedYear : latestTotalYear}.`}
 	/>
 
 	<div class="stats-grid">

@@ -49,10 +49,29 @@ export function normalizeVivacityHardwareMetadataRoot(raw) {
 }
 
 /**
+ * Countlines the API still returns but that double count another line on the same sensor.
+ * Checked against the Vivacity portal, which doesn't list them and whose totals match without them.
+ */
+export const EXCLUDED_VIVACITY_COUNTLINE_IDS = new Set([
+	'57751', // S2_AmiensSt_cycle_RHS_new (sensor 9712) — duplicates cycle_RHS 56599, added Nov 2025
+	'57752' // S2_AmiensSt_cycle_new (sensor 9712) — duplicates cycle_LHS 56601, added Nov 2025
+]);
+
+/**
  * @param {object | null | undefined} sensorMetadata one sensor record from normalized map
  * @returns {Array<{ id: string, name?: string, description?: string, direction?: string }>}
  */
 export function extractCountlinesFromSensorMetadata(sensorMetadata) {
+	return extractAllCountlines(sensorMetadata).filter(
+		(cl) => !EXCLUDED_VIVACITY_COUNTLINE_IDS.has(cl.id)
+	);
+}
+
+/**
+ * @param {object | null | undefined} sensorMetadata
+ * @returns {Array<{ id: string, name?: string, description?: string, direction?: string }>}
+ */
+function extractAllCountlines(sensorMetadata) {
 	if (!sensorMetadata || typeof sensorMetadata !== 'object') return [];
 
 	const vps =

@@ -659,7 +659,10 @@ def run_vivacity():
                     continue
 
                 is_new = sid not in known_ids
-                if no_file_data or is_new:
+                # Countlines added/removed → stored weeks used a different set, so rebuild the whole history
+                prev_clids = sorted(str(c) for c in ((existing.get(sid) or {}).get("countlineIds") or []))
+                clids_changed = not is_new and prev_clids != sorted(clids)
+                if no_file_data or is_new or clids_changed:
                     fetch_from = v_history_start
                     is_full = True
                     full_count += 1
@@ -685,7 +688,8 @@ def run_vivacity():
                     if existing_weekly(prev):
                         vivacity_sensors_out[sid] = {
                             "sensorId": sid,
-                            "countlineIds": clids,
+                            # Keep the ids the stored weeks were built from, so a changed set is retried next run
+                            "countlineIds": prev.get("countlineIds") or clids,
                             "weekly": trim_weekly_rows(existing_weekly(prev), history_start_monday_key),
                         }
 

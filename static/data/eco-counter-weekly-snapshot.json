@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
   "granularity": "P1W",
-  "generatedAtUtc": "2026-11-09T17:12:14Z",
-  "historyWeeks": 58,
+  "generatedAtUtc": "2026-11-16T16:48:09Z",
+  "historyWeeks": 59,
   "yoyCompareMonths": {
     "prior": "2025-10",
     "current": "2026-10"
   },
   "dateRange": {
     "startDate": "2025-10-01",
-    "endDate": "2026-11-09"
+    "endDate": "2026-11-16"
   },
   "siteCount": 89,
   "sites": {
@@ -274,6 +274,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 175242,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 170918,
+          "bike": 0
         }
       ]
     },
@@ -309,6 +314,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 138592,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 140488,
+          "bike": 0
         }
       ]
     },
@@ -342,6 +352,11 @@
         {
           "weekKey": "2026-11-02",
           "pedestrian": 86831,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 69260,
           "bike": 0
         }
       ]
@@ -666,6 +681,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 65758,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 75228,
+          "bike": 0
         }
       ]
     },
@@ -964,6 +984,11 @@
         {
           "weekKey": "2026-11-02",
           "pedestrian": 337909,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 429596,
           "bike": 0
         }
       ]
@@ -1707,6 +1732,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 23708,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 22821,
+          "bike": 0
         }
       ]
     },
@@ -1999,7 +2029,12 @@
         },
         {
           "weekKey": "2026-11-02",
-          "pedestrian": 59826,
+          "pedestrian": 59940,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 60357,
           "bike": 0
         }
       ]
@@ -2034,6 +2069,11 @@
         {
           "weekKey": "2026-11-02",
           "pedestrian": 84712,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 87128,
           "bike": 0
         }
       ]
@@ -2242,7 +2282,12 @@
         },
         {
           "weekKey": "2026-11-02",
-          "pedestrian": 54183,
+          "pedestrian": 54386,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 78015,
           "bike": 0
         }
       ]
@@ -2277,7 +2322,12 @@
         },
         {
           "weekKey": "2026-11-02",
-          "pedestrian": 77548,
+          "pedestrian": 77666,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 80264,
           "bike": 0
         }
       ]
@@ -2312,6 +2362,11 @@
         {
           "weekKey": "2026-11-02",
           "pedestrian": 95746,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 93807,
           "bike": 0
         }
       ]
@@ -2876,6 +2931,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 120808,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 120711,
+          "bike": 0
         }
       ]
     },
@@ -2973,7 +3033,12 @@
         },
         {
           "weekKey": "2026-11-02",
-          "pedestrian": 122596,
+          "pedestrian": 145251,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 133171,
           "bike": 0
         }
       ]
@@ -3058,6 +3123,11 @@
         {
           "weekKey": "2026-11-02",
           "pedestrian": 151891,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 147463,
           "bike": 0
         }
       ]
@@ -3536,6 +3606,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 4874
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 4509
         }
       ]
     },
@@ -3787,6 +3862,16 @@
           "weekKey": "2026-10-26",
           "pedestrian": 0,
           "bike": 1542
+        },
+        {
+          "weekKey": "2026-11-02",
+          "pedestrian": 0,
+          "bike": 3187
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 3004
         }
       ]
     },
@@ -4042,6 +4127,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 14639
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 14394
         }
       ]
     },
@@ -4296,6 +4386,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 26237
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 24886
         }
       ]
     },
@@ -4390,6 +4485,11 @@
         {
           "weekKey": "2026-11-02",
           "pedestrian": 105440,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 102298,
           "bike": 0
         }
       ]
@@ -4590,6 +4690,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 157430,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 160705,
+          "bike": 0
         }
       ]
     },
@@ -4673,6 +4778,11 @@
         {
           "weekKey": "2026-11-02",
           "pedestrian": 67707,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 68156,
           "bike": 0
         }
       ]
@@ -4973,6 +5083,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 11291
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 11134
         }
       ]
     },
@@ -5231,6 +5346,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 11633
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 9525
         }
       ]
     },
@@ -5531,6 +5651,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 552
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 528
         }
       ]
     },
@@ -5830,6 +5955,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 515
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 520
         }
       ]
     },
@@ -6139,6 +6269,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 5842,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 5594,
+          "bike": 0
         }
       ]
     },
@@ -6422,6 +6557,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 17158
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 1790
         }
       ]
     },
@@ -6956,6 +7096,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 405,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 340,
+          "bike": 0
         }
       ]
     },
@@ -7349,6 +7494,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 96769,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 98044,
+          "bike": 0
         }
       ]
     },
@@ -7643,6 +7793,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 117182,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 116105,
+          "bike": 0
         }
       ]
     },
@@ -7676,6 +7831,11 @@
         {
           "weekKey": "2026-11-02",
           "pedestrian": 112056,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 110172,
           "bike": 0
         }
       ]
@@ -8011,6 +8171,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 3793
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 2998
         }
       ]
     },
@@ -8296,6 +8461,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 812
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 3142
         }
       ]
     },
@@ -8852,6 +9022,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 37487,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 33158,
+          "bike": 0
         }
       ]
     },
@@ -9240,6 +9415,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 0
         }
       ]
     },
@@ -9547,6 +9727,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 816695,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 610879,
+          "bike": 0
         }
       ]
     },
@@ -9845,6 +10030,11 @@
         {
           "weekKey": "2026-11-02",
           "pedestrian": 81610,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 85153,
           "bike": 0
         }
       ]
@@ -10414,6 +10604,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 0
         }
       ]
     },
@@ -10973,6 +11168,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 2609
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 2686
         }
       ]
     },
@@ -11223,6 +11423,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 1286,
           "bike": 2010
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 1164,
+          "bike": 1706
         }
       ]
     },
@@ -11675,6 +11880,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 5129
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 4916
         }
       ]
     },
@@ -12274,6 +12484,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 8305
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 7164
         }
       ]
     },
@@ -12573,6 +12788,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 5203
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 4194
         }
       ]
     },
@@ -12880,6 +13100,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 2966
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 3057
         }
       ]
     },
@@ -13179,6 +13404,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 1187
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 1287
         }
       ]
     },
@@ -13478,6 +13708,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 18681
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 18933
         }
       ]
     },
@@ -13775,6 +14010,11 @@
         },
         {
           "weekKey": "2026-11-02",
+          "pedestrian": 0,
+          "bike": 0
+        },
+        {
+          "weekKey": "2026-11-09",
           "pedestrian": 0,
           "bike": 0
         }
@@ -14076,6 +14316,11 @@
           "weekKey": "2026-11-02",
           "pedestrian": 0,
           "bike": 7903
+        },
+        {
+          "weekKey": "2026-11-09",
+          "pedestrian": 0,
+          "bike": 9854
         }
       ]
     },

@@ -147,7 +147,6 @@ VIVACITY_API=your_vivacity_api_key           # Vivacity (computer vision)
 # Analytics (Vercel KV / Upstash Redis) — set automatically when KV is linked on Vercel
 KV_REST_API_URL=...
 KV_REST_API_TOKEN=...
-ANALYTICS_READ_TOKEN=long_random_string      # required to read GET /api/analytics (send as `Authorization: Bearer <token>`)
 ```
 
 ### Development

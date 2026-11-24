@@ -3,13 +3,12 @@
 
 import { json } from '@sveltejs/kit';
 import { kv } from '@vercel/kv';
-import { env } from '$env/dynamic/private';
 
 // CORS headers for cross-origin requests
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  'Access-Control-Allow-Headers': 'Content-Type'
 };
 
 export async function OPTIONS() {
@@ -48,17 +47,15 @@ export async function POST({ request }) {
   return json({ success: true }, { headers: corsHeaders });
 }
 
-// GET - Retrieve analytics data (for dashboard). Requires `Authorization: Bearer <ANALYTICS_READ_TOKEN>`.
-export async function GET({ request }) {
-  const token = env.ANALYTICS_READ_TOKEN;
-  if (!token || request.headers.get('authorization') !== `Bearer ${token}`) {
-    return json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders });
-  }
-
+// GET - Retrieve analytics data (for dashboard)
+export async function GET() {
   try {
+    // KEYS is refused by Upstash once there are too many keys — walk them with SCAN instead
     let keys = [];
     try {
-      keys = await kv.keys('event:*');
+      for await (const key of kv.scanIterator({ match: 'event:*', count: 5000 })) {
+        keys.push(key);
+      }
     } catch {
       return json(
         {
@@ -72,9 +69,12 @@ export async function GET({ request }) {
       );
     }
 
-    // Fetch all events
-    const eventPromises = keys.map(key => kv.get(key));
-    const eventStrings = await Promise.all(eventPromises);
+    // Fetch all events in parallel batches (one MGET per 500 keys)
+    const batches = [];
+    for (let i = 0; i < keys.length; i += 500) {
+      batches.push(kv.mget(...keys.slice(i, i + 500)));
+    }
+    const eventStrings = (await Promise.all(batches)).flat();
     const analyticsData = eventStrings
       .filter(e => e !== null)
       .map(e => typeof e === 'string' ? JSON.parse(e) : e);
